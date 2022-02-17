@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if [ ! -f "README" ]; then
-  echo "README file not found..."
-  exit 1
-fi
-
 # practice dir creation
 if [ ! -d "secretDir" ]; then
   echo "Failed to generate secret. The directory 'secretDir' must exist before."
@@ -32,8 +27,8 @@ fi
 
 # practice file linking understanding
 if [ -L 'important.link' ] && [ ! -e 'important.link' ]; then
-  echo "Failed to generate secret. Secret can not be generated when broken file link exists. Please resolve..."
+  echo "Failed to generate secret. Secret can not be generated when broken file link exists. Please do something..."
   exit 1
 fi
 
-echo head -1 ./README | xargs | md5sum > secretDir/.secret && echo "Done! Your secret was stored in secretDir/.secret"
+cat ./CONTENT_TO_HASH | xargs | md5sum > secretDir/.secret && echo "Done! Your secret was stored in secretDir/.secret"
