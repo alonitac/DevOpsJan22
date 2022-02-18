@@ -1,12 +1,18 @@
-name@example.com
-< your secret here >
-
+john5754@gmail.com
+814c5723c21e7e90a3eae36c8df3c513
 
 Kernel System Calls
 -------------------
-< Your Answer >
+whatIdo output is write on the screen "There you go... tell me what I d"
 
 
 Binary Numbers
 --------------
-< Your Answer >
+
+1. 111 = 7 , 100 = 4 , 10110 = 22
+2. 0 - 255
+3. using the first digit as sign, for instance 0 = minus 1 = plus
+4. 4 bits for number and 4 bits left for the mantissa
+
+
+

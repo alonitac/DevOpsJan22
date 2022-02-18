@@ -1,7 +1,7 @@
-## Linux ex-1
+# Linux ex-1
 Due date: 12/03/22 23:59
 
-### Preliminaries
+## Preliminaries
 
 1. Make sure your Pycharm terminal is configured to run Git Bash (not Powershell)
 2. Open (or clone if you didn't do it yet) [our shared git repo](https://github.com/alonitac/DevOpsJan22) in PyCharm and pull the repository ![Pull Button](/img/pull.png) to get an up-to-date version
@@ -13,7 +13,7 @@ Then change <alias\> to your nickname. e.g. `linux_ex1/alonit`. The branch name 
 
 ![New Branch](/img/branch2.png)
 
-#### Submission
+### Submission
 
 At the end of this exercise, under `02_linux_ex1` directory, you should commit and push **only** 2 files as your solution:
 
@@ -48,7 +48,7 @@ rm blabla
 ## Questions
 
 ### Kernel System Calls
-##### 20 Points
+(20 Points)
 
 We've discussed in class about the Linux kernel - the main component of a Linux OS which functions as the core interface between a computer’s hardware and its processes.
 
@@ -75,7 +75,7 @@ program. The first “interesting” lines comes only at the end of the output
 Your assignment is to supply a brief description of what the program does in the README file
 
 ### Binary Numbers
-##### 20 Points
+(20 Points)
 
 1. Convert the following binary numbers to a decimals: 
 111, 100, 10110
@@ -84,7 +84,7 @@ Your assignment is to supply a brief description of what the program does in the
 4. Suggest a method to represent a floating point numbers (e.g. 12.3,  15.67, 0.231) using a 8 bits binary numbers
 
 ### File System Manipulations
-##### 60 points
+(60 points)
 
 - Open a linux terminal and perform:
 ```shell
@@ -107,6 +107,6 @@ At the end, given a clean version of *src* directory (without the changes you've
 - Push ![New Branch](/img/push.png) your changes, and wait for results :-)
 
 
-#### Good Luck
+# Good Luck
 
 Don't hesitate to ask any questions
