@@ -1,12 +1,33 @@
-name@example.com
-< your secret here >
+danielma1412@outlook.com
+814c5723c21e7e90a3eae36c8df3c513
 
 
 Kernel System Calls
 -------------------
-< Your Answer >
+strace command - used for debugging programs.
+in analyzes how a program interacts with the system in order to debug the executing of the program.
+it returns the name of each system call (like a function) with its arguments inside a parenthesis
+and return a value to standard error - will result 0 if the execute exited with no errors and -1 in case of an error.
 
 
 Binary Numbers
 --------------
-< Your Answer >
+1. Convert the following binary numbers to a decimals: 111, 100, 10110
+1(1) + 1(2) + 1(4) = 7
+0(1) + 0(2) + 1(4) = 4
+0(1) + 1(2) + 1(4) + 0(8) + 1(16) = 22
+
+2. What is the available decimal range represented by a 8 bits binary number?
+1, 2, 4, 8, 16, 32, 64, 128
+
+3. Given a 9 bits binary number, suggest a method to represent a negative numbers between 0-255
+using a negative sign bit: 110010001
+[1(1) + 0(2) + 0(4) + 0(8) + 1(16) + 0(32) + 0(64) + 1(128)] * (-1) = -145
+
+4. Suggest a method to represent a floating point numbers (e.g. 12.3, 15.67, 0.231) using a 8 bits binary numbers
+separate the binary number into two groups: 01111100
+1 = 0111
+2 = 1100
+0111 = 7
+1100 = 12
+7B = 7.12
