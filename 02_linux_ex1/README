@@ -1,12 +1,20 @@
-name@example.com
-< your secret here >
+shlomigd@gmail.com
 
+814c5723c21e7e90a3eae36c8df3c513
 
 Kernel System Calls
 -------------------
-< Your Answer >
+Create the "WelcomeToDevOpsJan22" directory and give the owner "read write execute" permission,
+Under the "WelcomeToDevOpsJan22" directory create the file "gooLuck", give the owner "read write" permissions and to the group and others the "read" permissions.
+Write the message "There you go... tell me what I do" in the goodLuck file.
+
+
 
 
 Binary Numbers
 --------------
-< Your Answer >
+1. 7,4,22.
+2. 0-255.
+3. The 9th bit will be used to represent negative and positive, the value 0 for positive and the value 1 for negative.
+4. We can use several 8 bits binary numbers to represent the left side of the floating point and several to represent the right side of the floating point.
+
