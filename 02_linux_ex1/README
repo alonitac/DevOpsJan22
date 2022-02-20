@@ -1,12 +1,24 @@
-name@example.com
-< your secret here >
+lubarsky1977@gmail.com
+< 814c5723c21e7e90a3eae36c8df3c513 >
 
 
 Kernel System Calls
 -------------------
-< Your Answer >
+< Creates folder welcomeToDevOpsJan22 with mkdir
+  Then it's creates a file goodLuck
+   And writes into the file ( goodLuck) "There you go... tell me what I do...">
 
 
 Binary Numbers
 --------------
-< Your Answer >
+<question 1
+  111 = 7
+  100 = 4
+  10110 = 22
+ question 2
+  0-255
+ question 3
+  The nagative number is always starts with 1
+  for example -5 in 9 bits binary numbers is 100000101
+ question 4
+  didn't understand this question>
