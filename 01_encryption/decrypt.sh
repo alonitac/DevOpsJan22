@@ -1,4 +1,4 @@
-# -e              Encrypt file
+ -e              Encrypt file
 # -aes-256-cbc    The algo name
 # -k              The key
 # -in             The input file
