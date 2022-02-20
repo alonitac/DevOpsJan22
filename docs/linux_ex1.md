@@ -11,7 +11,7 @@ Due date: 12/03/22 23:59
 
 Then change <alias\> to your nickname. e.g. `linux_ex1/alonit`. The branch name must start with `linux_ex1/`
 
-![New Branch](/img/branch2.png)
+![Branch Name](/img/branch2.png)
 
 ### Submission
 
@@ -100,11 +100,11 @@ wget https://devops-jan22.s3.eu-north-1.amazonaws.com/secretGenerator.tar.gz
 - Use `nano` or your preferred text editor, and **write a complete commands set** that let you to generate the secret in `yourSolution.sh` file (single command in each line).
 At the end, given a clean version of *src* directory (without the changes you've made) you should be able to run `/bin/bash yourSolution.sh` and the secret should be generated without any errors. 
 - Copy the content of `yourSolution.sh` into the same file in the Git repo (_02_linux_ex1/yourSolution.sh_). 
-- Commit ![New Branch](/img/commit.png) **ONLY** *02_linux_ex1/README* and *02_linux_ex1/yourSolution.sh* files **ONLY**. by:
+- Commit ![Commit Button](/img/commit.png) **ONLY** *02_linux_ex1/README* and *02_linux_ex1/yourSolution.sh* files **ONLY**. by:
 
-![New Branch](/img/commitmsg.png)
+![Commit Msg](/img/commitmsg.png)
 
-- Push ![New Branch](/img/push.png) your changes, and wait for results :-)
+- Push ![Push Button](/img/push.png) your changes, and wait for results :-)
 
 
 # Good Luck
