@@ -1,7 +1,9 @@
+# shellcheck disable=SC2164
 cd src
 mkdir secretDir
 cd maliciousFiles
 rm amIMaliciousOrNot.whoKnows  someFileIsLinkingToMe.BeAware
+# shellcheck disable=SC2103
 cd ..
 rmdir maliciousFiles
 cd secretDir
