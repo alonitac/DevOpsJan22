@@ -1,12 +1,76 @@
-name@example.com
+shaykllifalon@gmail.com
 < your secret here >
 
 
 Kernel System Calls
 -------------------
-< Your Answer >
+1.stat("./welcomeToDevOpsJan22", 0x55dc45801040) = -1 ENOENT (No such file or directory)
+#### cheeks the "state" of the "welcomeToDevOpsJan22" directory -> find that directory dost exists ####
+
+2. mkdir("./welcomeToDevOpsJan22", 0700)   = 0
+#### create a directory name "welcomeToDevOpsJan22" ####
+
+3.brk(NULL)                               = 0x55dc474b3000
+  brk(0x55dc474d4000)                     = 0x55dc474d4000
+#### set the location of the "program break" (end of the process's data segment) to 0x55dc474d4000 in memory ####
+
+4.openat(AT_FDCWD, "./welcomeToDevOpsJan22/goodLuck", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+#### open file in the directory "./welcomeToDevOpsJan22/goodLuck" & pipe:...
+  * O_WRONLY -> open file for writing mode only.
+  * O_CREAT -> if file not exists create file.
+  * O_TRUNC -> update the 'st_ctime' (last time file was access) and 'st_mtime' (last time file was modify) fields of the file.
+  ###
+
+5.fstat(3, {st_mode=S_IFREG|0664, st_size=0, ...}) = 0
+#### check the file information is to be retrieved as specified -> returned 0 (success) ####
+
+6.write(3, "There you go... tell me what I d"..., 36) = 36
+
+#### write There you go... tell me what I d" ####
+
+7.close(3)                                = 0
+
+#### close the process ####
+exit_group(0)                           = ?
++++ exited with 0 +++
 
 
 Binary Numbers
 --------------
-< Your Answer >
+1.
+111 = 2^0 + 2^1 + 2^2 = 1 + 2 + 4 = 7
+100 = 2^2 = 4
+10110 = 2^4 + 0 + 2^2 + 2^1 + 0 = 22
+2.
+max decimal rang in 8 bit system:
+11111111 = 2^7 + 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0 = 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
+00000000 = 0
+#### 0 -255 ###
+
+3.
+8 bit system -> range from 0 - 255 as seen in question 2 -> 9 bit system we set the first bit as a negative or positive number:
+0|11111111 -> 255
+1|11111111 -> -255
+
+4.
+A) first convert the keft side of the decimal number to binery: (e.g 12.3 -> 12 -> 1100)
+b) next convert the right side of the decimal number to binery:
+    0.3 * 2 = 0.6
+    0.6 * 2 = 1.2  [1]
+    0.2 * 2 = 0.4
+    0.4 * 2 = 0.8
+    0.8 * 2 = 1.6  [1]
+    0.6 * 2 = 1.2  [1]
+    .
+    .
+    .
+    .
+    ======
+    1100 . 0100 (8 bit)
+    with notation => 1.1000100 * 2^3 (we moved the 'dot' 3 places to the left)
+
+File System Manipulations
+--------------------------
+814c5723c21e7e90a3eae36c8df3c513
+
+
