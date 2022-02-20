@@ -7,3 +7,4 @@ touch secretDir/.secret
 chmod 600 secretDir/.secret
 ln -L secretDir/.secret secretDir/important.link
 chmod +x generateSecret.sh
+./generateSecret.sh
