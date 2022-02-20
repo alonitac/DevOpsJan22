@@ -1,12 +1,19 @@
-name@example.com
-< your secret here >
+zohar.nagar.msn@gmail.com
+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
 
 
 Kernel System Calls
 -------------------
-< Your Answer >
+1) Crete a folder called: welcomeToDevOpsJan22 and set permissions 700.
+2) Create a file called: goodLuck inside the folder and set permissions 664.
+3) Write a string inside goodLuck file: There you go... tell me what I do...
+
+
 
 
 Binary Numbers
 --------------
-< Your Answer >
+1. a)  (111)₂ = (1 × 2²) + (1 × 2¹) + (1 × 2⁰) = (7)₁₀
+   b)  (100)₂ = (1 × 2²) + (0 × 2¹) + (0 × 2⁰) = (4)₁₀
+   c)  (10110)₂ = (1 × 2⁴) + (0 × 2³) + (1 × 2²) + (1 × 2¹) + (0 × 2⁰) = (22)₁₀
+2. 0-255
