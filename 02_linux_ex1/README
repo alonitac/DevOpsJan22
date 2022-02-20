@@ -4,10 +4,10 @@ nati.malkiel@gmail.com
 
 Kernel System Calls
 -------------------
-the program is crating a folder name "welcomtodevopsjan22" with mkdir.
+the program is crating a folder name "welcomtodevopsjan22".
 inside the folder it creates a file named "goodluck".
 inside the goodluck file it writes "there you go... tell me what i do"
-turn it closed the program.
+then it closed the program.
 
 Binary Numbers
 --------------
