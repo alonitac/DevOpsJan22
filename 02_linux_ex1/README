@@ -1,12 +1,20 @@
-name@example.com
-< your secret here >
+<ddady1@gmil.com>
+ <814c5723c21e7e90a3eae36c8df3c513  ->
 
 
 Kernel System Calls
 -------------------
-< Your Answer >
+< The program creates a folder by the name of "welcomeToDevOpsJan22" and set the permissions of it to 700.
+Then it creates a file by the name of "goodLuck" and set the permissions of it to 666
+Then it writes into the file "There you go... tell me what I do..." and sets the permissions of thr file to 644
+There are more stuff which i don't know and which e didn't learn yet
+ >
 
 
 Binary Numbers
 --------------
-< Your Answer >
+< 1. 7,4,22
+  2. the range is 1-255
+  3. The most left figure will indicate if the rest of the 8 bits is positive or negative. Zero (0) indicate positive number
+  and One (1) indicates Negative number. example the number 7 in 8 bits  is 00000111 in 9 bits as negative is 100000111
+  4. Adding a point (.) on the far left end Example .00000111 >
