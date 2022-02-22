@@ -20,7 +20,7 @@ Binary Numbers
  1. 100 - 4
     111 - 7
     10110 - 22
- 2. The range is 0-255, 2^8 zero count too.
+ 2. The range is 0-255, 2^8 zero counts.
  3. Given a 9 bits binary number, suggest a method to represent a negative numbers between 0-255
  the accepted method usually leaving the left bit when 0 is positive and 1 is negative for example
  the number 223 = 0 + 0 + 2^7 + 2^6 + 0 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0 if we shall put it into binary we'll get
