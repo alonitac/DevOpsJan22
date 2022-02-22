@@ -6,3 +6,5 @@ rm someFileIsLinkingToMe.BeAware
 rmdir maliciousFiles
 cp CONTENT_TO_HASH secretDir
 mv CONTENT_TO_HASH secret
+chmod 600 secretDir/.secret
+rm important.link
