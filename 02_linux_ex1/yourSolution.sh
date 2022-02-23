@@ -77,7 +77,7 @@ then
                 then
                         echo "Link $LINK created successfully."
                         echo "Running md5sum to create my secret."
-                        cat ./CONTENT_TO_HASH | xargs | md5sum > $SECRET_FILE
+                        md5sum ./CONTENT_TO_HASH > $SECRET_FILE
                         if [ $? -eq 0 ]
                         then
                                 echo "Done! Your secret was stored in $SECRET_FILE"
