@@ -85,8 +85,7 @@ then
                                 echo "Error occured while generating secret."
                         fi
                 else
-                        echo "Some error occured while trying to create link $LINK."
-                        echo "Failed to generate secret. Secret can not be generated when broken file link exists. Please do something..."
+                        echo "Failed to generate secret. Secret can not be generated when broken file link exists. Please do something..." >&2
                         exit 1
                 fi
         fi

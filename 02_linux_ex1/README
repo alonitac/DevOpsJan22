@@ -24,7 +24,27 @@ Binary Numbers
     10110 - 22
  2. The range is 0-255, 2^8 zero counts.
  3. Given a 9 bits binary number, suggest a method to represent a negative numbers between 0-255
- the accepted method usually leaving the left bit when 0 is positive and 1 is negative for example
- the number 223 = 0 + 0 + 2^7 + 2^6 + 0 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0 if we shall put it into binary we'll get
- 223 = 0011011111 there for -223 = 1011011111 and the left digit is for negative sign
+    The accepted method usually leaving the left bit when 0 is positive and 1 is negative for example
+    The number 223 = 0 + 0 + 2^7 + 2^6 + 0 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0 if we shall put it into binary we'll get
+    223 = 0011011111 there for -223 = 1011011111 and the left digit is for negative sign
+ 4. The floating point called floating because there is no permanent place for this point it moves according to the
+    number given, and the number of bits allocated.
+    Since its in 8 bit the result is not accurate
+    The first number 12.3 ~ 12.25 = 1100.0100
+    In 10 base number its represented 1*2^3 + 1*2^2 + 0*2^1 + 0*2^0 + 0*2^-1 + 1*2^-2 + 0*2^-3 + 0*2^-4
+    The second number 15.67 ~ 15.625 = 1100.1010
+    The 3rd number 0.231 can be represented in a different method
+
+    the number          the whole number after multiply by 2            the whole value after multiply
+        0.231                       0.462                                           0
+        0.462                       0.924                                           0
+        0.924                       1.848                                           1
+        0.848                       1.696                                           1
+        0.696                       1.392                                           1
+        0.392                       0.784                                           0
+        0.784                       1.568                                           1
+        0.568                       1.136                                           1
+
+    which brings us to a result of 0.0011101 I'll ditch the last digit 1 because the exercise is limited to 8 bit
+    There for the number is 0.2265625
  >
