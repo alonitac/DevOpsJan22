@@ -20,7 +20,7 @@ if [ -d $DIR_TO_REMOVE ]; then
         if [ $? -gt 0 ]
         then
                 echo "Failed to remove directory $DIR_TO_REMOVE" >&2
-                echo "Failed to generate secret. The directory 'maliciousFiles' contains some malicious files... it must be removed before." >&2
+                echo "Failed to generate secret. The directory 'maliciousFiles' contains some malicious files... it must be removed before."
                 exit 1
         else
                 echo "Directory $DIR_TO_REMOVE removed successfully."
@@ -49,7 +49,7 @@ then
         if [ $? -gt 0 ]
         then
                 ehco "Failed to chmod to $SECRET_FILE." >&2
-                echo "Failed to generate secret. The file $SECRET_FILE must have read and write permission only." >&2
+                echo "Failed to generate secret. The file $SECRET_FILE must have read and write permission only."
                 exit 1
         else
                 echo "Permissions changed successfully."
