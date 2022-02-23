@@ -1,5 +1,7 @@
 doron.dollev@gmail.com
-< 814c5723c21e7e90a3eae36c8df3c513 >
+< 43643f5dcf828c6ab906aba170431eae >
+cat secretDir/.secret
+43643f5dcf828c6ab906aba170431eae  ./CONTENT_TO_HASH
 
 
 Kernel System Calls
