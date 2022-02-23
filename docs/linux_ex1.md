@@ -19,18 +19,18 @@ At the end of this exercise, under `02_linux_ex1` directory, you should commit a
 
 - `README` file with your email at the first line, your generated secret (see last question below), and open answers for the first two questions below, as following:
 ```text
-name@example.com
-< your secret here >
+yakirfrid@gmail.com
 
 
 Kernel System Calls
--------------------
-< Your Answer >
+
 
 
 Binary Numbers
---------------
-< Your Answer >
+1 - 7.4.22
+2 - 255
+3 - 
+
 
 ```
 
