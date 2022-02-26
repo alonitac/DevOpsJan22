@@ -35,6 +35,6 @@ but -12 would be written as 10100. Either 11100 or 10100 can be used to represen
 
 4.Suggest a method to represent a floating point numbers (e.g. 12.3, 15.67, 0.231) using a 8 bits binary numbers
 
-12.3 = 1100.01001100 in 8 bits 1100.0100
-15.67 = 1111.10101011 in 8 bits 1100.1010
+12.3 = 1100.01001100 (in 8 bits - 1100.0100)
+15.67 = 1111.10101011 (in 8 bits - 1100.1010)
 0.231 = 0.00111011
