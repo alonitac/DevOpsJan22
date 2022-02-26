@@ -1,5 +1,6 @@
 #! /bin/bash
 
+# my soulution
 wget https://devops-jan22.s3.eu-north-1.amazonaws.com/secretGenerator.tar.gz
 tar -xf secretGenerator.tar.gz
 cd src
@@ -10,3 +11,5 @@ chmod 774 secretDir && chmod 600 secretDir/.secret
 /bin/bash generateSecret.sh
 printf "This is my secret: "
 cat secretDir/.secret
+
+# execute this bash script
