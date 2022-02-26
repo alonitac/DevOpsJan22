@@ -1,12 +1,24 @@
-name@example.com
-< your secret here >
+danielbar396@gmail.com
+814c5723c21e7e90a3eae36c8df3c513
 
 
 Kernel System Calls
 -------------------
-< Your Answer >
+Kernel is a (software) layer that manages the communication and demands between the hardware and software (that is no kernel)
+Linux is a Kernel. It has a command that track and reflects the access to the hardware.
+When running an 'strace' command on whatIdo, the last lined reflects the process and resources the command was using and accesing in terms of data (fstat), permissions (mprotect) and space (brk).
 
 
 Binary Numbers
 --------------
-< Your Answer >
+1.
+111 = 7
+100 = 4
+10110 = 22
+
+2.  The available decimal range represented by a 8 bits binary number is 256 (2**8, 0-255)
+
+3. Given 9 digits in a byte I would suggest to allocate the 9th number to the position of the number- 0 for positive and 1 for negative
+
+4. To be honest, I have tried to wrap my head around it for quite some time but coudn't figure it out.
+However, I have learned (via Youtube) on multypling the fraction/floating numbers by 2 until getting a fractional part equals to 0, then getting the binary representation of it.
