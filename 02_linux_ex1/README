@@ -1,0 +1,19 @@
+prodevildaniel@gmail.com
+814c5723c21e7e90a3eae36c8df3c513
+
+Kernel System Calls
+-------------------
+1. The executable file checks for information about a folder called "welcomeToDevOpsJan22"
+2. Creates a folder on the same level as the file with the name of "welcomeToDevOpsJan22"
+3. Within the folder creates a description file and writes the following text inside "There you go... tell me what I do..."  
+
+
+Binary Numbers
+--------------
+1. 7,4,22
+2. 255
+3. From 000000000 To 011111111
+(000000000)₂ = (0 × 2⁸) + (0 × 2⁷) + (0 × 2⁶) + (0 × 2⁵) + (0 × 2⁴) + (0 × 2³) + (0 × 2²) + (0 × 2¹) + (0 × 2⁰) = (0)₁₀
+(011111111)₂ = (0 × 2⁸) + (1 × 2⁷) + (1 × 2⁶) + (1 × 2⁵) + (1 × 2⁴) + (1 × 2³) + (1 × 2²) + (1 × 2¹) + (1 × 2⁰) = (255)₁₀
+4.
+unable to represent exact numbers as in example in binary.
