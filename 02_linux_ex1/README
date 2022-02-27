@@ -1,12 +1,21 @@
-name@example.com
-< your secret here >
+kandovrami@gmail.com
+
+my secret:
+814c5723c21e7e90a3eae36c8df3c513  -
 
 
 Kernel System Calls
 -------------------
-< Your Answer >
+strace command show us what were the processes and internal commands the kernel asked from the cpu. in the last lines we can recognize our i/o requests. by strace we can assume where there are "bugs".
 
 
 Binary Numbers
 --------------
-< Your Answer >
+1. 111=7, 100=4, 10110=22,
+2. 8 bits: 0 to 255
+3. the MSB is the sign. so if MSB=0 this positive regular number: result= sum(LSB+n)
+if MSB=1 this neg. no. so: result=-(sum(MSB+n))
+4. I decided that the 6 left bits will be for integers, the 2 right bit for the fractions.
+so the range of the integers will be 0 to 63 and the fractions with jumps of 0.25.
+i think with 8 bits this method has the largest rang with good resolution of fractions.
+for example: 10000001=32.25.
