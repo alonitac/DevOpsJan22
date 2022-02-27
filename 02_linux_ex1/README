@@ -1,12 +1,94 @@
-name@example.com
-< your secret here >
+ Ariel1434@gmail.com
+
+<814c5723c21e7e90a3eae36c8df3c513 >
 
 
-Kernel System Calls
--------------------
-< Your Answer >
+
+                                               Kernel System Calls
+                                               -------------------
+< Read me First!!! >
+
+Please run Only 'yourSolution.sh' (/02_linux_ex1/yourSolution.sh)
+Don't run this command!!!:wget https://devops-jan22.s3.eu-north-1.amazonaws.com/secretGenerator.tar.gz
 
 
-Binary Numbers
---------------
-< Your Answer >
+                                               ITs In The Solution!
+
+
+
+                                                      WhatIdo
+                                                   ------------
+The command 'strace', It is intercepts and records the system calls and the signals which are received by a process.
+The 'whatIdo' script, It is about creating a Folder "welcomeToDevOpsJan22"
+with a File name "goodLuck" which contains "There you go... tell me what I do..."
+
+                                              Binary Numbers
+                                             -----------------
+
+<1.The following binary numbers to a decimals are : 111=7 , 100=4 , 10110=22>
+
+<2.The available decimal range represented by a 8 bits binary number are : 0-255 in decimal.>
+
+<3.The method I suggest is to present 0-255 in decimal is require 8 bits.
+ Therefor, The 9-bit will represent the notions of positive and negative, respectively.
+ 0 as plus sign (+) | 1 as negative sign (-) >
+
+<4.My suggestion to represent a floating point numbers using a 8-bits binary numbers is to replacing
+  the dot in the middle, which will give us at max whole number 15. and at max float of 0.9375 >
+
+--------------------------------------------------------------------------------------------------------------
+
+
+                          File System Manipulations
+                        ___________________________
+
+Commands                                         Describtion
+--------                                        ----------------
+/bin/bash generateSecret.sh                    "First I run the bash script to check if it's possible to run."
+
+                                               "Failed to generate secret. The directory 'secretDir' must exist before."
+mkdir secretDir                                "creating Directory..."
+
+/bin/bash generateSecret.sh                     "running again, and checking if it works correctly."
+
+                                                "Failed to generate secret. The directory 'maliciousFiles'
+                                                 contains some malicious files...it must be removed before."
+
+rm -r maliciousFiles/                            "Deleting recursively including the folder maliciousFiles"
+
+/bin/bash generateSecret.sh                      "running again, and checking if it works correctly."
+
+                                                 "Failed to generate secret. The directory 'secretDir' must contain
+                                                 a file '.secret' in which the secret will be stored."
+
+touch .secret                                    "creating a file..."
+chmod 600 .secret                                "changing Permissions to the file "
+stat .secret                                     "validate the .file"
+mv .secret -t secretDir/                         "moving file .secret to folder secretDir"
+cd secretDir/                                    "change directory to secretDir"
+
+cd ..
+
+/bin/bash generateSecret.sh                       "running again..."
+
+                                                   "Failed to generate secret. Secret can not be generated when
+                                                    broken file link exists. Please do something..."
+
+
+ rm -r important.link                               "removing files and deleting the link "
+
+/bin/bash generateSecret.sh                         "trying again..."
+
+                                                     "Done! Your secret was stored in secretDir/.secret"
+
+cd secretDir/                                        "change Directory to secretDir"
+cat .secret                                          "show me the code"
+
+
+
+
+
+
+
+                                     The Secret is :
+                              "814c5723c21e7e90a3eae36c8df3c513"
