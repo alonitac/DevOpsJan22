@@ -25,9 +25,9 @@ Binary Numbers
 
 3.Given a 9 bits binary number, suggest a method to represent a negative numbers between 0-255 :
 
-negative numbers always starts with 1 (-182 = 1111 1111 0100 1010 = 101001010 )
-positive numbers always starts with 0 ( 182 = 0000 0000 1011 0110 = 010110110 )
-
+negative numbers always starts with 1 (-182 = 1111 1111 0100 1010 = 1|01001010 )
+positive numbers always starts with 0 ( 182 = 0000 0000 1011 0110 = 0|10110110 )
+                                                      ^             ^
 (The simplest way represent negative numbers is to simply use the leftmost digit of the number as a special value to represent the sign of the number:
 0 = positive 1 = negative. For example, a value of positive 12 would be written as 01100 in binary, but negative 12 would be written as 11100.
 a different way, called "two's complement" is more often used for representing negative numbers. In this way, a positive 12 is still 01100,
@@ -36,5 +36,8 @@ but -12 would be written as 10100. Either 11100 or 10100 can be used to represen
 4.Suggest a method to represent a floating point numbers (e.g. 12.3, 15.67, 0.231) using a 8 bits binary numbers
 
 12.3 = 1100.01001100 (in 8 bits - 1100.0100)
+           ^                          ^
 15.67 = 1111.10101011 (in 8 bits - 1100.1010)
+            ^                          ^
 0.231 = 0.00111011
+         ^
