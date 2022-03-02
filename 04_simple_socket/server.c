@@ -46,7 +46,7 @@ int main()
 		/** print the received data to the client */
 		int read_bytes = recv(clientfd, buffer, MAX_BUF, 0);
 		printf("%s\n", buffer);
-		send(clientfd, buffer, read_bytes, 0)
+		send(clientfd, buffer, read_bytes, 0);
 
 		/** Close data connection */
 		close(clientfd);
