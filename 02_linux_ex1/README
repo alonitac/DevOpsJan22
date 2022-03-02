@@ -18,18 +18,22 @@ Binary Numbers
 example:
  0  0  0  0   0 0 0 0 = 0
  0  0  0  0   0 0 0 1 = 1
+---------------------
 128 64 32 16  8 4 2 1
 
 111:
 1 1 1 = 7 (1+2+4)
+-----
 4 2 1
 
 100:
 1 0 0 = 4 (0+0+4)
+-----
 4 0 0
 
 10110:
 1  0 1 1 0 = 22 (0+2+4+0+16)
+----------
 16 0 4 2 0
 
 2.What is the available decimal range represented by a 8 bits binary number?
@@ -53,6 +57,4 @@ but -12 would be written as 10100. Either 11100 or 10100 can be used to represen
 15.67 = 1111.10101011 (in 8 bits - 1100.1010)
             ^                          ^
 0.231 = 0.00111011
-
-
          ^
