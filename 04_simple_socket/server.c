@@ -44,8 +44,9 @@ int main()
 		printf("%s:%d connected\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
 
 		/** print the received data to the client */
-		recv(clientfd, buffer, MAX_BUF, 0);
+		int read_bytes = recv(clientfd, buffer, MAX_BUF, 0);
 		printf("%s\n", buffer);
+		send(clientfd, buffer, read_bytes, 0)
 
 		/** Close data connection */
 		close(clientfd);
