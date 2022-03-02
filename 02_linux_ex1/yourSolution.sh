@@ -13,5 +13,4 @@ chmod 774 secretDir && chmod 600 secretDir/.secret
 /bin/bash generateSecret.sh
 printf "This is my secret: "
 cat secretDir/.secret
-
-
+#end
