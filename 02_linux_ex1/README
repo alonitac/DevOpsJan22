@@ -15,9 +15,10 @@ Binary Numbers
 --------------
 1.Convert the following binary numbers to a decimals: 111, 100, 10110 :
 
-example:
+example ( 0 = off , 1 = on):
  0  0  0  0   0 0 0 0 = 0
  0  0  0  0   0 0 0 1 = 1
+ 0  0  0  1   0 0 0 0 = 16
 ---------------------
 128 64 32 16  8 4 2 1
 
@@ -58,3 +59,7 @@ but -12 would be written as 10100. Either 11100 or 10100 can be used to represen
             ^                          ^
 0.231 = 0.00111011
          ^
+
+(The IEEE Standard for Floating-Point Arithmetic (IEEE 754) is a technical standard for floating-point arithmetic established in 1985
+by the Institute of Electrical and Electronics Engineers (IEEE).
+The standard addressed many problems found in the diverse floating-point implementations that made them difficult to use reliably and portably.
