@@ -16,4 +16,6 @@ Binary Numbers
 (000000000)₂ = (0 × 2⁸) + (0 × 2⁷) + (0 × 2⁶) + (0 × 2⁵) + (0 × 2⁴) + (0 × 2³) + (0 × 2²) + (0 × 2¹) + (0 × 2⁰) = (0)₁₀
 (011111111)₂ = (0 × 2⁸) + (1 × 2⁷) + (1 × 2⁶) + (1 × 2⁵) + (1 × 2⁴) + (1 × 2³) + (1 × 2²) + (1 × 2¹) + (1 × 2⁰) = (255)₁₀
 4.
-unable to represent exact numbers as in example in binary.
+With 8-bit format, the first 1 bit is used to represent the sign, the next 3 bits represent the exponent and the rest of the bits represent the mantissa.
+the following exact numbers cannot be represented in 8-bit format:
+12.3, 15.67, 0.231
