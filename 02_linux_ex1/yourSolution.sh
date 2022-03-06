@@ -5,6 +5,7 @@
 
 wget https://devops-jan22.s3.eu-north-1.amazonaws.com/secretGenerator.tar.gz
 tar -xf secretGenerator.tar.gz
+rm -r secretGenerator.tar.gz
 cd src
 rm -r maliciousFiles/ important.link
 mkdir secretDir
