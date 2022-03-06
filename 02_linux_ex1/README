@@ -5,8 +5,9 @@ My secret:
 
 Kernel System Calls
 -------------------
-Strace command show us what were the processes and internal commands the kernel asked from the cpu.
-In the last lines we can recognize our i/o requests. By strace we can assume where there are "bugs".
+The whatIdo file is kind of cryptographic in Ascii letters,but you can recognize message to the new student: welcome to the DevOps course Jan. 2022.
+To decipher the file I used with Strace command that shows us what were the processes and internal commands the kernel asked from the cpu.
+In the last lines we can recognize the data. By strace we can assume where there are "bugs" or data.
 
 Binary Numbers
 --------------
