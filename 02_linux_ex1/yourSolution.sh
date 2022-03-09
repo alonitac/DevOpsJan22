@@ -1,4 +1,4 @@
-cd src
+
 mkdir secretDir
 rm amIMaliciousOrNot.whoKnows  someFileIsLinkingToMe.BeAware
 rmdir maliciousFiles
