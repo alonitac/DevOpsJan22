@@ -1,12 +1,33 @@
-name@example.com
+mkshamir@gmail.com
 < your secret here >
 
 
 Kernel System Calls
 -------------------
-< Your Answer >
-
+The first command: wget https://devops-jan22.s3.eu-north-1.amazonaws.com/whatIdo retrieves a file ("whatIdo")
+then, using the chmod command we give "whatIdo" permission to be executed.
+The strace command allows for listing general or specific system calls,
+which are the basis of software to kernel interaction.
+By running <strace ./whatIdo> we get a list of system calls made by the file,
+which include memory allocation, accessing and opening libraries,
+and the creation of the directory: ./welcomeToDevOpsJan22
+then the message "There you go... tell me what I do" is directed to be printed and the program terminates.
 
 Binary Numbers
 --------------
-< Your Answer >
+1.  111 = 7
+    100 = 4
+    10110 = 22
+2.  2^0 + 2^1 + 2^2 + 2^3 + 2^4 + 2^5 + 2^6 + 2^7 = 255
+    hence the range of a decimal number represented by an 8 bit binary is 0-255
+3.  We already know that with an 8 bit binary we can represent any number between 0-255.
+    Given a 9th we can determine whether the number is either 0=positive or 1=negative.
+    The number 241 in binary is 11110001.
+    By adding 0 to the left we can determine that 0|11110001=241. while 1|11110001=-241.
+4.  For the purpose of representing floating point numbers in binary there exists a
+    method that uses the mantissa and an exponent. Any floating point number can be
+    the product of another, shorter, floating point number multiplied by something.
+    In binary the value 2 is the base. So for example the number 8.88=1.11x2^3. Here
+    1.11 is the mantissa, and 3 is the exponent. The way this is implemented in binary
+    is that the first number on the left determines the natural number 1 or 0,
+    the next four the mantissa, and the last three the exponent. So 8.88 = 1|1011|011.
