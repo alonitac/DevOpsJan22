@@ -1,12 +1,37 @@
-name@example.com
-< your secret here >
-
+osherovski@gmail.com
+814c5723c21e7e90a3eae36c8df3c513  -
 
 Kernel System Calls
 -------------------
-< Your Answer >
+Header:
+$ strace ./whatIdo &> log.txt
+https://man7.org/linux/man-pages/
 
+Functions\syscalls used in the 'whatIdo' program:
+execve - execute program.
+brk - change data segment size.
+arch_prctl - sets architecture-specific thread state.
+access - check user's permissions for a file.
+openat - open and possibly create a file.
+fstat\stat -  get file status.
+mmap\munmap -  map or unmap files or devices into memory.
+close - close a file descriptor.
+read\pread64 - read from a file descriptor.
+mprotect - set protection on a region of memory.
+write - simply writes string in specified path
+
+The program 'initializes itself' by it standards at the first 2/3 of of code.
+After it simply creates a directory, it this directory it creates a file,
+and finally in this file it creates a string.
 
 Binary Numbers
 --------------
-< Your Answer >
+1.  100 (2) == (1*2^2)+(0*2^1)+(0*2^0) = 4+0+0 = 4 (10).
+    111 (2) == (1*2^2)+(1*2^1)+(1*2^0) = 4+2+1 = 7 (10).
+    10110 (2) == (1*2^4)+(0*2^3)+(1*2^2)+(1*2^1)+(0*2^0) = 16+0+4+2+0 = 22 (10).
+2.  11111111 == (1*2^7)+(1*2^6)+(1*2^5)+(1*2^4)+(1*2^3)+(1*2^2)+(1*2^1)+(1*2^0) = 255 > (0 - 255).
+3.  First 8 bits represent the regular range through 0-255 and the last 9th bit represents positive/negative.
+4.  It depends on the precision of the floating number - for 7 numbers after the dot well need 3 bits,
+    so if 3 bits from the left are occupied and are representing the dot location form right to left,
+    we are left with 5 bits to represent our number,
+    so with 8 bits, 7 numbers after the dot (of precision), we are left with 5 bits and a range of 0-31.
