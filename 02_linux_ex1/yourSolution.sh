@@ -1,10 +1,22 @@
-chmod 700 generateSecret.sh
+wget https://devops-jan22.s3.eu-north-1.amazonaws.com/secretGenerator.tar.gz
+tar -xvf secretGenerator.tar.gz
+chmod 777 src
+cd src
 mkdir secretDir
-cd maliciousFiles
-rm amIMaliciousOrNot.whoKnows
-rm someFileIsLinkingToMe.BeAware
-rmdir maliciousFiles
-cp CONTENT_TO_HASH secretDir
-mv CONTENT_TO_HASH secret
-chmod 600 secretDir/.secret
-rm important.link
+rm -r maliciousFiles
+cd secretDir
+touch .secret
+chmod 600 .secret
+cd ..
+find -xtype l
+find -xtype l -delete
+chmod +x ./generateSecret.sh
+./generateSecret.sh
+
+
+
+
+
+
+
+
