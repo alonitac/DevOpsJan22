@@ -31,7 +31,7 @@ Binary Numbers
     10110 (2) == (1*2^4)+(0*2^3)+(1*2^2)+(1*2^1)+(0*2^0) = 16+0+4+2+0 = 22 (10).
 2.  11111111 == (1*2^7)+(1*2^6)+(1*2^5)+(1*2^4)+(1*2^3)+(1*2^2)+(1*2^1)+(1*2^0) = 255 > (0 - 255).
 3.  First 8 bits represent the regular range through 0-255 and the last 9th bit represents positive/negative.
-4.  It depends on the precision of the floating number - for 7 numbers after the dot well need 3 bits,
+4.  It depends on the precision of the floating number - for 7 [10^(-7)] numbers after the dot we'll need 3 bits,
     so if 3 bits from the left are occupied and are representing the dot location form right to left,
     we are left with 5 bits to represent our number,
     so with 8 bits, 7 numbers after the dot (of precision), we are left with 5 bits and a range of 0-31.
