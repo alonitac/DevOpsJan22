@@ -28,6 +28,7 @@ Binary Numbers
     method that uses the mantissa and an exponent. Any floating point number can be
     the product of another, shorter, floating point number multiplied by something.
     In binary the value 2 is the base. So for example the number 8.88=1.11x2^3. Here
-    1.11 is the mantissa, and 3 is the exponent. The way this is implemented in binary
-    is that the first number on the left determines the natural number 1 or 0,
-    the next four the mantissa, and the last three the exponent. So 8.88 = 1|1011|011.
+    1(=1) is a natural number, 11(=1011) is the mantissa, and 3(=011) is the exponent.
+    The way this is implemented in binary is that the first number on the left determines
+    the natural number 1 or 0, the next four the mantissa, and the last three the exponent.
+    So 8.88 = 1|1011|011.
