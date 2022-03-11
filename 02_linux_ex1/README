@@ -1,19 +1,49 @@
 zohar.nagar.msn@gmail.com
-814c5723c21e7e90a3eae36c8df3c513
+< 814c5723c21e7e90a3eae36c8df3c513 >
 
 
 Kernel System Calls
 -------------------
-1) Crete a folder called: welcomeToDevOpsJan22 and set permissions 700.
-2) Create a file called: goodLuck inside the folder and set permissions 664.
-3) Write a string inside goodLuck file: There you go... tell me what I do...
+
+Your assignment is to supply a brief description of what the program does in the README file
+I noticed the following by using "starce ./whatIdo":
+
+1) Create a folder called welcomeToDevOpsJan22 and set permissions 700.
+2) Create a file called goodLuck inside the folder and set permissions 664.
+3) Write a string inside goodLuck file: "There you go... tell me what I do..."...
+4) Exit
 
 
 
 
 Binary Numbers
 --------------
-1. a)  (111)₂ = (1 × 2²) + (1 × 2¹) + (1 × 2⁰) = (7)₁₀
-   b)  (100)₂ = (1 × 2²) + (0 × 2¹) + (0 × 2⁰) = (4)₁₀
-   c)  (10110)₂ = (1 × 2⁴) + (0 × 2³) + (1 × 2²) + (1 × 2¹) + (0 × 2⁰) = (22)₁₀
-2. 0-255
+
+--------------------------------------------------------------------------------------------------
+Question 1: Convert the following binary numbers to a decimals: 111, 100, 10110
+Answer 1: a)  (111)₂ = (1 × 2²) + (1 × 2¹) + (1 × 2⁰) = (7)₁₀
+          b)  (100)₂ = (1 × 2²) + (0 × 2¹) + (0 × 2⁰) = (4)₁₀
+          c)  (10110)₂ = (1 × 2⁴) + (0 × 2³) + (1 × 2²) + (1 × 2¹) + (0 × 2⁰) = (22)₁₀
+--------------------------------------------------------------------------------------------------
+Question 2: What is the available decimal range represented by a 8 bits binary number?
+Answer 2: 0-255
+--------------------------------------------------------------------------------------------------
+Question 3: Given a 9 bits binary number, suggest a method to represent a negative numbers between 0-255
+Answer 3: The method I would suggest is:
+          Use the last bit on the left as a sign, 0 for positive number and 1 for negative number.
+          the rest of the 8 bits will represent a number between 0-255.
+--------------------------------------------------------------------------------------------------
+Question 4: Suggest a method to represent a floating point numbers (e.g. 12.3, 15.67, 0.231) using a 8 bits binary numbers
+Answer 4: a) 12.3 = 1100.0100
+          b) 15.67 = 1111.1010
+          c) 0.231 =0.0011101
+
+The method I used is:
+                    4 left bits for exponent
+                    4 right bits for mantissa
+
+*** Please notice, 8 bit isn't enough for the floating point number to be accurate. ***
+--------------------------------------------------------------------------------------------------
+
+
+
