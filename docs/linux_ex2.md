@@ -8,8 +8,6 @@ Max possible points: 105 points
 1. Open [our shared git repo](https://github.com/alonitac/DevOpsJan22) in PyCharm and pull the repository in branch **main** to get an up-to-date version
 2. Create your own git branch for this exercise according to  `linux_ex2/< alias >` (e.g. linux_ex2/alonit).
 
-### Submission
-
 ## Questions
 
 ### TLS communication
@@ -96,7 +94,7 @@ Assuming the server certificate was stored in `cert.pem` file. You can verify th
 ```shell
 openssl verify -CAfile cert-ca-aws.pem cert.pem
 ```
-while `cert-ca-aws.pem` is a file belonging to the Certificate Authority (in our case Amazon Web Services) who issued and signed the server cert. You can safely download it from `` (wget...)
+while `cert-ca-aws.pem` is a file belonging to the Certificate Authority (in our case Amazon Web Services) who issued and signed the server cert. You can safely download it from **https://devops-jan22.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem** (wget...)
 
 Upon a valid certificate validation, the following output will be printed to stdout:
 ```text
@@ -115,17 +113,19 @@ fi
 
 Given a valid cert, [generate a 32 random bytes string](https://www.google.com/search?q=generate+random+bytes+bash) and save it to `masterKey.txt` text file.
 
+Got tired? refresh yourself with some [interesting reading]() 
+
 This line can help you encrypt the generated master-key secret with the server certificate:
 ```shell
-openssl smime -encrypt -aes-256-cbc -in masterKey.txt -out output.txt -outform DER cert.pem
+openssl smime -encrypt -aes-256-cbc -in masterKey.txt -outform DER cert.pem | base64 -w 0
 ```
 
 Now, `curl` again an HTTP POST request to the server endpoint `/keyexchange`, with the following body
 ```
 POST /keyexchange
 {
-    "sessionID": "$SESSION_ID",
-    "masterKey": "$MASTER_KEY",
+    "sessionID": "'$SESSION_ID'",
+    "masterKey": "'$MASTER_KEY'",
     "sampleMessage": "Hi server, please encrypt me and send to client!"
 }
 ```
@@ -141,6 +141,14 @@ The response for the above request would be in the form:
 ```
 All you have to do now is to decrypt the message and verify that it's equal to the original sample message. 
 This will indicate that the server uses successfully the master key.
+Please note that the _encryptedSampleMessage_ is encoded in base64, before you decrypt it, encode it to binary, as following:
+```shell
+# the content of encryptedSampleMessage is stored in a file called encSampleMsg.txt
+
+cat encSampleMsg.txt | base64 -d > encSampleMsgReady.txt
+
+# file encSampleMsgReady.txt is ready now to be used in "openssl enc...." command 
+```
 Recall the demo in `01_encryption` directory in our shared repo to see how to decrypt a message. Again, you should exit the program upon an invalid decryption. Do it by:
 ```shell
 if [ "$DECRYPTED_SAMPLE_MESSAGE" != "Hi server, please encrypt me and send to client!" ]; then
