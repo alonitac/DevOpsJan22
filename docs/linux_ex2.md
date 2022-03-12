@@ -1,7 +1,7 @@
 # Linux ex-2
 Due date: 31/03/2022 23:59
 
-Max possible points: 135 points
+Max possible points: 105 points
  
 ## Preliminaries
 
@@ -292,45 +292,6 @@ From `ps` [man page](https://man7.org/linux/man-pages/man1/ps.1.html#PROCESS_STA
 Explore `ps aux` output and copy to the `README` **5 lines maximum** which indicating that some processes are waiting (sleeping due to IO operation), and some are running.
 While you'll find many processes in a waiting state, it may be hard to catch a process in a running state... try to execute `ps aux` again until you'll fine one. 
 You may also find `ps aux | grep "   R    "` useful.
-
-
-### Process scheduling (optional)
-
-**30 points**
-
-| Job | CPU Burst |
-|-----|-----------|
-| P1  | 24        |
-| P2  | 3         |
-| P3  | 3         |
-
-FIFO
-
-| Job | CPU Burst | Turnaround  time  | Waiting  time |
-|-----|-----------|-------------------|---------------|
-| P1  | 24        | 24                | 0             |
-| P2  | 3         | 27                | 24            |
-| P3  | 3         | 30                | 27            |
-
-
-| Job | Arrival time | CPU Burst |
-|-----|--------------|-----------|
-| P1  | 0.0          | 7         |
-| P2  | 2.0          | 4         |
-| P3  | 4.0          | 1         |
-| P4  | 5.0          | 4         |
-
-
-| Time | Scheduler Decision                               |
-|------|--------------------------------------------------|
-| 0.0  | Run P1                                           |
-| 2.0  | P1 has 5, P2 has 4. Preempt. Run P2.             |
-| 4.0  | P2 has 2, P3 has 1.Preemt. Run P3.               |
-| 5.0  | P3 finishes. Shortest remaining time P2. Run P2  |
-| 7.0  | P2 finishes. Shortest remaining time P4. Run P4. |
-| 11.0 | Run P1.                                          |
-| 16.0 | P1 finishes.                                     |
-
 
 # Good Luck
 
