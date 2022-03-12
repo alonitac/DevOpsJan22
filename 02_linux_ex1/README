@@ -6,7 +6,7 @@ Kernel System Calls
 -------------------
 
 Your assignment is to supply a brief description of what the program does in the README file
-I noticed the following by using "starce ./whatIdo":
+I noticed the following by executing "strace ./whatIdo":
 
 1) Create a folder called welcomeToDevOpsJan22 and set permissions 700.
 2) Create a file called goodLuck inside the folder and set permissions 664.
@@ -37,12 +37,42 @@ Question 4: Suggest a method to represent a floating point numbers (e.g. 12.3, 1
 Answer 4: a) 12.3 = 1100.0100
           b) 15.67 = 1111.1010
           c) 0.231 =0.0011101
-
 The method I used is:
                     4 left bits for exponent
                     4 right bits for mantissa
-
 *** Please notice, 8 bit isn't enough for the floating point number to be accurate. ***
+
+Example:
+
+Whole part of a number is obtained by dividing on the basis 2
+
+12/2 = 6 [0]
+6/2  = 3 [0]
+3/2  = 1 [1]
+1/2  = 0 [1]
+
+Translation from decimal to binary: 12₁₀ = 1100₂
+
+The fractional part of number is found by multiplying on the basis 2
+
+0.3 *2 [0]
+.      [.]
+0.6 *2 [0]
+1.2 *2 [1]
+0.4 *2 [0]
+0.8 *2 [0]
+1.6 *2 [1]
+1.2	*2 [1]
+0.4 *2 [0]
+0.8 *2 [0]
+1.6 *2 [1]
+1.2 *2 [1]
+0.4	*2 [0]
+
+Translation from decimal to binary: 0.3₁₀ = 0.01001100110₂
+
+Add up together whole and fractional: 1100₂ + 0.01001100110₂ = 1100.010011001102
+since we are using 8 bits the result is: 1100.0100 (4 left bits for exponent and 4 right bits for mantissa)
 --------------------------------------------------------------------------------------------------
 
 
