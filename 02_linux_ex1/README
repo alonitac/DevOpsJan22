@@ -1,5 +1,5 @@
 mkshamir@gmail.com
-< your secret here >
+< your secret here: 814c5723c21e7e90a3eae36c8df3c513 >
 
 
 Kernel System Calls
@@ -11,7 +11,7 @@ which are the basis of software to kernel interaction.
 By running <strace ./whatIdo> we get a list of system calls made by the file,
 which include memory allocation, accessing and opening libraries,
 and the creation of the directory: ./welcomeToDevOpsJan22
-then the message "There you go... tell me what I do" is directed to be printed and the program terminates.
+then the message "There you go... tell me what I d" is directed to be printed and the program terminates.
 
 Binary Numbers
 --------------
