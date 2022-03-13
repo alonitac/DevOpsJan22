@@ -86,7 +86,7 @@ def main():
     app = web.Application()
     app.add_routes([web.post('/clienthello', client_hello)])
     app.add_routes([web.post('/keyexchange', key_exchange)])
-    web.run_app(app)
+    web.run_app(app, host='0.0.0.0')
 
 
 if __name__ == '__main__':
