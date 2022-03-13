@@ -1,7 +1,7 @@
 # Linux ex-2
 Due date: 31/03/2022 23:59
 
-Max possible points: 105 points
+Max possible points: 135 points
  
 ## Preliminaries
 
@@ -12,7 +12,7 @@ Max possible points: 105 points
 
 ### TLS communication
 
-**70 points**
+**90 points**
 
 
 ![Alice-Bob-Eve](/img/alice-bob-eve.png)
@@ -130,7 +130,7 @@ POST /keyexchange
 }
 ```
 
-Note that `$SESSION_ID` is a BASH variable containing the session ID you've got from the server's hello response, you need to create this variable once you have the sessions ID from the server. Also, `$MASTER_KEY` is your encrypted master key, again, you need to create this variable.
+Note that `$SESSION_ID` is a BASH variable containing the session ID you've got from the server's hello response, you need to create this variable once you have the sessions ID from the server. Also, `$MASTER_KEY` is your **encrypted** master key, again, you need to create this variable.
 
 The response for the above request would be in the form:
 ```json
@@ -139,7 +139,7 @@ The response for the above request would be in the form:
   "encryptedSampleMessage": "....."
 }
 ```
-All you have to do now is to decrypt the message and verify that it's equal to the original sample message. 
+All you have to do now is to decrypt the sample message and verify that it's equal to the original sample message. 
 This will indicate that the server uses successfully the master key.
 Please note that the _encryptedSampleMessage_ is encoded in base64, before you decrypt it, encode it to binary, as following:
 ```shell
@@ -166,7 +166,7 @@ In real life we have TLS that does so for us, and it's quite similar to what you
 
 ### Processes handling
 
-**10-15 points**
+**20-25 points**
 
 Write your answers in the `06_linux_ex2/README` file.
 
