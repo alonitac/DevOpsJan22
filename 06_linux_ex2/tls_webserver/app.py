@@ -1,8 +1,8 @@
 from json import JSONDecodeError
-
 from aiohttp import web
 import uuid
 import os
+import random
 
 
 client_secrets = {}
@@ -16,7 +16,12 @@ with open('eve-cert.pem') as f:
 
 
 async def client_hello(request):
-    data = await request.json()
+    text = await request.text()
+    try:
+        data = await request.json()
+    except JSONDecodeError as err:
+        return web.Response(text=f"Bad JSON format: {err}\nOriginal request:\n{text}\n", status=400)
+
     headers = dict(request.headers)
     if headers['Content-Type'] != 'application/json':
         return web.Response(text="Bad request. Content-Type header should be application/json\n", status=400)
@@ -29,10 +34,16 @@ async def client_hello(request):
         return web.Response(text="Bad Client Hello request\n", status=400)
 
     client_secrets[client_id] = None
+
+    if random.randint(1, 5) == 5:
+        cert = eve_cert
+    else:
+        cert = bob_cert
+
     return web.json_response({
         "serverVersion": "3.2",
         "sessionID": client_id,
-        "serverCert": bob_cert
+        "serverCert": cert
     })
 
 
