@@ -9,4 +9,4 @@ chmod 600 .secret
 cd ..
 /bin/bash generateSecret.sh
 cd secretDir/
-cat .secret >>/home/itay/PycharmProjects/DevOpsJan22/02_linux_ex1/secretDir/.secret
+cat .secret
