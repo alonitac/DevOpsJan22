@@ -63,7 +63,7 @@ The Client verifies that the sample message was encrypted successfully.
 
 #### Let's get started...
 
-You are given an HTTP web server with hostname `wwww`. 
+You are given an HTTP web server with hostname ` http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080`. 
 Your goal is to perform the above steps using BASH commands, and establish a secure channel with the server. 
 
 Please work in Ubuntu terminal, not from PyCharm. Below are some helpful instructions you may utilize in each step. Eventually, all your code should be written in `06_linux_ex2/tlsHandshake.sh`, committed and pushed to GitHub. 
@@ -113,7 +113,7 @@ fi
 
 Given a valid cert, [generate a 32 random bytes string](https://www.google.com/search?q=generate+random+bytes+bash) and save it to `masterKey.txt` text file.
 
-Got tired? refresh yourself with some [interesting reading]() 
+Got tired? refresh yourself with some [interesting reading](https://www.bleepingcomputer.com/news/security/russia-creates-its-own-tls-certificate-authority-to-bypass-sanctions/amp/) 
 
 This line can help you encrypt the generated master-key secret with the server certificate:
 ```shell
