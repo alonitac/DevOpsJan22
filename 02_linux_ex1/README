@@ -1,12 +1,16 @@
-name@example.com
+edenganon3@gmail.com
 < your secret here >
 
 
 Kernel System Calls
 -------------------
-< Your Answer >
+< the program tells us good luck in this course >
 
 
 Binary Numbers
 --------------
-< Your Answer >
+<1. 111=7 100=4 10110=22
+ 2. 8 bit max range- 0-255
+ 3.if the firs bit is a 0 than its positive number, and if the first bit is a 1 than it is a negative number
+ 4.Mantissa is calculated from the remaining 23 bits of the binary representation. It consists of ‘1’ and a fractional part
+  for ex- 1001: 1*(1/2)+0*(1/4)+0*(1/8)+1*(1/16)=0.625>
