@@ -10,4 +10,4 @@ wget https://devops-jan22.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem --no-check
 #fi
 openssl rand -base64 23 >masterKey.txt
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in masterKey.txt -outform DER cert.pem | base64 -w 0)
-curl -X POST -H 'Content-Type: application/json' -d '{"sessionID": "'$SESSION_ID'","masterKey": "'$MASTER_KEY'","sampleMessage": "Hi server, please encrypt me and send to client!"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/keyexchange
+curl -X POST -H 'Content-Type: application/json' -d '{"sessionID": "'$SESSION_ID'","masterKey": "'$MASTER_KEY'","sampleMessage": "Hi server, please encrypt me and send to client!"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/keyexchange -o encSampleMsg.json | jq -r '.encryptedSampleMessage' encSampleMsg.json >encSampleMsg.txt
