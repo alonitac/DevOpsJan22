@@ -8,6 +8,6 @@ wget https://devops-jan22.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem --no-check
 #  echo "Server Certificate is invalid."
 #  exit 1
 #fi
-head -c 64 </dev/urandom >masterKey.txt
+head -c 32 </dev/urandom >masterKey.txt
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in masterKey.txt -outform DER cert.pem | base64 -w 0)
 curl -X POST -H 'Content-Type: application/json' -d '{"sessionID": "'SESSION_ID'","masterKey": "'$MASTER_KEY'","sampleMessage": "Hi server, please encrypt me and send to client!"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/keyexchange
