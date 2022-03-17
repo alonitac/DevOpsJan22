@@ -75,7 +75,7 @@ async def key_exchange(request):
 
     stream = os.popen(f'echo "{data.get("sampleMessage")}" | openssl enc -e -aes-256-cbc -pbkdf2 -k "{decrypted_master_key}" | base64 -w 0')
     output = str(stream.read())
-
+cd
     return web.json_response({
         "sessionID": client_id,
         "encryptedSampleMessage": output
