@@ -1,12 +1,17 @@
 shay.rodmen@gmail.com
-< your secret here >
-
+814c5723c21e7e90a3eae36c8df3c513
 
 Kernel System Calls
 -------------------
-< Your Answer >
-
+The program is doing the following:
+1. checking if a folder with the name "welcomeToDevOpsJan22" exist using the system call "stat"
+2. if the folder doesn't exist, create it using "mkdir"
+3. create a file inside this folder named "GoodLuck"
+4. write the text "There you go... tell me what I do..." into the file.
 
 Binary Numbers
 --------------
-< Your Answer >
+1. 111=7, 100=4, 10110=20
+2.0-255
+3. the fits bit will be the sign bit, 0 for positive and 1 for negative. the remaining 8 bits will hold the numeric value.
+4.
