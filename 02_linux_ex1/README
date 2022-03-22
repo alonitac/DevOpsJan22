@@ -1,11 +1,15 @@
 name@example.com
-< adan10.aa4@gmail.com >
+< adan10.aa4@gmail.com >  # FIXME (A) you were supposed to put your generated secret here
+
 
 
 Kernel System Calls
 -------------------
 < First of all we change the permissions of the folder so that other users can only read the folder (700= 7=111=r , 0=w , 0=x.
  After that do strace the folder that it actually handy utility for tracing system, file, and network calls >
+
+# FIXME (B) You were supposed to describe what the program "whatIdo" does, not what strace does
+
 
 
 Binary Numbers
@@ -17,6 +21,8 @@ Binary Numbers
 
   2.
     -1 , 225
+    # FIXME (C) 0-255
+
 
   3.
     first bit will be negative and the other 8 bits will be numbers between 0,-255
@@ -34,7 +40,7 @@ Binary Numbers
  >
 
  File System Manipulations <
-
+ # FIXME (D) The bash script contains some redundant commands
 
 
 
