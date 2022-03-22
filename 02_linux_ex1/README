@@ -14,7 +14,7 @@ There are more stuff which i don't know and which e didn't learn yet
 Binary Numbers
 --------------
 < 1. 7,4,22
-  2. the range is 1-255
+  2. the range is 1-255  # FIXME (A) it's 0-255
   3. The most left figure will indicate if the rest of the 8 bits is positive or negative. Zero (0) indicate positive number
   and One (1) indicates Negative number. example the number 7 in 8 bits  is 00000111 in 9 bits as negative is 100000111
   4. Adding a point (.) on the far left end Example .00000111 >
