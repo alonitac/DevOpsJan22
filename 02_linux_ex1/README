@@ -9,6 +9,8 @@ The whatIdo file is kind of cryptographic in Ascii letters,but you can recognize
 To decipher the file I used with Strace command that shows us what were the processes and internal commands the kernel asked from the cpu.
 In the last lines we can recognize the data. By strace we can assume where there are "bugs" or data.
 
+# FIXME (A) you were supposed to describe where is the message printed, to file?  to screen? in which directory?
+
 Binary Numbers
 --------------
 1. 111=7, 100=4, 10110=22.
