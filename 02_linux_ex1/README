@@ -3,6 +3,8 @@ doron.dollev@gmail.com
 cat secretDir/.secret
 43643f5dcf828c6ab906aba170431eae  ./CONTENT_TO_HASH
 
+# FIXME (A) impressive code, but the generated secret is incorrect. The correct secret is 814c5723c21e7e90a3eae36c8df3c513.
+
 
 Kernel System Calls
 -------------------
