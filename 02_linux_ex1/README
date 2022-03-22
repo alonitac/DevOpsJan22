@@ -6,6 +6,7 @@ gil.isaacc@gmail.com
 Kernel System Calls
 -------------------
 < There you go... tell me what I d >
+# FIXME (A) you're right. but how that sentence is written? to stdout? in a file?
 
 
 Binary Numbers
@@ -16,6 +17,8 @@ Binary Numbers
 1*16 + 0*8 + 1*4 + 1*2 + 0*1 = 22
 
 2. 0-255
+
+# FIXME (B) in both 3-4 you should suggest some method to represent negative and decimal numbers. e.g. to represent negative numbers the first bit can represent the sign. 0 for positive, 1 to negative
 
 3. 1* -256 0*128 0*64 1*32 0*16 1*8 0*4 1*2 1*1 = -213
 100101011 = -213
