@@ -14,4 +14,4 @@ Binary Numbers
 1. 111=7, 100=4, 10110=20
 2.0-255
 3. the fits bit will be the sign bit, 0 for positive and 1 for negative. the remaining 8 bits will hold the numeric value.
-4.
+4. # FIXME (A) ??
