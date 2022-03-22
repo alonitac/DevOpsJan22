@@ -4,6 +4,7 @@ john5754@gmail.com
 Kernel System Calls
 -------------------
 whatIdo output is write on the screen "There you go... tell me what I d"
+# FIXME (A) it is written into a file, not on screen
 
 
 Binary Numbers
