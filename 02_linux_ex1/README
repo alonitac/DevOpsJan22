@@ -16,7 +16,7 @@ Binary Numbers
     100 - 4 =  (1 × 2²) + (0 × 2¹) + (0 × 2⁰) = 4
     10110 - 22   = (1 × 2⁴) + (0 × 2³) + (1 × 2²) + (1 × 2¹) + (0 × 2⁰) = 22
 
-2.  255 # FIXME (B) 256 is the right answer, 0-255 (including zero)
+2.  255 # FIXME (B) 0-255 (including zero)
 
 # FIXME (C) in both 3-4 you should suggest some method to represent negative and decimal numbers. e.g. to represent negative numbers the first bit can represent the sign. 0 for positive, 1 to negative
 3.  001100101 = 101  ---> 1101100101
