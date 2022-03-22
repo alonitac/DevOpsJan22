@@ -8,6 +8,7 @@ Kernel is a (software) layer that manages the communication and demands between 
 Linux is a Kernel. It has a command that track and reflects the access to the hardware.
 When running an 'strace' command on whatIdo, the last lined reflects the process and resources the command was using and accesing in terms of data (fstat), permissions (mprotect) and space (brk).
 
+# FIXME (A) you're right. But what exactly the program's commands do? creating files? directories? writing something to screen?
 
 Binary Numbers
 --------------
@@ -22,3 +23,4 @@ Binary Numbers
 
 4. To be honest, I have tried to wrap my head around it for quite some time but coudn't figure it out.
 However, I have learned (via Youtube) on multypling the fraction/floating numbers by 2 until getting a fractional part equals to 0, then getting the binary representation of it.
+# FIXME (B) that an interesting method, but given a number represented in the above method, how would you know the number of times it should be divided by 2 in order to restore the original number?
