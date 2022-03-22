@@ -1,6 +1,6 @@
 name@example.com
 yakirfrid@gmail.com
-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
+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 # FIXME (A) although your bash script look good, this is not the right secret
 
 Kernel System Calls
 -------------------
@@ -15,5 +15,5 @@ Binary Numbers
 100 = 4
 10110 = 22
 2 - 0-255
-3 -
+3 - # FIXME (B) ??
 4 - Adding a point (.) on the far left end Example .00000111
