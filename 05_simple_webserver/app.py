@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Try by:  curl localhost:8080
 @app.route('/', methods=['GET'])
 def index():
-    return 'Hello world\n'
+    return 'Hello world\n alexey change this massage'
 
 
 # Try by: curl -X POST -H "Content-Type: application/json" -d '{"name": "linuxize", "email": "linuxize@example.com"}' http://localhost:8080/update-profile
