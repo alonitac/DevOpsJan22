@@ -1,2 +1,30 @@
-name@example.com
+alexeymihaylovdev@gmail.com
+
+
+
+
+
+1. nohup
+2. True
+3. jobs
+4. CTRL+c
+5. CTRL+z
+6. sleep 10 &
+7. None of the above  (kill -term ProcessID)
+8. kill -9 4846
+9. kill -17 ssh-agent
+10. k  (Which key allows you to kill a process in top?)
+11. None of the above
+
+
+
+
+devops     37597  0.0  0.0  18500   988 pts/2    D    10:43   0:00 /bin/bash ./write_to_file_sequentially.sh
+devops     37627  0.0  0.0  18500   980 pts/2    D    10:45   0:00 /bin/bash ./write_to_file_sequentially.sh
+devops     37628  0.0  0.0  18500   972 pts/2    D    10:45   0:00 /bin/bash ./write_to_file_sequentially.sh
+
+devops     34480  1.1  0.0  24052  3244 pts/3    R+   10:35   0:12 top
+devops     36284  0.0  0.0  18500   980 pts/2    R    10:43   0:00 /bin/bash ./write_to_file_sequentially.sh
+devops     38932  0.0  0.0  18500   992 pts/2    R    10:45   0:00 /bin/bash ./write_to_file_sequentially.sh
+
 
