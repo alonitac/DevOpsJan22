@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Try by:  curl localhost:8080
 @app.route('/', methods=['GET'])
 def index():
-    return 'Hello world\n alexey change this massage'
+    return 'Hello world\n alexey change this massage twice!!!'
 
 
 # Try by: curl -X POST -H "Content-Type: application/json" -d '{"name": "linuxize", "email": "linuxize@example.com"}' http://localhost:8080/update-profile
@@ -14,7 +14,7 @@ def index():
 def update_profile():
     data = request.json
     print(f'Doing something with the data...\n{data}')
-    return 'Done!\n'
+    return 'Done!\n new conflict'
 
 
 # Try by: curl localhost:8080/get-profile-picture
