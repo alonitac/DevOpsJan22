@@ -12,5 +12,9 @@ Q9 -kill -CHLD 4828
 Q10 - k
 Q11 - The program has implemented a custom signal handler for the SIGINT signal.
 
+Process states
+
+
+
 
 
