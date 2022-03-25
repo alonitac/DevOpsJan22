@@ -2,5 +2,6 @@ site_name: DevOps Course January 22
 nav:
   - Home: 'index.md'
   - Linux Ex1: 'linux_ex1.md'
+  - Linux Ex2: 'linux_ex2.md'
 theme:
   name: readthedocs
