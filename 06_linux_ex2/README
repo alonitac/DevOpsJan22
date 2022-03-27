@@ -17,8 +17,17 @@ Process states
 ami-porat@amiporat-HP-ProBook-440-G5:~/PycharmProjects/DevOpsJan22$ cat overloaded_file
 hello world
 
+ami-porat@amiporat-HP-ProBook-440-G5:~/PycharmProjects/DevOpsJan22$ cat write_to_file_sequentially.sh
+#!/bin/bash
+for i in $(seq 1000); do
+  echo "hello world" > overloaded_file
+done
 
-
+ami-porat@amiporat-HP-ProBook-440-G5:~/PycharmProjects/DevOpsJan22$ cat multi_process_file_writing.sh
+#!/bin/bash
+for i in $(seq 1000); do
+  ./write_to_file_sequentially.sh &
+done
 
 
 
