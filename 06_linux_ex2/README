@@ -1,2 +1,21 @@
-name@example.com
+danielbar396@gmail.com
 
+#Processes handling
+Q1 nohup
+Q2 False
+Q3 Jobs
+Q4 CTRL+C
+Q5 CTRL+Z
+Q6 sleep 10
+Q7 None of the above
+Q8 kill -9 4846
+Q9 kill -CHLD 4828
+Q10 k
+Q11 The program implements the kernel default signal handler for the SIGINT signal, which is to terminate the process.
+
+#Process states
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   9788   520 ?        Ssl  Mar20   0:00 /init
+root       728  0.0  0.0   9796   296 tty1     Ss   Mar22   0:00 /init
+daniel0+   729  0.0  0.0  18332  3988 tty1     S    Mar22   0:01 -bash
+root      1772  0.0  0.0  18920  2712 tty1     T    14:16   0:00 sudo vim /etc/environment
