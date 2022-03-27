@@ -1,2 +1,102 @@
-name@example.com
+**********************************
+Processes handling (20-25 points)
+**********************************
 
+(Q1) A user started a process and logged out from the terminal. Which command he used if the process still running in
+     the background:
+(ANSWER) nohup
+
+(Q2) The kill command always terminates a process.
+(ANSWER) False
+
+(Q3) Which command could be used to know how many processes are running in the background terminal session?
+(ANSWER) jobs
+
+(Q4) Given a terminal session with long process running in it, how will you ask this process to terminate?
+(ANSWER) CTRL+c
+
+(Q5) Given a terminal session with long process running in it, how will you ask this process the stop?
+(ANSWER) CTRL+z
+
+(Q6) How would you run the sleep 10 command as a foreground process?
+(ANSWER) sleep 10
+
+(Q7) Which of the following command would deliver a SIGTERM to the xscreensaver process?
+(ANSWER) None of the above
+
+(Q8) Which of the following would deliver a SIGKILL to the xscreensaver command?
+(ANSWER) kill -9 4846
+
+(Q9) Which of the following would send a SIGCHLD (signal number 17) to the ssh-agent process?
+(ANSWER) kill -CHLD 4828
+
+(Q10) Which key pressed within the top command allows the user to send a signal to a process?
+(ANSWER) k
+
+(Q11 - easy 5 points bonus) Open a new terminal session and type the command python. Then send a SIGINT signal
+                            using your keyboard. What best describes how the python process responds to the SIGINT
+                            signal? (you can exit this process by typing exit() in the python console)
+
+(ANSWER) The program has implemented a custom signal handler for the SIGINT signal.
+
+
+**********************************
+Process states (20 points)
+**********************************
+
+---------------------------------------------------------------------------------------------------------------------
+(TASK 1)
+Now that everything is ready, run ./multi_process_file_writing.sh and observe the terminal running the top command.
+While you see the multi_process_file_writing process in top, take the snapshot.
+
+(ANSWER)
+Below, snapshot of "multi_process_file_writing" process in "top":
+
+top -c
+
+home@ubuntu:~$ top -c
+top - 14:14:11 up 23 min,  3 users,  load average: 339.86, 617.44, 468.27
+Tasks: 704 total,   3 running, 701 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.0 us, 98.0 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   1941.1 total,    351.5 free,   1177.3 used,    412.3 buff/cache
+MiB Swap:    923.3 total,    910.7 free,     12.5 used.    598.9 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   8831 home      20   0    9632   3492   3068 R   0.6   0.2   0:00.05 /bin/bash ./multi_process_file_writing.sh
+
+---------------------------------------------------------------------------------------------------------------------
+
+(TASK 2)
+
+From ps man page, read what each process state code means. Explore ps aux output and copy to the
+README 5 lines maximum which indicating that some processes are waiting (sleeping due to IO operation),
+and some are running. While you'll find many processes in a waiting state, it may be hard to catch a process
+in a running state... try to execute ps aux again until you'll fine one.
+You may also find ps aux | grep "   R    " useful.
+
+(ANSWER)
+
+After exploring the ps man page I found the PROCESS STATE CODES:
+
+       Here are the different values that the s, stat and state output specifiers (header "STAT" or "S") will display
+       to describe the state of a process:
+
+               D    uninterruptible sleep (usually IO)
+               I    Idle kernel thread
+               R    running or runnable (on run queue)
+               S    interruptible sleep (waiting for an event to complete)
+               T    stopped by job control signal
+               t    stopped by debugger during the tracing
+               W    paging (not valid since the 2.6.xx kernel)
+               X    dead (should never be seen)
+               Z    defunct ("zombie") process, terminated but not reaped by its parent
+
+*** I was able to catch "write_to_file_sequentially.sh" in "R" and "D" states by using "ps aux" command ***
+
+home       12615  2.0  0.1   9632  3196 pts/0    R+   14:19   0:00 /bin/bash ./write_to_file_sequentially.sh
+home       12621  2.0  0.1   9632  3320 pts/0    R+   14:19   0:00 /bin/bash ./write_to_file_sequentially.sh
+home       12751  0.2  0.1   9632  3292 pts/0    D+   14:19   0:00 /bin/bash ./write_to_file_sequentially.sh
+home       12752  0.2  0.1   9632  3260 pts/0    D+   14:19   0:00 /bin/bash ./write_to_file_sequentially.sh
+home       12753  0.2  0.1   9632  3244 pts/0    D+   14:19   0:00 /bin/bash ./write_to_file_sequentially.sh
+
+---------------------------------------------------------------------------------------------------------------------
