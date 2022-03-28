@@ -1,2 +1,19 @@
-name@example.com
+shlomigd@gmail.com
 
+Q1 - nohup.
+Q2 - False.
+Q3 - jobs.
+Q4 - CTRL+c.
+Q5 - CTRL+z.
+Q6 - sleep 10.
+Q7 - kill 4846.
+Q8 - kill -9 4846.
+Q9 - kill -17 ssh-agent.
+Q10 - None of the above.
+Q11 - The program ignores the SIGINT signal.
+
+shlomi   19221  0.0  0.0   8756  3180 pts/0    D    21:42   0:00 /bin/bash ./write_to_file_sequentially.sh
+shlomi   19222  0.0  0.0   8756  3044 pts/0    D    21:42   0:00 /bin/bash ./write_to_file_sequentially.sh
+shlomi   19223  0.0  0.0   8756  3180 pts/0    D    21:42   0:00 /bin/bash ./write_to_file_sequentially.sh
+shlomi   19224  0.0  0.0   8756  3224 pts/0    R    21:42   0:00 /bin/bash ./write_to_file_sequentially.sh
+shlomi   19225  0.0  0.0   8756  3192 pts/0    D    21:42   0:00 /bin/bash ./write_to_file_sequentially.sh
