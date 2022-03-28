@@ -1,2 +1,36 @@
-name@example.com
+lubarsky1977@gmail.com
+kosta@tadiran-group.co.il
+
+Q1 - nohup
+
+Q2 - False
+
+Q3 - jobs
+
+Q4 - CTRL+C
+
+Q5 - CTRL+Z
+
+Q6 - sleep 10
+
+Q7 - None of the above
+
+Q8 - kill -9 4846
+
+Q9 - All of the above
+
+Q10 - k
+
+Q11 - The program ignores the SIGINT signal.
+
+
+Process states
+
+kosta     1141  3.7  0.0  16796  1780 tty1     S    08:47   0:00 /bin/bash ./write_to_file_sequentially.sh
+kosta     1142  5.8  0.0  16796  1784 tty1     S    08:47   0:00 /bin/bash ./write_to_file_sequentially.sh
+kosta     1143  4.8  0.0  16796  1780 tty1     R    08:47   0:00 /bin/bash ./write_to_file_sequentially.sh
+kosta     1145  4.0  0.0  16796  1780 tty1     S    08:47   0:00 /bin/bash ./write_to_file_sequentially.sh
+
+
+
 
