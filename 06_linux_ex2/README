@@ -56,3 +56,24 @@ doron.dollev@gmail.com
  how the python process responds to the SIGINT signal?
 
 * The program has implemented a custom signal handler for the SIGINT signal.
+
+Process state
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+doron      26853  0.1  0.0   7024  3300 pts/0    D    12:34   0:02 /bin/bash ./write_to_file_sequentially.sh
+doron      26854  0.1  0.0   7024  3208 pts/0    D    12:34   0:02 /bin/bash ./write_to_file_sequentially.sh
+doron      26855  0.1  0.0   7024  3400 pts/0    R    12:34   0:02 /bin/bash ./write_to_file_sequentially.sh
+doron      26856  0.1  0.0   7024  3156 pts/0    D    12:34   0:02 /bin/bash ./write_to_file_sequentially.sh
+doron      26857  0.1  0.0   7024  3380 pts/0    D    12:34   0:02 /bin/bash ./write_to_file_sequentially.sh
+
+USER - doron (me)
+PID - process ID
+%CPU - current CPU usage
+%MEM - current memory usage (physical memory)
+VSZ - virtual memory size (in kilobytes)
+RSS - resident set size, the non-swapped physical memory that a task has used (in kilobytes)
+STAT - D uninterruptible sleep
+STAT - R running or runnable
+START - time the command started
+TIME - accumulated CPU time (user + system)
+COMMAND - command name with all its arguments as a string
+
