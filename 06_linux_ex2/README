@@ -5,8 +5,14 @@ Q3 jobs
 Q4 Cc
 Q5 Cz
 Q6 sleep 10
-Q7 kill 4846
+Q7 none of the above
 Q8 kill -9 4846
 Q9 kill -CHLD 4828
 Q10 K
 +Q11 The program has implemented a custom signal handler for the SIGINT signal.
+
+dusty      15724  1.0  0.0  10064  3564 pts/1    D    20:18   0:00 /bin/bash ./write_to_file_sequentially.sh
+dusty      15725  1.3  0.0  10064  3548 pts/1    R    20:18   0:00 /bin/bash ./write_to_file_sequentially.sh
+dusty      15726  1.0  0.0  10064  3496 pts/1    D    20:18   0:00 /bin/bash ./write_to_file_sequentially.sh
+dusty      15727  1.0  0.0  10064  3556 pts/1    D    20:18   0:00 /bin/bash ./write_to_file_sequentially.sh
+dusty      15728  1.3  0.0  10064  3520 pts/1    D    20:18   0:00 /bin/bash ./write_to_file_sequentially.sh
