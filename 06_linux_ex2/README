@@ -1,3 +1,71 @@
 itaybenb222@gmail.com
+........................................................................................................................
+                                                Processes handling :
+
+(Q1) A user started a process and logged out from the terminal. Which command he used if the process still running in
+     the background:
+ANSWER:- nohup
+
+(Q2) The kill command always terminates a process.
+ANSWER:- False
+
+(Q3) Which command could be used to know how many processes are running in the background terminal session?
+ANSWER:- jobs
+
+(Q4) Given a terminal session with long process running in it, how will you ask this process to terminate?
+ANSWER:- CTRL+c
+
+(Q5) Given a terminal session with long process running in it, how will you ask this process the stop?
+ANSWER:- CTRL+z
+
+(Q6) How would you run the sleep 10 command as a foreground process?
+ANSWER:- sleep 10
+
+(Q7) Which of the following command would deliver a SIGTERM to the xscreensaver process?
+ANSWER:- None of the above
+
+(Q8) Which of the following would deliver a SIGKILL to the xscreensaver command?
+ANSWER:- kill -9 4846
+
+(Q9) Which of the following would send a SIGCHLD (signal number 17) to the ssh-agent process?
+ANSWER:- kill -CHLD 4828
+
+(Q10) Which key pressed within the top command allows the user to send a signal to a process?
+ANSWER:- k
+
+(Q11) - easy 5 points bonus) Open a new terminal session and type the command python. Then send a SIGINT signal
+                            using your keyboard. What best describes how the python process responds to the SIGINT
+                            signal? (you can exit this process by typing exit() in the python console)
+
+ANSWER:- The program has implemented a custom signal handler for the SIGINT signal.
+
+........................................................................................................................
+                                                         Process states:
+
+     itay@ubuntu:~$ top
+top - 16:29:18 up 21 min,  5 users,  load average: 363.42, 218.49, 86.59
+Tasks: 630 total,   6 running, 624 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.0 us, 26.3 sy,  0.2 ni, 71.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7915.3 total,   5398.5 free,   1221.0 used,   1295.8 buff/cache
+MiB Swap:    923.3 total,    923.3 free,      0.0 used.   6440.1 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+  11826 itay      20   0 4140680 250536 103548 R   2.3   3.1   0:03.62 gnome-shell
+  11998 itay      20   0    9632   3344   2948 R   0.7   0.0   0:00.02 multi_process_f
+    886 root      20   0 1270156  42552  28268 S   0.3   0.5   0:01.00 containerd
+   3481 root      20   0       0      0      0 I   0.3   0.0   0:00.37 kworker/u256:0-ext4-rsv-conversion
+  12000 itay      20   0    9632   3364   3128 D   0.3   0.0   0:00.01 write_to_file_s
+  12005 itay      20   0    9632   3176   2944 D   0.3   0.0   0:00.01 write_to_file_s
+  12006 itay      20   0    9632   3264   3028 D   0.3   0.0   0:00.01 write_to_file_s
+  12007 itay      20   0    9632   3304   3072 D   0.3   0.0   0:00.01 write_to_file_s
+  12015 itay      20   0    9632   3240   3004 D   0.3   0.0   0:00.01 write_to_file_s
+  12024 itay      20   0    9632   3356   3124 D   0.3   0.0   0:00.01 write_to_file_s
+  12036 itay      20   0    9632   3224   2988 D   0.3   0.0   0:00.01 write_to_file_s
 
 
+   itay@ubuntu:~$ ps aux
+itay       20121  0.0  0.0   9632  3304 pts/3    R    16:31   0:00 /bin/bash ./write_to_file_sequentially.sh
+itay       20122  0.0  0.0   9632  3176 pts/3    D    16:31   0:00 /bin/bash ./write_to_file_sequentially.sh
+itay       20123  0.0  0.0   9632  3292 pts/3    D    16:31   0:00 /bin/bash ./write_to_file_sequentially.sh
+itay       20124  0.0  0.0   9632  3184 pts/3    D    16:31   0:00 /bin/bash ./write_to_file_sequentially.sh
+itay       20125  0.0  0.0   9632  3304 pts/3    D    16:31   0:00 /bin/bash ./write_to_file_sequentially.sh
