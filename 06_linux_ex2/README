@@ -17,18 +17,6 @@ Process states
 ami-porat@amiporat-HP-ProBook-440-G5:~/PycharmProjects/DevOpsJan22$ cat overloaded_file
 hello world
 
-ami-porat@amiporat-HP-ProBook-440-G5:~/PycharmProjects/DevOpsJan22$ cat write_to_file_sequentially.sh
-#!/bin/bash
-for i in $(seq 1000); do
-  echo "hello world" > overloaded_file
-done
-
-ami-porat@amiporat-HP-ProBook-440-G5:~/PycharmProjects/DevOpsJan22$ cat multi_process_file_writing.sh
-#!/bin/bash
-for i in $(seq 1000); do
-  ./write_to_file_sequentially.sh &
-done
-
 ami-porat@amiporat-HP-ProBook-440-G5:~/PycharmProjects/DevOpsJan22$ ps aux | grep "  R  "
 ami-por+   22522  0.3  0.0   9636  3308 pts/1    R    22:20   0:00 /bin/bash ./write_to_file_sequentially.sh
 ami-por+   22646  0.3  0.0   9636  3308 pts/1    R    22:20   0:00 /bin/bash ./write_to_file_sequentially.sh
