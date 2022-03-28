@@ -29,13 +29,13 @@ dd if=/dev/urandom of=masterKey.txt bs=32 count=1
 
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in masterKey.txt -outform DER cert.pem | base64 -w 0)
 
-SESSION_ID=$(curl -X POST -H 'Content-Type: application/json' -d '{"clientVersion": "3.2", "message": "Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello | jq -r '.sessionID'
+SESSION_ID=$(curl -X POST -H 'Content-Type: application/json' -d '{"clientVersion": "3.2", "message": "Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello | jq -r '.sessionID')
 
-curl -X POST -H 'Content-Type: application/json' -d '{ "sessionID": "'($SESSION_ID)'", "masterKey": "'($MASTER_KEY)'", "sampleMessage":"Hi server, please encrypt me and send to client!"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/keyexchange | jq -r '.encryptedSampleMessage' > encryptedSampleMessage.txt
+curl -X POST -H 'Content-Type: application/json' -d '{"sessionID":"'${SESSION_ID}'","masterKey":"'${MASTER_KEY}'","sampleMessage":"Hi server, please encrypt me and send to client!"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/keyexchange | jq -r '.encryptedSampleMessage' > encryptedSampleMessage.txt
 
-cat  encryptedSampleMessage.txt | base64 -d > encSampleMsgReady.txt
+cat encryptedSampleMessage.txt | base64 -d > encryptedSampleMsgReady.txt
 
-openssl enc -d -aes-256-cbc -pbkdf2 -kfile masterKey.txt -in encSampleMsgReady.txt -out decryptedSampleMassage.txt | base64 -w 0
+openssl enc -d -aes-256-cbc -pbkdf2 -kfile masterKey.txt -in encSampleMsgReady.txt -out dencryptedSampleMassage.txt
 
 if [ "$DECRYPTED_SAMPLE_MESSAGE" != "Hi server, please encrypt me and send to client!" ];
 then
