@@ -1,2 +1,23 @@
-name@example.com
+daniel.malka@hiper-global.com
+
+Questions:
+1 - nohup
+2 - False
+3 - jobs
+4 - CTRL+c
+5 - CTRL+z
+6 - sleep 10
+7 - None of the above
+8 - kill -9 4846
+9 - kill -CHLD 4828
+10 - k
+11 - The program implements the kernel default signal handler for the SIGINT signal, which is to terminate the process.
+
+Processes:
+
+daniel    104758  0.0  0.1  14116  5960 ?        S    02:00   0:00 sshd: devops@pts/3
+daniel    104759  0.0  0.1  11020  5384 pts/3    Ss   02:00   0:00 -bash
+daniel    104780 35.9  0.6 435640 27764 ?        Ssl  02:02   1:33 /usr/libexec/tracker-store
+daniel    104790  1.0  0.8 1213848 34812 ?       SNsl 02:02   0:02 /usr/libexec/tracker-extract
+daniel    104810  0.0  0.0   9632  3208 pts/1    D    02:02   0:00 /bin/bash ./write_to_file_sequentially.sh
 
