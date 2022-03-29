@@ -29,6 +29,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-      - name: Run Unittests
+      - name: Katas Tests results
         run: |
           python -m python_katas.kata_1.test
