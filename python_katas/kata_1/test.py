@@ -14,7 +14,7 @@ class TestSumOfElements(unittest.TestCase):
 
     def test_negative_numbers(self):
         lst = [1, -6, 7, 0, 99]
-        self.assertEqual(questions.sum_of_element(lst), 101)
+        self.assertEqual(questions.sum_of_element(lst), 100)
 
     def test_all_zeros(self):
         lst = [0] * 50000
