@@ -1,3 +1,28 @@
-name@example.com
+osherovski@gmail.com
 
-test
+Processes handling:
+Q1: nohup
+Q2: False
+Q3: jobs
+Q4: CTRL +c
+Q5: CTRL +z
+Q6: sleep 10
+Q7: kill 4846
+Q8: kill -9 4846
+Q9: kill -CHLD 4828
+Q10: k
+Q11: The program has implemented a custom signal handler for the SIGINT signal.
+
+Process states:
+"
+usr       16842  0.0  0.0   9632  3208 pts/0    D    16:55   0:00 /bin/bash ./write_to_file_seque
+usr       16843 15.5  0.0 434872 27268 ?        Ssl  16:55   0:00 /usr/libexec/tracker-store
+usr       18083  0.5  0.0   9632  3244 pts/0    R    16:55   0:00 /bin/bash ./write_to_file_seque
+usr ....  998 (+2) times - 999 process are sleeping while only one is running
+usr       18391  3.5  0.1 1280040 35792 ?       SNsl 16:55   0:00 /usr/libexec/tracker-extract
+"
+While we asked a program to run 1000 times on a certain file, the whole execution process will look like each time
+one program finishes interacting with the file the next program will wake up and so on, until all of them are done.
+tracker-store\extract
+Tracker is a synergy of technologies that are designed to provide a highly sophisticated,
+innovative and integrated desktop.
