@@ -1,20 +1,23 @@
 import unittest
 from python_katas.kata_1 import questions
+from python_katas.utils import unittest_runner
 
 
 class TestSumOfElements(unittest.TestCase):
-
+    """
+    1 Katas
+    """
     def test_empty_list(self):
         lst = []
         self.assertEqual(questions.sum_of_element(lst), 0)
 
     def test_integers_list(self):
         lst = [1, 2, 3, 4, 5]
-        self.assertEqual(questions.sum_of_element(lst), 14)
+        self.assertEqual(questions.sum_of_element(lst), 15)
 
     def test_negative_numbers(self):
         lst = [1, -6, 7, 0, 99]
-        self.assertEqual(questions.sum_of_element(lst), 100)
+        self.assertEqual(questions.sum_of_element(lst), 101)
 
     def test_all_zeros(self):
         lst = [0] * 50000
@@ -22,6 +25,9 @@ class TestSumOfElements(unittest.TestCase):
 
 
 class TestSumOfElements2(unittest.TestCase):
+    """
+    1 Katas
+    """
 
     def test_empty_list(self):
         lst = []
@@ -33,7 +39,7 @@ class TestSumOfElements2(unittest.TestCase):
 
     def test_negative_numbers(self):
         lst = [1, -6, 7, 0, 99]
-        self.assertEqual(questions.sum_of_element(lst), 100)
+        self.assertEqual(questions.sum_of_element(lst), 101)
 
     def test_all_zeros(self):
         lst = [0] * 50000
@@ -41,4 +47,6 @@ class TestSumOfElements2(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    import inspect
+    import sys
+    unittest_runner(inspect.getmembers(sys.modules[__name__], inspect.isclass))
