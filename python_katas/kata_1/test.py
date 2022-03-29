@@ -13,7 +13,7 @@ class TestSumOfElements(unittest.TestCase):
 
     def test_integers_list(self):
         lst = [1, 2, 3, 4, 5]
-        self.assertEqual(questions.sum_of_element(lst), 15)
+        self.assertEqual(questions.sum_of_element(lst), 14)
 
     def test_negative_numbers(self):
         lst = [1, -6, 7, 0, 99]
