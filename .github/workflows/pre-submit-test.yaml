@@ -31,4 +31,4 @@ jobs:
           python-version: 3.8
       - name: Run Unittests
         run: |
-          python -m python_katas.kata_1.test
+          python -m python_katas.kata_1.test > results.txt
