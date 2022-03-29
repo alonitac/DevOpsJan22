@@ -13,7 +13,7 @@ def parse_katas_score(classes, result):
         if not match:
             katas += int(cls.__doc__.split('Kata')[0].strip())
     print('---------------------------------------')
-    print(f'Total Katas: {katas}')
+    print(f'Total Python Katas: {katas}')
     print('---------------------------------------')
 
 
