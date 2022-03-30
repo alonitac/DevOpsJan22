@@ -22,3 +22,15 @@ Q10. k
 
 Q11.The program ignores the SIGINT signal
 
+# Process states
+
+john        6681  0.0  0.0   9632  3284 pts/0    R    13:59   0:00 /bin/bash ./write_to_file_sequentially.sh
+john       10075  0.0  0.0   9632  3308 pts/0    R    13:59   0:00 /bin/bash ./write_to_file_sequentially.sh
+john       12874  0.0  0.0   9632  3312 pts/0    R    13:59   0:00 /bin/bash ./write_to_file_sequentially.sh
+john       19274  0.0  0.0   9632  3224 pts/0    R    14:03   0:00 /bin/bash ./write_to_file_sequentially.sh
+john       19278  0.0  0.0   9632  3276 pts/0    R    14:03   0:00 /bin/bash ./write_to_file_sequentially.sh
+
+
+
+
+
