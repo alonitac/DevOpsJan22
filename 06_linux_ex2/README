@@ -23,6 +23,9 @@ usr       18391  3.5  0.1 1280040 35792 ?       SNsl 16:55   0:00 /usr/libexec/t
 "
 While we asked a program to run 1000 times on a certain file, the whole execution process will look like each time
 one program finishes interacting with the file the next program will wake up and so on, until all of them are done.
-tracker-store\extract
-Tracker is a synergy of technologies that are designed to provide a highly sophisticated,
-innovative and integrated desktop.
+
+# tracker-store\extract
+"Tracker is a synergy of technologies that are designed to provide a highly sophisticated,
+innovative and integrated desktop."
+
+(Basicly I think it (tracker) keep track of all the process - what ever is sleeping, who is working, and who is next, etc...)
