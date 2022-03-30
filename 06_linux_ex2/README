@@ -1,2 +1,24 @@
-name@example.com
+john5754@gmail.com
+
+Q1. nohup
+
+Q2. False, sometimes it let them run until full stop
+
+Q3.jobs
+
+Q4. Ctrl+C
+
+Q5. Ctrl+z
+
+Q6. sleep 10 &
+
+Q7.kill 4846
+
+Q8.kill -9 4846
+
+Q9.kill -CHLD 4828
+
+Q10. k
+
+Q11.The program ignores the SIGINT signal
 
