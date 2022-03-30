@@ -4,17 +4,17 @@ alexeymihaylovdev@gmail.com
 
 
 
-1. nohup
-2. True
-3. jobs
-4. CTRL+c
-5. CTRL+z
-6. sleep 10 &
-7. None of the above  (kill -term ProcessID)
-8. kill -9 4846
-9. kill -17 ssh-agent
-10. k  (Which key allows you to kill a process in top?)
-11. None of the above
+q1. nohup
+q2. True
+q3. jobs
+q4. CTRL+c
+q5. CTRL+z
+q6. sleep 10 &
+q7. None of the above  (kill -term ProcessID)
+q8. kill -9 4846
+q9. kill -17 ssh-agent
+q10. k  (Which key allows you to kill a process in top?)
+q11. None of the above
 
 
 
