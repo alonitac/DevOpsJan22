@@ -14,3 +14,16 @@ ________________
 (Q9): kill -CHLD 4828
 (Q10): k
 (Q11): The program has implemented a custom signal handler for the SIGINT signal.
+
+
+process states:
+______________
+
+mkshamir  3123  0.9  0.0  16796  1788 tty1     R    04:19   0:02 /bin/bash ./write_to_file_sequentially.sh
+mkshamir  3134  1.0  0.0  16796  1780 tty1     R    04:19   0:02 /bin/bash ./write_to_file_sequentially.sh
+
+mkshamir  1415  0.7  0.0  16796  1784 tty1     S    04:19   0:02 /bin/bash ./write_to_file_sequentially.sh
+mkshamir  1416  0.6  0.0  16796  1788 tty1     S    04:19   0:02 /bin/bash ./write_to_file_sequentially.sh
+
+R- indicates that a process is running or runnable.
+S- indicates that a process is in interruptible sleep (waiting for an event to complete)
