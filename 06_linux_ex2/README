@@ -1,2 +1,38 @@
-name@example.com
+shaykllifalon@gmail.com
+
+Processes handling
+##################
+
+
+Q1 - bg
+
+Q2 - False
+
+Q3 - jobs
+
+Q4 - CTRL+c
+
+Q5 - CTRL+z
+
+Q6 - sleep 10 &
+
+Q7 - kill -15 4846
+
+Q8 - kill -9 4846
+
+Q9 - kill -CHLD 4828
+
+Q10 - k
+
+Q111 - The program ignores the SIGINT signal.
+
+
+Process states
+##############
+
+kllif     111255  0.0  0.0   9632  3248 pts/1    D    20:52   0:00 /bin/bash ./write_to_file_sequentially.sh
+kllif     111257  0.0  0.0   9632  3284 pts/1    D    20:52   0:00 /bin/bash ./write_to_file_sequentially.sh
+kllif     111258  0.0  0.0   9632  3272 pts/1    R    20:52   0:00 /bin/bash ./write_to_file_sequentially.sh
+kllif     111259  0.0  0.0   9632  3240 pts/1    D    20:52   0:00 /bin/bash ./write_to_file_sequentially.sh
+kllif     111260  0.1  0.0   9632  3164 pts/1    D    20:52   0:00 /bin/bash ./write_to_file_sequentially.sh
 
