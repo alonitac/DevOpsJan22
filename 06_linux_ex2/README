@@ -49,8 +49,8 @@ Q7) Which of the following command would deliver a SIGTERM to the xscreensaver p
 
 Process states:
 
-dimash    103750  0.2  0.0   9500  3376 pts/1    R    13:35   0:00 /bin/bash ./write_to_file_sequentially.sh
-dimash    104477  0.0  0.0   9500  3212 pts/1    R    13:35   0:00 /bin/bash ./write_to_file_sequentially.sh
-dimash    104499  0.3  0.0   9500  3284 pts/1    R    13:35   0:00 /bin/bash ./write_to_file_sequentially.sh
-dimash    103541  0.2  0.0   9500  3200 pts/1    D    13:35   0:00 /bin/bash ./write_to_file_sequentially.sh
-dimash    103542  0.3  0.0   9500  3260 pts/1    D    13:35   0:00 /bin/bash ./write_to_file_sequentially.sh
+devops    103750  0.2  0.0   9500  3376 pts/1    R    13:35   0:00 /bin/bash ./write_to_file_sequentially.sh
+devops    104477  0.0  0.0   9500  3212 pts/1    R    13:35   0:00 /bin/bash ./write_to_file_sequentially.sh
+devops    104499  0.3  0.0   9500  3284 pts/1    R    13:35   0:00 /bin/bash ./write_to_file_sequentially.sh
+devops    103541  0.2  0.0   9500  3200 pts/1    D    13:35   0:00 /bin/bash ./write_to_file_sequentially.sh
+devops    103542  0.3  0.0   9500  3260 pts/1    D    13:35   0:00 /bin/bash ./write_to_file_sequentially.sh
