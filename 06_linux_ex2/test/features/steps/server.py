@@ -26,7 +26,7 @@ def step_impl(context):
     with open('../tlsHandshake.sh') as f:
         script = f.read()
 
-    script = script.replace('devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080', 'localhost:8080')
+    script = script.replace('devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080', '127.0.0.1:8080')
 
     with open('../tmpStudentSolution.sh', 'w') as f:
         f.write(script)
