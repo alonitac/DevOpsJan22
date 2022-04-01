@@ -1,10 +1,11 @@
+import asyncio
 from json import JSONDecodeError
 from aiohttp import web
 import uuid
 import os
 import random
 
-
+loop = None
 client_secrets = {}
 
 with open('bob-cert.pem') as f:
@@ -86,8 +87,25 @@ def main():
     app = web.Application()
     app.add_routes([web.post('/clienthello', client_hello)])
     app.add_routes([web.post('/keyexchange', key_exchange)])
-    web.run_app(app, host='0.0.0.0')
+    runner = web.AppRunner(app)
+    return runner
+
+
+def run_server(runner):
+    global loop
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(runner.setup())
+    site = web.TCPSite(runner, 'localhost', 8080)
+    loop.run_until_complete(site.start())
+    loop.run_forever()
+
+
+def close():
+    global loop
+    if loop is not None:
+        loop.call_soon_threadsafe(loop.stop)
 
 
 if __name__ == '__main__':
-    main()
+    run_server(main())
