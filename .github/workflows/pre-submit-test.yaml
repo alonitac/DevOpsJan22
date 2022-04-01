@@ -3,7 +3,7 @@ on: [push]
 jobs:
   LinuxEx2Test:
     runs-on: ubuntu-latest
-    if: ${{ startsWith(github.ref, 'refs/heads/python_katas_')  }}
+    if: ${{ startsWith(github.ref, 'refs/heads/linux_ex2/')  }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.8
