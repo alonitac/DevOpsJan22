@@ -1,7 +1,7 @@
 name: Students Presubmit Tests
 on: [push]
 jobs:
-  PythonKata1Test:
+  LinuxEx2Test:
     runs-on: ubuntu-latest
     if: ${{ startsWith(github.ref, 'refs/heads/python_katas_')  }}
     steps:
