@@ -7,8 +7,7 @@ curl -d '{"clientVersion":"3.2", "message":"Client Hello"}' -H "Content-Type: ap
 #observing response content
 cat response.txt
 
-# sorting the retrieved response
-cat response.txt | jq -r '.serverVersion' > serverVersion.txt
+# sorting the retrieved response into text files
 cat response.txt | jq -r '.sessionID' > sessionID.txt
 cat response.txt | jq -r '.serverCert' > cert.pem
 
@@ -46,3 +45,23 @@ curl -d '{"sessionID": "'$SESSION_ID'","masterKey": "'$MASTER_KEY'","sampleMessa
 #observing response2 content
 cat response2.txt
 
+#sorting relevant retrieved response into a text file
+cat response2.txt | jq -r '.encryptedSampleMessage' > encSampleMsg.txt
+
+#the content of encryptedSampleMessage is stored in a file called encSampleMsg.txt
+cat encSampleMsg.txt | base64 -d > encSampleMsgReady.txt
+#file encSampleMsgReady.txt is ready now to be used in "openssl enc...." command
+
+#decrypting sample message and storing the it in a new variable
+openssl enc -d -aes-256-cbc -pbkdf2 -kfile masterKey.txt -in encSampleMsgReady.txt -out decrypted.txt
+cat decrypted.txt
+DECRYPTED_SAMPLE_MESSAGE=$(<decrypted.txt)
+printenv DECRYPTED_SAMPLE_MESSAGE
+
+#checking decryption was successful
+if [ "$DECRYPTED_SAMPLE_MESSAGE" != "Hi server, please encrypt me and send to client!" ]; then
+  echo "Server symmetric encryption using the exchanged master-key has failed."
+  exit 1
+else
+  echo "Client-Server TLS handshake has been completed successfully"
+fi
