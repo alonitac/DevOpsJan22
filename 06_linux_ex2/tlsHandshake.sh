@@ -55,7 +55,7 @@ cat encSampleMsg.txt | base64 -d > encSampleMsgReady.txt
 #decrypting sample message and storing the it in a new variable
 openssl enc -d -aes-256-cbc -pbkdf2 -kfile masterKey.txt -in encSampleMsgReady.txt -out decrypted.txt
 cat decrypted.txt
-DECRYPTED_SAMPLE_MESSAGE=$(<decrypted.txt)
+export DECRYPTED_SAMPLE_MESSAGE=$(cat decrypted.txt)
 printenv DECRYPTED_SAMPLE_MESSAGE
 
 #checking decryption was successful
