@@ -1,2 +1,26 @@
-name@example.com
+kandovrami@gmail.com
+
+
+ex2:
+======
+Q1: nohup
+Q2: true
+Q3: jobs
+Q4: ctrC
+Q5: ctrZ
+Q6: sleep10
+Q7: none
+Q8: kill -9 4846
+Q9: kill -17 ssh-agent
+Q10: k
+Q11: none
+
+
+EX3:
+============
+rami     31908  0.0  0.0   8752  3080 pts/1    D    11:53   0:00 /bin/bash ./write_to_file_sequentially.sh
+rami     31911  0.0  0.0   8752  3120 pts/1    D    11:53   0:00 /bin/bash ./write_to_file_sequentially.sh
+rami     31913  0.0  0.0   8752  3024 pts/1    D    11:53   0:00 /bin/bash ./write_to_file_sequentially.sh
+rami     31914  0.0  0.0   8752  3036 pts/1    D    11:53   0:00 /bin/bash ./write_to_file_sequentially.sh
+rami     31929  0.0  0.0  10620  3340 pts/3    R+   11:53   0:00 ps aux
 
