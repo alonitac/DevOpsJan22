@@ -16,9 +16,14 @@ class TestSumOfElements(unittest.TestCase):
     """
     1 Katas
     """
+
+    def sum_of_element(elements):
+        return sum(elements)
+
     def test_empty_list(self):
         lst = []
         self.assertEqual(questions.sum_of_element(lst), 0)
+
 
     def test_integers_list(self):
         lst = [1, 2, 3, 4, 5]
