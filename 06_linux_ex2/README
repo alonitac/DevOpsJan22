@@ -1,2 +1,23 @@
-name@example.com
+adan10.aa4@gmail.com
 
+
+
+Processes handling:
+Q1 : nohup
+Q2 : true
+Q3 : jobs
+Q4 : ctrl + c
+Q5 : ctrl + z
+Q6 : sleep 10 &
+Q7 : none of the above
+Q8 : kill -9 4846
+Q9 : kill -17 ssh-agent
+Q10: k
+Q11: none of the above
+
+Process states:
+adanbh    8495  0.1  0.0   8752  3092 pts/2    S    19:49   0:00 /bin/bash ./write_to_file_sequentially.sh
+adanbh    8496  0.1  0.0   8752  3064 pts/2    S    19:49   0:00 /bin/bash ./write_to_file_sequentially.sh
+adanbh    8497  0.1  0.0   8752  3216 pts/2    S    19:49   0:00 /bin/bash ./write_to_file_sequentially.sh
+adanbh    8523  2.0  0.0  11956  4728 pts/1    S+   19:49   0:00 top
+adanbh    8524  0.0  0.0  10620  3344 pts/3    R+   19:49   0:00 ps aux
