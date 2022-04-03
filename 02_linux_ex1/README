@@ -1,12 +1,24 @@
-name@example.com
-< your secret here >
-
+eliranshriki23@gmail.com
+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
 
 Kernel System Calls
 -------------------
-< Your Answer >
 
+the program create directory name "welcomeToDevOpsJan22" and in this folder it create a file name "goodLuck" in the file
+there is a massage "There you go... tell me what I do..."
 
 Binary Numbers
 --------------
-< Your Answer >
+1)  a) 111=7
+    b) 100=4
+    c) 10110=22
+2)0-255
+3)if we look on 8 bits in binary as a positive number we can look at the 8 bits as 9 bits that start with the number 0
+so if we look on 9 bits that start with 1 we can see it as a negative number
+011111111=255
+111111111=-255
+
+4) if we a 16 bits number and we devided the 16 bits to 10 bits and 6 bits and put after the first bit "." the last 6 bits
+will be the floating number.
+12.3=1100.01001100110
+
