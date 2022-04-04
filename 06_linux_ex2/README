@@ -35,7 +35,13 @@ prodevildaniel@gmail.com
 (Q11 - easy 5 points bonus) Open a new terminal session and type the command python. Then send a SIGINT signal using your keyboard. What best describes how the python process responds to the SIGINT signal? (you can exit this process by typing exit() in the python console)
 * The program has implemented a custom signal handler for the SIGINT signal.
 
+Process states:
 
+daniela+    3024  0.0  0.2  11016  4148 pts/0    Ss+  Apr03   0:00 bash
+daniela+    5811  0.0  0.2  11016  5192 pts/1    Ss   16:26   0:00 bash
+daniela+    5819  0.0  0.2  10884  4820 pts/2    Ss   16:26   0:00 bash
+daniela+    7891  0.0  0.1  11496  3104 pts/1    R+   16:34   0:00 ps aux
+daniela+    7892  0.0  0.0      4     4 pts/1    R+   16:34   0:00 [bash]
 
 
 
