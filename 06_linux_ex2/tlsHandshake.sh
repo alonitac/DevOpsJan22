@@ -68,4 +68,4 @@ sleep 1
     tput setaf 2; echo "Client-Server TLS handshake has been completed successfully"
   fi
   tput sgr0
-  exit 1
+exit 1
