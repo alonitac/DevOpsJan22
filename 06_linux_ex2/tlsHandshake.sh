@@ -1,3 +1,4 @@
+#side note - used echo & colors & sleep to better check execution of script manually.
 
 #Pulling initial data from server.
   echo "Performing Client Hello"
