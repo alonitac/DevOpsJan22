@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 def sum_of_element(elements):
     """
     1 Kata
@@ -28,7 +31,17 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    word_len = len(word)
+    # print(word_len)
+    # print(str_exp[-3:word_len])
+    if (word_len >= 3) & (word[-3:word_len] != "ing"):
+        result = word + "ing"
+    else:
+        if word[-3:word_len] == "ing":
+            result = word + "ly"
+        else:
+            result = word
+    return result
 
 
 def words_concatenation(words):
@@ -43,7 +56,15 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    result = ""
+    word_len = len(words)
+    # print(word_len)
+    if word_len > 0:
+        for i in words:
+            result = result + ' ' + i
+        return result
+    else:
+        return None
 
 
 def reverse_words_concatenation(words):
@@ -58,24 +79,43 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    result = ""
+    word_len = len(words)
+    # print(word_len)
+    if word_len > 0:
+        words.reverse()
+        for i in words:
+            result = result + ' ' + i
+        return result
+    else:
+        return None
 
 
-def is_unique_string(some_str):
+def is_unique_string(string_check):
     """
-    2 Kata
+    2Kata
 
-    Given a string, the function returns True is all characters in the string are unique, False otherwise
+    Given a string,the function returns True if all characters in the string are unique,False otherwise
 
     e.g
-    'abcd' -> True
-    'aaabcd' -> False
-    '' -> True      (empty string)
+    'abcd'->True
+    'aaabcd'->False
+    ''->True(emptystring)
 
-    :param some_str:
-    :return: bool
+    :param string_check:
+    :return:bool
     """
-    return None
+    word_len = len(string_check)
+    # print(word_len)
+    if word_len > 0:
+        # Counting frequency
+        freq = Counter(string_check)
+        if (len(freq)) == len(string_check):
+            return True
+        else:
+            return False
+    else:
+        return False
 
 
 def list_diff(elements):
@@ -93,7 +133,18 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    list_len = (len(elements) - 1)
+    # print(list_len)
+    if list_len > 0:
+        l = [None] * list_len
+        for (i) in range(list_len):
+            if i == 0:
+                l[i] = None
+            else:
+                l[i] = (elements[i + 1] - elements[i])
+        return l
+    else:
+        return None
 
 
 def prime_number(num):
@@ -106,7 +157,17 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+    if num > 1:
+        x = range(2, num, 1)
+        # print(x)
+        for n in x:
+            # print('testing - ' + str(n))
+            if (num % n) == 0:
+                print('test failed at - ' + str(n) + ' out of ' + str(num))
+                return False
+        return True
+    else:
+        return False
 
 
 def palindrome_num(num):
@@ -122,7 +183,17 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    if num is not None:
+        x = str(num)
+        x = x[::-1]
+        # print('original: ' + str(num))
+        # print('reversed: ' + str(x))
+        if x == str(num):
+            return True
+        else:
+            return False
+    else:
+        return False
 
 
 def pair_match(men, women):
@@ -289,7 +360,6 @@ def sum_of_digits(digits_str):
 
 
 if __name__ == '__main__':
-
     print('\nsum_of_element:\n--------------------')
     print(sum_of_element([1, 2, 3, 4, 5, 6]))
 
@@ -363,4 +433,3 @@ if __name__ == '__main__':
 
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
-
