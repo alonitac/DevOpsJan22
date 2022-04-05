@@ -1,4 +1,5 @@
 from collections import Counter
+from curses.ascii import isupper
 
 
 def sum_of_element(elements):
@@ -9,10 +10,13 @@ def sum_of_element(elements):
     :return: Return int - the sum of all elements.
     """
     s = 0
-    for num in elements:
-        s = s + num
-
-    return s
+    # print(elements)
+    if elements:
+        for num in elements:
+            s = s + num
+        return s
+    else:
+        return "invalid data"
 
 
 def verbing(word):
@@ -163,7 +167,7 @@ def prime_number(num):
         for n in x:
             # print('testing - ' + str(n))
             if (num % n) == 0:
-                print('test failed at - ' + str(n) + ' out of ' + str(num))
+                print('test of the number ' + str(num) + ' failed at - ' + str(n) + ' out of ' + str(num))
                 return False
         return True
     else:
@@ -194,9 +198,6 @@ def palindrome_num(num):
             return False
     else:
         return False
-
-
-
 
 
 def pair_match(men, women):
@@ -231,8 +232,9 @@ def pair_match(men, women):
     if men:
         minvaluemen = min(men.values())
         # Handle multiple values
-        if len([k for k,v in men.items() if v == minvaluemen]) > 1:
-            list1.append([k for k,v in men.items() if v == minvaluemen])
+        # print(len([k for k,v in men.items() if v == minvaluemen]))
+        if len([k for k, v in men.items() if v == minvaluemen]) > 1:
+            list1.append([k for k, v in men.items() if v == minvaluemen])
         else:
             list1.append(list(men.keys())[list(men.values()).index(minvaluemen)])
     else:
@@ -240,8 +242,9 @@ def pair_match(men, women):
     if women:
         minvaluewomen = min(women.values())
         # Handle multiple values
-        if len([k for k,v in women.items() if v == minvaluewomen]) > 1:
-            list1.append([k for k,v in women.items() if v == minvaluewomen])
+        # print(len([k for k,v in women.items() if v == minvaluewomen]))
+        if len([k for k, v in women.items() if v == minvaluewomen]) > 1:
+            list1.append([k for k, v in women.items() if v == minvaluewomen])
         else:
             list1.append(list(women.keys())[list(women.values()).index(minvaluewomen)])
     else:
@@ -260,9 +263,9 @@ def bad_average(a, b, c):
     """
     calc = (a + b + c)
     if calc != 0:
-        return calc / 3
+        return calc // 3
     else:
-        return "unable to comply"
+        return "Invalid Data"
 
 
 def best_student(grades):
@@ -285,7 +288,17 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    list1 = ''
+    if grades:
+        maxgrade = max(grades.values())
+        # Handle multiple values
+        if len([k for k, v in grades.items() if v == maxgrade]) > 1:
+            list1 = list1 + str([k for k, v in grades.items() if v == maxgrade])
+        else:
+            list1 = list1 + str(list(grades.keys())[list(grades.values()).index(maxgrade)])
+    else:
+        return "Invalid data"
+    return list1
 
 
 def print_dict_as_table(some_dict):
@@ -314,7 +327,16 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    if some_dict:
+        # print(some_dict.items())
+        print("{:<9} {:^10}".format('Key', 'Value'))
+        print("--------------------")
+        for k, v in some_dict.items():
+            print("{:<7} {:^10}".format(k, v))
+        # Return '' to avoid returning None
+        return ''
+    else:
+        return "Invalid data"
 
 
 def merge_dicts(dict1, dict2):
@@ -327,14 +349,23 @@ def merge_dicts(dict1, dict2):
     dict1 = {'a': 1}
     dict2 = {'b': 2}
 
-    The results will by
+    The results will be
     dict1 = {'a': 1, 'b': 2}
 
     :param dict1:
     :param dict2:
-    :return:
+    :return: dict1
     """
-    return dict1
+    # print(dict1)
+    # print(dict2)
+    if dict1:
+        for k in dict2:
+            if k in dict1:
+                print("Warning - Exiting key( " + k + " ) in dict1 will be overwritten with value from dict2")
+        dict1.update(dict2)
+        return dict1
+    else:
+        return "Invalid data"
 
 
 def seven_boom(n):
@@ -349,7 +380,17 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    # print(n)
+    list1 = []
+    if n > 6:
+        for i in range(1, n + 1):
+            # print(i)
+            if (i % 7 == 0) or ("7" in str(i)):
+                # print(i)
+                list1.append(i)
+        return list1
+    else:
+        return "Invalid data"
 
 
 def caesar_cipher(str_to_encrypt):
@@ -364,7 +405,19 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    lowerstring = "abcdefghijklmnopqrstuvwxyz"
+    rearrangedlowerstring = "defghijklmnopqrstuvwxyzabc"
+    # print(lowerstring)
+    key_dic = dict(zip(lowerstring, rearrangedlowerstring))
+    print(key_dic)
+    if str_to_encrypt != "":
+        for c in str_to_encrypt:
+            uppercheck = isupper(str_to_encrypt[c])
+            print(uppercheck)
+        # print(encryptedstr)
+        return ""
+    else:
+        return "Invalid data"
 
 
 def sum_of_digits(digits_str):
