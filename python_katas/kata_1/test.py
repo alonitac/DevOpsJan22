@@ -2,7 +2,6 @@ import unittest
 from python_katas.kata_1 import questions
 from python_katas.utils import unittest_runner
 
-
 testers = ['dorondollev',
            'danielbar0101',
            'DustyMadDude',
@@ -17,13 +16,12 @@ class TestSumOfElements(unittest.TestCase):
     1 Katas
     """
 
-    def sum_of_element(elements):
-        return sum(elements)
+    def sum_of_element(self):
+        return sum(self)
 
     def test_empty_list(self):
         lst = []
         self.assertEqual(questions.sum_of_element(lst), 0)
-
 
     def test_integers_list(self):
         lst = [1, 2, 3, 4, 5]
@@ -191,4 +189,5 @@ class TestSumOfDigits(unittest.TestCase):
 if __name__ == '__main__':
     import inspect
     import sys
+
     unittest_runner(inspect.getmembers(sys.modules[__name__], inspect.isclass))
