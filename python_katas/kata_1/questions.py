@@ -62,7 +62,10 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    strings = words
+    strings.reverse()
+    my_lst = words_concatenation(strings)
+    return my_lst
 
 
 def is_unique_string(some_str):
