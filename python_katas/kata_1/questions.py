@@ -28,6 +28,12 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
+    if len(word) >= 3 and "ing" not in word:
+        word += "ing"
+    elif "ing" in word:
+        word += "ly"
+    else:
+        word = word
     return None
 
 
@@ -43,6 +49,7 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
+    words = " ".join(str(word) for word in words)
     return None
 
 
@@ -58,6 +65,8 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
+    words.reverse()
+    words = " ".join(str(word) for word in words)
     return None
 
 
@@ -75,6 +84,11 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
+    for x in some_str:
+        if some_str.count(x) > 1:
+            return  False
+        elif some_str.count(x) == 1:
+            return True
     return None
 
 
@@ -93,6 +107,13 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
+    elements.reverse()
+    for x in range(len(elements)):
+        if elements[x] != elements[-1]:
+            elements[x] -= elements[x + 1]
+        else:
+            break
+
     return None
 
 
@@ -101,11 +122,15 @@ def prime_number(num):
     1 Kata
 
     Check if the given number is prime or not.
-
+    # if the number divide only by one and itself
     hint: use the built-in function "range"
     :param num: the number to check
     :return: bool. True if prime, else False
     """
+    if num % 1 == 0 and num / num == 1:
+        num = True
+    else:
+        num = False
     return None
 
 
@@ -114,7 +139,7 @@ def palindrome_num(num):
     1 Kata
 
     Check whether a number is palindrome or not
-
+    # if the number as it is and in reverse is the same
     e.g.
     1441 -> True
     123 -> False
@@ -122,6 +147,15 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
+    rev = 0
+    while num > 0:
+        a = num % 10
+        rev = rev * 10 + a
+        num = num // 10
+        if rev == num:
+            return True
+        else:
+            return False
     return None
 
 
