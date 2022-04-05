@@ -5,7 +5,7 @@ def sum_of_element(elements):
     :param elements: list of integers
     :return: Return int - the sum of all elements.
     """
-    return num(elements)
+    return sum(elements)
 
 
 def verbing(word):
@@ -28,8 +28,9 @@ def verbing(word):
     if len(my_str) < 3:
         return my_str
     elif my_str[-3:] == 'ing':
+        my_str = my_str[:-3]
         my_str += 'ly'
-    else
+    else:
         my_str += 'ing'
     return my_str
 
@@ -82,8 +83,10 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
-
+    if len(set(some_str)) == len(some_str):
+        return True
+    else:
+        return False
 
 def list_diff(elements):
     """
