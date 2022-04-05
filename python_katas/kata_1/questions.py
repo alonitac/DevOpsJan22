@@ -196,6 +196,9 @@ def palindrome_num(num):
         return False
 
 
+
+
+
 def pair_match(men, women):
     """
     3 Kata
@@ -224,7 +227,26 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    list1 = [] * 2
+    if men:
+        minvaluemen = min(men.values())
+        # Handle multiple values
+        if len([k for k,v in men.items() if v == minvaluemen]) > 1:
+            list1.append([k for k,v in men.items() if v == minvaluemen])
+        else:
+            list1.append(list(men.keys())[list(men.values()).index(minvaluemen)])
+    else:
+        return "Invalid data"
+    if women:
+        minvaluewomen = min(women.values())
+        # Handle multiple values
+        if len([k for k,v in women.items() if v == minvaluewomen]) > 1:
+            list1.append([k for k,v in women.items() if v == minvaluewomen])
+        else:
+            list1.append(list(women.keys())[list(women.values()).index(minvaluewomen)])
+    else:
+        return "Invalid data"
+    return list1
 
 
 def bad_average(a, b, c):
@@ -236,7 +258,11 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    calc = (a + b + c)
+    if calc != 0:
+        return calc / 3
+    else:
+        return "unable to comply"
 
 
 def best_student(grades):
