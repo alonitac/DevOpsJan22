@@ -70,8 +70,6 @@ def reverse_words_concatenation(words):
     print(" ".join(reversed(words_list)))
     return
 
-
-
 def is_unique_string(some_str):
     """
     2 Kata
