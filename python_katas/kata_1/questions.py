@@ -187,6 +187,7 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
+
     return None
 
 
@@ -199,7 +200,7 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -222,6 +223,8 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
+    import operator
+    print(max(grades.items(), key=operator.itemgetter(1))[0])
     return None
 
 
@@ -251,6 +254,11 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
+    print("{:<8} {:<8}".format('KEY', 'VALUE'))
+    for k, v in some_dict.items():
+        key = k
+        value = v
+        print("{:<8} {:<8}".format(key, value))
     return None
 
 
@@ -271,6 +279,7 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+    dict1.update(dict2)
     return dict1
 
 
@@ -286,6 +295,12 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
+    num_lst = []
+    for num in range(n):
+        if num % 7 == 0 and num != 0:
+            num_lst.append(num)
+        elif (num - 7) % 10 == 0:
+            num_lst.append(num)
     return None
 
 
