@@ -29,11 +29,15 @@ def verbing(word):
     """
     s = len(word)
     if word == word.contains("ing"):
-        return word+'ly'
+        word + "ly"
+        print(word)
     elif  s == 3:
-        return word+'ing'
+        word + 'ing'
+        print(word)
     elif s < 3:
-        return s
+        print (word)
+
+        return word
 
 def words_concatenation(words):
     """
