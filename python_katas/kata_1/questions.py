@@ -1,6 +1,3 @@
-from collections import Counter
-
-
 def sum_of_element(elements):
     """
     1 Kata
@@ -98,7 +95,7 @@ def is_unique_string(string_check):
     """
     2Kata
 
-    Given a string,the function returns True if all characters in the string are unique,False otherwise
+    Given a string,the function returns True if all characters in the string are unique, False otherwise
 
     e.g
     'abcd'->True
@@ -111,9 +108,9 @@ def is_unique_string(string_check):
     word_len = len(string_check)
     # print(word_len)
     if word_len > 0:
-        # Counting frequency
-        freq = Counter(string_check)
-        if (len(freq)) == len(string_check):
+        # print(len(set(string_check)))
+        # print(set(string_check))
+        if len(set(string_check)) == word_len:
             return True
         else:
             return False
@@ -139,13 +136,13 @@ def list_diff(elements):
     list_len = (len(elements) - 1)
     # print(list_len)
     if list_len > 0:
-        l = [None] * list_len
+        list1 = [None] * list_len
         for (i) in range(list_len):
             if i == 0:
-                l[i] = None
+                list1[i] = None
             else:
-                l[i] = (elements[i + 1] - elements[i])
-        return l
+                list1[i] = (elements[i + 1] - elements[i])
+        return list1
     else:
         return None
 
@@ -466,6 +463,7 @@ if __name__ == '__main__':
 
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
+    print(list_diff([1, 2, 3, 4, 7, 11]))
 
     print('\nprime_number:\n--------------------')
     print(prime_number(5))
