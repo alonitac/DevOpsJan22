@@ -27,6 +27,16 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
+    s = len(word)
+    if s == 3 && word == con:
+        return word+'ing'
+    elif  == s'ing'
+    elif s < 3:
+        return s
+    else:
+        return
+
+
     return None
 
 
