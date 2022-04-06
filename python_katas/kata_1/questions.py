@@ -85,7 +85,8 @@ def is_unique_string(some_str):
     :return: bool
     """
 def is_unique_string(some_str):
-    return len(set(some_str)) == len(some_str)
+    bool = len(set(some_str)) == len(some_str)
+    return bool
 
 
 
@@ -97,14 +98,16 @@ def list_diff(elements):
     reduces by its previous one. The first element should be None
 
     e.g.
-    [1, 2, 3, 4, 7, 11] -> [None, 1, 1, 3, 4]
+    [1, 2, 3, 4, 7, 11] -> [None, 1, 1, 1, 3, 4]
     [] -> []
     [1, 5, 0, 4, 1, 1, 1] -> [None, 4, -5, 4, -3, 0, 0]
 
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    test_list = elements
+    diff_list = [test_list[i + 1] - test_list[i] for i in range(len(test_list) - 1)]
+    return diff_list
 
 
 def prime_number(num):
