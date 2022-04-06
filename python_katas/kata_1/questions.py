@@ -19,7 +19,6 @@ def verbing(word):
     Given a string 'word', if its length is at least 3, add 'ing' to its end.
     Unless it already ends in 'ing', in which case add 'ly' instead.
     If the string length is less than 3, leave it unchanged.
-
     e.g.
     teach -> teaching
     do -> do
