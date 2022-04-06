@@ -10,6 +10,8 @@ def sum_of_element(elements):
 sum_of_element(elements_for_function[1,2,3,4,5])
 print(s)
 '''
+import math
+from random import random
 
 '''
 def verbing(word):
@@ -78,29 +80,40 @@ list_diff([1,15,20,30])
 
 '''
 def prime_number(num):
-
-    boolean = False
-
-# 0 to 3 is prime numbers
-    if num > 3:
-        # check if num is exactly divisible by any number from 2 to num - 1
-        for i in range(2, num-1):
+    if num > 1:
+        for i in range(2, num):
             if (num % i) == 0:
-              boolean = True
-              break
+              print(num, "is not a prime number")
+              return False
 
-    if boolean==True:
-        print(num, "is not a prime number")
-        return False
-    else:
-      print(num, "is a prime number")
-      return True
+        print(num, "is prime number")
+        return True
+prime_number(3)
 
-prime_number(15)
+'''        
+'''
+def palindrome_num(num):
 '''
 
 
 
 
 
+
+'''
+def bad_average(a, b, c):
+    avg =  (a + b + c ) / 3
+    print(avg)
+    return (a+b+c) / 3
+bad_average(2, 100, 10)
+'''
+
+
+'''
+def merge_dicts(dict1,dict2):
+    dict1 = dict1 | dict2
+    print(dict1)
+    return dict1
+merge_dicts({'a': 1},{'b' : 2})
+'''
 
