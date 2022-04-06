@@ -28,7 +28,19 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    new_word = word
+    length = len(word)
+    # If I want to catch all "iNG/Ing/INg" options uncomment the next line
+    # word = word.lower()
+
+    if length >= 3 and word.endswith('ing'):
+        new_word += "ly"
+        return new_word
+    elif length >= 3 and not word.endswith('ing'):
+        new_word += "ing"
+        return new_word
+    else:
+        return word
 
 
 def words_concatenation(words):
@@ -43,7 +55,11 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    if not words:
+        return None
+    else:
+        words = ' '.join(words)
+        return words
 
 
 def reverse_words_concatenation(words):
@@ -58,7 +74,11 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    if not words:
+        return None
+    else:
+        words = ' '.join(words[::-1])
+        return words
 
 
 def is_unique_string(some_str):
