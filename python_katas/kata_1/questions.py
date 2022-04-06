@@ -434,7 +434,15 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    if digits_str != "":
+        x = 0
+        for d in range(0, len(digits_str)):
+            print("X = " + str(x))
+            print("String digit = " + digits_str[d])
+            x = x + int(digits_str[d])
+        return x
+    else:
+        return "Invalid data"
 
 
 if __name__ == '__main__':
