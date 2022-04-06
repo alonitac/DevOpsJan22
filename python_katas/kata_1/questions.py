@@ -108,7 +108,7 @@ def is_unique_string(some_str):
 """
     2 Kata
 
-    Given a string, the function returns True is all characters in the string are unique, False otherwise
+    Given a string, the function returns True if all characters in the string are unique, False otherwise
 
     e.g
     'abcd' -> True
