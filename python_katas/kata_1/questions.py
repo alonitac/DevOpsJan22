@@ -1,5 +1,4 @@
 from collections import Counter
-from curses.ascii import isupper
 
 
 def sum_of_element(elements):
@@ -405,17 +404,17 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    lowerstring = "abcdefghijklmnopqrstuvwxyz"
-    rearrangedlowerstring = "defghijklmnopqrstuvwxyzabc"
-    # print(lowerstring)
+    lowerstring = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+    rearrangedlowerstring = "defghijklmnopqrstuvwxyzabcDEFGHIJKLMNOPQRSTUVWXYZABC "
     key_dic = dict(zip(lowerstring, rearrangedlowerstring))
-    print(key_dic)
+    # print(key_dic)
+    # print((str(list(key_dic.values())[list(key_dic.keys()).index(str_to_encrypt[0])])))
+    encryptedstr = ""
     if str_to_encrypt != "":
-        for c in str_to_encrypt:
-            uppercheck = isupper(str_to_encrypt[c])
-            print(uppercheck)
-        # print(encryptedstr)
-        return ""
+        for c in range(0, len(str_to_encrypt)):
+            # print("the following char " + str_to_encrypt[c] + " should be replaced with " + (str(list(key_dic.values())[list(key_dic.keys()).index(str_to_encrypt[c])])))
+            encryptedstr += str_to_encrypt[c].replace(str_to_encrypt[c], (str(list(key_dic.values())[list(key_dic.keys()).index(str_to_encrypt[c])])))
+        return encryptedstr
     else:
         return "Invalid data"
 
