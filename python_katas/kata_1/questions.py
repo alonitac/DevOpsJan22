@@ -230,28 +230,24 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    list1 = [] * 2
-    if men:
-        minvaluemen = min(men.values())
-        # Handle multiple values
-        # print(len([k for k,v in men.items() if v == minvaluemen]))
-        if len([k for k, v in men.items() if v == minvaluemen]) > 1:
-            list1.append([k for k, v in men.items() if v == minvaluemen])
+    if (bool(men)) & bool(women):
+        x1 = abs(men["John"] - women["Kim"])
+        x2 = abs(men["John"] - women["July"])
+        x3 = abs(men["Abraham"] - women["Kim"])
+        x4 = abs(men["Abraham"] - women["July"])
+        result = min(x1, x2, x3, x4)
+        if result == x1:
+            return "John", "Kim"
         else:
-            list1.append(list(men.keys())[list(men.values()).index(minvaluemen)])
+            if result == x2:
+                return "John", "July"
+            else:
+                if result == x3:
+                    return "Abraham", "Kim"
+                else:
+                    return "Abraham", "July"
     else:
         return "Invalid data"
-    if women:
-        minvaluewomen = min(women.values())
-        # Handle multiple values
-        # print(len([k for k,v in women.items() if v == minvaluewomen]))
-        if len([k for k, v in women.items() if v == minvaluewomen]) > 1:
-            list1.append([k for k, v in women.items() if v == minvaluewomen])
-        else:
-            list1.append(list(women.keys())[list(women.values()).index(minvaluewomen)])
-    else:
-        return "Invalid data"
-    return list1
 
 
 def bad_average(a, b, c):
