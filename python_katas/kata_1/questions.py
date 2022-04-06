@@ -153,7 +153,9 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+
+
+
 
 
 def bad_average(a, b, c):
@@ -285,7 +287,8 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    list1 = string.
+    return sum(num)
 
 
 if __name__ == '__main__':
