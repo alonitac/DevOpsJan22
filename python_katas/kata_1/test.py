@@ -2,7 +2,6 @@ import unittest
 from python_katas.kata_1 import questions
 from python_katas.utils import unittest_runner
 
-
 testers = ['dorondollev',
            'danielbar0101',
            'DustyMadDude',
@@ -16,6 +15,7 @@ class TestSumOfElements(unittest.TestCase):
     """
     1 Katas
     """
+
     def test_empty_list(self):
         lst = []
         self.assertEqual(questions.sum_of_element(lst), 0)
@@ -38,29 +38,50 @@ class TestVerbing(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_two_char(self):
+        test_word = 'mu'
+        self.assertEqual(questions.verbing(test_word), "mu")
+
+    def test_gaming(self):
+        test_word = 'gaming'
+        self.assertEqual(questions.verbing(test_word), "gamly")
+
+    def test_ing(self):
+        test_word = 'ing'
+        self.assertEqual(questions.verbing(test_word), "ly")
 
 
 class TestWordsConcatenation(unittest.TestCase):
+    def test1(self):
+        l = ["let's", "play", "game"]
+        self.assertEqual(questions.words_concatenation(l), "let's play game")
+    def test2(self):
+        l = ["I", "am", "a", "student", "in", "INT", "College"]
+        self.assertEqual(questions.words_concatenation(l), "I am a student in INT College")
+    def test3(self):
+        l = ["My", "Car", "", "is", "skoda"]
+        self.assertEqual(questions.words_concatenation(l), "My Car  is skoda")
+
     """
     1 Katas
     """
-
-    def test_sample(self):
-        # your code here
-        pass
-
 
 class TestReverseWordsConcatenation(unittest.TestCase):
+
+    def test_play(self):
+        l = ["let's", "play", "game"]
+        self.assertEqual(questions.reverse_words_concatenation(l), "game play let's")
+
+    def test_student(self):
+        l = ["I", "am", "a", "student", "in", "INT", "College"]
+        self.assertEqual(questions.reverse_words_concatenation(l), "College INT in student a am I")
+
+    def test_skoda(self):
+        l = ["My", "Car", "", "is", "skoda"]
+        self.assertEqual(questions.reverse_words_concatenation(l), "skoda is Car My")
     """
     1 Katas
     """
-
-    def test_sample(self):
-        # your code here
-        pass
 
 
 class TestIsUniqueString(unittest.TestCase):
@@ -186,4 +207,5 @@ class TestSumOfDigits(unittest.TestCase):
 if __name__ == '__main__':
     import inspect
     import sys
+
     unittest_runner(inspect.getmembers(sys.modules[__name__], inspect.isclass))

@@ -16,17 +16,24 @@ def sum_of_element(elements):
 
 
 def verbing(word):
-    world_len = len(word)
+
+    word_len = len(word)
     l = list(word)
     threeIndex = l[-3:]
-    if world_len >= 3:
+    if word_len >= 3:
         if threeIndex == ["i", "n", "g"]:
-            new_world = word + "ly"
+            rm_string = word[:word_len - 3]
+            new_word = rm_string + "ly"
         else:
-            new_world = word + "ing"
-    elif world_len <= 2:
-        new_world = word
-    return new_world
+            new_word = word + "ing"
+    elif word_len <= 2:
+        new_word = word
+    return new_word
+
+
+
+
+
     """
     1 Kata
 
@@ -47,9 +54,17 @@ def verbing(word):
 
 
 
+
+
+
+
+
 def words_concatenation(words):
     sent = " ".join(map(str, words))
     return sent
+
+
+
     """
     1 Kata
 
@@ -61,6 +76,8 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
+
+
 
 
 
@@ -104,6 +121,15 @@ def is_unique_string(some_str):
 
 
 def list_diff(elements):
+    diff = []
+    a = 0
+    if not elements:
+        return diff
+    for x in elements:
+        diff.append(x - a)
+        a = x
+    diff[0] = None
+    return diff
     """
     1 Kata
 
@@ -118,7 +144,7 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+
 
 
 def prime_number(num):
@@ -176,10 +202,35 @@ def palindrome_num(num):
     """
 
 
-
-
-
 def pair_match(men, women):
+    listM = list(men.keys())
+    listAge_men = list(men.values())
+    listW = list(women.keys())
+    listAge_women = list(women.values())
+    results_coup = ""
+    l_name = []
+    l_age = []
+    diff_min = []
+
+    for x in range(len(listAge_men)):
+        for m in listM:
+            for w in listW:
+                l_name.append("abs(" + m + " - " + w + ")")
+            break
+        listM.pop(0)
+
+        for am in listAge_men:
+            for aw in listAge_women:
+                l_age.append(" = abs(" + str(am) + " - " + str(aw) + ")")
+                mat = (int(am) - int(aw))
+                diff_min.append("= abs(" + str(mat) + ") " + " = abs(" + str(abs(mat)) + ")")
+            break
+        listAge_men.pop(0)
+
+    for t in range(len(l_name)):
+        results_coup += (l_name[int(t)] + l_age[int(t)]) + diff_min[int(t)] + str("\n")
+
+    return results_coup
     """
     3 Kata
 
@@ -321,7 +372,30 @@ def seven_boom(n,boom_num=7):
 
 
 
-def caesar_cipher(str_to_encrypt):
+def caesar_cipher(str_to_encrypt, key=3):
+    decrypted = ""
+    for c in str_to_encrypt:
+        if c.isupper():
+            c_index = ord(c) - ord('A')
+            # shift the current character to left by key positions to get its original position
+            c_og_pos = (c_index + key) % 26 + ord('A')
+            c_og = chr(c_og_pos)
+            decrypted += c_og
+        elif c.islower():
+            c_index = ord(c) - ord('a')
+            c_og_pos = (c_index + key) % 26 + ord('a')
+            c_og = chr(c_og_pos)
+            decrypted += c_og
+        elif c.isdigit():
+            # if it's a number,shift its actual value
+            c_og = (int(c) + key) % 10
+            decrypted += str(c_og)
+        else:
+            # if its neither alphabetical nor a number, just leave it like that
+            decrypted += c
+
+    return decrypted
+
     """
     2 Kata
 
@@ -333,7 +407,6 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
 
 
 def sum_of_digits(digits_str):
