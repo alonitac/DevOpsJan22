@@ -50,8 +50,8 @@ def words_concatenation(words):
     """
 
     words_list = words
-    print(" ".join(words_list))
-    return words
+
+    return (" ".join(words_list))
 
 
 def reverse_words_concatenation(words):
@@ -67,8 +67,8 @@ def reverse_words_concatenation(words):
     :return: Return the resulting string.
     """
     words_list = words
-    print(" ".join(reversed(words_list)))
-    return
+
+    return (" ".join(reversed(words_list)))
 
 def is_unique_string(some_str):
     """
