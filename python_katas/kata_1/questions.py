@@ -61,7 +61,10 @@ def words_concatenation(words):
     # print(word_len)
     if word_len > 0:
         for i in words:
-            result = result + ' ' + i
+            if result == "":
+                result = result + i
+            else:
+                result = result + ' ' + i
         return result
     else:
         return None
@@ -85,7 +88,10 @@ def reverse_words_concatenation(words):
     if word_len > 0:
         words.reverse()
         for i in words:
-            result = result + ' ' + i
+            if result == "":
+                result = result + i
+            else:
+                result = result + ' ' + i
         return result
     else:
         return None
@@ -126,14 +132,14 @@ def list_diff(elements):
     reduces by its previous one. The first element should be None
 
     e.g.
-    [1, 2, 3, 4, 7, 11] -> [None, 1, 1, 3, 4]
+    [1, 2, 3, 4, 7, 11] -> [None, 1, 1, 1, 3, 4]
     [] -> []
     [1, 5, 0, 4, 1, 1, 1] -> [None, 4, -5, 4, -3, 0, 0]
 
     :param elements: list of integers
     :return: the diff list
     """
-    list_len = (len(elements) - 1)
+    list_len = (len(elements))
     # print(list_len)
     if list_len > 0:
         list1 = [None] * list_len
@@ -141,7 +147,7 @@ def list_diff(elements):
             if i == 0:
                 list1[i] = None
             else:
-                list1[i] = (elements[i + 1] - elements[i])
+                list1[i] = (elements[i] - elements[i - 1])
         return list1
     else:
         return None
@@ -463,7 +469,6 @@ if __name__ == '__main__':
 
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
-    print(list_diff([1, 2, 3, 4, 7, 11]))
 
     print('\nprime_number:\n--------------------')
     print(prime_number(5))
