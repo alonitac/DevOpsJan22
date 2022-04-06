@@ -78,7 +78,7 @@ class TestReverseWordsConcatenation(unittest.TestCase):
 
     def test_skoda(self):
         l = ["My", "Car", "", "is", "skoda"]
-        self.assertEqual(questions.reverse_words_concatenation(l), "skoda is Car My")
+        self.assertEqual(questions.reverse_words_concatenation(l), "skoda is  Car My")
     """
     1 Katas
     """
@@ -89,9 +89,19 @@ class TestIsUniqueString(unittest.TestCase):
     2 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_unic1(self):
+        string = "asdqwezxc"
+        self.assertTrue(questions.is_unique_string(string), "is unique string")
+
+    def test_unic2(self):
+        string = "aaasasssdqwezxc"
+        self.assertFalse(questions.is_unique_string(string), "string is not unique")
+
+    def test_unic3(self):
+        string = ""
+        self.assertTrue(questions.is_unique_string(string), "empty string")
+
+
 
 
 class TestListDiff(unittest.TestCase):
@@ -100,8 +110,8 @@ class TestListDiff(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
-        pass
+        l = [1, 2, 3, 4, 7, 11]
+        self.assertEqual(questions.list_diff(l), [None, 1, 1, 1, 3, 4])
 
 
 class TestPrimeNumber(unittest.TestCase):
