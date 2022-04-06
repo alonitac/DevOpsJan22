@@ -437,8 +437,8 @@ def sum_of_digits(digits_str):
     if digits_str != "":
         x = 0
         for d in range(0, len(digits_str)):
-            print("X = " + str(x))
-            print("String digit = " + digits_str[d])
+            # print("X = " + str(x))
+            # print("String digit = " + digits_str[d])
             x = x + int(digits_str[d])
         return x
     else:
