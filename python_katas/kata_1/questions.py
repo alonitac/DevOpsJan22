@@ -87,7 +87,6 @@ def is_unique_string(some_str):
 def is_unique_string(some_str):
     return len(set(some_str)) == len(some_str)
 
-    return
 
 
 def list_diff(elements):
