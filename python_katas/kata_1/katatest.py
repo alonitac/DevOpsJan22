@@ -93,6 +93,8 @@ def is_unique_string(some_str):
     return unistr
 
 
+
+
 def list_diff(elements):
     """
     1 Kata
@@ -263,7 +265,10 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    print('Key   Value')
+    print('-----------')
+    for k, v in some_dict.items():
+        print(k, v)
 
 
 def merge_dicts(dict1, dict2):
