@@ -88,7 +88,9 @@ def is_unique_string(some_str):
     else:
         return False
 
+
 def list_diff(elements):
+
     """
     1 Kata
 
@@ -103,20 +105,31 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    if len(elements) > 1:
+        diff_list = [elements[i] - elements[i - 1] for i in range(1, len(elements))]
+        diff_list.insert(0, None)
+        return diff_list
+    elif len(elements) > 0:
+        return [None]
+    else:
+        return []
 
 
 def prime_number(num):
     """
-    1 Kata
+        1 Kata
 
-    Check if the given number is prime or not.
+        Check if the given number is prime or not.
 
-    hint: use the built-in function "range"
-    :param num: the number to check
-    :return: bool. True if prime, else False
-    """
-    return None
+        hint: use the built-in function "range"
+        :param num: the number to check
+        :return: bool. True if prime, else False
+        """
+    if num > 1:
+        for i in range(2, num):
+            if (num % i) == 0:
+                return False
+    return True
 
 
 def palindrome_num(num):
@@ -168,14 +181,14 @@ def pair_match(men, women):
 
 def bad_average(a, b, c):
     """
-    1 Kata
+    1 Kata: fixed
 
     This function gets 3 numbers and calculates the average.
     There is a mistake in the following implementation, you are required to fix it
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
