@@ -28,15 +28,15 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    if (word[-2:] == "ly"):
-        word = word
 
+    if (len(word) >= 3) and (word[-3:] != "ing"):
+        word += "ing"
+        return word
     elif (word[-3:] == "ing"):
         word += "ly"
-
-    elif (len(word) >= 3):
-        word += "ing"
-
+        return word
+    else:
+        return word
     return word
 
 
