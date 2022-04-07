@@ -28,7 +28,15 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    wlen = len(word)
+    last_chars = word[-3:]
+    if last_chars == 'ing' and wlen > 3:
+        result = word + 'ly'
+    elif wlen >= 3 and word != 'ing':
+        result = word + 'ing'
+    else:
+        result = word
+    return result
 
 
 def words_concatenation(words):
@@ -43,7 +51,15 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+
+    result = ''
+    for word in words:
+        if result == '':
+            result = word
+        else:
+            result = result + ' ' + word
+
+    return result
 
 
 def reverse_words_concatenation(words):
@@ -252,6 +268,14 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
+    booms = []
+    n = 1
+
+    while n <= 50:
+        if (n % 7 == 0) or ('7' in str(n)):
+            booms.append(n)
+        n += 1
+    booms
     return None
 
 
@@ -298,8 +322,12 @@ if __name__ == '__main__':
     print(verbing('swimming'))
     print(verbing('do'))
 
+
+
     print('\nwords_concatenation:\n--------------------')
     print(words_concatenation(['take', 'me', 'home']))
+
+
 
     print('\nreverse_words_concatenation:\n--------------------')
     print(reverse_words_concatenation(['take', 'me', 'home']))
