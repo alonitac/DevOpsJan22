@@ -95,7 +95,12 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    for i in range(len(some_str)):
+        for j in range(i + 1, len(some_str)):
+            if some_str[i] == some_str[j]:
+                return False
+    else:
+        return True
 
 
 def list_diff(elements):
@@ -113,7 +118,14 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    new_elements = []
+    if not elements:
+        exit
+    else:
+        new_elements.append(None)
+        for i in range(len(elements) - 1):
+            new_elements.append(elements[i + 1] - elements[i])
+    return new_elements
 
 
 def prime_number(num):
