@@ -86,8 +86,12 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
-
+    unique_chars = set()
+    for c in some_str:
+        if c in unique_chars:
+           return False
+        unique_chars.add(c)
+    return True
 
 def list_diff(elements):
     """
