@@ -52,7 +52,8 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    words = " ".join(words)
+    return words
 
 
 def reverse_words_concatenation(words):
