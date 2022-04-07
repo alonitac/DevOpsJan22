@@ -16,8 +16,8 @@ class TestSumOfElements(unittest.TestCase):
     1 Katas
     """
 
-    def sum_of_element(self):
-        return sum(self)
+# def sum_of_element(self):
+#     return sum(self)
 
     def test_empty_list(self):
         lst = []
@@ -40,7 +40,6 @@ class TestVerbing(unittest.TestCase):
     """
     1 Katas
     """
-
     def test_sample(self):
         # your code here
         pass
@@ -51,12 +50,25 @@ class TestWordsConcatenation(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def concat_empty_list(self):
+        lst = []
+        self.assertEqual(questions.words_concatenation(lst), 0)
+
+    def concat_int_list(self):
+        lst = [1, 100, 111, 11]
+        self.assertEqual(questions.words_concatenation(lst), 0)
+
+    def concat_nested_lists(self):
+        lst = [[1], [3], [2, 0], [4, 1]]
+        self.assertEqual(questions.words_concatenation(lst), 0)
+
+    def concat_mixed_elements(self):
+        lst = [1, 'foo', 'bar', 'baz', 2]
+        self.assertEqual(questions.words_concatenation(lst), 0)
 
 
 class TestReverseWordsConcatenation(unittest.TestCase):
+
     """
     1 Katas
     """
@@ -121,9 +133,21 @@ class TestBadAverage(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def BadAverage_int_elements(self):
+        lst = [1, 2, 3]
+        self.assertEqual(questions.bad_average(lst), 0)
+
+    def BadAverage_big_negative_element(self):
+        lst = [-500000000000000000000000000, 50000000000000000000000001, 1]
+        self.assertEqual(questions.bad_average(lst), 0)
+
+    def BadAverage_negative_elements(self):
+        lst = [-1, -2, -3]
+        self.assertEqual(questions.bad_average(lst), 0)
+
+    def BadAverage_float_elements(self):
+        lst = [1.1111111111111, 2.2, 3.5]
+        self.assertEqual(questions.bad_average(lst), 0)
 
 
 class TestBestStudent(unittest.TestCase):
