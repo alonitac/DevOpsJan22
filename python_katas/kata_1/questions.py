@@ -28,8 +28,16 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    if len(word)<3: # if word less than 3 letters
+        word=word
 
+    elif word[-3:] == 'ing': # if word already finish wih 'ing'
+        word += 'ly'
+
+    else: # any other word
+        word+='ing'
+
+    return word
 
 def words_concatenation(words):
     """
@@ -43,7 +51,11 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    sentence = ''
+    for word in words:
+        sentence = sentence + word + ' '
+
+    return sentence
 
 
 def reverse_words_concatenation(words):
@@ -58,7 +70,11 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    sentence = ''
+    for word in words[::-1]:
+        sentence = sentence + word + ' '
+
+    return sentence
 
 
 def is_unique_string(some_str):
@@ -75,7 +91,16 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    result = True
+    list_letters = []
+
+    for letter in some_str:
+        list_letters.append(letter)
+
+    if len(set(list_letters)) != len(list_letters):
+        result=False
+
+    return result
 
 
 def list_diff(elements):
@@ -93,7 +118,16 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+
+    diff_list=[None]
+    n = len(elements)
+
+    for i in range (0,n-1):
+        number_diff = elements[i+1]-elements[i]
+        diff_list.append(number_diff)
+
+
+    return diff_list
 
 
 def prime_number(num):
@@ -106,7 +140,13 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+
+    if num> 1:
+        for n in range(2,num):
+            if (num % n) == 0:
+                result =False
+        result = True
+    return result
 
 
 def palindrome_num(num):
