@@ -58,7 +58,6 @@ def words_concatenation(words):
             result = word
         else:
             result = result + ' ' + word
-
     return result
 
 
@@ -74,8 +73,8 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
-
+    result = ' '.join(reversed(words))
+    return result
 
 def is_unique_string(some_str):
     """
@@ -328,9 +327,9 @@ if __name__ == '__main__':
     print(words_concatenation(['take', 'me', 'home']))
 
 
-
     print('\nreverse_words_concatenation:\n--------------------')
     print(reverse_words_concatenation(['take', 'me', 'home']))
+
 
     print('\nis_unique_string:\n--------------------')
     print(is_unique_string('aasdssdsederd'))
