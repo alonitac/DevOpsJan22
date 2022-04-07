@@ -30,10 +30,6 @@ def verbing(word):
         new_word = word
     return new_word
 
-
-
-
-
     """
     1 Kata
 
@@ -202,36 +198,14 @@ def palindrome_num(num):
     """
 
 
-def pair_match(men, women):
-    listM = list(men.keys())
-    listAge_men = list(men.values())
-    listW = list(women.keys())
-    listAge_women = list(women.values())
-    results_coup = ""
-    l_name = []
-    l_age = []
-    diff_min = []
+def pair_match(men,women):
+   new_d={}
+   for key, value in men.items():
+       for k,v in women.items():
+           new_d[key+" "+k] = abs(int(value)-int(v))
+   return tuple(map(str, min(new_d, key=new_d.get).split(' ')))
 
-    for x in range(len(listAge_men)):
-        for m in listM:
-            for w in listW:
-                l_name.append("abs(" + m + " - " + w + ")")
-            break
-        listM.pop(0)
-
-        for am in listAge_men:
-            for aw in listAge_women:
-                l_age.append(" = abs(" + str(am) + " - " + str(aw) + ")")
-                mat = (int(am) - int(aw))
-                diff_min.append("= abs(" + str(mat) + ") " + " = abs(" + str(abs(mat)) + ")")
-            break
-        listAge_men.pop(0)
-
-    for t in range(len(l_name)):
-        results_coup += (l_name[int(t)] + l_age[int(t)]) + diff_min[int(t)] + str("\n")
-
-    return results_coup
-    """
+"""
     3 Kata
 
     This function gets two dictionaries of the type:
@@ -256,9 +230,9 @@ def pair_match(men, women):
 
     :param men: dict mapping name -> age
     :param women: dict mapping name -> age
-    :return: tuple (men_name, women_name) such their age absolute difference is the minimal
-    """
-    return None
+    :return: tuple (men_name, women_name) such their age absolute difference is the minimal """
+
+
 
 
 def bad_average(a, b, c):
@@ -298,8 +272,10 @@ def best_student(grades):
 
 
 def print_dict_as_table(some_dict):
-    for key, value in some_dict.items():
-        return (key, "   ", value)
+    resutls = ""
+    for k, v in some_dict.items():
+        resutls += (k + " " + str(v)) + "\n"
+    return resutls
     """
     1 Kata
 

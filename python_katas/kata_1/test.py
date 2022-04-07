@@ -50,14 +50,20 @@ class TestVerbing(unittest.TestCase):
         test_word = 'ing'
         self.assertEqual(questions.verbing(test_word), "ly")
 
+    def test_in(self):
+        test_word = 'cartin'
+        self.assertEqual(questions.verbing(test_word), "cartining")
+
 
 class TestWordsConcatenation(unittest.TestCase):
     def test1(self):
         l = ["let's", "play", "game"]
         self.assertEqual(questions.words_concatenation(l), "let's play game")
+
     def test2(self):
         l = ["I", "am", "a", "student", "in", "INT", "College"]
         self.assertEqual(questions.words_concatenation(l), "I am a student in INT College")
+
     def test3(self):
         l = ["My", "Car", "", "is", "skoda"]
         self.assertEqual(questions.words_concatenation(l), "My Car  is skoda")
@@ -65,6 +71,7 @@ class TestWordsConcatenation(unittest.TestCase):
     """
     1 Katas
     """
+
 
 class TestReverseWordsConcatenation(unittest.TestCase):
 
@@ -79,6 +86,7 @@ class TestReverseWordsConcatenation(unittest.TestCase):
     def test_skoda(self):
         l = ["My", "Car", "", "is", "skoda"]
         self.assertEqual(questions.reverse_words_concatenation(l), "skoda is  Car My")
+
     """
     1 Katas
     """
@@ -100,8 +108,6 @@ class TestIsUniqueString(unittest.TestCase):
     def test_unic3(self):
         string = ""
         self.assertTrue(questions.is_unique_string(string), "empty string")
-
-
 
 
 class TestListDiff(unittest.TestCase):
@@ -139,9 +145,15 @@ class TestPairMatch(unittest.TestCase):
     3 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_Pair1(self):
+        men = {'Ben': 34, 'Ronaldo': 37, 'Ancelotti': 62}
+        women = {'Yasmin': 22, 'Inbar': 18, 'Angelina': 52}
+        self.assertEqual(questions.pair_match(men, women), ('Ancelotti', 'Angelina'))
+
+    def test_Pair2(self):
+        men = {'Roi': 65, 'Eran': 82, 'Ido': 20}
+        women = {'Sivan': 70, 'Orly': 18, 'Neta': 65}
+        self.assertEqual(questions.pair_match(men, women), ('Roi', 'Neta'))
 
 
 class TestBadAverage(unittest.TestCase):
