@@ -120,7 +120,12 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+
+    for n in range(2, int(num ** 0.5) + 1):
+        if num % n == 0:
+            return False
+    return True
+
 
 
 def palindrome_num(num):
@@ -136,8 +141,26 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
 
+    def palindrome_num(num):
+        n = num
+        rev = 0
+        while n:
+
+            r = n % 10
+
+            rev = rev * 10 + r
+            n = n // 10
+        return num == rev
+
+    if __name__ == '__main__':
+
+        n = num
+
+        if palindrome_num(n):
+            return True
+        else:
+           return False
 
 def pair_match(men, women):
     """
