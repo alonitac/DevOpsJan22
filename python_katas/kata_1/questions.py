@@ -43,6 +43,8 @@ def verbing(word):
 
 
 def words_concatenation(words):
+    words_string = ' '.join(words)
+    return words_string
     """
     1 Kata
 
@@ -54,7 +56,7 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    #return None
 
 
 def reverse_words_concatenation(words):
