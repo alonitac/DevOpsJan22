@@ -79,6 +79,12 @@ def reverse_words_concatenation(words):
 
 
 def is_unique_string(some_str):
+    some_list = list(some_str)
+    some_unique = set(some_list)
+    if len(some_unique) == len(some_list):
+        return True
+    else:
+        return False
     """
     2 Kata
 
@@ -92,7 +98,7 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    #return None
 
 
 def list_diff(elements):
@@ -317,14 +323,14 @@ if __name__ == '__main__':
     
     print('\nwords_concatenation:\n--------------------')
     print(words_concatenation(['take', 'me', 'home']))
-'''
+
     print('\nreverse_words_concatenation:\n--------------------')
     print(reverse_words_concatenation(['take', 'me', 'home']))
-'''RK
+'''
     print('\nis_unique_string:\n--------------------')
     print(is_unique_string('aasdssdsederd'))
     print(is_unique_string('12345tgbnh'))
-
+'''RK
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
 
