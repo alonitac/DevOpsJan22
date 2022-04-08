@@ -13,6 +13,17 @@ def sum_of_element(elements):
 
 
 def verbing(word):
+    length = len(word)
+    if length < 3:
+        return word
+    else:
+        rev = word[::-1]
+        end = rev[:3]
+        if end == 'gni':
+            res = word + 'ly'
+        else:
+            res = word + 'ing'
+    return res
     """
     1 Kata
 
@@ -28,7 +39,7 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    #return None
 
 
 def words_concatenation(words):
@@ -289,7 +300,7 @@ def sum_of_digits(digits_str):
 
 
 if __name__ == '__main__':
-
+    '''R.K
     print('\nsum_of_element:\n--------------------')
     print(sum_of_element([1, 2, 3, 4, 5, 6]))
 
@@ -297,10 +308,10 @@ if __name__ == '__main__':
     print(verbing('walk'))
     print(verbing('swimming'))
     print(verbing('do'))
-
+    '''
     print('\nwords_concatenation:\n--------------------')
     print(words_concatenation(['take', 'me', 'home']))
-
+'''R.K
     print('\nreverse_words_concatenation:\n--------------------')
     print(reverse_words_concatenation(['take', 'me', 'home']))
 
@@ -363,4 +374,5 @@ if __name__ == '__main__':
 
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
+'''
 
