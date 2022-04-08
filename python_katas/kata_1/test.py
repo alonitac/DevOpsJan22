@@ -62,15 +62,20 @@ class TestReverseWordsConcatenation(unittest.TestCase):
         # your code here
         pass
 
-
 class TestIsUniqueString(unittest.TestCase):
     """
     2 Katas
     """
 
     def test_sample(self):
-        # your code here
+        some_str = ('MynameIsmMax')
+        self.assertEqual(questions.is_unique_string(some_str), False)
+        some_str = ('aNuke')
+        self.assertEqual(questions.is_unique_string(some_str), True)
+        some_str = ('IAmDeath')
+        self.assertEqual(questions.is_unique_string(some_str), True)
         pass
+
 
 
 class TestListDiff(unittest.TestCase):
@@ -139,7 +144,10 @@ class TestPrintDictAsTable(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
+        some_dict = ({
+        "Ben": 78,
+    })
+        self.assertEqual(questions.print_dict_as_table(some_dict), 1)
         pass
 
 

@@ -146,17 +146,12 @@ def palindrome_num(num):
         n = num
         rev = 0
         while n:
-
             r = n % 10
-
             rev = rev * 10 + r
             n = n // 10
         return num == rev
-
     if __name__ == '__main__':
-
         n = num
-
         if palindrome_num(n):
             return True
         else:
@@ -254,7 +249,15 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    dict1 = some_dict
+    print("{:<10} {:<10} ".format('Key', 'Value',))
+    for key, value in dict1.items():
+        print ("{:<10} {:<10} ".format(key, value,))
+    return
+
+
+
+
 
 
 def merge_dicts(dict1, dict2):
