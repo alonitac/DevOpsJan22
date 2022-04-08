@@ -144,10 +144,7 @@ class TestPrintDictAsTable(unittest.TestCase):
     """
 
     def test_sample(self):
-        some_dict = ({
-        "Ben": 78,
-    })
-        self.assertEqual(questions.print_dict_as_table(some_dict), 1)
+        self.assertEqual(questions.print_dict_as_table(some_dict={"Ben": 78,}), "78" )
         pass
 
 

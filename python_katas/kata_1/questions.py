@@ -252,12 +252,8 @@ def print_dict_as_table(some_dict):
     dict1 = some_dict
     print("{:<10} {:<10} ".format('Key', 'Value',))
     for key, value in dict1.items():
-        print ("{:<10} {:<10} ".format(key, value,))
-    return
-
-
-
-
+        print("{:<10} {:<10} ".format(key, value,))
+    return " "
 
 
 def merge_dicts(dict1, dict2):
