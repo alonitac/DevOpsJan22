@@ -60,6 +60,10 @@ def words_concatenation(words):
 
 
 def reverse_words_concatenation(words):
+    #rev_b = words.reverse()
+    #return rev_b = None!?
+    rev_b = words[::-1]
+    return rev_b
     """
     1 Kata
 
@@ -71,7 +75,7 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    #return None
 
 
 def is_unique_string(some_str):
@@ -310,13 +314,13 @@ if __name__ == '__main__':
     print(verbing('walk'))
     print(verbing('swimming'))
     print(verbing('do'))
-    '''
+    
     print('\nwords_concatenation:\n--------------------')
     print(words_concatenation(['take', 'me', 'home']))
-'''R.K
+'''
     print('\nreverse_words_concatenation:\n--------------------')
     print(reverse_words_concatenation(['take', 'me', 'home']))
-
+'''RK
     print('\nis_unique_string:\n--------------------')
     print(is_unique_string('aasdssdsederd'))
     print(is_unique_string('12345tgbnh'))
