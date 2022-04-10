@@ -68,3 +68,65 @@ for i in My_List:
 My_List2.reverse()
 print(My_List2)
 ----------------------------------------------------------------------------------------
+
+couple (1)
+
+men = {"John": 20, "Bill": 10, "Abraham": 45}
+women = {"July": 18, "Kim": 26, "lili": 15}
+
+#if (min(men, key=men.get)) and (min(women, key=women.get)):
+#    a = min(men, key=men.get), min(women, key=women.get)
+
+#print(a)
+#print(type(a))
+
+couple (2)
+
+for (key, value) in men.items():
+    if value == min(men.values()):
+        for (key2, value) in women.items():
+            x = key, key2
+        print(x)
+
+
+couple (3)
+
+men = {"John": 20, "Bill": 10, "Abraham": 45, "Danny": 45}
+women = {"July": 18, "Kim": 26, "lili": 15}
+
+max_key = None
+max_val = None
+max_key1 = None
+max_val1 = None
+
+for key, val in men.items():
+    if max_val is None or val < max_val:
+        max_val = val
+        max_key = key
+    for key1, val1 in women.items():
+        if max_val1 is None or val1 < max_val1:
+            max_val1 = val1
+            max_key1 = key1
+
+print(max_key, max_val)
+print(max_key1, max_val1)
+couple = max_key, max_key1
+print(type(couple))
+print(couple)
+
+
+last question - sum of digits (1)
+
+aaa = '888'
+lst = [int(a) for a in str(aaa)]
+suma = 0
+for i in range(len(lst)):
+    suma = suma + (lst[i])
+
+print(suma)
+
+(7 boom)
+
+for x in range(0, 100):
+    if '7' in str(x) or x % 7 == 0:
+        print(x)
