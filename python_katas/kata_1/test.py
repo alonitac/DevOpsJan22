@@ -88,11 +88,23 @@ class TestReverseWordsConcatenation(unittest.TestCase):
     """
     1 Katas
     """
+    def reverse_empty_string(self):
+        lst = []
+        self.assertEqual(questions.reverse_words_concatenation(lst), 0)
 
-    def test_sample(self):
-        # your code here
-        pass
+    def reverse_long_strings(self):
+        lst = ["runasdfasdffwerfzvxzcvzxcvfassdafasfeqewr", "jvxcvzxcvzxvcxzcvxzvcxvcohnny", "hzxvczxvcxzcvzxvcxzcvome"]
+        self.assertEqual(questions.reverse_words_concatenation(lst), 0)
 
+    def reverse_integer_string(self):
+        lst = ['1', '3', '2', '0']
+        self.assertEqual(questions.reverse_words_concatenation(lst), 0)
+
+    def reverse_mixed_elements(self):
+        lst = ["1", 'foo', 'bar', 'baz', "2"]
+        self.assertEqual(questions.reverse_words_concatenation(lst), 0)
+           
+    
 class TestIsUniqueString(unittest.TestCase):
     """
     2 Katas
@@ -187,12 +199,37 @@ class TestBestStudent(unittest.TestCase):
     """
     1 Katas
     """
-
-    def test_sample(self):
-        # your code here
-        pass
-
-
+		def BestGrade_example_elements(self):
+			dict1 = {
+				"Ben": 78,
+            	"Hen": 88,
+            	"Natan": 99,
+            	"Efraim": 65,
+            	"Rachel": 95
+        	}
+			self.assertEqual(questions.best_student(dict1), 0)
+			
+		def bestgrade_overgrade_elements(self):
+			dict1 = {
+				"Ben": 101,
+            	"Hen": 112,
+            	"Natan": 110,
+            	"Efraim": 103,
+            	"Rachel": 30
+			}
+			self.assertEqual(questions.best_student(dict1), 0)
+			
+		def bestgrade_samegrade_elements(self):
+    		dict1 = {
+        		"Ben": 88,
+        		"Hen": 88,
+        		"Natan": 88,
+        		"Efraim": 88,
+        		"Rachel": 88
+    		}
+			self.assertEqual(questions.best_student(dict1), 0)
+			
+		
 class TestPrintDictAsTable(unittest.TestCase):
     """
     1 Katas
