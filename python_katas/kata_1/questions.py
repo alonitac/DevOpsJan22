@@ -140,13 +140,15 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-
-    if num> 1:
+    if num==1:
+        return True
+    elif num> 1:
         for n in range(2,num):
             if (num % n) == 0:
-                result =False
-        result = True
-    return result
+                return False
+        return True
+    else:
+        return False
 
 
 def palindrome_num(num):
@@ -162,7 +164,14 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    # make number a string
+    str_num = str(num)
+
+    if str_num[::-1]==str_num:
+        return True
+    else:
+
+        return False
 
 
 def pair_match(men, women):
@@ -193,7 +202,15 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    dict_diff = {} # empty dictionary
+    for man in men.keys(): # run over all men
+        for woman in women.keys(): # run over all women
+            tuple_names = (man,woman) # create tuple of pair
+            diff = abs(men[man] - women[woman]) # diff of pair
+            dict_diff[tuple_names] = diff # add tuple_names as key and diff as value
+
+    pair_match = min(dict_diff ,key=dict_diff.get) # get the minimum diff
+    return pair_match
 
 
 def bad_average(a, b, c):
@@ -205,7 +222,7 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -228,7 +245,12 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+
+    import operator
+
+    best_student= max(grades.items(), key=operator.itemgetter(1))[0]
+
+    return best_student
 
 
 def print_dict_as_table(some_dict):
@@ -257,7 +279,10 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    print('Key Value')
+    for key, value in some_dict.items():
+       a = print('{} {}'.format(key, value))
+    return a
 
 
 def merge_dicts(dict1, dict2):
