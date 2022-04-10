@@ -249,11 +249,12 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    dict1 = some_dict
+
+    table = ""
     print("{:<10} {:<10} ".format('Key', 'Value',))
-    for key, value in dict1.items():
+    for key, value in some_dict.items():
         print("{:<10} {:<10} ".format(key, value,))
-    return " "
+    return table
 
 
 def merge_dicts(dict1, dict2):

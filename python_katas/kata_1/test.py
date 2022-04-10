@@ -144,7 +144,12 @@ class TestPrintDictAsTable(unittest.TestCase):
     """
 
     def test_sample(self):
-        self.assertEqual(questions.print_dict_as_table(some_dict={"Ben": 78,}), "78" )
+        dict = {"Yuval": 23, "alex": 59}
+        self.assertEqual(questions.print_dict_as_table(dict) ,"")
+        dict = {"i Am ": "Death" }
+        self.assertEqual(questions.print_dict_as_table(dict) ,"")
+        dict = {"Hello ": "World" }
+        self.assertEqual(questions.print_dict_as_table(dict) ,"")
         pass
 
 
