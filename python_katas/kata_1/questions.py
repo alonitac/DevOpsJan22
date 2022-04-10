@@ -108,7 +108,12 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    diff_list = []
+    for e in range(len(elements)):
+        new_elements = elements[e] - elements[e - 1]
+        diff_list.append(new_elements)
+    diff_list[0] = None
+    return diff_list
 
 
 def prime_number(num):
