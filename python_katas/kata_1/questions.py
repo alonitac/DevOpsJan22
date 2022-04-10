@@ -28,10 +28,10 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
+    return None
 
 
-
-def words_concatenation(concat):
+def words_concatenation(words):
     """
     1 Kata
 
@@ -43,13 +43,14 @@ def words_concatenation(concat):
     :param words: list of str
     :return: Return the resulting string.
     """
+    return None
 
 
 def reverse_words_concatenation(words):
     """
     1 Kata
 
-    Given a list of words, write a program that concatenates the words in a reverse way
+    Given a list of words, write a program that concatenates the words in a reverse way (both words and each word itself)
 
     For example:
     reverse_words_concatenation(['take', 'me', 'home']) returns 'home me take'
@@ -64,7 +65,7 @@ def is_unique_string(some_str):
     """
     2 Kata
 
-    Given a string, the function returns True if all characters in the string are unique, False otherwise
+    Given a string, the function returns True is all characters in the string are unique, False otherwise
 
     e.g
     'abcd' -> True
@@ -85,7 +86,7 @@ def list_diff(elements):
     reduces by its previous one. The first element should be None
 
     e.g.
-    [1, 2, 3, 4, 7, 11] -> [None, 1, 1, 1, 3, 4]
+    [1, 2, 3, 4, 7, 11] -> [None, 1, 1, 3, 4]
     [] -> []
     [1, 5, 0, 4, 1, 1, 1] -> [None, 4, -5, 4, -3, 0, 0]
 
