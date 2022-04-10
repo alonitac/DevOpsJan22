@@ -142,21 +142,20 @@ def list_diff(elements):
     """
 
 
-
 def prime_number(num):
     if num > 1:
         for i in range(2, num):
             if (num % i) == 0:
-                return (num, "is not a prime number")
+                return False
                 break
         else:
-            return (num, "is a prime number")
+            return True
 
     # if input number is less than
     # or equal to 1, it is not prime
     else:
-        return (num, "is not a prime number")
-    """
+        return True
+"""
     1 Kata
 
     Check if the given number is prime or not.
@@ -272,9 +271,10 @@ def best_student(grades):
 
 
 def print_dict_as_table(some_dict):
-    resutls = ""
-    for k, v in some_dict.items():
-        resutls += (k + " " + str(v)) + "\n"
+    resutls=""
+    print ("{:<10} {:<10}".format('Key','Value'))
+    for k ,v in some_dict.items():
+       resutls += ("{:<10} {:<10}".format(k, v)+"\n")
     return resutls
     """
     1 Kata
