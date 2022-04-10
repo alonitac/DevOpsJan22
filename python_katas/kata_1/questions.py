@@ -191,7 +191,7 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return (a + b + c) / 2
+    return (a + b + c) / 3
 
 
 def best_student(grades):
