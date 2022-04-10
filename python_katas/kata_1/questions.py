@@ -28,8 +28,13 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
-
+def verbing(str):
+  if len(str) > 2:
+    if str[-3:] == 'ing':
+      str += 'ly'
+    else:
+      str += 'ing'
+  return str
 
 def words_concatenation(words):
     """
@@ -43,7 +48,10 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+
+    words_list = words
+
+    return (" ".join(words_list))
 
 
 def reverse_words_concatenation(words):
@@ -58,8 +66,9 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    words_list = words
 
+    return (" ".join(reversed(words_list)))
 
 def is_unique_string(some_str):
     """
@@ -75,7 +84,10 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+def is_unique_string(some_str):
+    bool = len(set(some_str)) == len(some_str)
+    return bool
+
 
 
 def list_diff(elements):
@@ -93,7 +105,9 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    test_list = elements
+    diff_list = [test_list[i + 1] - test_list[i] for i in range(len(test_list) - 1)]
+    return diff_list
 
 
 def prime_number(num):
@@ -106,7 +120,12 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+
+    for n in range(2, int(num ** 0.5) + 1):
+        if num % n == 0:
+            return False
+    return True
+
 
 
 def palindrome_num(num):
@@ -122,8 +141,21 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
 
+    def palindrome_num(num):
+        n = num
+        rev = 0
+        while n:
+            r = n % 10
+            rev = rev * 10 + r
+            n = n // 10
+        return num == rev
+    if __name__ == '__main__':
+        n = num
+        if palindrome_num(n):
+            return True
+        else:
+           return False
 
 def pair_match(men, women):
     """
@@ -217,7 +249,12 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+
+    table = ""
+    print("{:<10} {:<10} ".format('Key', 'Value',))
+    for key, value in some_dict.items():
+        print("{:<10} {:<10} ".format(key, value,))
+    return table
 
 
 def merge_dicts(dict1, dict2):
