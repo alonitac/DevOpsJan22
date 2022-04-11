@@ -63,9 +63,21 @@ class TestReverseWordsConcatenation(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def reverse_original_example(self):
+        lst = ['take', 'me', 'home']
+        self.assertEqual(questions.reverse_words_concatenation(lst), 0)
+
+    def reverse_empty_list(self):
+        lst = []
+        self.assertEqual(questions.reverse_words_concatenation(lst), 0)
+
+    def reverse_one_string(self):
+        lst = ['me']
+        self.assertEqual(questions.reverse_words_concatenation(lst), 0)
+
+    def reverse_same_strings(self):
+        lst = ['me', 'me', 'me']
+        self.assertEqual(questions.reverse_words_concatenation(lst), 0)
 
 
 class TestIsUniqueString(unittest.TestCase):
@@ -136,6 +148,7 @@ class TestBestStudent(unittest.TestCase):
     def test_sample(self):
         # your code here
         pass
+
 
 
 class TestPrintDictAsTable(unittest.TestCase):
