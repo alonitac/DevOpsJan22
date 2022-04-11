@@ -172,15 +172,15 @@ class TestBestStudent(unittest.TestCase):
         self.assertEqual(questions.best_student(dict1), 0)
 
 
-def bestgrade_samegrade_elements(self):
-    dict1 = {
-        "Ben": 88,
-        "Hen": 88,
-        "Natan": 88,
-        "Efraim": 88,
-        "Rachel": 88
-    }
-    self.assertEqual(questions.best_student(dict1), 0)
+    def bestgrade_samegrade_elements(self):
+        dict1 = {
+            "Ben": 88,
+            "Hen": 88,
+            "Natan": 88,
+            "Efraim": 88,
+            "Rachel": 88
+        }
+        self.assertEqual(questions.best_student(dict1), 0)
 
 
 class TestPrintDictAsTable(unittest.TestCase):
