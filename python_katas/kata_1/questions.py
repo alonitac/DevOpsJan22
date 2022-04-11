@@ -60,7 +60,7 @@ def reverse_words_concatenation(words):
     """
     1 Kata
 
-    Given a list of words, write a program that concatenates the words in a reverse way
+    Given a list of words, write a program that concatenates the words in a reverse way (both words and each word itself)
 
     For example:
     reverse_words_concatenation(['take', 'me', 'home']) returns 'home me take'
@@ -148,7 +148,23 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    # store a copy of this number
+    temp = num
+    # calculate reverse of this number
+    reverse_num = 0
+    while (num):
+        # extract last digit of this number
+        digit = num % 10
+        # append this digit in reveresed number
+        reverse_num = reverse_num * 10 + digit
+        # floor divide the number leave out the last digit from number
+        number = num // 10
+    # compare reverse to original number
+    if (temp == reverse_num):
+       return True
+    else:
+        return False
+
 
 
 def pair_match(men, women):
