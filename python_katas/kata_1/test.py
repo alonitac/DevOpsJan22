@@ -222,7 +222,7 @@ class TestBestStudent(unittest.TestCase):
             "Efraim": 65,
             "Rachel": 95
         }
-        self.assertEqual(questions.best_student(dict1), 0)
+        self.assertEqual(questions.best_student(dict1), 'Natan')
 
     def best_student_over_grades(self):
         dict1 = {
@@ -232,7 +232,7 @@ class TestBestStudent(unittest.TestCase):
             "Efraim": 365,
             "Rachel": -95
         }
-        self.assertEqual(questions.best_student(dict1), 0)
+        self.assertEqual(questions.best_student(dict1), 'Efraim')
 
     def best_student_same_gardes(self):
         dict1 = {
@@ -242,7 +242,7 @@ class TestBestStudent(unittest.TestCase):
             "Efraim": 88,
             "Rachel": 88
         }
-        self.assertEqual(questions.best_student(dict1), 0)
+        self.assertEqual(questions.best_student(dict1), 'Ben')
 
     def best_student_float_grades(self):
         dict1 = {
@@ -252,7 +252,7 @@ class TestBestStudent(unittest.TestCase):
             "Efraim": 5.5,
             "Rachel": 9.1
         }
-        self.assertEqual(questions.best_student(dict1), 0)
+        self.assertEqual(questions.best_student(dict1), 'Rachel')
 
 
 class TestPrintDictAsTable(unittest.TestCase):
