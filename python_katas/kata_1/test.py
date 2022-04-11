@@ -145,10 +145,46 @@ class TestBestStudent(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def best_student_original_example(self):
 
+        dict1 = {
+            "Ben": 78,
+            "Hen": 88,
+            "Natan": 99,
+            "Efraim": 65,
+            "Rachel": 95
+        }
+        self.assertEqual(questions.best_student(lst), 0)
+
+    def best_student_over_grades(self):
+        dict1 = {
+            "Ben": 178,
+            "Hen": 188,
+            "Natan": 299,
+            "Efraim": 365,
+            "Rachel": -95
+        }
+        self.assertEqual(questions.best_student(lst), 0)
+
+    def best_student_same_gardes(self):
+        dict1 = {
+            "Ben": 88,
+            "Hen": 88,
+            "Natan": 88,
+            "Efraim": 88,
+            "Rachel": 88
+        }
+        self.assertEqual(questions.best_student(lst), 0)
+
+    def best_student_float_grades(self):
+        dict1 = {
+            "Ben": 7.5,
+            "Hen": 8,
+            "Natan": 9,
+            "Efraim": 5.5,
+            "Rachel": 9.1
+        }
+        self.assertEqual(questions.best_student(lst), 0)
 
 
 class TestPrintDictAsTable(unittest.TestCase):
