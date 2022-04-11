@@ -29,8 +29,6 @@ def verbing(word):
     :return: Return the resulting string.
     """
 
-   for word in wor
-
     return
 
 def words_concatenation(words):
