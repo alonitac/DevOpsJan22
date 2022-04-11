@@ -90,7 +90,17 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    d = {}
+    exsist = True
+
+    for c in some_str:
+        if c in d:
+            exsist = False
+            break
+        else:
+            d[c] = True
+
+    return exsist
 
 
 def list_diff(elements):
@@ -334,6 +344,7 @@ if __name__ == '__main__':
     print('\nis_unique_string:\n--------------------')
     print(is_unique_string('aasdssdsederd'))
     print(is_unique_string('12345tgbnh'))
+
 
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
