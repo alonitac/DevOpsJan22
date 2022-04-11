@@ -28,8 +28,10 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
 
+   for word in wor
+
+    return
 
 def words_concatenation(words):
     """
@@ -58,8 +60,8 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
 
+    return words[::-1]
 
 def is_unique_string(some_str):
     """
