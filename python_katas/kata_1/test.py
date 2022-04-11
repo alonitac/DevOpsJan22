@@ -105,6 +105,7 @@ class TestReverseWordsConcatenation(unittest.TestCase):
         lst = ['me', 'me', 'me']
         self.assertEqual(questions.reverse_words_concatenation(lst), "me me me")
 
+
 class TestIsUniqueString(unittest.TestCase):
     """
     2 Katas
@@ -221,7 +222,7 @@ class TestBestStudent(unittest.TestCase):
             "Efraim": 65,
             "Rachel": 95
         }
-        self.assertEqual(questions.best_student(lst), 0)
+        self.assertEqual(questions.best_student(dict1), 0)
 
     def best_student_over_grades(self):
         dict1 = {
@@ -231,7 +232,7 @@ class TestBestStudent(unittest.TestCase):
             "Efraim": 365,
             "Rachel": -95
         }
-        self.assertEqual(questions.best_student(lst), 0)
+        self.assertEqual(questions.best_student(dict1), 0)
 
     def best_student_same_gardes(self):
         dict1 = {
@@ -241,7 +242,7 @@ class TestBestStudent(unittest.TestCase):
             "Efraim": 88,
             "Rachel": 88
         }
-        self.assertEqual(questions.best_student(lst), 0)
+        self.assertEqual(questions.best_student(dict1), 0)
 
     def best_student_float_grades(self):
         dict1 = {
@@ -251,7 +252,7 @@ class TestBestStudent(unittest.TestCase):
             "Efraim": 5.5,
             "Rachel": 9.1
         }
-        self.assertEqual(questions.best_student(lst), 0)
+        self.assertEqual(questions.best_student(dict1), 0)
 
 
 class TestPrintDictAsTable(unittest.TestCase):
