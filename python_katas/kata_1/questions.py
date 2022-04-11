@@ -285,6 +285,7 @@ def print_dict_as_table(some_dict):
     return a
 
 
+
 def merge_dicts(dict1, dict2):
     """
     1 Kata
