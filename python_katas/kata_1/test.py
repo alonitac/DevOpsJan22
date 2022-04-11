@@ -113,11 +113,23 @@ class TestListDiff(unittest.TestCase):
     """
     1 Katas
     """
-
     def test_sample(self):
-        # your code here
-        pass
+        def list_diff(elements):
+            ret = []
+            for i in elements:
+                if len(ret) == 0:
+                    ret.append(None)
+                    prev = i
+                else:
+                    ret.append(i - prev)
+                    prev = i
+            return ret
 
+        print(list_diff([1, 8, 9, 20, 5]))
+        [None, 1, 1, 3, 4]
+        print(list_diff([1, 5, 0, 4, 1, 1, 1]))
+        [None, 4, -5, 4, -3, 0, 0]
+        pass
 
 class TestPrimeNumber(unittest.TestCase):
     """
@@ -214,7 +226,15 @@ class TestMergeDicts(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
+        def Merge(dict2, dict1):
+            return (dict1.update(dict2))
+
+        dict1 = {1, 2, 3, 4}
+        dict2 = {5, 6, 7, 8}
+
+        print(Merge(dict2, dict1))
+
+        print(dict1)
         pass
 
 
