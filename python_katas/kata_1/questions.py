@@ -97,11 +97,20 @@ def is_unique_string(some_str):
 
     :param some_str:
     :return: bool
-    """
+    
     #return None
 
 
 def list_diff(elements):
+    #n=0
+    dif_elements = [None]
+    legth_F = len(elements)-1
+    for n in elements[0:legth_F]:
+        delta = elements[n+1] - elements[n]
+        dif_elements.append(delta)
+    return dif_elements
+"""
+
     """
     1 Kata
 
@@ -116,10 +125,17 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    #return None
 
 
 def prime_number(num):
+    for x in range (2,10):
+        if x != num:
+            if num%x == 0:
+                return False
+            break
+
+    return True
     """
     1 Kata
 
@@ -326,18 +342,18 @@ if __name__ == '__main__':
 
     print('\nreverse_words_concatenation:\n--------------------')
     print(reverse_words_concatenation(['take', 'me', 'home']))
-'''
+
     print('\nis_unique_string:\n--------------------')
     print(is_unique_string('aasdssdsederd'))
     print(is_unique_string('12345tgbnh'))
-'''RK
+
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
-
+'''
     print('\nprime_number:\n--------------------')
     print(prime_number(5))
     print(prime_number(22))
-
+'''RK
     print('\npalindrome_num:\n--------------------')
     print(palindrome_num(12221))
     print(palindrome_num(577))
