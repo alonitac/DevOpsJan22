@@ -13,8 +13,6 @@ Due date: 31/04/2022 23:59
 
 All your answers, including commands and free text should be written in `README`.
 This file will be checked manually (won't be executed) so no worries about combining code and text.
-At the end, commit
-
 
 ### Git Basics (commit, diff, branches)
 
@@ -60,10 +58,12 @@ At the end, commit
 
 28. Run `cherry.sh`
 29. In Pycharm Git tab (bottom left), navigate to tab Log 
+30. (TBD from main exercise)
+
 
 ### Protected branches in GitHub
 
-30. In your GitHub repo
+TBD from main exercise
 
 # Good Luck
 
