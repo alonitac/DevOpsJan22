@@ -218,7 +218,10 @@ def best_student(grades):
     :return: str. some key from the dict
     """
     sorted_values = sorted(grades.values())
-    return list(grades.keys())[list(grades.values()).index(-1)]
+    for key, value in grades.items():
+        if sorted_values[-1] == value:
+            return key
+    #return list(grades.keys())[list(grades.values()).index(len(grades)-1)]
 
 
 def print_dict_as_table(some_dict):
@@ -270,7 +273,7 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    return dict1
+    return dict1.update(dict2)
 
 
 def seven_boom(n):
