@@ -216,7 +216,8 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    sorted_values = sorted(grades.values())
+    return list(grades.keys())[list(grades.values()).index(-1)]
 
 
 def print_dict_as_table(some_dict):
