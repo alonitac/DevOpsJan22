@@ -189,8 +189,7 @@ def best_student(grades):
     :return: str. some key from the dict
     """
     sorted_values = sorted(dict1.values())
-    list(dict1.keys())[list(dict1.values()).index(sorted_values[-1])]
-    return None
+    return list(dict1.keys())[list(dict1.values()).index(sorted_values[-1])]
 
 
 def print_dict_as_table(some_dict):
