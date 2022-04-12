@@ -153,8 +153,20 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-
-
+    num = len(men.items())
+    print(num)
+    index = 0
+    new_list = ()
+    mkey = list(men.keys())
+    mval = list(men.values())
+    wkey = list(women.keys())
+    wval = list(women.values())
+    # print(res, resv)
+    for i in range(0, num):
+        for f in range(0, num):
+            if index > abs(mval[i] - wval[f]):
+                new_list = (mkey[i], wkey[f])
+                index = abs(mval[i] - wval[f])
 
 
 
@@ -287,8 +299,10 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    list1 = string.
-    return sum(num)
+    nums = []
+    for s in list(digits_str):
+        nums.append(int(s))
+    return sum(nums)
 
 
 if __name__ == '__main__':
