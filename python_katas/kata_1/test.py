@@ -127,22 +127,20 @@ class TestListDiff(unittest.TestCase):
     1 Katas
     """
     def test_sample(self):
-        def list_diff(elements):
-            ret = []
-            for i in elements:
-                if len(ret) == 0:
-                    ret.append(None)
-                    prev = i
-                else:
-                    ret.append(i - prev)
-                    prev = i
-            return ret
+        test_list = [1, 5, 0, 4, 1, 1, 1]
+        expected = [None, 4, -5, 4, -3, 0, 0]
+        result = questions.list_diff(test_list)
+        self.assertEqual(result, expected)
 
-        print(list_diff([1, 8, 9, 20, 5]))
-        [None, 1, 1, 3, 4]
-        print(list_diff([1, 5, 0, 4, 1, 1, 1]))
-        [None, 4, -5, 4, -3, 0, 0]
-        pass
+    def test_empty(self):
+        test_list = []
+        expected = []
+        self.assertEqual(questions.list_diff(test_list), expected)
+
+    def test_one(self):
+        test_list = [1]
+        expected = [None]
+        self.assertEqual(questions.list_diff(test_list), expected)
 
 class TestPrimeNumber(unittest.TestCase):
     """
@@ -279,14 +277,37 @@ class TestMergeDicts(unittest.TestCase):
         def Merge(dict2, dict1):
             return (dict1.update(dict2))
 
-        dict1 = {1, 2, 3, 4}
-        dict2 = {5, 6, 7, 8}
+    def test_basic(self):
+        dict1 = {'a': 5, 'b': 2}
+        dict2 = {'c': 5, 'd': 2}
 
-        print(Merge(dict2, dict1))
+        expected_dict = {'a': 5, 'b': 2, 'c': 5, 'd': 2}
+        result = questions.merge_dicts(dict1, dict2)
+        self.assertEqual(result, expected_dict)
 
-        print(dict1)
-        pass
+    def test_one_empty(self):
+        dict1 = {'a': 5, 'b': 2}
+        dict2 = {}
 
+        expected_dict = {'a': 5, 'b': 2}
+
+        self.assertEqual(questions.merge_dicts(dict1, dict2), expected_dict)
+
+    def test_both_empty(self):
+        dict1 = {}
+        dict2 = {}
+
+        expected_dict = {}
+
+        self.assertEqual(questions.merge_dicts(dict1, dict2), expected_dict)
+
+    def test_common_key(self):
+        dict1 = {'a': 5, 'b': 2}
+        dict2 = {'a': 7, 'd': 2}
+
+        expected_dict = {'a': 7, 'b': 2, 'd': 2}
+
+        self.assertEqual(questions.merge_dicts(dict1, dict2), expected_dict)
 
 class TestSevenBoom(unittest.TestCase):
     """
