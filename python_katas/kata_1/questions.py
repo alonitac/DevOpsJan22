@@ -5,11 +5,7 @@ def sum_of_element(elements):
     :param elements: list of integers
     :return: Return int - the sum of all elements.
     """
-    s = 0
-    for num in elements:
-        s = s + num
-
-    return s
+    return sum(elements)
 
 
 def verbing(word):
@@ -28,7 +24,15 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    my_str = word
+    if len(my_str) < 3:
+        return my_str
+    elif my_str[-3:] == 'ing':
+        my_str = my_str[:-3]
+        my_str += 'ly'
+    else:
+        my_str += 'ing'
+    return my_str
 
 
 def words_concatenation(words):
@@ -43,14 +47,15 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    my_lst = ' '.join(words)
+    return my_lst
 
 
 def reverse_words_concatenation(words):
     """
     1 Kata
 
-    Given a list of words, write a program that concatenates the words in a reverse way
+    Given a list of words, write a program that concatenates the words in a reverse way (both words and each word itself)
 
     For example:
     reverse_words_concatenation(['take', 'me', 'home']) returns 'home me take'
@@ -58,14 +63,17 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    strings = words
+    strings.reverse()
+    my_lst = words_concatenation(strings)
+    return my_lst
 
 
 def is_unique_string(some_str):
     """
     2 Kata
 
-    Given a string, the function returns True if all characters in the string are unique, False otherwise
+    Given a string, the function returns True is all characters in the string are unique, False otherwise
 
     e.g
     'abcd' -> True
@@ -75,10 +83,14 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    if len(set(some_str)) == len(some_str):
+        return True
+    else:
+        return False
 
 
 def list_diff(elements):
+
     """
     1 Kata
 
@@ -86,27 +98,38 @@ def list_diff(elements):
     reduces by its previous one. The first element should be None
 
     e.g.
-    [1, 2, 3, 4, 7, 11] -> [None, 1, 1, 1, 3, 4]
+    [1, 2, 3, 4, 7, 11] -> [None, 1, 1, 3, 4]
     [] -> []
     [1, 5, 0, 4, 1, 1, 1] -> [None, 4, -5, 4, -3, 0, 0]
 
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    if len(elements) > 1:
+        diff_list = [elements[i] - elements[i - 1] for i in range(1, len(elements))]
+        diff_list.insert(0, None)
+        return diff_list
+    elif len(elements) > 0:
+        return [None]
+    else:
+        return []
 
 
 def prime_number(num):
     """
-    1 Kata
+        1 Kata
 
-    Check if the given number is prime or not.
+        Check if the given number is prime or not.
 
-    hint: use the built-in function "range"
-    :param num: the number to check
-    :return: bool. True if prime, else False
-    """
-    return None
+        hint: use the built-in function "range"
+        :param num: the number to check
+        :return: bool. True if prime, else False
+        """
+    if num > 1:
+        for i in range(2, num):
+            if (num % i) == 0:
+                return False
+    return True
 
 
 def palindrome_num(num):
@@ -122,7 +145,12 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    my_num = str(num)
+    my_rnum = my_num[::-1]
+    if my_num == my_rnum:
+        return True
+    else:
+        return False
 
 
 def pair_match(men, women):
@@ -158,14 +186,14 @@ def pair_match(men, women):
 
 def bad_average(a, b, c):
     """
-    1 Kata
+    1 Kata: fixed
 
     This function gets 3 numbers and calculates the average.
     There is a mistake in the following implementation, you are required to fix it
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -188,8 +216,7 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    sorted_values = sorted(dict1.values())
-    return list(dict1.keys())[list(dict1.values()).index(sorted_values[-1])]
+    return None
 
 
 def print_dict_as_table(some_dict):
