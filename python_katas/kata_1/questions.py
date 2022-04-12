@@ -148,20 +148,21 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
+    number = int(num)
     # store a copy of this number
-    temp = num
+    temp = number
     # calculate reverse of this number
     reverse_num = 0
-    while (num):
+    while (number > 0):
         # extract last digit of this number
-        digit = num % 10
+        digit = number % 10
         # append this digit in reveresed number
         reverse_num = reverse_num * 10 + digit
         # floor divide the number leave out the last digit from number
-        number = num // 10
+        number = number // 10
     # compare reverse to original number
     if (temp == reverse_num):
-       return True
+        return True
     else:
         return False
 
@@ -309,7 +310,22 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    result = ""
+
+    # traverse text
+    for i in range(len(str_to_encrypt)):
+        char = str_to_encrypt[i]
+
+        # Encrypt uppercase characters
+        if char == " ":
+            result += " "
+        elif (char.isupper()):
+            result += chr((ord(char) + 3 - 65) % 26 + 65)
+        # Encrypt lowercase characters
+        else:
+            result += chr((ord(char) + 3 - 97) % 26 + 97)
+
+    return result
 
 
 def sum_of_digits(digits_str):
