@@ -118,7 +118,14 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    diff = [None]
+
+    n = 0
+    while n < len(elements)-1:
+        diff.append(elements[n+1] - elements[n])
+        n += 1
+
+    return diff
 
 
 def prime_number(num):
@@ -131,7 +138,15 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+    if num == 1:
+        return False
+    x = range(2, num)
+    prime = True
+    for n in x:
+        if num % n == 0:
+            prime = False
+            break
+    return prime
 
 
 def palindrome_num(num):
@@ -147,7 +162,14 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    pali = False
+
+    a = str(num)
+
+    if num == int(a[::-1]):
+        pali = True
+
+    return pali
 
 
 def pair_match(men, women):
@@ -349,13 +371,18 @@ if __name__ == '__main__':
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
 
+
     print('\nprime_number:\n--------------------')
     print(prime_number(5))
-    print(prime_number(22))
+
+
+
 
     print('\npalindrome_num:\n--------------------')
     print(palindrome_num(12221))
     print(palindrome_num(577))
+
+
 
     print('\npair_match:\n--------------------')
     print(pair_match(
