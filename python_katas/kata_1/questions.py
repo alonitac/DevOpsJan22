@@ -145,10 +145,22 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+    #return None
 
 
 def palindrome_num(num):
+    num = str(num)
+    num_list = list(num.split())
+    length = len(num_list)
+    half = length//2
+    if length%2 != 0:
+        mid = num_list[half]
+        mirror = num_list[half+1:length:-1]
+    else:
+        mirror = num_list[half:length:-1]
+    return mirror
+
+
     """
     1 Kata
 
@@ -161,7 +173,7 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    #return None
 
 
 def pair_match(men, women):
@@ -349,15 +361,15 @@ if __name__ == '__main__':
 
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
-'''
+
     print('\nprime_number:\n--------------------')
     print(prime_number(5))
     print(prime_number(22))
-'''RK
+'''
     print('\npalindrome_num:\n--------------------')
     print(palindrome_num(12221))
     print(palindrome_num(577))
-
+'''RK
     print('\npair_match:\n--------------------')
     print(pair_match(
         {
