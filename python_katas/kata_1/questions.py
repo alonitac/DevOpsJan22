@@ -38,21 +38,6 @@ def verbing(word):
     return new_word
 
 
-def words_concatenation(words):
-    """
-    1 Kata
-
-    Given a list of words, write a program that concatenates the words.
-
-    For example:
-    words_concatenation(['take', 'me', 'home']) returns 'take me home'
-
-    :param words: list of str
-    :return: Return the resulting string.
-    """
-    return None
-
-
 def reverse_words_concatenation(words):
     """
     1 Kata
