@@ -343,7 +343,13 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    list1 = list(digits_str)
+    list2 = list()
+    for i in list1:
+        number = int(i)
+        list2.append(number)
+        result = sum(list2)
+    return result
 
 
 if __name__ == '__main__':
