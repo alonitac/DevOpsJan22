@@ -86,7 +86,7 @@ def is_unique_string(some_str):
     """
     for x in some_str:
         if some_str.count(x) > 1:
-            return  False
+            return False
         elif some_str.count(x) == 1:
             return True
     return None
@@ -111,6 +111,8 @@ def list_diff(elements):
     for x in range(len(elements)):
         if elements[x] != elements[-1]:
             elements[x] -= elements[x + 1]
+        elif elements[-1]:
+            elements[-1] = None
         else:
             break
 
@@ -128,9 +130,9 @@ def prime_number(num):
     :return: bool. True if prime, else False
     """
     if num % 1 == 0 and num / num == 1:
-        num = True
+        return True
     else:
-        num = False
+        return False
     return None
 
 
@@ -187,6 +189,7 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
+
 
     return None
 
@@ -313,10 +316,31 @@ def caesar_cipher(str_to_encrypt):
 
     e.g.
     Fly Me To The Moon -> Iob Ph Wr Wkh Prrq
-
     :return:
     """
-    return None
+    UpperLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+                    'U', 'V', 'W', 'X', 'Y', 'Z',
+                    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+                    'U', 'V', 'W', 'X', 'Y', 'Z']
+    LowerLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+                    'u', 'v', 'w', 'x', 'y', 'z',
+                    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+                    'u', 'v', 'w', 'x', 'y', 'z']
+    cipher_text = ""
+    for c in str_to_encrypt:
+        if c.isupper():
+            position = UpperLetters.index(c)
+            new_position = position + 4
+            new_letter = UpperLetters[new_position]
+            cipher_text += new_letter
+        else:
+            position = LowerLetters.index(c)
+            new_position = position + 4
+            new_letter = LowerLetters[new_position]
+            cipher_text += new_letter
+
+    print(cipher_text)
+    return cipher_text
 
 
 def sum_of_digits(digits_str):
