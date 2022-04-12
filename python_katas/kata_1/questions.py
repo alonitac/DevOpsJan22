@@ -34,7 +34,7 @@ def verbing(word):
         word += "ly"
     else:
         word = word
-    return None
+    return word
 
 
 def words_concatenation(words):
@@ -50,7 +50,7 @@ def words_concatenation(words):
     :return: Return the resulting string.
     """
     words = " ".join(str(word) for word in words)
-    return None
+    return words
 
 
 def reverse_words_concatenation(words):
@@ -67,7 +67,7 @@ def reverse_words_concatenation(words):
     """
     words.reverse()
     words = " ".join(str(word) for word in words)
-    return None
+    return words
 
 
 def is_unique_string(some_str):
@@ -116,7 +116,7 @@ def list_diff(elements):
         else:
             break
 
-    return None
+    return elements
 
 
 def prime_number(num):
@@ -227,8 +227,8 @@ def best_student(grades):
     :return: str. some key from the dict
     """
     import operator
-    print(max(grades.items(), key=operator.itemgetter(1))[0])
-    return None
+    best = max(grades.items(), key=operator.itemgetter(1))[0]
+    return best
 
 
 def print_dict_as_table(some_dict):
@@ -261,8 +261,9 @@ def print_dict_as_table(some_dict):
     for k, v in some_dict.items():
         key = k
         value = v
+        table = "{:<8} {:<8}".format(key, value)
         print("{:<8} {:<8}".format(key, value))
-    return None
+    return table
 
 
 def merge_dicts(dict1, dict2):
@@ -304,7 +305,7 @@ def seven_boom(n):
             num_lst.append(num)
         elif (num - 7) % 10 == 0:
             num_lst.append(num)
-    return None
+    return num_lst
 
 
 def caesar_cipher(str_to_encrypt):
@@ -319,13 +320,11 @@ def caesar_cipher(str_to_encrypt):
     :return:
     """
     UpperLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-                    'U', 'V', 'W', 'X', 'Y', 'Z',
-                    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-                    'U', 'V', 'W', 'X', 'Y', 'Z']
+                    'U', 'V', 'W', 'X', 'Y', 'Z', ' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                   'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ']
     LowerLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-                    'u', 'v', 'w', 'x', 'y', 'z',
-                    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-                    'u', 'v', 'w', 'x', 'y', 'z']
+                    'u', 'v', 'w', 'x', 'y', 'z', ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+                    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     cipher_text = ""
     for c in str_to_encrypt:
         if c.isupper():
@@ -339,7 +338,6 @@ def caesar_cipher(str_to_encrypt):
             new_letter = LowerLetters[new_position]
             cipher_text += new_letter
 
-    print(cipher_text)
     return cipher_text
 
 
@@ -362,7 +360,6 @@ def sum_of_digits(digits_str):
     for i in range(0, len(list_digits)):
         list_digits[i] = int(list_digits[i])
 
-    print(sum(list_digits))
     return (sum(list_digits))
 
 
