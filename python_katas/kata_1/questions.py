@@ -11,8 +11,6 @@ def sum_of_element(elements):
 
     return s
 
-
-def verbing(word):
     """
     1 Kata
 
@@ -29,7 +27,16 @@ def verbing(word):
     :return: Return the resulting string.
     """
 
-    return
+def verbing(word):
+    new_word = ""
+    a = [x for x in word]
+    if len(a) > 3 and a[-3:] != ["i", "n", "g"]:
+        new_word = word + "ing"
+    elif len(a) > 3 and a[-3:] == ["i", "n", "g"]:
+        new_word = a[:len(word) - 3] + ["l", "y"]
+        new_word = ''.join(map(str, new_word))
+    return new_word
+
 
 def words_concatenation(words):
     """
