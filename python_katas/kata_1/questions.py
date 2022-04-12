@@ -1,3 +1,4 @@
+
 def sum_of_element(elements):
     """
     1 Kata
@@ -246,7 +247,10 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    print("{:<7} {}".format('Key', 'Value'))
+    print("{}".format('-' * 16))
+    for key, value in dict1.items():
+        print("{:<7} {}".format(key, value))
 
 
 def merge_dicts(dict1, dict2):
