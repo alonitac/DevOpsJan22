@@ -160,3 +160,20 @@ def seven_boom(end_number):
 seven_boom(50)
 '''
 
+'''
+def best_student(grades):
+    sort_by_score=sorted(grades.items(), key=lambda x: x[1],reverse=True)
+    print(sort_by_score)
+    print(sort_by_score[0][0])
+    return sort_by_score[0][0]
+
+best_student({
+        "Ben": 78,
+        "Hen": 88,
+        "Natan": 99,
+        "Efraim": 65,
+        "Rachel": 95 })
+'''
+
+
+
