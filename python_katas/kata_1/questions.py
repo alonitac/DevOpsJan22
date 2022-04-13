@@ -306,7 +306,27 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    key = 3
+    encryption = ""
+
+    for c in str_to_encrypt:
+        if c.isspace():
+            encryption += c
+        elif c.isupper():
+            c_unicode = ord(c)
+            c_index = c_unicode - ord("A")
+            new_index = (c_index + key) % 26
+            new_unicode = new_index + ord("A")
+            new_c = chr(new_unicode)
+            encryption += new_c
+        elif c.islower:
+            c_unicode = ord(c)
+            c_index = ord(c) - ord("a")
+            new_index = (c_index + key) % 26
+            new_unicode = new_index + ord("a")
+            new_c = chr(new_unicode)
+            encryption += new_c
+    return encryption
 
 
 def sum_of_digits(digits_str):
