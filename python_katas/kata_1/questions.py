@@ -280,6 +280,7 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+    dict1.update((dict2))
     return dict1
 
 
@@ -295,7 +296,14 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    seven_boom_list = []
+    for i in range(1, n):
+        if i % 7 == 0 :
+            seven_boom_list.append(i)
+        elif "7" in str(i):
+            seven_boom_list.append(i)
+
+    return seven_boom_list
 
 
 def caesar_cipher(str_to_encrypt):
