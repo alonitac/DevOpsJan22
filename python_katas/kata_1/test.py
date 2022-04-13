@@ -258,14 +258,14 @@ class TestPrintDictAsTable(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
+
+    def test_DictTable(self):
+        resutls =''
         dict = {"Yuval": 23, "alex": 59}
-        self.assertEqual(questions.print_dict_as_table(dict) ,"")
-        dict = {"i Am ": "Death" }
-        self.assertEqual(questions.print_dict_as_table(dict) ,"")
-        dict = {"Hello ": "World" }
-        self.assertEqual(questions.print_dict_as_table(dict) ,"")
-        pass
+        for key, value in dict.items():
+            resutls += ("{:<10} {:<10}".format(key, value) + "\n")
+        self.assertEqual(questions.print_dict_as_table(dict), resutls)
+
 
 
 class TestMergeDicts(unittest.TestCase):
