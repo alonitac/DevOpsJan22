@@ -289,7 +289,9 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    boom = []
+    [boom.append(x) if '7' in str(x) or x % 7 == 0 else x for x in range(0, n - 1)]
+    return boom
 
 
 def caesar_cipher(str_to_encrypt):
