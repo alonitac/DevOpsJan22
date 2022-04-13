@@ -68,14 +68,15 @@ is_unique_string('12341')
 '''
 
 '''
-def list_diff(elements): !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    i = elements[0]-elements[0]
-    j = elements
-    print(i)
-    #for i in elements:
-     #   print(j-i)
-
-list_diff([1,15,20,30])
+def list_diff(elements):
+    length=len(elements)-1
+    diff=[None]
+    
+    for i in range(length):
+        diff.append(elements[i+1]-elements[i])
+    print(diff)
+    return diff
+list_diff([1,15,20,30,5])
 '''
 
 '''
@@ -93,11 +94,20 @@ prime_number(3)
 '''        
 '''
 def palindrome_num(num):
+    temp=num
+    rev=0
+    while(num>0):
+        dig=num%10
+        rev=rev*10+dig
+        num=num//10
+    if(temp==rev):
+        print("The number is a palindrome!")
+        return True
+    else:
+        print("The number isn't a palindrome!")
+        return False
+palindrome_num(1211)
 '''
-
-
-
-
 
 
 '''
@@ -108,6 +118,16 @@ def bad_average(a, b, c):
 bad_average(2, 100, 10)
 '''
 
+'''
+def print_dict_as_table(some_dict):    
+    print("{:<15} {:<15} ".format('Key', 'Value'))
+    print('-----           ------')
+    for key, value in some_dict.items():
+        name = key
+        score = value
+        print("{:<15} {:<15} ".format(name, score))
+print_dict_as_table({'Ben':78,'Natan':45,'David':100,'gggggggggg':50})
+'''
 
 '''
 def merge_dicts(dict1,dict2):
@@ -115,5 +135,28 @@ def merge_dicts(dict1,dict2):
     print(dict1)
     return dict1
 merge_dicts({'a': 1},{'b' : 2})
+'''
+
+'''
+def sum_of_digits(digits_str):
+   sum=0
+   for digit in digits_str:
+       sum+=int(digit)
+   print(sum)
+   return sum
+sum_of_digits('00033')
+'''
+
+'''
+def seven_boom(end_number):
+    booms = []
+    n = 1
+
+    while n <= end_number:
+        if (n % 7 == 0) or ('7' in str(n)):
+            booms.append(n)
+        n += 1
+    print(booms)
+seven_boom(50)
 '''
 
