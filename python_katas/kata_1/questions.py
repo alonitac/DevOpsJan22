@@ -250,7 +250,7 @@ def print_dict_as_table(some_dict):
     :return:
     """
     print("{:<7} {}".format('Key', 'Value'))
-    print("{}".format('-' * 16))
+    print("{}".format('-' * 13))
     for key, value in dict1.items():
         print("{:<7} {}".format(key, value))
 
