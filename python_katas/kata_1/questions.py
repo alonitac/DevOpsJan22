@@ -260,6 +260,9 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
+    for k, v in some_dict.items():
+        num = v
+        print("{:<8} {:<10}".format(k, num))
     return None
 
 
