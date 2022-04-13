@@ -1,150 +1,58 @@
-name@example.com
- README_EX2
- Ariel1434@gmail.com
+doron.dollev@gmail.com
+
+### Processes handling
+
+**(Q1)** A user started a process and logged out from the terminal. Which command he used if the process still running in the background:
+
+* nohup
 
 
+**(Q2)** The `kill` command always terminates a process.
+
+* False
 
 
+**(Q3)** Which command could be used to know how many processes are running in the background terminal session?
 
-                                               TLS communication
-                                               -----------------
-
-In Exercise, We are going to manually implemented a secure communication over HTTP.
-The way we are going to perform are by two ways:
-1)Follow the instructions in Exercise_2.
-2)Learning and implementing the Commands methods, Essential understanding 'How HTTP works'
-
-----------------------------------------------
-
-Learning the fundementals shows here below:
-0)Signals
-1)TLS communication
-2)HTTP
-3)JASON
-4)curl
-5)OpenSSL
-
-*if SIGSTP doesn't work the next command will be SIGSTOP
-*SIGCONT- is used to continue the process after it was stopped.
-
------------------------------------------------
+* jobs
 
 
-                                                Processes handling
-                                               --------------------
-Writing the answers here:
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**(Q4)** Given a terminal session with long process running in it, how will you ask this process to terminate?
 
-(Q1) A user started a process and logged out from the terminal. Which command he used if the process still running in the background:
-(A1) To make the process to still running in the background we are going to use 'nohup' command.
+* CTRL+c
 
 
-(Q2) The kill command always terminates a process.
-(A2) The answer is False
-explain: You might want to check kill -l command in the terminal, by that you will be able to see that there are a veriry of diffrent signals that you can perform, therefore, the answer is False.
+**(Q5)** Given a terminal session with long process running in it, how will you ask this process the stop?
+
+* CTRL+z
 
 
-(Q3) Which command could be used to know how many processes are running in the background terminal session?
-(A3)The answer is: 'jobs' -commands you might want to check the 'man' page of this command.
+**(Q6)** How would you run the `sleep 10` command as a foreground process?
+
+* sleep 10
 
 
-(Q4) Given a terminal session with long process running in it, how will you ask this process to terminate?
-(A4) To terminate the process, you should use CTRL+C which is shortkey for 'kill -2' command.
-      (SIGINT        2       Term    Interrupt from keyboard)
+**(Q7)** Which of the following command would deliver a SIGTERM to the `xscreensaver` process?
+
+* None of the above
 
 
-(Q5) Given a terminal session with long process running in it, how will you ask this process the stop?
-(A5) To Stop the process, you should use CTRL+Z which is shortkey for 'kill -20' command.
+**(Q8)** Which of the following would deliver a SIGKILL to the `xscreensaver` command?
+
+* kill -9 4846
 
 
-(Q6) How would you run the sleep 10 command as a foreground process?
-(A6) To run the sleep 10 command as a foreground process we will write: 'sleep 10' command.
+**(Q9)** Which of the following would send a SIGCHLD (signal number 17) to the `ssh-agent` process?
+
+* kill -CHLD 4828
 
 
-(Q7) Which of the following command would deliver a SIGTERM to the xscreensaver process?
-(A7) To Deliver a SIGTERM to xscreensaver process, we will use :kill 4846
- explain: As we know,the syntax of exacute the command, require the command kill and process ID.
-          (This defaults to the SIGTERM signal)
+**(Q10)** Which key pressed within the `top` command allows the user to send a signal to a process?
+
+* k
 
 
-(Q8) Which of the following would deliver a SIGKILL to the xscreensaver command?
-(A8) To deliver a SIGKILL to the xscreensaver we will use :kill -9 4846
+**(Q11 - easy 5 points bonus)** Open a new terminal session and type the command `python`. Then send a SIGINT signal using your keyboard. What best describes
+ how the python process responds to the SIGINT signal?
 
-
-(Q9) Which of the following would send a SIGCHLD (signal number 17) to the ssh-agent process?
-(A9) To send SIGCHLD to the ssh-agent process: kill -CHLD 4828
-    (explain: The reaon I think is the correct answer, because signal arguments must be process or jons IDs)
-
-
-(Q10) Which key pressed within the top command allows the user to send a signal to a process?
-(A10) To send signal to a process in top command use the key :k
-      (When you will run the top command and try it yourself, you will get :"PID to signal/kill [default pid = xxxx]")
-
-
-(Q11)open a new terminal session and type the command python. Then send a SIGINT signal using your keyboard. What best describes how the python process responds to the SIGINT signal? (you can exit this process by typing exit() in the
-python console)
-(A11) The program implements the kernel default signal handler for the SIGINT signal, which is to stop (suspend) the process.
-
-
-                                              Process states
-                                             -----------------
-
-1) The main objective here, is to check how two different processes will behave when they have to work
-at the 'same time' meaning sequatually.
-
-2)After following the objective, here are the resualts:
-
---------------------------------------------------------------------------------------------------------------
-                                              PS AUX
---------------------------------------------------------------------------------------------------------------
-ariel      30945  9.0  0.0   2616  1768 pts/2    R+   23:34   0:00 sh multi_process_file_writing.sh
-ariel      30947  1.0  0.0   9632  3300 pts/2    D+   23:34   0:00 /bin/bash ./write_to_file_sequentially.sh
-
---------------------------------------------------------------------------------------------------------------
-                                              top command
---------------------------------------------------------------------------------------------------------------
-
-              top - 23:34:32 up  2:47,  2 users,  load average: 1003.55, 751.62, 420.35
-              Tasks: 1362 total,   2 running, 1360 sleeping,   0 stopped,   0 zombie
-              %Cpu(s):  1.6 us, 14.9 sy,  0.0 ni, 74.5 id,  6.9 wa,  0.0 hi,  2.1 si,  0.0 st
-              MiB Mem :  20947.3 total,  16166.5 free,   2693.0 used,   2087.8 buff/cache
-              MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.  17924.4 avail Mem
-
-  32948 ariel     20   0   13248   5292   3176 R  10.5   0.0   0:00.06 top
-  30954 ariel     20   0    9632   3212   2972 D   5.3   0.0   0:00.01 write_to_file_s
-  31002 ariel     20   0    9632   3300   3060 D   5.3   0.0   0:00.01 write_to_file_s
-   4475 ariel     20   0  827508  59084  40836 S   5.3   0.3   0:34.54 gnome-terminal-
-  16847 root      20   0       0      0      0 I   5.3   0.0   0:05.19 kworker/u256:0-ext4-rsv-conversion
-
-
---------------------------------------------------------------------------------------------------------------
-PROCESS STATE CODES 'top'
-       Here are the different values that the s, stat and state output
-       specifiers (header "STAT" or "S") will display to describe the
-       state of a process:
-
-               D    uninterruptible sleep (usually IO)
-               I    Idle kernel thread
-               R    running or runnable (on run queue)
-               S    interruptible sleep (waiting for an event to
-                    complete)
-               T    stopped by job control signal
-               t    stopped by debugger during the tracing
-               W    paging (not valid since the 2.6.xx kernel)
-               X    dead (should never be seen)
-               Z    defunct ("zombie") process, terminated but not
-                    reaped by its parent
-
-       For BSD formats and when the stat keyword is used, additional
-       characters may be displayed:
-
-               <    high-priority (not nice to other users)
-               N    low-priority (nice to other users)
-               L    has pages locked into memory (for real-time and
-                    custom IO)
-               s    is a session leader
-               l    is multi-threaded (using CLONE_THREAD, like NPTL
-                    pthreads do)
-               +    is in the foreground process group
-
---------------------------------------------------------------------------------------------------------------
+* The program has implemented a custom signal handler for the SIGINT signal.
