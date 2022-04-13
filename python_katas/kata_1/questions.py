@@ -329,12 +329,12 @@ def caesar_cipher(str_to_encrypt):
     for c in str_to_encrypt:
         if c.isupper():
             position = UpperLetters.index(c)
-            new_position = position + 4
+            new_position = position + 3
             new_letter = UpperLetters[new_position]
             cipher_text += new_letter
         else:
             position = LowerLetters.index(c)
-            new_position = position + 4
+            new_position = position + 3
             new_letter = LowerLetters[new_position]
             cipher_text += new_letter
 
