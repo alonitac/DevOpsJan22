@@ -95,9 +95,7 @@ class TestListDiff(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+
 
 
 class TestPrimeNumber(unittest.TestCase):
@@ -105,9 +103,29 @@ class TestPrimeNumber(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_prime_1(self):
+        number = 7
+        self.assertEqual(questions.prime_number(number), True)
+
+    def test_prime_2(self):
+        number = 17
+        self.assertEqual(questions.prime_number(number), True)
+
+    def test_prime_3(self):
+        number = 13
+        self.assertEqual(questions.prime_number(number), True)
+
+    def test_not_prime_1(self):
+        number = 1
+        self.assertEqual(questions.prime_number(number), False)
+
+    def test_not_prime_2(self):
+        number = -20
+        self.assertEqual(questions.prime_number(number), False)
+
+    def test_not_prime_3(self):
+        number = 2.4
+        self.assertEqual(questions.prime_number(number), False)
 
 
 class TestPalindromeNum(unittest.TestCase):
@@ -192,10 +210,6 @@ class TestPrintDictAsTable(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
-
 
 class TestMergeDicts(unittest.TestCase):
     """
@@ -212,10 +226,13 @@ class TestSevenBoom(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_if_contains_7(self):
+        n = 7
+        self.assertEqual(questions.seven_boom(n), [7])
 
+    def test_if_modulo_7(self):
+        n = 30
+        self.assertEqual(questions.seven_boom(n), [7, 14, 17, 21, 27, 28])
 
 class TestCaesarCipher(unittest.TestCase):
     """
