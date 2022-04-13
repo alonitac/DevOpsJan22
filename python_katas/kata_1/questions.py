@@ -138,7 +138,6 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-
     if num > 1:
         for n in range(2, num):
             if (num % n) == 0:
@@ -200,7 +199,18 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    couple = None
+    new_dict = {}
+    min_age_diff = None
+    men = men
+    women = women
+
+    for k, v in men.items():
+        for k1, v1 in women.items():
+            if min_age_diff is None or abs(v1 - v) <= min_age_diff:
+                min_age_diff = abs(v1 - v)
+                couple = k, k1
+    return couple
 
 
 def bad_average(a, b, c):
