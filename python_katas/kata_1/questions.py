@@ -84,7 +84,7 @@ def reverse_words_concatenation(words):
     """
     1 Kata
 
-    Given a list of words, write a program that concatenates the words in a reverse way (both words and each word itself)
+    Given a list of words, write a program that concatenates the words in a reverse way
 
     For example:
     reverse_words_concatenation(['take', 'me', 'home']) returns 'home me take'
