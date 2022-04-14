@@ -27,16 +27,7 @@ def sum_of_element(elements):
     :return: Return the resulting string.
     """
 
-def verbing(word):
-    new_word = ""
-    a = [x for x in word]
-    if len(a) > 3 and a[-3:] != ["i", "n", "g"]:
-        new_word = word + "ing"
-    elif len(a) > 3 and a[-3:] == ["i", "n", "g"]:
-        new_word = a[:len(word) - 3] + ["l", "y"]
-        new_word = ''.join(map(str, new_word))
-    return new_word
-
+    return None
 
 def reverse_words_concatenation(words):
     """
@@ -50,8 +41,8 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    x = [words]
-    return x [::-1]
+
+    return None
 
 def is_unique_string(some_str):
     """
@@ -67,13 +58,8 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    x = ('str')
-    for ('str') in x :
-        if is_unique_string(x)
-            ('str') == true
-            else ('str') != false
-    return None
 
+    return None
 
 def list_diff(elements):
     """
@@ -90,10 +76,8 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    x = [elements]
 
-    return x[(::1)]
-
+    return None
 
 def prime_number(num):
     """
@@ -105,14 +89,8 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    a = [numbers]
-    a = [x for num.range in (numbers)]:
-    if prime_number(a):
-        [numbers] == true
-        else != false
 
-    return bool
-
+    return None
 
 def palindrome_num(num):
     """
@@ -127,8 +105,8 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
 
+    return None
 
 def pair_match(men, women):
     """
@@ -158,8 +136,6 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
-
 
 def bad_average(a, b, c):
     """
