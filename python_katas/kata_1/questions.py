@@ -50,8 +50,8 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-
-    return words[::-1]
+    x = [words]
+    return x [::-1]
 
 def is_unique_string(some_str):
     """
@@ -67,6 +67,11 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
+    x = ('str')
+    for ('str') in x :
+        if is_unique_string(x)
+            ('str') == true
+            else ('str') != false
     return None
 
 
@@ -85,7 +90,9 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    x = [elements]
+
+    return x[(::1)]
 
 
 def prime_number(num):
@@ -98,7 +105,13 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+    a = [numbers]
+    a = [x for num.range in (numbers)]:
+    if prime_number(a):
+        [numbers] == true
+        else != false
+
+    return bool
 
 
 def palindrome_num(num):
