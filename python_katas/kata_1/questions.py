@@ -55,11 +55,8 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    if not words:
-        return None
-    else:
-        words = ' '.join(words)
-        return words
+    words = ' '.join(words)
+    return words
 
 
 def reverse_words_concatenation(words):
@@ -74,11 +71,8 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    if not words:
-        return None
-    else:
-        words = ' '.join(words[::-1])
-        return words
+    words = ' '.join(words[::-1])
+    return words
 
 
 def is_unique_string(some_str):
@@ -95,10 +89,8 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    for i in range(len(some_str)):
-        for j in range(i + 1, len(some_str)):
-            if some_str[i] == some_str[j]:
-                return False
+    if len(set(list(some_str))) != len(list(some_str)):
+        return False
     else:
         return True
 
@@ -222,7 +214,7 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -245,7 +237,9 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    for (key, value) in grades.items():
+        if value == max(grades.values()):
+            return key
 
 
 def print_dict_as_table(some_dict):
@@ -274,7 +268,10 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    grades = some_dict
+    print("{:<7} {:<10}".format('Key', 'Value'), '\n'"-------------")
+    for key, value in grades.items():
+        print(f'{key:8}{value}')
 
 
 def merge_dicts(dict1, dict2):
@@ -294,6 +291,7 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+    dict1 = dict1 | dict2
     return dict1
 
 
@@ -309,7 +307,11 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    list_boom = []
+    for x in range(1, n + 1):
+        if '7' in str(x) or x % 7 == 0:
+            list_boom.append(x)
+    return list_boom
 
 
 def caesar_cipher(str_to_encrypt):
@@ -324,7 +326,18 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    cipher = ""
+    text = str_to_encrypt
+    key = 3
+    for x in range(len(text)):
+        if text[x].isalpha():  # only shifting letters
+            if text[x].islower():  # lowercase
+                cipher += chr((ord(text[x]) - 97 + key) % 26 + 97)
+            else:  # uppercase
+                cipher += chr((ord(text[x]) - 65 + key) % 26 + 65)
+        else:
+            cipher += text[x]
+    return cipher
 
 
 def sum_of_digits(digits_str):
@@ -342,7 +355,12 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    my_str = digits_str
+    lst = [int(a) for a in str(my_str)]
+    sum_digits = 0
+    for i in range(len(lst)):
+        sum_digits += (lst[i])
+    return sum_digits
 
 
 if __name__ == '__main__':
