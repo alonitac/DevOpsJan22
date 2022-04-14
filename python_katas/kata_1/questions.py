@@ -321,7 +321,7 @@ def caesar_cipher(str_to_encrypt):
             encryption += new_c
         elif c.islower:
             c_unicode = ord(c)
-            c_index = ord(c) - ord("a")
+            c_index = c_unicode - ord("a")
             new_index = (c_index + key) % 26
             new_unicode = new_index + ord("a")
             new_c = chr(new_unicode)
