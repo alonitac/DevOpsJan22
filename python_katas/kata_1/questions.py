@@ -192,11 +192,7 @@ def pair_match(men, women):
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
     couple = None
-    new_dict = {}
     min_age_diff = None
-    men = men
-    women = women
-
     for k, v in men.items():
         for k1, v1 in women.items():
             if min_age_diff is None or abs(v1 - v) <= min_age_diff:
