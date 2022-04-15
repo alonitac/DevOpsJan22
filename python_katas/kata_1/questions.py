@@ -28,8 +28,12 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-
-
+    if len(word) >= 3:
+        return(word + 'ing')
+    elif word[-3:] == "ing":
+        word.replace('ing', 'ly')
+    else:
+        return(word)
 
 def words_concatenation(concat):
     """
@@ -43,6 +47,12 @@ def words_concatenation(concat):
     :param words: list of str
     :return: Return the resulting string.
     """
+    words_list = []
+
+    for x in words_concatenation():
+        words_list.append(x)
+        glue = ''.join(words_list)
+        print(glue)
 
 
 def reverse_words_concatenation(words):
@@ -57,6 +67,12 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
+    rev_list = []
+    for revx in reverse_words_concatenation():
+        rev_list.append(revx)
+        revglue = ''.join(reversed(rev_list))
+        print(revglue)
+
     return None
 
 
@@ -74,7 +90,12 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    s = set()
+    for n in some_str:
+        if n in s:
+            return False
+        s.add(n)
+    return True
 
 
 def list_diff(elements):
@@ -92,6 +113,8 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
+
+
     return None
 
 
@@ -105,6 +128,7 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
+
     return None
 
 
@@ -121,7 +145,16 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    regular = []
+    rev = []
+
+    for n in num:
+        regular.append(num)
+        reversed(rev.append(num))
+        if regular == rev:
+            return True
+        else:
+            return False
 
 
 def pair_match(men, women):
@@ -251,7 +284,13 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    boomers=[]
+    for sev in range[n]:
+        if sev % 7 == 1:
+            boomers.append(sev)
+        else:
+            continue
+        return(boomers)
 
 
 def caesar_cipher(str_to_encrypt):
@@ -284,6 +323,14 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
+
+    addition =[]
+    for n in digits_str:
+        addition.append(n)
+    out = sum(addition)
+    print(out)
+
+
     return None
 
 
