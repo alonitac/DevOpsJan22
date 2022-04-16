@@ -286,7 +286,7 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    dict1.update((dict2))
+    dict1.update(dict2)
     return dict1
 
 
