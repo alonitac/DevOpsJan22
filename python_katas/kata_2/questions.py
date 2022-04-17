@@ -49,11 +49,19 @@ def fibonacci_fixme(n):
     a = 0
     b = 1
     for i in range(1, n):
-        a = b
         tmp = a + b
+        a = b
         b = tmp
 
-    return a
+    return b
+    #a = 0
+    #b = 1
+    #for i in range(1, n):
+    #    a = b
+    #    tmp = a + b
+    #    b = tmp
+    #
+    #return a
 
 
 def most_frequent_name(file_path):
@@ -68,7 +76,13 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+    f = open(file_path)
+    names_list = []
+    for line in f.readlines():
+        names_list.append(line.strip())
+    f.close()
+    most_frequent_name = max(set(names_list), key=names_list.count)
+    return most_frequent_name
 
 
 def files_backup(dir_path):
