@@ -182,7 +182,15 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    minimum = 1000
+    # dict_diff = {} # empty dictionary
+    for m in men.keys():  # run over all men
+        for w in women.keys():  # run over all women
+            diff_age = abs(men[m] - women[w])
+            if diff_age < minimum:
+                minimum = diff_age
+                couple = (m, w)
+    return couple
 
 
 def bad_average(a, b, c):
