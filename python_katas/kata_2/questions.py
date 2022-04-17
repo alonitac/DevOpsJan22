@@ -13,7 +13,19 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
-    return None
+    x = len(s)
+    while "()" or "{}" or "[]" in s and x != 0:
+        s = s.replace("()", "")
+        s = s.replace("{}", "")
+        s = s.replace("[]", "")
+        if x == 0:
+            break
+        x -= 1
+
+    if len(s) == 0:
+        return True
+    else:
+        return False
 
 
 def fibonacci_fixme(n):
