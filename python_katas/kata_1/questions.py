@@ -1,3 +1,7 @@
+from functools import reduce
+from typing import List, Any
+
+
 def sum_of_element(elements):
     """
     1 Kata
@@ -28,12 +32,17 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    if len(word) >= 3:
-        return(word + 'ing')
-    elif word[-3:] == "ing":
-        word.replace('ing', 'ly')
+
+    if len(word) > 2:
+        if word.endswith('ing'):
+            word.replace('ing', 'ly')
+            return (word)
+        else:
+            word += 'ing'
+            return (word)
     else:
-        return(word)
+        return (word)
+
 
 def words_concatenation(concat):
     """
@@ -49,10 +58,9 @@ def words_concatenation(concat):
     """
     words_list = []
 
-    for x in words_concatenation():
-        words_list.append(x)
-        glue = ''.join(words_list)
-        print(glue)
+    words_list += concat
+    s = ' '.join(words_list)
+    print(s)
 
 
 def reverse_words_concatenation(words):
@@ -68,10 +76,9 @@ def reverse_words_concatenation(words):
     :return: Return the resulting string.
     """
     rev_list = []
-    for revx in reverse_words_concatenation():
-        rev_list.append(revx)
-        revglue = ''.join(reversed(rev_list))
-        print(revglue)
+    rev_list += words
+    t = ' '.join(reversed(rev_list))
+    print(t)
 
     return None
 
@@ -128,8 +135,12 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-
-    return None
+    if num > 1:
+        for i in range(2, num):
+            if (num % i) == 0:
+                return True
+            else:
+                return False
 
 
 def palindrome_num(num):
@@ -145,12 +156,12 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    regular = []
-    rev = []
-
-    for n in num:
-        regular.append(num)
-        reversed(rev.append(num))
+    regular = num
+    rev = 0
+    while num > 0:
+        dig = num % 10
+        rev = rev * 10 + dig
+        num = num // 10
         if regular == rev:
             return True
         else:
@@ -185,6 +196,7 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
+
     return None
 
 
@@ -197,6 +209,7 @@ def bad_average(a, b, c):
 
     :return:
     """
+
     return a + b + c / 3
 
 
@@ -284,13 +297,15 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    boomers=[]
-    for sev in range[n]:
-        if sev % 7 == 1:
-            boomers.append(sev)
+
+    for i in range (0, n):
+        if i % 7 ==0:
+            print(i)
+        elif i>10 and int(i/10)%7==0 or i%10==7:
+            print(i)
         else:
             continue
-        return(boomers)
+
 
 
 def caesar_cipher(str_to_encrypt):
@@ -305,7 +320,8 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    result = ""
+
 
 
 def sum_of_digits(digits_str):
@@ -324,18 +340,18 @@ def sum_of_digits(digits_str):
     :return: int representing the sum of digits
     """
 
-    addition =[]
-    for n in digits_str:
-        addition.append(n)
-    out = sum(addition)
-    print(out)
+    ra = []
+    raa = sum(ra)
+    for i in digits_str:
+        int(i)
+        ra.append(i)
+    return(raa)
 
 
     return None
 
 
 if __name__ == '__main__':
-
     print('\nsum_of_element:\n--------------------')
     print(sum_of_element([1, 2, 3, 4, 5, 6]))
 
@@ -409,4 +425,3 @@ if __name__ == '__main__':
 
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
-
