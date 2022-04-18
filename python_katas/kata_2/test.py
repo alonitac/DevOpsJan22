@@ -28,9 +28,9 @@ class TestFibonacciFixme(unittest.TestCase):
     2 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_fib(self):
+        self.assertEqual(questions.fibonacci_fixme(5), 5)
+        self.assertEqual(questions.fibonacci_fixme(6), 8)
 
 
 class TestMostFrequentName(unittest.TestCase):
@@ -39,8 +39,7 @@ class TestMostFrequentName(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
-        pass
+        self.assertEqual(questions.most_frequent_name('test_names.txt'), 'c')
 
 
 class TestFilesBackup(unittest.TestCase):
