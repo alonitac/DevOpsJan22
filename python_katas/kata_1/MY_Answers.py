@@ -117,7 +117,6 @@ def bad_average(a, b, c):
     return (a+b+c) / 3
 bad_average(2, 100, 10)
 '''
-
 '''
 def print_dict_as_table(some_dict):    
     print("{:<15} {:<15} ".format('Key', 'Value'))
@@ -133,7 +132,7 @@ print_dict_as_table({'Ben':78,'Natan':45,'David':100,'gggggggggg':50})
 def merge_dicts(dict1,dict2):
     dict1 = dict1 | dict2
     print(dict1)
-    return dict1
+    #return dict1
 merge_dicts({'a': 1},{'b' : 2})
 '''
 
@@ -175,5 +174,15 @@ best_student({
         "Rachel": 95 })
 '''
 
+'''
+text=input("enter string \n")
+a_char=text[0]
+new_text=text[1:].replace(a_char,'e')
+print(a_char+new_text)
+'''
 
+text='aaaa'
+length=len(text)//2
+print(length)
+print(text[length:] + text[length:].upper())
 
