@@ -259,7 +259,7 @@ def print_dict_as_table(some_dict):
     """
     print("{:<7} {}".format('Key', 'Value'))
     print("{}".format('-' * 13))
-    for key, value in dict1.items():
+    for key, value in some_dict.items():
         print("{:<7} {}".format(key, value))
 
 
