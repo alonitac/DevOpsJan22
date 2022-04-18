@@ -81,7 +81,6 @@ class TestWordsConcatenation(unittest.TestCase):
         lyrics=['we', 'are', 'the', 'champions', 'my', 'friend']
         self.assertEqual(questions.words_concatenation(lyrics), 'we are the champions my friend')
 
-        pass
 
 
 class TestReverseWordsConcatenation(unittest.TestCase):
@@ -156,10 +155,21 @@ class TestPalindromeNum(unittest.TestCase):
     """
     1 Katas
     """
+    def test_pal1True(self):
+        num = 1441
+        self.assertTrue(questions.palindrome_num(num), "the num is palindrome but you return False")
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_pal1True(self):
+        num = 11
+        self.assertTrue(questions.palindrome_num(num), "the num is palindrome but you return False")
+
+    def test_pal1False(self):
+        num = 113
+        self.assertFalse(questions.palindrome_num(num),"the num is not palindrome but you return True")
+
+    def test_pal1Zero(self):
+        num = 0
+        self.assertTrue(questions.palindrome_num(num)," 0 is palindrom num but you return False")
 
 
 class TestPairMatch(unittest.TestCase):
@@ -334,9 +344,12 @@ class TestSumOfDigits(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_1(self):
+        num = "546312"
+        self.assertEqual(questions.sum_of_digits(num), 21)
+    def test_2(self):
+        num = "123456789"
+        self.assertEqual(questions.sum_of_digits(num), 45)
 
 
 if __name__ == '__main__':
