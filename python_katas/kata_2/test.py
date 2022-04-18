@@ -3,6 +3,15 @@ from python_katas.kata_2 import questions
 from python_katas.utils import unittest_runner
 
 
+testers = ['elkan316',
+           'JohnSchiff',
+           'Haimr101',
+           'danielmalka14',
+           'Gershoz',
+           'Ddady1',
+           'yosefdudi']
+
+
 class TestValidParentheses(unittest.TestCase):
     """
     3 Katas
