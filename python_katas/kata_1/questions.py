@@ -1,4 +1,6 @@
 def sum_of_element(elements):
+
+
     """
     1 Kata
 
@@ -43,7 +45,12 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    if words==[]:
+        print('Your list is empty,BYE')
+        return None
+    else:
+        concat_string = ' '.join(words)
+    return concat_string
 
 
 def reverse_words_concatenation(words):
@@ -217,7 +224,8 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    print(len(some_dict))
+   # return None
 
 
 def merge_dicts(dict1, dict2):
@@ -237,7 +245,9 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    return dict1
+    dict1 = dict1 | dict2
+    print(dict1)
+ #   return dict1
 
 
 def seven_boom(n):
