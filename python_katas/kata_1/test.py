@@ -326,7 +326,7 @@ class TestSevenBoom(unittest.TestCase):
 
     def test_sample(self):
         # your code here
-        pass
+
 
 
 class TestCaesarCipher(unittest.TestCase):
