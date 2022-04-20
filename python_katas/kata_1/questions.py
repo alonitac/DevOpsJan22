@@ -185,9 +185,9 @@ def palindrome_num(num):
 
 
 def pair_match(men, women):
+    memory = 0
     degel = 1
     res_dic = {}
-    #while (degel == 1):
     for k_men in men:
         for k_women in women:
             while (degel == 1):
@@ -201,7 +201,8 @@ def pair_match(men, women):
             if new_delta < memory:
                 memory = new_delta
                 res_dic = {k_men: men[k_men], k_women: women[k_women]}
-    return res_dic.keys()
+    res_tuple = list(res_dic.keys())
+    return res_tuple
 
 
     """
@@ -405,7 +406,7 @@ if __name__ == '__main__':
     print('\npalindrome_num:\n--------------------')
     print(palindrome_num(12221))
     print(palindrome_num(577))
-
+'''
     print('\npair_match:\n--------------------')
     print(pair_match(
         {
@@ -417,10 +418,10 @@ if __name__ == '__main__':
             "Kim": 26
         }
     ))
-
+'''
     print('\nbad_average:\n--------------------')
     print(bad_average(1, 2, 3))
-'''
+
     print('\nbest_student:\n--------------------')
     print(best_student({
         "Ben": 78,
@@ -429,7 +430,7 @@ if __name__ == '__main__':
         "Efraim": 65,
         "Rachel": 95
     }))
-'''
+
     print('\nprint_dict_as_table:\n--------------------')
     print(print_dict_as_table({
         "Ben": 78,
