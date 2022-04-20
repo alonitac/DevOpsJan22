@@ -149,16 +149,24 @@ def prime_number(num):
 
 
 def palindrome_num(num):
-    num = str(num)
-    num_list = list(num.split())
-    length = len(num_list)
+    numS = str(num)
+    numL = []
+    for n in list(numS):
+        numL.append(n)
+    length = len(numL)
     half = length//2
     if length%2 != 0:
-        mid = num_list[half]
-        mirror = num_list[half+1:length:-1]
+        mid = numL[half]
+        mirror = numL[half+1:length]
+        Rev_mirror = mirror[::-1]
     else:
-        mirror = num_list[half:length:-1]
-    return mirror
+        mirror = numL[half:length]
+        Rev_mirror = mirror[::-1]
+    if numL[:half] == Rev_mirror:
+        return True
+    else:
+        return False
+
 
 
     """
