@@ -243,7 +243,7 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -396,7 +396,7 @@ if __name__ == '__main__':
     print('\npalindrome_num:\n--------------------')
     print(palindrome_num(12221))
     print(palindrome_num(577))
-'''
+
     print('\npair_match:\n--------------------')
     print(pair_match(
         {
@@ -411,7 +411,7 @@ if __name__ == '__main__':
 '''
     print('\nbad_average:\n--------------------')
     print(bad_average(1, 2, 3))
-
+'''RK
     print('\nbest_student:\n--------------------')
     print(best_student({
         "Ben": 78,
