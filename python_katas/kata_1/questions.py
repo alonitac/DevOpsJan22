@@ -201,7 +201,7 @@ def pair_match(men, women):
             if new_delta < memory:
                 memory = new_delta
                 res_dic = {k_men: men[k_men], k_women: women[k_women]}
-    return res_dic
+    return res_dic.keys()
 
 
     """
@@ -408,7 +408,7 @@ if __name__ == '__main__':
             "Kim": 26
         }
     ))
-'''RK
+'''
     print('\nbad_average:\n--------------------')
     print(bad_average(1, 2, 3))
 
