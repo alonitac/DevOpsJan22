@@ -1,4 +1,24 @@
+import gzip
+import datetime
+import tarfile
+import os
+
 def valid_parentheses(s):
+    if len(s) % 2 != 0:
+        return False
+    dict = {'(' : ')', '[' : ']', '{' : '}'}
+    stack = []
+    for i in s:
+        if i in dict.keys():
+            stack.append(i)
+        else:
+            if stack == []:
+                   return False
+            a = stack.pop()
+            if i!= dict[a]:
+                return False
+    return stack == []
+
     """
     3 Kata
 
@@ -37,14 +57,27 @@ def fibonacci_fixme(n):
     a = 0
     b = 1
     for i in range(1, n):
-        a = b
         tmp = a + b
+        a = b
         b = tmp
 
     return a
 
 
 def most_frequent_name(file_path):
+    most_name =None
+    qty_most_name = 0
+    with open(file_path) as f:
+         lines = f.readlines()
+    lines_set=set(lines)
+    for item in lines_set:
+        qty = lines.count(item)
+        if qty > qty_most_name:
+             qty_most_name = qty
+             most_name = item
+    return most_name
+
+
     """
     2 Kata
 
@@ -60,6 +93,14 @@ def most_frequent_name(file_path):
 
 
 def files_backup(dir_path):
+    date = datetime.date.today()
+    split_name_dir=dir_path.split('\\')
+    name_dir=split_name_dir[-2]
+    filename_out =dir_path+"backup_"+name_dir+"_"+str(date)+".tar.gz"
+    return_print="backup_"+name_dir+"_"+str(date)+".tar.gz"
+    with tarfile.open(filename_out, "w:gz") as tar:
+        tar.add(dir_path, arcname=os.path.basename(dir_path))
+    return  return_print
     """
     3 Kata
 
