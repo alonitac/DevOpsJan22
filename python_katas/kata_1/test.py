@@ -334,9 +334,17 @@ class TestCaesarCipher(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_1(self):
+        string = "hey my friend"
+        self.assertEqual(questions.caesar_cipher(string), "khb pb iulhqg")
+
+    def test_2(self):
+        string = "Learn python code"
+        self.assertEqual(questions.caesar_cipher(string), "Ohduq sbwkrq frgh")
+
+    def test_3(self):
+        string = "Fly Me To The Moon"
+        self.assertEqual(questions.caesar_cipher(string), "Iob Ph Wr Wkh Prrq")
 
 
 class TestSumOfDigits(unittest.TestCase):
