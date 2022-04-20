@@ -280,6 +280,12 @@ def best_student(grades):
 
 
 def print_dict_as_table(some_dict):
+    from tabulate import tabulate
+    ListDict = list(some_dict.items())
+    col_names = ["Name", "Grade"]
+    return print(tabulate(ListDict, headers=col_names))
+
+
     """
     1 Kata
 
@@ -305,7 +311,7 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    #return None
 
 
 def merge_dicts(dict1, dict2):
@@ -406,7 +412,7 @@ if __name__ == '__main__':
     print('\npalindrome_num:\n--------------------')
     print(palindrome_num(12221))
     print(palindrome_num(577))
-'''
+
     print('\npair_match:\n--------------------')
     print(pair_match(
         {
@@ -418,7 +424,7 @@ if __name__ == '__main__':
             "Kim": 26
         }
     ))
-'''
+
     print('\nbad_average:\n--------------------')
     print(bad_average(1, 2, 3))
 
@@ -430,7 +436,7 @@ if __name__ == '__main__':
         "Efraim": 65,
         "Rachel": 95
     }))
-
+'''
     print('\nprint_dict_as_table:\n--------------------')
     print(print_dict_as_table({
         "Ben": 78,
@@ -439,7 +445,7 @@ if __name__ == '__main__':
         "Efraim": 65,
         "Rachel": 95
     }))
-
+'''
     print('\nmerge_dicts:\n--------------------')
     print(merge_dicts({'a': 1}, {'b': 2}))
 
