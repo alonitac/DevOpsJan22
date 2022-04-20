@@ -28,7 +28,14 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    word_len = len(word)
+    ing_test = word.find('ing')
+    if word_len >= 3:
+        if ing_test != -1:
+            word = word + "ly"
+        else:
+            word = word + "ing"
+    return word
 
 
 def words_concatenation(words):
@@ -43,7 +50,14 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    result = ''
+    for word in words:
+        index = words.index(word) + 1
+        if index == len(words):
+            result = result + word
+        else:
+            result = result + word + ' '
+    return result
 
 
 def reverse_words_concatenation(words):
@@ -58,7 +72,15 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    result = ''
+    for word in reversed(words):
+        index = words.index(word) + 1
+        if index == 1:
+            result = result + word
+        else:
+            result = result + word + ' '
+    return result
+
 
 
 def is_unique_string(some_str):
@@ -75,7 +97,15 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    str_len = len(some_str)
+    flag = False
+    a_set = set()
+    for i in range(str_len):
+        a_set.add(some_str[i])
+    set_len = len(a_set)
+    if str_len == set_len:
+        flag = True
+    return flag
 
 
 def list_diff(elements):
@@ -93,7 +123,19 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    empty = []
+    if elements != empty:
+        len_e = len(elements)
+        sub_list = elements.copy()
+        sub_list.insert(0, 0)
+        sub_list.pop()
+        print(sub_list)
+        for x in range(len_e):
+            elements[x] = elements[x] - sub_list[x]
+        elements[0] = None
+        return elements
+    else:
+        return empty
 
 
 def prime_number(num):
@@ -106,8 +148,14 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
-
+    flag = None
+    for x in range(2, num):
+        if num % x == 0:
+            flag = False
+            break
+        else:
+            flag = True
+    return flag
 
 def palindrome_num(num):
     """
@@ -289,7 +337,6 @@ def sum_of_digits(digits_str):
 
 
 if __name__ == '__main__':
-
     print('\nsum_of_element:\n--------------------')
     print(sum_of_element([1, 2, 3, 4, 5, 6]))
 
@@ -363,4 +410,3 @@ if __name__ == '__main__':
 
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
-
