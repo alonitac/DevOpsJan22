@@ -117,7 +117,7 @@ class TestIsUniqueString(unittest.TestCase):
         self.assertEqual(questions.is_unique_string(some_str), True)
         some_str = ('IAmDeath')
         self.assertEqual(questions.is_unique_string(some_str), True)
-        pass
+
 
 
 
@@ -233,7 +233,6 @@ class TestBadAverage(unittest.TestCase):
         nums = [10, 20, 30]
         self.assertEqual(questions.bad_average(nums), 30)
 
-        pass
 
 
 class TestBestStudent(unittest.TestCase):
