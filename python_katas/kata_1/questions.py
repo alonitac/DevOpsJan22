@@ -144,9 +144,9 @@ def prime_number(num):
     hint: use the built-in function "range"
     :param num: the number to check
     :return: bool. True if prime, else False
-    """
+    
     #return None
-
+"""
 
 def palindrome_num(num):
     numS = str(num)
@@ -185,6 +185,25 @@ def palindrome_num(num):
 
 
 def pair_match(men, women):
+    degel = 1
+    res_dic = {}
+    #while (degel == 1):
+    for k_men in men:
+        for k_women in women:
+            while (degel == 1):
+                memory = abs(men[k_men] - women[k_women])
+                res_dic = {k_men: men[k_men], k_women: women[k_women]}
+                degel = 0
+                #break
+    for k_men in men:
+        for k_women in women:
+            new_delta = abs(men[k_men] - women[k_women])
+            if new_delta < memory:
+                memory = new_delta
+                res_dic = {k_men: men[k_men], k_women: women[k_women]}
+    return res_dic
+
+
     """
     3 Kata
 
@@ -212,7 +231,7 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    #return None
 
 
 def bad_average(a, b, c):
@@ -373,11 +392,11 @@ if __name__ == '__main__':
     print('\nprime_number:\n--------------------')
     print(prime_number(5))
     print(prime_number(22))
-'''
+
     print('\npalindrome_num:\n--------------------')
     print(palindrome_num(12221))
     print(palindrome_num(577))
-'''RK
+'''
     print('\npair_match:\n--------------------')
     print(pair_match(
         {
@@ -389,7 +408,7 @@ if __name__ == '__main__':
             "Kim": 26
         }
     ))
-
+'''RK
     print('\nbad_average:\n--------------------')
     print(bad_average(1, 2, 3))
 
