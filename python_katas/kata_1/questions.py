@@ -247,6 +247,15 @@ def bad_average(a, b, c):
 
 
 def best_student(grades):
+    grades_keys = list(grades.keys())
+    grades_values = list(grades.values())
+    memory_value = grades_values[0]
+    memory_key = grades_keys[0]
+    for i in range(1, len(grades_values)):
+        if grades_values[i] > memory_value:
+            memory_value = grades_values[i]
+            memory_key = grades_keys[i]
+    return memory_key
     """
     1 Kata
 
@@ -266,7 +275,7 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    #return None
 
 
 def print_dict_as_table(some_dict):
@@ -408,10 +417,10 @@ if __name__ == '__main__':
             "Kim": 26
         }
     ))
-'''
+
     print('\nbad_average:\n--------------------')
     print(bad_average(1, 2, 3))
-'''RK
+'''
     print('\nbest_student:\n--------------------')
     print(best_student({
         "Ben": 78,
@@ -420,7 +429,7 @@ if __name__ == '__main__':
         "Efraim": 65,
         "Rachel": 95
     }))
-
+'''
     print('\nprint_dict_as_table:\n--------------------')
     print(print_dict_as_table({
         "Ben": 78,
