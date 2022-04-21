@@ -315,6 +315,8 @@ def print_dict_as_table(some_dict):
 
 
 def merge_dicts(dict1, dict2):
+    dict1.update(dict2)
+    return dict1
     """
     1 Kata
 
@@ -331,10 +333,20 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    return dict1
+   # return dict1
 
 
 def seven_boom(n):
+    res_list = []
+    for i in range(7, n+1):
+        if i % 7 == 0:
+            res_list.append(i)
+        else:
+            i_str = str(i)
+            i_str.strip("")
+            if '7' in i_str:
+                res_list.append(i)
+    return res_list
     """
     1 Kata
 
@@ -346,7 +358,7 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+   # return None
 
 
 def caesar_cipher(str_to_encrypt):
@@ -436,7 +448,7 @@ if __name__ == '__main__':
         "Efraim": 65,
         "Rachel": 95
     }))
-'''
+
     print('\nprint_dict_as_table:\n--------------------')
     print(print_dict_as_table({
         "Ben": 78,
@@ -445,13 +457,13 @@ if __name__ == '__main__':
         "Efraim": 65,
         "Rachel": 95
     }))
-'''
+
     print('\nmerge_dicts:\n--------------------')
     print(merge_dicts({'a': 1}, {'b': 2}))
-
+'''
     print('\nseven_boom:\n--------------------')
     print(seven_boom(30))
-
+'''
     print('\ncaesar_cipher:\n--------------------')
     print(caesar_cipher('Fly Me To The Moon'))
 
