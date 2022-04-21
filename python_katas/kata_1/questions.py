@@ -283,7 +283,7 @@ def print_dict_as_table(some_dict):
     from tabulate import tabulate
     ListDict = list(some_dict.items())
     col_names = ["Name", "Grade"]
-    return print(tabulate(ListDict, headers=col_names))
+    return tabulate(ListDict, headers=col_names)
 
 
     """
@@ -468,7 +468,7 @@ if __name__ == '__main__':
         "Efraim": 65,
         "Rachel": 95
     }))
-
+'''
     print('\nprint_dict_as_table:\n--------------------')
     print(print_dict_as_table({
         "Ben": 78,
@@ -477,16 +477,16 @@ if __name__ == '__main__':
         "Efraim": 65,
         "Rachel": 95
     }))
-
+'''
     print('\nmerge_dicts:\n--------------------')
     print(merge_dicts({'a': 1}, {'b': 2}))
 
     print('\nseven_boom:\n--------------------')
     print(seven_boom(30))
-'''
+
     print('\ncaesar_cipher:\n--------------------')
     print(caesar_cipher('Fly Me To The Moon'))
-'''
+
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
 '''
