@@ -362,6 +362,26 @@ def seven_boom(n):
 
 
 def caesar_cipher(str_to_encrypt):
+    str_to_encrypt.strip("")
+    encrypted = []
+    for letter in str_to_encrypt:
+        ezer = ord(letter)
+        if ezer>64 and ezer<91:
+            ezer += 3
+            if ezer > 90:
+                ezer -= 26
+            ezer = chr(ezer)
+            encrypted.append(ezer)
+        elif ezer > 96 and ezer < 123:
+            ezer += 3
+            if ezer > 122:
+                ezer -= 26
+            ezer = chr(ezer)
+            encrypted.append(ezer)
+        else:
+            encrypted.append(letter)
+
+    return ''.join(encrypted)
     """
     2 Kata
 
@@ -373,7 +393,7 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+   # return None
 
 
 def sum_of_digits(digits_str):
@@ -460,13 +480,13 @@ if __name__ == '__main__':
 
     print('\nmerge_dicts:\n--------------------')
     print(merge_dicts({'a': 1}, {'b': 2}))
-'''
+
     print('\nseven_boom:\n--------------------')
     print(seven_boom(30))
 '''
     print('\ncaesar_cipher:\n--------------------')
     print(caesar_cipher('Fly Me To The Moon'))
-
+'''
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
 '''
