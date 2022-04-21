@@ -40,7 +40,9 @@ def verbing(word):
 
     return result
 
+
 def words_concatenation(words):
+
     """
     1 Kata
 
@@ -52,7 +54,11 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+
+    result = ''
+    for word in words:
+        result += word + ' '
+    return result[:-1]
 
 
 def reverse_words_concatenation(words):
@@ -67,7 +73,11 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    words.reverse()
+    result = ''
+    for word in words:
+        result += word + ' '
+    return result[:-1]
 
 
 def is_unique_string(some_str):
@@ -84,7 +94,14 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    unique_string = ''
+    for word in words:
+        if len(set(some_str)) == len(list(some_str)):
+            return True
+        else:
+            result False
+
+
 
 
 def list_diff(elements):
