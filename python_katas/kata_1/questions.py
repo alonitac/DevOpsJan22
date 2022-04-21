@@ -28,8 +28,17 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
 
+    word_len = len(word)
+    if word_len >= 3:
+        if 'ing' in word[-3:]:
+            result = word + 'ly'
+        else:
+            result = word + 'ing'
+    else:
+        result = word
+
+    return result
 
 def words_concatenation(words):
     """
