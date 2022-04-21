@@ -278,13 +278,34 @@ def best_student(grades):
     """
     #return None
 
-
+''' solution with tabulate function:
+======================================
 def print_dict_as_table(some_dict):
     from tabulate import tabulate
     ListDict = list(some_dict.items())
     col_names = ["Name", "Grade"]
     return tabulate(ListDict, headers=col_names)
-
+    
+    
+    solution with chars counting:
+    ===============================
+'''
+def print_dict_as_table(some_dict):
+    ListDict = list(some_dict.items())
+    HeadDict = ['Key', 'Value']
+    #ListHeadDict = list(HeadDict.i)
+    #col_names = ["Key", "Value"]
+    #ListNames = list(col_names.)
+    #print(col_names)
+    #print('-------------')
+    #print(ListDict)
+    ##for h in HeadDict:
+    ##    print(h[0], h[1])
+    print(HeadDict)
+    print('-------------')
+    for tup in ListDict:
+        print(tup[0],tup[1])
+    return None
 
     """
     1 Kata
