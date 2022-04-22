@@ -170,9 +170,12 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
-
-
+    bool_0 = False
+    c_num = str(num)
+    r_num = c_num[::-1]
+    if c_num == r_num:
+        bool_0 = True
+    return bool_0
 def pair_match(men, women):
     """
     3 Kata
@@ -201,6 +204,9 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
+    m_values = list(men.values())
+    w_values = list(women.values())
+
     return None
 
 
