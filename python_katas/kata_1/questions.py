@@ -258,8 +258,13 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
 
+    print("{:<10} {:<10}".format("Key", "Value"))
+    print("-" * 20)
+    for key, value in some_dict.items():
+        print("{:<10} {:<10}".format(key, value))
+
+    return None
 
 def merge_dicts(dict1, dict2):
     """
@@ -317,7 +322,7 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    result = ""
+
 
 
 def sum_of_digits(digits_str):
