@@ -1,3 +1,6 @@
+import re
+
+
 def valid_parentheses(s):
     """
     3 Kata
@@ -157,6 +160,7 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
+
     return None
 
 
@@ -294,6 +298,16 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
+
+    flat_list = []
+    for element in lst:
+        if type(element) is list:
+            for item in element:
+                flat_list.append(item)
+        else:
+            flat_list.append(element)
+    return(flat_list)
+
     return None
 
 
@@ -314,6 +328,22 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
+    temp = {}
+    result = []
+    for x in text:
+        if x in temp:
+            temp[x]= temp[x]+1
+        else:
+            temp[x]=1
+    for key,value in temp.items():
+        if key in result:
+            continue
+        else:
+            result.append(str(key)+str(value))
+        print(result)
+
+
+
     return None
 
 
@@ -330,6 +360,25 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
+
+    flag = 0
+
+    while True:
+        if len(password) < 6:
+            flag = -1
+        elif not re.search("[a-z]", password):
+            flag = -1
+        elif not re.search("A-Z", password):
+            flag = -1
+        elif not re.search("0-9", password):
+            flag = -1
+        elif not re.search("!@#$%^&*()-+", password):
+            flag = -1
+        else:
+            flag = 0
+        if flag == -1:
+            return True
+
     return None
 
 
