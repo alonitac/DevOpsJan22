@@ -233,6 +233,8 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
+
+
     return None
 
 
@@ -282,6 +284,8 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+
+    dict1.update(dict2)
     return dict1
 
 
