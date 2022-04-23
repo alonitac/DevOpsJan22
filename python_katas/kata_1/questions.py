@@ -154,11 +154,11 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    for palindrome_num() in (numbers):
-        if palindrome_num() == true
+    for num in numbers:
+        if num == true
         else:
             result = false
-    return bool(num)
+    return True
 
 
 def pair_match(men, women):
@@ -224,6 +224,7 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
+
     return None
 
 
