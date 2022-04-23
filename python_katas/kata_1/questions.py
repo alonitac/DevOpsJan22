@@ -121,7 +121,6 @@ def list_diff(elements):
     :return: the diff list
     """
 
-
     return None
 
 
@@ -156,16 +155,11 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    regular = num
-    rev = 0
-    while num > 0:
-        dig = num % 10
-        rev = rev * 10 + dig
-        num = num // 10
-        if regular == rev:
-            return True
-        else:
-            return False
+
+    if str(num) == str(num)[::-1]:
+        return True
+    else:
+        return False
 
 
 def pair_match(men, women):
@@ -210,7 +204,7 @@ def bad_average(a, b, c):
     :return:
     """
 
-    return a + b + c / 3
+    return a + b + c / len(a, b, c)
 
 
 def best_student(grades):
@@ -236,7 +230,6 @@ def best_student(grades):
 
     high_score = max(grades, key=grades.get)
     print(high_score)
-
 
 
 def print_dict_as_table(some_dict):
@@ -303,14 +296,13 @@ def seven_boom(n):
     :return: list of integers
     """
 
-    for i in range (0, n):
-        if i % 7 ==0:
+    for i in range(0, n):
+        if i % 7 == 0:
             print(i)
-        elif i>10 and int(i/10)%7==0 or i%10==7:
+        elif i > 10 and int(i / 10) % 7 == 0 or i % 10 == 7:
             print(i)
         else:
             continue
-
 
 
 def caesar_cipher(str_to_encrypt):
@@ -326,7 +318,6 @@ def caesar_cipher(str_to_encrypt):
     :return:
     """
     result = ""
-
 
 
 def sum_of_digits(digits_str):
@@ -350,8 +341,7 @@ def sum_of_digits(digits_str):
     for i in digits_str:
         int(i)
         ra.append(i)
-    return(raa)
-
+    return (raa)
 
     return None
 
