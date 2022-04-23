@@ -56,6 +56,7 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
+
     return None
 
 
@@ -119,6 +120,11 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
+    return(all(lst[i] <= lst[i + 1] for i in range(len(lst) -1 )) or
+    all(lst[i] >= lst[i +1] for i in range(len(lst) - 1)))
+
+    print(monotonic_array(lst))
+
     return None
 
 
@@ -133,6 +139,8 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
+
+
     return None
 
 
