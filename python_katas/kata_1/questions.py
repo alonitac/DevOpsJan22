@@ -234,8 +234,9 @@ def best_student(grades):
     :return: str. some key from the dict
     """
 
+    high_score = max(grades, key=grades.get)
+    print(high_score)
 
-    return None
 
 
 def print_dict_as_table(some_dict):
