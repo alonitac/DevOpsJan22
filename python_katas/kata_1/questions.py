@@ -118,10 +118,10 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
+    elements = ['x']
     for x in elements:
-        if list_diff(x)
-
-    return None
+        if
+    return
 
 
 def prime_number(num):
@@ -189,7 +189,8 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    dict = {"":""}
+    return tuple("","")
 
 
 def bad_average(a, b, c):
@@ -201,6 +202,9 @@ def bad_average(a, b, c):
 
     :return:
     """
+    my_list = ['a','b','c']
+    for x in my_list:
+        if my_list(x) + //3
     return a + b + c / 3
 
 
@@ -224,8 +228,17 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
+    x = 'b'
+    dict = {'a':'b'}
+    for x in dict:
+        if x.sum(b) >
+            result = True
+        else:
+            False
 
-    return None
+        return a
+
+    return
 
 
 def print_dict_as_table(some_dict):
@@ -254,7 +267,8 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    d.items = {"":""}
+    return print(set('d.items'))
 
 
 def merge_dicts(dict1, dict2):
@@ -274,6 +288,8 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+    dict2.update(dict1)
+
     return dict1
 
 
@@ -331,7 +347,10 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    list = ['']
+    for sum in list[]:
+        if element.sum() +=
+    return sum_of_element()
 
 
 if __name__ == '__main__':
