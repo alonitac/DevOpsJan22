@@ -99,9 +99,8 @@ def is_unique_string(some_str):
         if len(set(some_str)) == len(list(some_str)):
             return True
         else:
-            result False
 
-
+    return False
 
 
 def list_diff(elements):
@@ -119,6 +118,9 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
+    for x in elements:
+        if list_diff(x)
+
     return None
 
 
@@ -132,7 +134,11 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+    for num in numbers:
+        if numbers.range == true
+        else:
+            result = false
+    return False
 
 
 def palindrome_num(num):
@@ -148,7 +154,11 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    for palindrome_num() in (numbers):
+        if palindrome_num() == true
+        else:
+            result = false
+    return bool(num)
 
 
 def pair_match(men, women):
@@ -278,7 +288,16 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    list_booms = [n]
+    n = 30
+    while n > 0
+        for num in n:
+            if n % 7 == 0 or ('7' in str(n))
+                list_booms.append(n)
+                n -= 1
+                list_booms.reverse()
+
+    return list_booms[n]
 
 
 def caesar_cipher(str_to_encrypt):
