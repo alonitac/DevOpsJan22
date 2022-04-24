@@ -291,21 +291,25 @@ def print_dict_as_table(some_dict):
     ===============================
 '''
 def print_dict_as_table(some_dict):
-    ListDict = list(some_dict.items())
-    HeadDict = ['Key', 'Value']
-    #ListHeadDict = list(HeadDict.i)
-    #col_names = ["Key", "Value"]
-    #ListNames = list(col_names.)
-    #print(col_names)
-    #print('-------------')
-    #print(ListDict)
-    ##for h in HeadDict:
-    ##    print(h[0], h[1])
-    print(HeadDict)
+    ListDict = some_dict.items() #convert dict to tuples
+    print("Key     Value")
     print('-------------')
     for tup in ListDict:
-        print(tup[0],tup[1])
-    return None
+        counter = 0
+        y = list(tup)
+        z = str(y[0])
+        if len(z) < 8:
+            for index in z:
+                counter += 1
+            d = 8 - counter
+            for spaces in range(0,d):
+                z = z + ' '
+        z = list(z)
+        y[1] = str(y[1])
+        z.append(y[1])
+        z = ''.join(z)
+        print(z)
+    return ''
 
     """
     1 Kata
