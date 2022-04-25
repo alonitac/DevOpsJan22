@@ -99,7 +99,7 @@ def is_unique_string(some_str):
         if len(set(some_str)) == len(list(some_str)):
             return True
         else:
-
+            pass
     return False
 
 
@@ -190,7 +190,7 @@ def pair_match(men, women):
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
     dict = {"":""}
-    return tuple("","")
+    return tuple(["",""])
 
 
 def bad_average(a, b, c):
@@ -204,7 +204,7 @@ def bad_average(a, b, c):
     """
     my_list = ['a','b','c']
     for x in my_list:
-        if my_list(x) + //3
+        if my_list[x] + //3
     return a + b + c / 3
 
 
@@ -229,16 +229,14 @@ def best_student(grades):
     :return: str. some key from the dict
     """
     x = 'b'
-    dict = {'a':'b'}
+    dict(["",""], ["",""]**kwargs:)
     for x in dict:
         if x.sum(b) >
             result = True
         else:
             False
 
-        return a
-
-    return
+        return 'a'
 
 
 def print_dict_as_table(some_dict):
