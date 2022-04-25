@@ -1,3 +1,4 @@
+
 def sum_of_element(elements):
     """
     1 Kata
@@ -181,7 +182,15 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    minimum = 1000
+    # dict_diff = {} # empty dictionary
+    for m in men.keys():  # run over all men
+        for w in women.keys():  # run over all women
+            diff_age = abs(men[m] - women[w])
+            if diff_age < minimum:
+                minimum = diff_age
+                couple = (m, w)
+    return couple
 
 
 def bad_average(a, b, c):
@@ -217,7 +226,9 @@ def best_student(grades):
     :return: str. some key from the dict
     """
     sorted_values = sorted(grades.values())
-    return list(grades.keys())[list(grades.values()).index(-1)]
+    for key, value in grades.items():
+        if sorted_values[-1] == value:
+            return key
 
 
 def print_dict_as_table(some_dict):
@@ -246,7 +257,10 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    print("{:<7} {}".format('Key', 'Value'))
+    print("{}".format('-' * 13))
+    for key, value in some_dict.items():
+        print("{:<7} {}".format(key, value))
 
 
 def merge_dicts(dict1, dict2):
@@ -266,7 +280,9 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    return dict1
+    dict3 = dict1.copy()
+    dict3.update(dict2)
+    return dict3
 
 
 def seven_boom(n):
@@ -281,7 +297,9 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    boom = []
+    [boom.append(x) if '7' in str(x) or x % 7 == 0 else x for x in range(0, n - 1)]
+    return boom
 
 
 def caesar_cipher(str_to_encrypt):
@@ -296,7 +314,27 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    key = 3
+    encryption = ""
+
+    for c in str_to_encrypt:
+        if c.isspace():
+            encryption += c
+        elif c.isupper():
+            c_unicode = ord(c)
+            c_index = c_unicode - ord("A")
+            new_index = (c_index + key) % 26
+            new_unicode = new_index + ord("A")
+            new_c = chr(new_unicode)
+            encryption += new_c
+        elif c.islower:
+            c_unicode = ord(c)
+            c_index = c_unicode - ord("a")
+            new_index = (c_index + key) % 26
+            new_unicode = new_index + ord("a")
+            new_c = chr(new_unicode)
+            encryption += new_c
+    return encryption
 
 
 def sum_of_digits(digits_str):
@@ -314,7 +352,9 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    chars_array = [char for char in digits_str]
+    int_array = [int(c) for c in chars_array]
+    return (sum(int_array))
 
 
 if __name__ == '__main__':
