@@ -47,10 +47,10 @@ def fibonacci_fixme(n):
     """
     a = 0
     b = 1
-    for i in range(1, n):
+    for i in range(0, n):
         a = b
-        tmp = a + b
         b = tmp
+        tmp = a + b
 
     return a
 
