@@ -98,17 +98,9 @@ class TestPalindromeNum(unittest.TestCase):
     1 Katas
     """
 
-    def test_poli(self):
-        num = 12321
-        self.assertEqual(questions.palindrome_num(num), True)
-
-    def test_not_poli(self):
-        num = 123215
-        self.assertEqual(questions.palindrome_num(num), False)
-
-    def test_zero(self):
-        num = 0
-        self.assertEqual(questions.palindrome_num(num), True)
+    def test_sample(self):
+        # your code here
+        pass
 
 
 class TestPairMatch(unittest.TestCase):
