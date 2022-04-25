@@ -99,7 +99,7 @@ def is_unique_string(some_str):
     :return: bool
     
     #return None
-
+"""
 
 def list_diff(elements):
     #n=0
@@ -109,7 +109,6 @@ def list_diff(elements):
         delta = elements[n+1] - elements[n]
         dif_elements.append(delta)
     return dif_elements
-"""
 
     """
     1 Kata
@@ -447,7 +446,9 @@ def sum_of_digits(digits_str):
 
 
 if __name__ == '__main__':
-    '''R.K
+    """
+
+
     print('\nsum_of_element:\n--------------------')
     print(sum_of_element([1, 2, 3, 4, 5, 6]))
 
@@ -465,10 +466,10 @@ if __name__ == '__main__':
     print('\nis_unique_string:\n--------------------')
     print(is_unique_string('aasdssdsederd'))
     print(is_unique_string('12345tgbnh'))
-
+"""
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
-
+'''
     print('\nprime_number:\n--------------------')
     print(prime_number(5))
     print(prime_number(22))
@@ -518,8 +519,7 @@ if __name__ == '__main__':
 
     print('\ncaesar_cipher:\n--------------------')
     print(caesar_cipher('Fly Me To The Moon'))
-'''
+
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
-
-
+'''
