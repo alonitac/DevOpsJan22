@@ -13,7 +13,18 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
-    return None
+    stack = []
+    parentheses_pairs = {")": "(", "]": "[", "}": "{"}
+
+    for i in s:
+        if i in parentheses_pairs:
+            if stack and stack[-1] == parentheses_pairs[-1]:
+                stack.pop()
+            else:
+                return False
+        else:
+            stack.append(i)
+    return True if not stack else False
 
 
 def fibonacci_fixme(n):
