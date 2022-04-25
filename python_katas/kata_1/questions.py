@@ -105,7 +105,7 @@ def list_diff(elements):
     #n=0
     dif_elements = [None]
     legth_F = len(elements)-1
-    for n in elements[0:legth_F]:
+    for n in range(0,legth_F):
         delta = elements[n+1] - elements[n]
         dif_elements.append(delta)
     return dif_elements
@@ -446,8 +446,6 @@ def sum_of_digits(digits_str):
 
 
 if __name__ == '__main__':
-    """
-
 
     print('\nsum_of_element:\n--------------------')
     print(sum_of_element([1, 2, 3, 4, 5, 6]))
@@ -466,10 +464,10 @@ if __name__ == '__main__':
     print('\nis_unique_string:\n--------------------')
     print(is_unique_string('aasdssdsederd'))
     print(is_unique_string('12345tgbnh'))
-"""
+
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
-'''
+
     print('\nprime_number:\n--------------------')
     print(prime_number(5))
     print(prime_number(22))
@@ -522,4 +520,3 @@ if __name__ == '__main__':
 
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
-'''
