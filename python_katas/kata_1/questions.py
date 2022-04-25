@@ -73,12 +73,16 @@ def reverse_words_concatenation(words):
     :return: Return the resulting string.
     """
     result = ''
+    index = 0
+    len_0 = len(words)
     for word in reversed(words):
-        index = words.index(word) + 1
-        if index == 1:
+        index += 1
+        if index == len_0:
             result = result + word
+
         else:
             result = result + word + ' '
+
     return result
 
 
@@ -148,10 +152,10 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    flag = None
-    for x in range(2, num):
+    flag = False
+
+    for x in range(2, int(num)):
         if num % x == 0:
-            flag = False
             break
         else:
             flag = True
@@ -206,8 +210,20 @@ def pair_match(men, women):
     """
     m_values = list(men.values())
     w_values = list(women.values())
-
-    return None
+    m_keys = list(men.keys())
+    w_keys = list(women.keys())
+    tuple_0 = ()
+    diff = 1000
+    for x in range(len(m_values)):
+        for y in range(len(w_values)):
+            diff_0 = m_values[x] - w_values[y]
+            if diff_0 < 0:
+                diff_0 = diff_0 * (-1)
+            if diff_0 <= diff:
+                diff = diff_0
+                tuple_0 = ((m_keys[x]), (w_keys[y]))
+    #        print(m_values[x], "-", w_values[y], "=", diff_0, "new min diff is:", diff)
+    return tuple_0
 
 
 def bad_average(a, b, c):
