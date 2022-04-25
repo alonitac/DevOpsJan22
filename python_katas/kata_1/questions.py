@@ -422,6 +422,13 @@ def caesar_cipher(str_to_encrypt):
 
 
 def sum_of_digits(digits_str):
+    digits_list = list(digits_str)
+    #digits_list = int(digits_list)
+    sum_res = 0
+    for digit in digits_list:
+        digit = int(digit)
+        sum_res += digit
+    return sum_res
     """
     1 Kata
 
@@ -436,7 +443,7 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    #return None
 
 
 if __name__ == '__main__':
@@ -493,7 +500,7 @@ if __name__ == '__main__':
         "Efraim": 65,
         "Rachel": 95
     }))
-'''
+
     print('\nprint_dict_as_table:\n--------------------')
     print(print_dict_as_table({
         "Ben": 78,
@@ -502,7 +509,7 @@ if __name__ == '__main__':
         "Efraim": 65,
         "Rachel": 95
     }))
-'''
+
     print('\nmerge_dicts:\n--------------------')
     print(merge_dicts({'a': 1}, {'b': 2}))
 
@@ -511,8 +518,8 @@ if __name__ == '__main__':
 
     print('\ncaesar_cipher:\n--------------------')
     print(caesar_cipher('Fly Me To The Moon'))
-
+'''
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
-'''
+
 
