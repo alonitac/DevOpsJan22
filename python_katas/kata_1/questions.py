@@ -200,7 +200,19 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+
+    mdiff = 1000
+    mname = ''
+    wname = ''
+    for m in men:
+        for w in women:
+            df = abs(men[m] - women[w])
+            if df < mdiff:
+                mdiff = df
+                mname = m
+                wname = w
+
+    return mname, wname
 
 
 def bad_average(a, b, c):
@@ -212,7 +224,7 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -235,7 +247,13 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    highest = 0
+    for g in grades:
+        if grades[g] > highest:
+            highest = grades[g]
+            highestname = g
+
+    return highestname
 
 
 def print_dict_as_table(some_dict):
@@ -264,7 +282,12 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    print("{:<8} {:<3}".format('Key', 'Value'))
+    print('--------------')
+    for k, v in some_dict.items():
+        print("{:<8} {:<3}".format(k, v))
+
+    return ''
 
 
 def merge_dicts(dict1, dict2):
@@ -284,6 +307,9 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+
+    for i in dict2:
+        dict1[i] = dict2[i]
     return dict1
 
 
@@ -300,14 +326,14 @@ def seven_boom(n):
     :return: list of integers
     """
     booms = []
-    n = 1
+    d = 1
 
-    while n <= 50:
-        if (n % 7 == 0) or ('7' in str(n)):
-            booms.append(n)
-        n += 1
-    booms
-    return None
+    while d <= n:
+        if (d % 7 == 0) or ('7' in str(d)):
+            booms.append(d)
+        d += 1
+
+    return booms
 
 
 def caesar_cipher(str_to_encrypt):
@@ -396,8 +422,10 @@ if __name__ == '__main__':
         }
     ))
 
+
     print('\nbad_average:\n--------------------')
     print(bad_average(1, 2, 3))
+
 
     print('\nbest_student:\n--------------------')
     print(best_student({
@@ -420,8 +448,10 @@ if __name__ == '__main__':
     print('\nmerge_dicts:\n--------------------')
     print(merge_dicts({'a': 1}, {'b': 2}))
 
+
     print('\nseven_boom:\n--------------------')
     print(seven_boom(30))
+
 
     print('\ncaesar_cipher:\n--------------------')
     print(caesar_cipher('Fly Me To The Moon'))
