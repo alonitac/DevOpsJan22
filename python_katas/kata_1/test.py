@@ -49,11 +49,11 @@ class TestVerbing(unittest.TestCase):
 
     def test_gaming(self):
         test_word = 'gaming'
-        self.assertEqual(questions.verbing(test_word), "gamly")
+        self.assertEqual(questions.verbing(test_word), "gamingly")
 
     def test_ing(self):
         test_word = 'ing'
-        self.assertEqual(questions.verbing(test_word), "ly")
+        self.assertEqual(questions.verbing(test_word), "ingly")
 
     def test_in(self):
         test_word = 'cartin'
