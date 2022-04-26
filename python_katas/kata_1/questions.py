@@ -166,7 +166,6 @@ def palindrome_num(num):
     else:
         return False
 
-
 def pair_match(men, women):
     """
     3 Kata
