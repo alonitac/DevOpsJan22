@@ -95,7 +95,7 @@ def is_unique_string(some_str):
     :return: bool
     """
     unique_string = ''
-    for word in words:
+    for word in some_str:
         if len(set(some_str)) == len(list(some_str)):
             return True
         else:
@@ -118,11 +118,14 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    elements = ['x']
-    for x in elements:
-        if
-    return
+    x = [None]
+    if len(elements) == 0:
+        return []
+    else:
+        for i in range(1, len(elements)):
+            x.append(elements[i] - elements[i - 1])
 
+        return x
 
 def prime_number(num):
     """
@@ -134,11 +137,13 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    for num in numbers:
-        if numbers.range == true
+    x = prime_number()
+    for x in numbers:
+        if prime_number()
+            result = true
         else:
-            result = false
-    return False
+            pass
+    return false
 
 
 def palindrome_num(num):
