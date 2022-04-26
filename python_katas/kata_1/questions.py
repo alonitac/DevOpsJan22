@@ -13,6 +13,17 @@ def sum_of_element(elements):
 
 
 def verbing(word):
+    length = len(word)
+    if length < 3:
+        return word
+    else:
+        rev = word[::-1]
+        end = rev[:3]
+        if end == 'gni':
+            res = word + 'ly'
+        else:
+            res = word + 'ing'
+    return res
     """
     1 Kata
 
@@ -28,10 +39,12 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    #return None
 
 
 def words_concatenation(words):
+    words_string = ' '.join(words)
+    return words_string
     """
     1 Kata
 
@@ -43,10 +56,14 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    #return None
 
 
 def reverse_words_concatenation(words):
+    #rev_b = words.reverse()
+    #return rev_b = None!?
+    rev_b = words[::-1]
+    return rev_b
     """
     1 Kata
 
@@ -58,10 +75,16 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    #return None
 
 
 def is_unique_string(some_str):
+    some_list = list(some_str)
+    some_unique = set(some_list)
+    if len(some_unique) == len(some_list):
+        return True
+    else:
+        return False
     """
     2 Kata
 
@@ -74,11 +97,19 @@ def is_unique_string(some_str):
 
     :param some_str:
     :return: bool
-    """
-    return None
-
+    
+    #return None
+"""
 
 def list_diff(elements):
+    #n=0
+    dif_elements = [None]
+    legth_F = len(elements)-1
+    for n in range(0,legth_F):
+        delta = elements[n+1] - elements[n]
+        dif_elements.append(delta)
+    return dif_elements
+
     """
     1 Kata
 
@@ -93,10 +124,17 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    #return None
 
 
 def prime_number(num):
+    for x in range (2,10):
+        if x != num:
+            if num%x == 0:
+                return False
+            break
+
+    return True
     """
     1 Kata
 
@@ -105,11 +143,31 @@ def prime_number(num):
     hint: use the built-in function "range"
     :param num: the number to check
     :return: bool. True if prime, else False
-    """
-    return None
-
+    
+    #return None
+"""
 
 def palindrome_num(num):
+    numS = str(num)
+    numL = []
+    for n in list(numS):
+        numL.append(n)
+    length = len(numL)
+    half = length//2
+    if length%2 != 0:
+        mid = numL[half]
+        mirror = numL[half+1:length]
+        Rev_mirror = mirror[::-1]
+    else:
+        mirror = numL[half:length]
+        Rev_mirror = mirror[::-1]
+    if numL[:half] == Rev_mirror:
+        return True
+    else:
+        return False
+
+
+
     """
     1 Kata
 
@@ -122,10 +180,30 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    #return None
 
 
 def pair_match(men, women):
+    memory = 0
+    degel = 1
+    res_dic = {}
+    for k_men in men:
+        for k_women in women:
+            while (degel == 1):
+                memory = abs(men[k_men] - women[k_women])
+                res_dic = {k_men: men[k_men], k_women: women[k_women]}
+                degel = 0
+                #break
+    for k_men in men:
+        for k_women in women:
+            new_delta = abs(men[k_men] - women[k_women])
+            if new_delta < memory:
+                memory = new_delta
+                res_dic = {k_men: men[k_men], k_women: women[k_women]}
+    res_tuple = list(res_dic.keys())
+    return res_tuple
+
+
     """
     3 Kata
 
@@ -153,7 +231,7 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    #return None
 
 
 def bad_average(a, b, c):
@@ -165,10 +243,19 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
+    grades_keys = list(grades.keys())
+    grades_values = list(grades.values())
+    memory_value = grades_values[0]
+    memory_key = grades_keys[0]
+    for i in range(1, len(grades_values)):
+        if grades_values[i] > memory_value:
+            memory_value = grades_values[i]
+            memory_key = grades_keys[i]
+    return memory_key
     """
     1 Kata
 
@@ -188,10 +275,41 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    #return None
 
-
+''' solution with tabulate function:
+======================================
 def print_dict_as_table(some_dict):
+    from tabulate import tabulate
+    ListDict = list(some_dict.items())
+    col_names = ["Name", "Grade"]
+    return tabulate(ListDict, headers=col_names)
+    
+    
+    solution with chars counting:
+    ===============================
+'''
+def print_dict_as_table(some_dict):
+    ListDict = some_dict.items() #convert dict to tuples
+    print("Key     Value")
+    print('-------------')
+    for tup in ListDict:
+        counter = 0
+        y = list(tup)
+        z = str(y[0])
+        if len(z) < 8:
+            for index in z:
+                counter += 1
+            d = 8 - counter
+            for spaces in range(0,d):
+                z = z + ' '
+        z = list(z)
+        y[1] = str(y[1])
+        z.append(y[1])
+        z = ''.join(z)
+        print(z)
+    return ''
+
     """
     1 Kata
 
@@ -217,10 +335,12 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    #return None
 
 
 def merge_dicts(dict1, dict2):
+    dict1.update(dict2)
+    return dict1
     """
     1 Kata
 
@@ -237,10 +357,20 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    return dict1
+   # return dict1
 
 
 def seven_boom(n):
+    res_list = []
+    for i in range(7, n+1):
+        if i % 7 == 0:
+            res_list.append(i)
+        else:
+            i_str = str(i)
+            i_str.strip("")
+            if '7' in i_str:
+                res_list.append(i)
+    return res_list
     """
     1 Kata
 
@@ -252,10 +382,30 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+   # return None
 
 
 def caesar_cipher(str_to_encrypt):
+    str_to_encrypt.strip("")
+    encrypted = []
+    for letter in str_to_encrypt:
+        ezer = ord(letter)
+        if ezer>64 and ezer<91:
+            ezer += 3
+            if ezer > 90:
+                ezer -= 26
+            ezer = chr(ezer)
+            encrypted.append(ezer)
+        elif ezer > 96 and ezer < 123:
+            ezer += 3
+            if ezer > 122:
+                ezer -= 26
+            ezer = chr(ezer)
+            encrypted.append(ezer)
+        else:
+            encrypted.append(letter)
+
+    return ''.join(encrypted)
     """
     2 Kata
 
@@ -267,10 +417,17 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+   # return None
 
 
 def sum_of_digits(digits_str):
+    digits_list = list(digits_str)
+    #digits_list = int(digits_list)
+    sum_res = 0
+    for digit in digits_list:
+        digit = int(digit)
+        sum_res += digit
+    return sum_res
     """
     1 Kata
 
@@ -285,7 +442,7 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    #return None
 
 
 if __name__ == '__main__':
@@ -297,7 +454,7 @@ if __name__ == '__main__':
     print(verbing('walk'))
     print(verbing('swimming'))
     print(verbing('do'))
-
+    
     print('\nwords_concatenation:\n--------------------')
     print(words_concatenation(['take', 'me', 'home']))
 
@@ -363,4 +520,3 @@ if __name__ == '__main__':
 
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
-
