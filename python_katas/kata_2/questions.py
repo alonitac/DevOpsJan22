@@ -18,7 +18,7 @@ def valid_parentheses(s):
 
     for i in s:
         if i in parentheses_pairs:
-            if stack and stack[-1] == parentheses_pairs[-1]:
+            if stack and stack[-1] == parentheses_pairs[i]:
                 stack.pop()
             else:
                 return False
