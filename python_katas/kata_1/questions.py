@@ -190,6 +190,11 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
+    max_men = min(men.keys(), key=lambda x: "name")
+    max_women = min(zip(women.values(), men.keys()))
+
+    print(max_men)
+
 
     return None
 
@@ -203,8 +208,8 @@ def bad_average(a, b, c):
 
     :return:
     """
-
-    return a + b + c / 3
+    numbers = (a, b, c)
+    return sum(numbers) / len(numbers)
 
 
 def best_student(grades):
