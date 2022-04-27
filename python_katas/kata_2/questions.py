@@ -13,7 +13,18 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
-    return None
+   # return None
+    empty_list=[]
+    brackets = {'}':'{',']':'[',')':'('}
+    for char in s:
+        if char in brackets:
+            if empty_list and empty_list[-1] == brackets[char]:
+                empty_list.pop()
+            else:
+                return False
+        else:
+            empty_list.append(char)
+    return True if not empty_list else False
 
 
 def fibonacci_fixme(n):
@@ -36,9 +47,9 @@ def fibonacci_fixme(n):
     """
     a = 0
     b = 1
-    for i in range(1, n):
-        a = b
+    for i in range(n):
         tmp = a + b
+        a = b
         b = tmp
 
     return a
@@ -329,7 +340,7 @@ if __name__ == '__main__':
     print(valid_parentheses('[[{()}](){}]'))
 
     print('\nfibonacci_fixme:\n--------------------')
-    print(fibonacci_fixme(6))
+    print(fibonacci_fixme(8))
 
     print('\nmost_frequent_name:\n--------------------')
     print(most_frequent_name('names.txt'))

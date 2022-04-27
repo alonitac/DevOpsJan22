@@ -181,8 +181,70 @@ new_text=text[1:].replace(a_char,'e')
 print(a_char+new_text)
 '''
 
+'''
 text='aaaa'
 length=len(text)//2
 print(length)
 print(text[length:] + text[length:].upper())
+'''
+
+'''
+import numpy as np
+
+list=[1,2,3,4,1,2,1,2,5]
+y=np.array(list)
+print(y>2)
+
+x = ["a", "b", "c"]
+x[1]
+print(x)
+
+np_x = np.array(x)
+np_x[1]
+print(np_x)
+'''
+
+
+
+
+
+#KATA_2
+'''
+def valid_parentheses(s):
+    empty_list=[]
+    brackets = {'}':'{',']':'[',')':'('}
+    for char in s:
+        if char in brackets:
+            if empty_list and empty_list[-1] == brackets[char]:
+                empty_list.pop()
+            else:
+                return False
+        else:
+            empty_list.append(char)
+    return True if not empty_list else False
+valid_parentheses('{}[](){[}]')
+'''
+
+'''
+#Fibonachi
+
+a = 0
+b = 1
+for i in range(6):
+    tmp = a + b
+    a = b
+    b = tmp
+
+    print(a)
+'''
+
+
+a=[1,2,3,4,5,]
+length=len(a)+1
+counter=0
+for i in range(length):
+
+
+
+
 
