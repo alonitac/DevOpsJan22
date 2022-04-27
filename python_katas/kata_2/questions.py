@@ -68,7 +68,18 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+    my_file = open(file_path, "r")
+    content = my_file.read()
+    content_list = content.split(" ")
+    my_file.close()
+    element = content_list[0]
+    counter = 0
+    for i in content_list:
+        cur = content_list.count(i)
+        if cur > counter:
+            counter = cur
+            element = i
+    return element
 
 
 def files_backup(dir_path):
