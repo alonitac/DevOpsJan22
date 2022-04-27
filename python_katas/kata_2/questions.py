@@ -123,10 +123,11 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return (all(lst[i] <= lst[i + 1] for i in range(len(lst) - 1)) or
-            all(lst[i] >= lst[i + 1] for i in range(len(lst) - 1)))
-
-    print(monotonic_array(lst))
+    if (all(lst[i] <= lst[i + 1] for i in range(len(lst) - 1)) or
+            all(lst[i] >= lst[i + 1] for i in range(len(lst) - 1))):
+        print(True)
+    else:
+        print(False)
 
     return None
 
@@ -244,6 +245,13 @@ def is_valid_email(mail_str):
     :param mail_str: mail to check
     :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
     """
+    regex = '[a-z0-9]+[._]'
+
+    if re.search(regex, mail_str):
+        return True
+    else:
+        return False
+
     return None
 
 
