@@ -1,4 +1,21 @@
 def valid_parentheses(s):
+    signs_str = '()[]{}'
+    signs_list = list(signs_str)
+    the_list = list(s)
+    ezer_list = []
+    for x in range(0, len(the_list)):
+        if the_list[x] in ['[', '{', '(']:
+            ezer_list.append(the_list[x])
+        else:
+            for y in range(0, len(signs_list)):
+                if the_list[x] == signs_list[y]:
+                    if ezer_list[len(ezer_list)-1] == signs_list[y-1]:
+                        ezer_list.pop()
+                    else:
+                        return False
+    return True
+
+
     """
     3 Kata
 
@@ -13,7 +30,7 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
-    return None
+  #  return None
 
 
 def fibonacci_fixme(n):
@@ -328,7 +345,7 @@ def strong_pass(password):
 if __name__ == '__main__':
     print('\nvalid_parentheses:\n--------------------')
     print(valid_parentheses('[[{()}](){}]'))
-
+'''
     print('\nfibonacci_fixme:\n--------------------')
     print(fibonacci_fixme(6))
 
@@ -377,3 +394,4 @@ if __name__ == '__main__':
 
     print('\nstrong_pass:\n--------------------')
     print(strong_pass('##$FgC7^^5a'))
+'''
