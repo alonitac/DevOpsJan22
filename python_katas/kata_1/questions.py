@@ -137,11 +137,15 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
+    a = prime_number
+    b = not_prime_number
     if num > 1:
         for i in range(2, num):
-            if ( )
-
-
+            if a != b
+                return True
+            else:
+               a == b
+            return False
 
 def palindrome_num(num):
     """
@@ -191,8 +195,12 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    dict = {"":""}
-    return tuple(["",""])
+    my_dict = {":",":"}
+    x = tuple(my_dict)
+    for x in x:
+        if
+
+    return "",""
 
 
 def bad_average(a, b, c):
@@ -204,9 +212,9 @@ def bad_average(a, b, c):
 
     :return:
     """
-    my_list = ['a','b','c']
-    for x in my_list:
-        if my_list[x] + //3
+    my_list = [a,b,c]
+    avg = sum(my_list) / len(my_list)
+
     return a + b + c / 3
 
 
@@ -230,15 +238,11 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    x = 'b'
-    dict(["",""], ["",""]**kwargs:)
-    for x in dict:
-        if x.sum(b) >
-            result = True
-        else:
-            False
+    x = high_dict.value
+    d = {}
+    if x > other.value:
 
-        return 'a'
+        return str(high_dict.value())
 
 
 def print_dict_as_table(some_dict):
@@ -267,8 +271,9 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    d.items = {"":""}
-    return print(set('d.items'))
+    for key, value in dict.items():
+        print(key, '  ', value)
+
 
 
 def merge_dicts(dict1, dict2):
