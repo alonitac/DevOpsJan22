@@ -123,8 +123,8 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return(all(lst[i] <= lst[i + 1] for i in range(len(lst) -1 )) or
-    all(lst[i] >= lst[i +1] for i in range(len(lst) - 1)))
+    return (all(lst[i] <= lst[i + 1] for i in range(len(lst) - 1)) or
+            all(lst[i] >= lst[i + 1] for i in range(len(lst) - 1)))
 
     print(monotonic_array(lst))
 
@@ -142,7 +142,6 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-
 
     return None
 
@@ -281,6 +280,11 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
+
+    for i in range(lines):
+        print(' ' * (lines - i), end='')
+        print(' '.join(map(str, str(11 ** i))))
+
     return None
 
 
@@ -306,7 +310,7 @@ def list_flatten(lst):
                 flat_list.append(item)
         else:
             flat_list.append(element)
-    return(flat_list)
+    return (flat_list)
 
     return None
 
@@ -332,17 +336,15 @@ def str_compression(text):
     result = []
     for x in text:
         if x in temp:
-            temp[x]= temp[x]+1
+            temp[x] = temp[x] + 1
         else:
-            temp[x]=1
-    for key,value in temp.items():
+            temp[x] = 1
+    for key, value in temp.items():
         if key in result:
             continue
         else:
-            result.append(str(key)+str(value))
+            result.append(str(key) + str(value))
         print(result)
-
-
 
     return None
 
