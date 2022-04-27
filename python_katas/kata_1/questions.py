@@ -137,13 +137,10 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    x = prime_number()
-    for x in numbers:
-        if prime_number()
-            result = true
-        else:
-            pass
-    return false
+    if num > 1:
+        for i in range(2, num):
+            if ( )
+
 
 
 def palindrome_num(num):
@@ -332,6 +329,7 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
+
 
     return None
 
