@@ -239,12 +239,15 @@ for i in range(6):
 '''
 
 
-a=[1,2,3,4,5,]
-length=len(a)+1
-counter=0
+a=[1,2,3,4,5,7]
+length=len(a)-1
+increase_counter=0
+decrease_counter=0
 for i in range(length):
+    if a[i]<=a[i+1] and increase_counter<=length:
+        increase_counter+=1
 
-
-
+    else:
+        print('false')
 
 
