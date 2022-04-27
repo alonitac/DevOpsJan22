@@ -13,6 +13,22 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
+    dict = {'(': ')', '[": "]', '{": "}'}
+    stack = []
+    for i in s:
+        if i in dict.keys():
+            stack.append(i)
+        else:
+            if stack == []:
+                return False
+            a = stack.pop()
+            if i != dict[a]:
+                return False
+    return stack == []
+
+
+
+
     return None
 
 
@@ -37,11 +53,11 @@ def fibonacci_fixme(n):
     a = 0
     b = 1
     for i in range(1, n):
-        a = b
         tmp = a + b
+        a = b
         b = tmp
 
-    return a
+    return tmp
 
 
 def most_frequent_name(file_path):
