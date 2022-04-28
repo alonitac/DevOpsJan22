@@ -348,7 +348,51 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    encryption = ""
+    shift = 3
+    for c in str_to_encrypt:
+        if ord(c) == 32:
+            encryption += c
+            continue
+        # check if character is an uppercase letter
+        if c.isupper():
+
+            # find the position in 0-25
+            c_unicode = ord(c)
+
+            c_index = ord(c) - ord("A")
+
+            # perform the shift
+            new_index = (c_index + shift) % 26
+
+            # convert to new character
+            new_unicode = new_index + ord("A")
+
+            new_character = chr(new_unicode)
+
+            # append to encrypted string
+            encryption += new_character
+
+        else:
+            # find the position in 0-25
+            c_unicode = ord(c)
+
+            c_index = ord(c) - ord("a")
+
+            # perform the shift
+            new_index = (c_index + shift) % 26
+
+            # convert to new character
+            new_unicode = new_index + ord("a")
+
+            new_character = chr(new_unicode)
+
+            # append to encrypted string
+            encryption += new_character
+            # since character is not uppercase, leave it as it is
+
+
+    return encryption
 
 
 def sum_of_digits(digits_str):
@@ -366,7 +410,19 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+
+    sumdig = 0
+    if digits_str.isnumeric():
+        for element in range(0, len(digits_str)):
+            if digits_str[element] == '':
+                return 0
+            else:
+                sumdig += int(digits_str[element])
+
+    else:
+        return 0
+
+    return sumdig
 
 
 if __name__ == '__main__':
@@ -456,6 +512,8 @@ if __name__ == '__main__':
     print('\ncaesar_cipher:\n--------------------')
     print(caesar_cipher('Fly Me To The Moon'))
 
+
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
+
 
