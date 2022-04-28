@@ -47,17 +47,15 @@ def fibonacci_fixme(n):
     fibonacci_fixme(3) -> 2
     fibonacci_fixme(4) -> 3
     fibonacci_fixme(5) -> 5
-
     But it doesn't (it has some bad lines in it...)
     You should (1) correct the for statement and (2) swap two lines, so that the correct fibonacci element will be returned
     """
     a = 0
     b = 1
-    for i in range(1, n):
-        a = b
+    for i in range(0, n):
         tmp = a + b
+        a = b
         b = tmp
-
     return a
 
 
@@ -343,12 +341,13 @@ def strong_pass(password):
 
 
 if __name__ == '__main__':
+    '''
     print('\nvalid_parentheses:\n--------------------')
     print(valid_parentheses('[[{()}](){}]'))
 '''
     print('\nfibonacci_fixme:\n--------------------')
     print(fibonacci_fixme(6))
-
+'''
     print('\nmost_frequent_name:\n--------------------')
     print(most_frequent_name('names.txt'))
 
