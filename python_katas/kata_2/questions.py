@@ -99,7 +99,11 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
+    path_to_dir = dir_path.split("/")
+    source_dir = (path_to_dir[-1])
+    command = "/usr/bin/tar zcf backup_{0}_`date +%Y-%m-%d`.tar.gz {1}".format(source_dir, dir_path)
+    status = os.system(command)
+    return source_dir
 
 
 def replace_in_file(file_path, text, replace_text):
