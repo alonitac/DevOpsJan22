@@ -1,3 +1,6 @@
+import os
+
+
 def valid_parentheses(s):
     """
     3 Kata
@@ -120,6 +123,13 @@ def replace_in_file(file_path, text, replace_text):
     :param replace_text: text to replace with
     :return: None
     """
+    if os.path.exists(file_path):
+        file = open(file_path, "r")
+        data = file.read()
+        data = data.replace(text, replace_text)
+        file.close()
+        file = open(file_path, "w")
+        file.write(data)
     return None
 
 
