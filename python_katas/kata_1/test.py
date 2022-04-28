@@ -179,7 +179,7 @@ class TestPalindromeNum(unittest.TestCase):
         num = 1441
         self.assertTrue(questions.palindrome_num(num), "the num is palindrome but you return False")
 
-    def test_pal1True(self):
+    def test_pal2True(self):
         num = 11
         self.assertTrue(questions.palindrome_num(num), "the num is palindrome but you return False")
 
