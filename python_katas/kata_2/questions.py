@@ -129,8 +129,9 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
-
+   # return None
+    return(all(lst[i] <= lst[i + 1] for i in range(len(lst) - 1))
+    or all(lst[i] >= lst[i + 1] for i in range(len(lst) - 1)))
 
 def matrix_avg(mat, rows=None):
     """
@@ -355,7 +356,7 @@ if __name__ == '__main__':
     print(json_configs_merge('default.json', 'local.json'))
 
     print('\nmonotonic_array:\n--------------------')
-    print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
+    print(monotonic_array([1,1, 2, 3, 6, 8, 9]))
 
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))

@@ -238,16 +238,12 @@ for i in range(6):
     print(a)
 '''
 
-
-a=[1,2,3,4,5,7]
-length=len(a)-1
-increase_counter=0
-decrease_counter=0
-for i in range(length):
-    if a[i]<=a[i+1] and increase_counter<=length:
-        increase_counter+=1
-
-    else:
-        print('false')
+#def monotonic_array(lst):
+a=[3,2,1,0]
+(all(a[i] <= a[i + 1] for i in range(len(a) - 1)) or
+all(a[i] >= a[i + 1] for i in range(len(a) - 1)))
 
 
+
+
+#monotonic_array([1,2,3,4,5,1])
