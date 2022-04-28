@@ -134,7 +134,24 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+    lst_list = list(lst)
+    delt_list = []
+    sign_list = []
+    sign = 0
+    #if lst_list[1] - lst_list[0] > 0
+    for i in range(1, len(lst_list)):
+        d = lst_list[i] - lst_list[i-1]
+        delt_list.append(d)
+    for j in delt_list:
+        if j == 0:
+            delt_list.pop(j)
+        elif abs(j) != 1:
+            return False
+    for s in range(1, len(delt_list)):
+        if delt_list[s-1] != delt_list[s]:
+            return False
+    return True
+    #return None
 
 
 def matrix_avg(mat, rows=None):
@@ -344,10 +361,10 @@ if __name__ == '__main__':
     '''
     print('\nvalid_parentheses:\n--------------------')
     print(valid_parentheses('[[{()}](){}]'))
-'''
+
     print('\nfibonacci_fixme:\n--------------------')
     print(fibonacci_fixme(6))
-'''
+
     print('\nmost_frequent_name:\n--------------------')
     print(most_frequent_name('names.txt'))
 
@@ -359,10 +376,11 @@ if __name__ == '__main__':
 
     print('\njson_configs_merge:\n--------------------')
     print(json_configs_merge('default.json', 'local.json'))
-
+'''
     print('\nmonotonic_array:\n--------------------')
     print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
-
+    #print(monotonic_array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+'''
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
