@@ -297,6 +297,7 @@ print(res)
 
 '''
 
+'''
 #Pascal Triangle
 n=10
 lst=[]
@@ -308,8 +309,20 @@ for i in range(n):
     lst.append(row)
 for r in lst:
     print(r)
+'''
 
+'''
+#longest_common_prefix
+str1 ='The Linux kernel is an amazing software'
+str2 = 'The Linux kernel is a mostly free and open-source, monolithic, modular, multitasking'
+len=len(str1)-1
+lst = []
 
+for i in range(len):
+    if str1[i] == str2[i]:
+        lst.append(str1[i])
 
+print(''.join(lst))
+'''
 
 
