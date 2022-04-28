@@ -212,10 +212,12 @@ def bad_average(a, b, c):
 
     :return:
     """
-    my_list = [a,b,c]
-    avg = sum(my_list) / len(my_list)
+    a = int(input(" Please Enter the First Number: "))
+    b = int(input(" Please Enter the second number: "))
+    c = int(input(" Please Enter the third number: "))
+    average = (a + b + c) / 3
 
-    return a + b + c / 3
+    return average
 
 
 def best_student(grades):
@@ -238,11 +240,15 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    x = high_dict.value
-    d = {}
-    if x > other.value:
+    grades = {}
+    i = high_grades.values()
+    for i in grades.values():
+        if i > grades.values
+    keys_list = list(grades.keys())
 
-        return str(high_dict.value())
+    values_list = list(grades.values())
+    return highest
+    keys_list
 
 
 def print_dict_as_table(some_dict):
@@ -271,8 +277,11 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    for key, value in dict.items():
-        print(key, '  ', value)
+    some_dict = {}
+    ami = max(map(len, some_dict))
+    format_string = '{{key:{}}}  {{value}}'.format(ami)
+    for key, value in some_dict.items():
+        print(format_string.format(key=key, value=value))
 
 
 
