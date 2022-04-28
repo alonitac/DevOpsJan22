@@ -354,11 +354,11 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    list = ['']
-    for sum in list[]:
-        if element.sum() +=
-    return sum_of_element()
-
+    my_list = []
+    digits_str = 0
+    for val in my_list:
+        digits_str += val
+    return digits_str
 
 if __name__ == '__main__':
 
