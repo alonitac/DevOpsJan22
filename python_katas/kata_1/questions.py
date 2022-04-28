@@ -293,9 +293,10 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    dict2.update(dict1)
-
-    return dict1
+    dict1 = {'a': 1}
+    dict2 = {'b': 2}
+    d3 = {**dict1, **dict2}
+    return d3
 
 
 def seven_boom(n):
