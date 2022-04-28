@@ -238,6 +238,7 @@ for i in range(6):
     print(a)
 '''
 
+'''
 #def monotonic_array(lst):
 a=[3,2,1,0]
 (all(a[i] <= a[i + 1] for i in range(len(a) - 1)) or
@@ -247,3 +248,68 @@ all(a[i] >= a[i + 1] for i in range(len(a) - 1)))
 
 
 #monotonic_array([1,2,3,4,5,1])
+'''
+
+'''
+# most_frequent_name!!!
+#from pathlib import Path
+#data_folder = Path("c:/Users/kosta/PycharmProjects/DevOpsJan22/python_katas/kata_1")
+#working_file = data_folder / "testnames.txt"
+##print(working_file.read_text())
+
+f = open("names.txt")
+lst=f.readlines()
+counter = 0
+#name=list[0]
+for i in lst:
+        current = lst.count(i)
+        if current > counter:
+            counter = current
+            name=i
+print(name)
+f.close()
+'''
+
+'''
+###merge_sorted_lists !!!
+
+lst1=[1,4,7,9,10]
+lst2=[1,2,2,3,5,8]
+
+lst1_len = len(lst1)
+lst2_len = len(lst2)
+
+res = []
+i, j = 0, 0
+
+while i < lst1_len and j < lst2_len:
+    if lst1[i] < lst2[j]:
+        res.append(lst1[i])
+        i += 1
+
+    else:
+        res.append(lst2[j])
+        j += 1
+
+res = res + lst1[i:] + lst2[j:]
+
+print(res)
+
+'''
+
+#Pascal Triangle
+n=10
+lst=[]
+for i in range(n):
+    row= [1] * (i+1)
+    for j in range (i+1):
+        if j !=0 and j != i:
+            row[j] = lst[i-1][j-1] + lst[i-1][j]
+    lst.append(row)
+for r in lst:
+    print(r)
+
+
+
+
+

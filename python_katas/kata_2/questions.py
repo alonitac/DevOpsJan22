@@ -149,6 +149,7 @@ def matrix_avg(mat, rows=None):
 
 def merge_sorted_lists(l1, l2):
     """
+
     1 Kata
 
     This function gets two sorted lists (each one of them is sorted)
