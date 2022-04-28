@@ -16,14 +16,12 @@ def sum_of_element(elements):
 
 
 def verbing(word):
-
     word_len = len(word)
     l = list(word)
     threeIndex = l[-3:]
     if word_len >= 3:
         if threeIndex == ["i", "n", "g"]:
-            rm_string = word[:word_len - 3]
-            new_word = rm_string + "ly"
+            new_word = word + "ly"
         else:
             new_word = word + "ing"
     elif word_len <= 2:
