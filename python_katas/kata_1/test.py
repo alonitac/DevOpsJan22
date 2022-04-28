@@ -88,19 +88,19 @@ class TestReverseWordsConcatenation(unittest.TestCase):
     1 Katas
     """
 
-    def reverse_original_example(self):
+    def test_reverse_original_example(self):
         lst = ['take', 'me', 'home']
         self.assertEqual(questions.reverse_words_concatenation(lst), "home me take")
 
-    def reverse_empty_list(self):
+    def test_reverse_empty_list(self):
         lst = []
         self.assertEqual(questions.reverse_words_concatenation(lst), "")
 
-    def reverse_one_string(self):
+    def test_reverse_one_string(self):
         lst = ['me']
         self.assertEqual(questions.reverse_words_concatenation(lst), "me")
 
-    def reverse_same_strings(self):
+    def test_reverse_same_strings(self):
         lst = ['me', 'me', 'me']
         self.assertEqual(questions.reverse_words_concatenation(lst), "me me me")
 
@@ -226,13 +226,12 @@ class TestBadAverage(unittest.TestCase):
         self.assertNotEqual(questions.bad_average((10, 20, 30), 30))
 
 
-
 class TestBestStudent(unittest.TestCase):
     """
     1 Katas
     """
 
-    def best_student_original_example(self):
+    def test_best_student_original_example(self):
 
         dict1 = {
             "Ben": 78,
@@ -243,7 +242,7 @@ class TestBestStudent(unittest.TestCase):
         }
         self.assertEqual(questions.best_student(dict1), 'Natan')
 
-    def best_student_over_grades(self):
+    def test_best_student_over_grades(self):
         dict1 = {
             "Ben": 178,
             "Hen": 188,
@@ -253,7 +252,7 @@ class TestBestStudent(unittest.TestCase):
         }
         self.assertEqual(questions.best_student(dict1), 'Efraim')
 
-    def best_student_same_gardes(self):
+    def test_best_student_same_gardes(self):
         dict1 = {
             "Ben": 88,
             "Hen": 88,
@@ -263,7 +262,7 @@ class TestBestStudent(unittest.TestCase):
         }
         self.assertEqual(questions.best_student(dict1), 'Ben')
 
-    def best_student_float_grades(self):
+    def test_best_student_float_grades(self):
         dict1 = {
             "Ben": 7.5,
             "Hen": 8,
