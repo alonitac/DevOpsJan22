@@ -136,9 +136,6 @@ def monotonic_array(lst):
     """
     lst_list = list(lst)
     delt_list = []
-    sign_list = []
-    sign = 0
-    #if lst_list[1] - lst_list[0] > 0
     for i in range(1, len(lst_list)):
         d = lst_list[i] - lst_list[i-1]
         delt_list.append(d)
@@ -155,6 +152,27 @@ def monotonic_array(lst):
 
 
 def matrix_avg(mat, rows=None):
+    if rows == None:
+        return None
+    for i in range(0, 3):
+        degel = 0
+        for r in rows:
+            if i == r:
+                degel = 1
+        if degel == 0:
+            mat.pop(i)
+    ezer_list = []
+    summ = 0
+    counter = 0
+    for j in range(0, len(mat)):
+        for k in range(0, len(mat[j])):
+            ezer_list.append(mat[j][k])
+            counter += 1
+            summ += mat[j][k]
+    average = summ / counter
+    return int(average)
+
+
     """
     2 Kata
 
@@ -376,7 +394,7 @@ if __name__ == '__main__':
 
     print('\njson_configs_merge:\n--------------------')
     print(json_configs_merge('default.json', 'local.json'))
-'''
+
     print('\nmonotonic_array:\n--------------------')
     print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
     #print(monotonic_array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
@@ -384,7 +402,7 @@ if __name__ == '__main__':
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
-
+'''
     print('\nmerge_sorted_lists:\n--------------------')
     print(merge_sorted_lists([1, 4, 77, 9, 13343], [-7, 0, 7, 23]))
 
