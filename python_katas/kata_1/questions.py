@@ -318,14 +318,8 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    return (dict2.update(dict1))
-    dict1 = {'a': 1}
-    dict2 = {'b': 2}
-
-
-
-
-    print(Merge(dict2, dict1))
+    dict1.update((dict2))
+    return dict1
 
 
 
