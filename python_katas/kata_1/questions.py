@@ -137,15 +137,13 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    a = prime_number
-    b = not_prime_number
     if num > 1:
-        for i in range(2, num):
-            if a != b
-                return True
-            else:
-               a == b
-            return False
+        for n in range(2, num):
+            if (num % n) == 0:
+                return False
+            return True
+    else:
+        return False
 
 def palindrome_num(num):
     """
@@ -160,7 +158,6 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-
     x = str(num)
     if x[::-1] == x:
         return True
@@ -196,7 +193,8 @@ def pair_match(men, women):
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
     my_dict = {":",":"}
-    x = tuple(my_dict)
+    a = tuple('man')
+    b = tuple('women')
     for x in x:
         if
 
@@ -240,15 +238,13 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    grades = {}
-    i = high_grades.values()
-    for i in grades.values():
-        if i > grades.values
+    dict.values = {}
+    for i in dict.values.range():
+        if i >
     keys_list = list(grades.keys())
-
     values_list = list(grades.values())
-    return highest
-    keys_list
+    return dict.keys
+
 
 
 def print_dict_as_table(some_dict):
@@ -322,14 +318,14 @@ def seven_boom(n):
     """
     list_booms = [n]
     n = 30
-    while n > 0
+    while n > 0:
         for num in n:
-            if n % 7 == 0 or ('7' in str(n))
+            if n % 7 == 0 or ('7' in str(n)):
                 list_booms.append(n)
                 n -= 1
                 list_booms.reverse()
 
-    return list_booms[n]
+        return list_booms[n]
 
 
 def caesar_cipher(str_to_encrypt):
@@ -344,6 +340,9 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
+    x = "hello world"
+    c = (x + n) % 26
+    return x
 
 
     return None
