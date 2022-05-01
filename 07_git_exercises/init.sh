@@ -1,5 +1,27 @@
 #!/bin/sh
 
+
+REMOTES=$(git remote -v)
+if [ "" != "$REMOTES" ]; then
+  ORIGIN=$(git remote get-url origin)
+  if [ "$ORIGIN" = "https://github.com/alonitac/DevOpsJan22.git" ]; then
+    echo "This script should be executed from your private repo, not from DevOpsJan22 repo"
+    exit 1
+  fi
+fi
+
+find . ! -name init.sh -delete
+git init
+
+git checkout -b main
+git add init.sh && git commit -m "add init.sh"
+
+touch .gitignore
+echo ".idea" >> .gitignore
+echo "venv" >> .gitignore
+git add .gitignore && git commit -m "add gitignore"
+
+
 # general branches
 git branch bugfix/fix_readme_typo
 git branch feature/upgrade_angular_version
@@ -18,7 +40,7 @@ git checkout main
 # Reset
 git checkout -b reset_question
 
-for i in {1..10}
+for i in $(seq 1 10);
 do
     echo "$i" > $i.txt
     git add $i.txt
@@ -27,9 +49,30 @@ done
 git checkout main
 
 
-git branch feature/version1
-git branch feature/version2
+# Resolve conflicts
+rm -f -r app.py
+wget https://raw.githubusercontent.com/alonitac/DevOpsJan22/main/05_simple_webserver/app.py
+git add app.py && git commit -m "add app.py"
 
+git checkout -b feature/version1
+sed -i "s/port=8080/port=8081/g" app.py
+sed -i "s/profile_picture/load_profile_picture/g" app.py
+
+git add app.py && git -c user.name='John Doe' -c user.email='john.doe@microsoft.com' commit -m "John's changes for app.py"
+
+touch .env && git add .env
+git -c user.name='John Doe' -c user.email='john.doe@microsoft.com' commit -m "use correct lock type in reconnect()"
+
+touch config.json && git add config.json
+git -c user.name='John Doe' -c user.email='john.doe@microsoft.com' commit -m "Restrict the extensions that can be disabled"
+
+
+git checkout main
+git checkout -b feature/version2
+sed -i "s/port=8080/port=8082/g" app.py
+sed -i "s/profile_picture/get_profile_picture/g" app.py
+sed -i "s/methods=['POST']/methods=['GET']/g" app.py
+git add app.py && git -c user.name='Narayan Nadella' -c user.email='narayan.nadella@microsoft.com' commit -m "Nayaran's changes for app.py"
 
 git checkout main
 

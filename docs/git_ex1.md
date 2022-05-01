@@ -34,7 +34,7 @@ From now on, unless otherwise specified, **execute all commands in Pycharm Termi
 5. What is the color of file `abc.txt` in Pycharm's Project view?
 6. What is the command to show changes between the working tree to branch `main`?
 7. Why does `git diff --staged` print nothing?
-8. Why does `git diff master` print error?
+8. Why does `git diff stage2` print error?
 9. Add `abc.txt` to the index
 10. What does `git diff` print? why?
 11. What is the command to show changes between the index and branch `main`?
@@ -52,7 +52,9 @@ You decide to create a new branch called `feature/lambda_migration` and merge th
 17. List all existed branches this repo (print them)
 18. Create a new branch called `feature/lambda_migration` and switch to this branch
 19. Merge branch `feature/version1` into `feature/lambda_migration`, observe the merged changes
-20. **Using PyCharm UI** - merge branch `feature/version2` in `feature/lambda_migration`, resolve the conflict as following:
+20. **Using PyCharm UI** - merge branch `feature/version2` into `feature/lambda_migration`
+    ![MergePyCharm](/img/merge.png)
+21. Resolve the conflict as following:
     1. On the opened conflict tool, choose the conflicted file and click Merge  
        ![Conflict](/img/conflict.png)
     2. First click All to merge all changes for which there is no any conflict  
@@ -60,7 +62,7 @@ You decide to create a new branch called `feature/lambda_migration` and merge th
     3. Right click on right and left pages and choose _Annotate with Git Blame_
     4. Accept John Doe's port number (8081), deny Narayan's port (8082)
     5. Accept the function name of Narayan Nadella (get_profile_picture), Block John's name.
-21. Are there any added commits for `feature/lambda_migration` after all merges were completed? what are those commits?
+22. Are there any added commits for `feature/lambda_migration` after all merges were completed? what are those commits?
 
 ### Cherry picking
 
@@ -72,9 +74,9 @@ Continuing our story from above, let's say you've messed up your branch `feature
 3. **In PyCharm UI** Use the cherry-pick icon to pick those commits in the following order:
       1. "use correct lock type in reconnect()"
       2. "Restrict the extensions that can be disabled"
-   
+4. Which files have been added to your branch as a result of the commits cherry-picking?
    ![Cherry pick](/img/cherry-pick.png)
-4. Should you care about **the order** in which commits are picked? why?
+5. Should you care about **the order** in which commits are picked? why?
 
 
 ### Changes in working tree and switch branches
