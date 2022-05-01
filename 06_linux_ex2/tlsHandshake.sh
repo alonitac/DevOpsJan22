@@ -1,4 +1,6 @@
 #!/bin/bash
+# FIXME calling twice /clienthello endpoint is redundant -5
+
 curl -X POST -H "Content-Type: application/json" -d '{"clientVersion": "3.2", "message": "Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello | jq -r '.sessionID' > sessionID.txt
 curl -X POST -H "Content-Type: application/json" -d '{"clientVersion": "3.2", "message": "Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello | jq -r '.serverCert' > cert.pem
 wget https://devops-jan22.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem                                                                                                                                                                                                                                                                                       #bash tlsHandshake.sh
@@ -14,6 +16,9 @@ MASTER_KEY=$(cat CertMasterKey.txt)
 curl -X POST -H "Content-Type: application/json" -d '{"sessionID": "'$SESSION_ID'", "masterKey": "'$MASTER_KEY'", "sampleMessage": "Hi server, please encrypt me and send to client!"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/keyexchange |jq -r '.encryptedSampleMessage' > encryptedSampleMessage.txt
 cat encryptedSampleMessage.txt | base64 -d > encSampleMsgReady.txt
 openssl enc -d -aes-256-cbc -pbkdf2 -kfile masterKey.txt -in encSampleMsgReady.txt -out decryptedSampleMessage.txt
+
+# FIXME seems like syntax error is here... -5
+
 DECRYPTED_SAMPLE_MESSAGE=$(cat decryptedSampleMessage.txt)                                                                                                                                                                                                                                                                                                  if [ "$DECRYPTED_SAMPLE_MESSAGE" != "Hi server, please encrypt me and send to client!" ]; then
   echo "Server symmetric encryption using the exchanged master-key has failed."
   exit 1

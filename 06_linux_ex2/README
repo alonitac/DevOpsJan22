@@ -11,13 +11,15 @@ Q5: ctrZ
 Q6: sleep10
 Q7: none
 Q8: kill -9 4846
-Q9: kill -17 ssh-agent
+Q9: kill -17 ssh-agent # FIXME -2 (c is the correct)
 Q10: k
-Q11: none
+Q11: none # FIXME -5 (b is the correct)
 
 
 EX3:
 ============
+# FIXME what about capturing the process "/bin/bash ./write_to_file_sequentially.sh" in R state?  -5
+
 rami     31908  0.0  0.0   8752  3080 pts/1    D    11:53   0:00 /bin/bash ./write_to_file_sequentially.sh
 rami     31911  0.0  0.0   8752  3120 pts/1    D    11:53   0:00 /bin/bash ./write_to_file_sequentially.sh
 rami     31913  0.0  0.0   8752  3024 pts/1    D    11:53   0:00 /bin/bash ./write_to_file_sequentially.sh
