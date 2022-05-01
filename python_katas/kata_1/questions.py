@@ -129,7 +129,7 @@ def prime_number(num):
     :return: bool. True if prime, else False
     """
 
-    for i in range(num):
+    for i in range(2, num):
         if num % i == 0:
             boo = True
         else:
