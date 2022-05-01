@@ -112,13 +112,11 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    listint = [elements]
     listint2 = []
-    for i in elements:
-        listint2.append(i-i)
-
+    listint2.append(None)
+    for i in range(len(elements) -1):
+        listint2.append(elements[i + 1] - elements[i])
     return listint2
-
 
 def prime_number(num):
     """
