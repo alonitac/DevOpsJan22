@@ -293,10 +293,6 @@ class TestMergeDicts(unittest.TestCase):
     1 Katas
     """
 
-    def test_sample(self):
-        def Merge(dict2, dict1):
-            return (dict1.update(dict2))
-
     def test_basic(self):
         dict1 = {'a': 5, 'b': 2}
         dict2 = {'c': 5, 'd': 2}
