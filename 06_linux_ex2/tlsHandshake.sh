@@ -1,3 +1,5 @@
+# FIXME Perfect!
+
 curl -d '{"clientVersion":"3.2", "message":"Client Hello"}' -H "Content-Type: application/json" -X POST http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello  --> secret.txt
 
 cat secret.txt | jq -r '.serverVersion' > serverVersion.txt

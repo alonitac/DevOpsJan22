@@ -83,7 +83,7 @@ explain: You might want to check kill -l command in the terminal, by that you wi
 
 (Q11)open a new terminal session and type the command python. Then send a SIGINT signal using your keyboard. What best describes how the python process responds to the SIGINT signal? (you can exit this process by typing exit() in the
 python console)
-(A11) The program implements the kernel default signal handler for the SIGINT signal, which is to stop (suspend) the process.
+(A11) The program implements the kernel default signal handler for the SIGINT signal, which is to stop (suspend) the process.  # FIXME -5 (b is the correct)
 
 
                                               Process states
@@ -97,6 +97,8 @@ at the 'same time' meaning sequatually.
 --------------------------------------------------------------------------------------------------------------
                                               PS AUX
 --------------------------------------------------------------------------------------------------------------
+# FIXME what about capturing the process "/bin/bash ./write_to_file_sequentially.sh" in R state?  -10
+
 ariel      30945  9.0  0.0   2616  1768 pts/2    R+   23:34   0:00 sh multi_process_file_writing.sh
 ariel      30947  1.0  0.0   9632  3300 pts/2    D+   23:34   0:00 /bin/bash ./write_to_file_sequentially.sh
 
