@@ -33,12 +33,12 @@ def verbing(word):
     mylist = len(word)
     result = mylist2.endswith('ing')
     if mylist >= 3 and result:
-        print(word + 'ly')
+        return (word + 'ly')
     elif not result and mylist >= 3:
-        print(word + 'ing')
+        return (word + 'ing')
 
 
-    return word
+    return mylist2
 
 
 def words_concatenation(words):
@@ -112,13 +112,13 @@ def list_diff(elements):
     :return: the diff list
     """
     delements = []
-    if not elements:
+    if not delements:
         exit
     else:
         delements.append(None)
         for i in range(len(elements) - 1):
             delements.append(elements[i + 1] - elements[i])
-    return delements
+    return elements
 
 
 
@@ -132,7 +132,17 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+
+    if num > 1:
+        for i in range(2, int(num / 2) + 1):
+            if (num % i) == 0:
+                print(num, "is not a prime number")
+                break
+        else:
+            print(num, "is a prime number")
+    else:
+        print(num, "is not a prime number")
+    return num
 
 
 def palindrome_num(num):
@@ -148,7 +158,7 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    num = " "
+
     charterList = [receivedDigit for receivedDigit in str(num)]
     if charterList == charterList[::-1]:
         print("true")
@@ -187,18 +197,18 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    manName = ""
-    womanName = ""
+    man = ""
+    woman = ""
     currentLowestDifference = 999
     for [key, value] in men.items():
         for [key2, value2] in women.items():
             if abs(value - value2) < currentLowestDifference:
                 currentLowestDifference = abs(value - value2)
-                manName = key
-                womanName = key2
+                man = key
+                woman = key2
 
-    thisWillBeReturned = {manName, womanName}
-    return men, women
+    thisWillBeReturned = {man, woman}
+    return man, woman
 
 
 def bad_average(a, b, c):
@@ -272,8 +282,8 @@ def print_dict_as_table(some_dict):
     :return:
     """
     some_dict = {
-        "Ben  ": 78,
-        "Hen  ": 88,
+        "Ben  ":   78,
+        "Hen  ":   88,
         "Natan": 99,
         "Efraim": 65,
         "Rachel": 95
@@ -284,6 +294,10 @@ def print_dict_as_table(some_dict):
 
     for (key, value) in some_dict.items():
         print(key + "\t\t" + str(value))
+
+
+
+
 
 
 
@@ -304,8 +318,16 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    dict1 = dict1 | dict2
-    return dict1
+    return (dict2.update(dict1))
+    dict1 = {'a': 1}
+    dict2 = {'b': 2}
+
+
+
+
+    print(Merge(dict2, dict1))
+
+
 
 
 
@@ -359,7 +381,7 @@ def caesar_cipher(str_to_encrypt):
         else:
             c = chr(ord('A') + (ord(c) - ord('X')))
         str = str[:i] + c + str[i + 1:]
-    return str
+    return str_to_encrypt
 
 
 def sum_of_digits(digits_str):
@@ -441,13 +463,13 @@ if __name__ == '__main__':
     }))
 
     print('\nprint_dict_as_table:\n--------------------')
-    print(print_dict_as_table({
+    print_dict_as_table({
         "Ben": 78,
         "Hen": 88,
         "Natan": 99,
         "Efraim": 65,
         "Rachel": 95
-    }))
+    })
 
     print('\nmerge_dicts:\n--------------------')
     print(merge_dicts({'a': 1}, {'b': 2}))
