@@ -7,12 +7,14 @@ curl  -X POST -H "Content-Type: application/json" -d '{"clientVersion":"3.2","me
 echo "variable called SESSION_ID for later usage"
 
 cat SESSION_ID
-
+# FIXME calling twice /clienthello endpoint is redundant -5
 curl  -X POST -H "Content-Type: application/json" -d '{"clientVersion":"3.2","message":"Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello |jq -r ".serverCert" > cert.pem
 
 echo "save the server cert in a file called cert.pem"
 
 cat cert.pem
+
+# FIXME echo is redundant here... try to keep you script clean as organized
 echo
 echo
 
@@ -62,6 +64,7 @@ echo
 echo $MASTER_KEY
 echo
 echo
+# FIXME why didn't you use the SESSION_ID file created above? you should have called /clienthello only once the whole script -2
 SESSION_ID=$(curl -X POST -H 'Content-Type: application/json' -d '{"clientVersion": "3.2", "message": "Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello | jq -r '.sessionID')
 echo
 echo

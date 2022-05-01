@@ -10,10 +10,11 @@ Q7: None of the above
 Q8: kill -9 4846
 Q9: kill -CHLD 4828
 Q10: k
-Q11: The program implements the kernel default signal handler for the SIGINT signal, which is to terminate the process.
+Q11: The program implements the kernel default signal handler for the SIGINT signal, which is to terminate the process.  # FIXME -5 (b is the correct)
 
 # Process states
 
+# FIXME what about capturing the process "/bin/bash ./write_to_file_sequentially.sh" in R state?  -10
 devops    104758  0.0  0.1  14116  5960 ?        S    02:00   0:00 sshd: devops@pts/3
 devops    104759  0.0  0.1  11020  5384 pts/3    Ss   02:00   0:00 -bash
 devops    104780 35.9  0.6 435640 27764 ?        Ssl  02:02   1:33 /usr/libexec/tracker-store
