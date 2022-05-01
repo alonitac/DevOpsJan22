@@ -71,7 +71,7 @@ git checkout main
 git checkout -b feature/version2
 sed -i "s/port=8080/port=8082/g" app.py
 sed -i "s/profile_picture/get_profile_picture/g" app.py
-sed -i "s/methods=['POST']/methods=['GET']/g" app.py
+sed -i "s/POST/GET/g" app.py
 git add app.py && git -c user.name='Narayan Nadella' -c user.email='narayan.nadella@microsoft.com' commit -m "Nayaran's changes for app.py"
 
 git checkout main
