@@ -14,6 +14,7 @@ Q10: k
 Q11: The program has implemented a custom signal handler for the SIGINT signal.
 
 Process states:
+# FIXME Processes /bin/bash ./write_to_file_sequentially.sh in states D and R are missing -10
 "
 usr       16842  0.0  0.0   9632  3208 pts/0    D    16:55   0:00 /bin/bash ./write_to_file_seque
 usr       16843 15.5  0.0 434872 27268 ?        Ssl  16:55   0:00 /usr/libexec/tracker-store

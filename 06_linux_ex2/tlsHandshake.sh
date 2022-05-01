@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# FIXME Great!
+
 curl -X POST -H "Content-Type: application/json" -d '{ "clientVersion": "3.2", "message": "Client Hello" }' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello > temp.json #temp.json saving 1st 'POST' request
 # ^^ 1st post - Hello (source below) ^^
 # ^^ Found in: google.com\how to post using curl > linuxize\Specifying the Content-Type ^^
