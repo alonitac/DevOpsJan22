@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# FIXME Great!
+
+
 #Dima`s Solution
 set -xe
 rm -rf ./certs/

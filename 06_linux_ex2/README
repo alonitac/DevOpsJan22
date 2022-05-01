@@ -45,7 +45,7 @@ Q7) Which of the following command would deliver a SIGTERM to the xscreensaver p
 
 (Q11 - easy 5 points bonus) Open a new terminal session and type the command python. Then send a SIGINT signal using your keyboard. What best describes how the python process responds to the SIGINT signal? (you can exit this process by typing exit() in the python console)
 
-    The program ignores the SIGINT signal.
+    The program ignores the SIGINT signal.  # FIXME -5 (b is the correct)
 
 Process states:
 
