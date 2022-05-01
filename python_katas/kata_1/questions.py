@@ -28,7 +28,17 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    mylist2 = list(word)
+    mylist2 = ''.join(map(str, mylist2))
+    mylist = len(word)
+    result = mylist2.endswith('ing')
+    if mylist >= 3 and result:
+        print(word + 'ly')
+    elif not result and mylist >= 3:
+        print(word + 'ing')
+
+
+    return word
 
 
 def words_concatenation(words):
@@ -43,7 +53,9 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    words = ' '.join(words)
+    return words
+
 
 
 def reverse_words_concatenation(words):
@@ -58,7 +70,9 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    words = ' '.join(words[::-1])
+    return words
+
 
 
 def is_unique_string(some_str):
@@ -75,7 +89,11 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    if len(set(list(some_str))) != len(list(some_str)):
+        return False
+    else:
+        return True
+
 
 
 def list_diff(elements):
@@ -93,7 +111,15 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    delements = []
+    if not elements:
+        exit
+    else:
+        delements.append(None)
+        for i in range(len(elements) - 1):
+            delements.append(elements[i + 1] - elements[i])
+    return delements
+
 
 
 def prime_number(num):
@@ -122,7 +148,15 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    num = " "
+    charterList = [receivedDigit for receivedDigit in str(num)]
+    if charterList == charterList[::-1]:
+        print("true")
+    else:
+        print("false")
+
+
+    return num
 
 
 def pair_match(men, women):
@@ -153,7 +187,18 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    manName = ""
+    womanName = ""
+    currentLowestDifference = 999
+    for [key, value] in men.items():
+        for [key2, value2] in women.items():
+            if abs(value - value2) < currentLowestDifference:
+                currentLowestDifference = abs(value - value2)
+                manName = key
+                womanName = key2
+
+    thisWillBeReturned = {manName, womanName}
+    return men, women
 
 
 def bad_average(a, b, c):
@@ -165,7 +210,8 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    avg = (a + b + c) / 3
+    return a, b, c
 
 
 def best_student(grades):
@@ -188,7 +234,15 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    d = {"Ben": 78, "Hen": 88, "Natan": 99, "Efraim": 65, "Rachel": 95}
+    lo = 0
+    grades = ""
+
+    for [key, value] in d.items():
+        if value > lo:
+            lo = value
+            grades = key
+    return grades
 
 
 def print_dict_as_table(some_dict):
@@ -217,7 +271,20 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    some_dict = {
+        "Ben  ": 78,
+        "Hen  ": 88,
+        "Natan": 99,
+        "Efraim": 65,
+        "Rachel": 95
+    }
+
+    print("Key\t\t\tValue")
+    print("-----------------")
+
+    for (key, value) in some_dict.items():
+        print(key + "\t\t" + str(value))
+
 
 
 def merge_dicts(dict1, dict2):
@@ -237,7 +304,10 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+    dict1 = dict1 | dict2
     return dict1
+
+
 
 
 def seven_boom(n):
@@ -252,7 +322,17 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    list = []
+    for x in range(1, n):
+
+        if x % 7 == 0:
+
+            list.append(x)
+        elif x % 10 == 7:
+            list.append(x)
+
+    return list
+
 
 
 def caesar_cipher(str_to_encrypt):
@@ -267,7 +347,19 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    str = str_to_encrypt
+    for i in range(len(str)):
+        c = str[i]
+        if ord(c) == ord(' '):
+            continue
+        if ord(c) < ord('x') or ord(c) < ord('X'):
+            c = chr(ord(c) + 3)
+        elif ord(c) > ord('w'):
+            c = chr(ord('a') + (ord(c) - ord('x')))
+        else:
+            c = chr(ord('A') + (ord(c) - ord('X')))
+        str = str[:i] + c + str[i + 1:]
+    return str
 
 
 def sum_of_digits(digits_str):
@@ -285,7 +377,12 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    my_string = digits_str
+    my_list = list(my_string)
+    result = 0
+    for i in range(len(my_list)):
+        result += ord(my_list[i]) - 48
+    return result
 
 
 if __name__ == '__main__':
