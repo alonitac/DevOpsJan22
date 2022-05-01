@@ -89,9 +89,9 @@ def is_unique_string(some_str):
     booli = True
     listofword = []
 
-    for word in some_str
+    for word in some_str:
         listofword.append(word)
-        if len(set(listofword)) != len(listofword)
+        if len(set(listofword)) != len(listofword):
             booli = False
 
     return booli
@@ -112,7 +112,12 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    listint = [elements]
+    listint2 = []
+    for i in elements:
+        listint2.append(i-i)
+
+    return listint2
 
 
 def prime_number(num):
