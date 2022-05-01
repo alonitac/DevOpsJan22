@@ -10,7 +10,7 @@ Q4. Ctrl+C
 
 Q5. Ctrl+z
 
-Q6. sleep 10 &
+Q6. sleep 10 & # FIXME -2 (d is the correct)
 
 Q7.kill 4846
 
@@ -20,9 +20,10 @@ Q9.kill -CHLD 4828
 
 Q10. k
 
-Q11.The program ignores the SIGINT signal
+Q11.The program ignores the SIGINT signal  # FIXME -5 (b is the correct)
 
 # Process states
+# FIXME what about capturing the process "/bin/bash ./write_to_file_sequentially.sh" in D state?  -5
 
 john        6681  0.0  0.0   9632  3284 pts/0    R    13:59   0:00 /bin/bash ./write_to_file_sequentially.sh
 john       10075  0.0  0.0   9632  3308 pts/0    R    13:59   0:00 /bin/bash ./write_to_file_sequentially.sh
