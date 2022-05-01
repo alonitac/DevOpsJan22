@@ -8,11 +8,13 @@ ddady1@gmail.com
 6 - sleep 10
 7 - None of the above
 8 - kill -9 4846
-9 - kill -17 ssh-agent
+9 - kill -17 ssh-agent  # FIXME -2 (c is the correct)
 10 - k
-11 - The program ignores the SIGINT signal.
+11 - The program ignores the SIGINT signal.  # FIXME -5 (b is the correct)
+
 
 ### Process states ###
+# FIXME what about capturing the process "/bin/bash ./write_to_file_sequentially.sh" in R state?  -5
 
 ubuntu     756  0.2  0.0   8752  3164 pts/4    D    14:02   0:00 /bin/bash ./write_to_file_sequentially.sh
 ubuntu     757  0.1  0.0   8752  3088 pts/4    D    14:02   0:00 /bin/bash ./write_to_file_sequentially.sh
