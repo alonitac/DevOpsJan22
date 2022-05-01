@@ -11,9 +11,12 @@ Q7 None of the above
 Q8 kill -9 4846
 Q9 kill -CHLD 4828
 Q10 k
-Q11 The program implements the kernel default signal handler for the SIGINT signal, which is to terminate the process.
+Q11 The program implements the kernel default signal handler for the SIGINT signal, which is to terminate the process.  # FIXME -5 (b is the correct)
+
 
 #Process states
+# FIXME Processes /bin/bash ./write_to_file_sequentially.sh in states D and R are missing -10
+
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root         1  0.0  0.0   9788   520 ?        Ssl  Mar20   0:00 /init
 root       728  0.0  0.0   9796   296 tty1     Ss   Mar22   0:00 /init
