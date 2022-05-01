@@ -85,7 +85,16 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+
+    booli = True
+    listofword = []
+
+    for word in some_str
+        listofword.append(word)
+        if len(set(listofword)) != len(listofword)
+            booli = False
+
+    return booli
 
 
 def list_diff(elements):
