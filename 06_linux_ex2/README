@@ -8,14 +8,16 @@ Q2 : true
 Q3 : jobs
 Q4 : ctrl + c
 Q5 : ctrl + z
-Q6 : sleep 10 &
+Q6 : sleep 10 & # FIXME -2 (d is the correct)
 Q7 : none of the above
 Q8 : kill -9 4846
-Q9 : kill -17 ssh-agent
+Q9 : kill -17 ssh-agent # FIXME -2 (c is the correct)
 Q10: k
-Q11: none of the above
+Q11: none of the above  # FIXME -5 (b is the correct)
 
 Process states:
+# FIXME what about capturing the process "/bin/bash ./write_to_file_sequentially.sh" in R state?  -5
+
 adanbh    8495  0.1  0.0   8752  3092 pts/2    S    19:49   0:00 /bin/bash ./write_to_file_sequentially.sh
 adanbh    8496  0.1  0.0   8752  3064 pts/2    S    19:49   0:00 /bin/bash ./write_to_file_sequentially.sh
 adanbh    8497  0.1  0.0   8752  3216 pts/2    S    19:49   0:00 /bin/bash ./write_to_file_sequentially.sh

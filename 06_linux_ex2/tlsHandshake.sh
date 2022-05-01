@@ -5,6 +5,8 @@ curl -X POST -H 'Content-Type: application/json' -d '{"clientVersion": "3.2", "m
 # touch Cert.pem = the value in serverCert save in the file Cert.pem
 curl -X POST -H "Content-Type: application/json" -d '{"clientVersion": "3.2", "message": "Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello | jq -r '.serverCert' > Cert.pem
 
+# FIXME calling twice /clienthello endpoint is redundant -5
+
 # touch SessionID.txt = the value in serverCert save in the file Cert.pem
 curl -X POST -H 'Content-Type: application/json' -d '{"clientVersion": "3.2", "message": "Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello | jq -r '.sessionID' > SessionID.txt
 
