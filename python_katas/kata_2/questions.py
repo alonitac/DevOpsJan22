@@ -2,6 +2,7 @@ import gzip
 import datetime
 import tarfile
 import os
+import json
 
 def valid_parentheses(s):
     if len(s) % 2 != 0:
@@ -93,14 +94,16 @@ def most_frequent_name(file_path):
 
 
 def files_backup(dir_path):
+    if list(dir_path[-1])!="/": path = dir_path + "/"
     date = datetime.date.today()
-    split_name_dir=dir_path.split('\\')
-    name_dir=split_name_dir[-2]
-    filename_out =dir_path+"backup_"+name_dir+"_"+str(date)+".tar.gz"
-    return_print="backup_"+name_dir+"_"+str(date)+".tar.gz"
+    split_name_dir = path.split('/')
+    name_dir = split_name_dir[-2]
+    filename_out = path + "backup_" + name_dir + "_" + str(date) + ".tar.gz"
+    return_print = "backup_" + name_dir + "_" + str(date) + ".tar.gz"
     with tarfile.open(filename_out, "w:gz") as tar:
-        tar.add(dir_path, arcname=os.path.basename(dir_path))
-    return  return_print
+        tar.add(path, arcname=os.path.basename(path))
+    return return_print
+
     """
     3 Kata
 
@@ -117,7 +120,7 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
+
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -138,6 +141,13 @@ def replace_in_file(file_path, text, replace_text):
 
 
 def json_configs_merge(*json_paths):
+    dict={}
+    for i in json_paths:
+        with open(i) as j:
+         data = json.load(j)
+         dict.update(data)
+    return dict
+
     """
     2 Kata
 
@@ -148,10 +158,12 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    return None
+
 
 
 def monotonic_array(lst):
+    return (all(lst[i] <= lst[i + 1] for i in range(len(lst) - 1)) or
+            all(lst[i] >= lst[i + 1] for i in range(len(lst) - 1)))
     """
     1 Kata
 
@@ -160,7 +172,7 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+
 
 
 def matrix_avg(mat, rows=None):
@@ -374,16 +386,16 @@ if __name__ == '__main__':
     print(fibonacci_fixme(6))
 
     print('\nmost_frequent_name:\n--------------------')
-    print(most_frequent_name('names.txt'))
+    print(most_frequent_name('python_katas/kata_2/names.txt'))
 
     print('\nfiles_backup:\n--------------------')
-    print(files_backup('python_katas/kata_2'))
+    print(files_backup('python_katas/kata_2/'))
 
     print('\nreplace_in_file:\n--------------------')
     print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
 
     print('\njson_configs_merge:\n--------------------')
-    print(json_configs_merge('default.json', 'local.json'))
+    print(json_configs_merge('python_katas/kata_2/default.json', 'python_katas/kata_2/local.json'))
 
     print('\nmonotonic_array:\n--------------------')
     print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
