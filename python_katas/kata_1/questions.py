@@ -51,7 +51,10 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    space = ''
+    for word in words:
+        space = space + word + ' '
+    return space
 
 
 def reverse_words_concatenation(words):
