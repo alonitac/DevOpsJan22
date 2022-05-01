@@ -74,8 +74,8 @@ Continuing our story from above, let's say you've messed up your branch `feature
 3. **In PyCharm UI** Use the cherry-pick icon to pick those commits in the following order:
       1. "use correct lock type in reconnect()"
       2. "Restrict the extensions that can be disabled"
-4. Which files have been added to your branch as a result of the commits cherry-picking?
    ![Cherry pick](/img/cherry-pick.png)
+4. Which files have been added to your branch as a result of the commits cherry-picking?
 5. Should you care about **the order** in which commits are picked? why?
 
 
