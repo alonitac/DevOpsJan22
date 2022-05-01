@@ -16,7 +16,10 @@ Submit your exercise **by creating a Pull Request** from your branch into **main
 
 
 In your GitHub account, create a new repo, clone it locally via PyCharm (Git -> Clone...).  
-Copy `07_git_exercises/init.sh` **from our shared repo into your newly created repo**, in project root directory, add and commit it. Run it by `./init.sh` and make sure it's finished without errors.  
+Copy `07_git_exercises/init.sh` **from our shared repo into your newly created repo**, in project root directory, add and commit it. e.g.  
+![gitex1](/img/gitex1.png)
+
+Run it by `./init.sh` and make sure it's finished without errors.  
 
 From now on, unless otherwise specified, **execute all commands in Pycharm Terminal** opened from your private cloned repo.
 
