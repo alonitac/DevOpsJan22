@@ -128,7 +128,13 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+
+    for i in range(num):
+        if num % i == 0:
+            boo = True
+        else:
+            boo = False
+    return boo
 
 
 def palindrome_num(num):
