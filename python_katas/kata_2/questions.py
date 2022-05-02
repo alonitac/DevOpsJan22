@@ -405,7 +405,7 @@ if __name__ == '__main__':
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 
     print('\nmerge_sorted_lists:\n--------------------')
-    print(merge_sorted_lists([1, 4, 77, 9, 13343], [-7, 0, 7, 23]))
+    print(merge_sorted_lists([1, 4, 9, 77, 13343], [-7, 0, 7, 23]))
 
     print('\nlongest_common_substring:\n--------------------')
     print(longest_common_substring('abcdefg', 'bgtcdesd'))
