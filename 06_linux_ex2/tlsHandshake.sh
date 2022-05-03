@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+# FIXME Perfect implementation
+
 # Remove files and environment variables from previous run
 
 unset MY_MASTER_KEY
