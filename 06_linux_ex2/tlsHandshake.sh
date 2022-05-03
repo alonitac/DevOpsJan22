@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# FIXME Great!
+
 echo "Initializing random number generator..."
 openssl rand -out masterKey.txt -base64 32
 if [ $? -gt 0 ]

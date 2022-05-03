@@ -29,7 +29,7 @@ doron.dollev@gmail.com
 
 **(Q6)** How would you run the `sleep 10` command as a foreground process?
 
-* sleep 10 &
+* sleep 10 &  # FIXME -2 (d is the correct)
 
 
 **(Q7)** Which of the following command would deliver a SIGTERM to the `xscreensaver` process?
