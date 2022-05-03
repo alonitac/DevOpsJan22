@@ -17,8 +17,6 @@ class TestSumOfElements(unittest.TestCase):
     1 Katas
     """
 
-    def sum_of_element(elements):
-        return sum(elements)
 
     def test_empty_list(self):
         lst = []
