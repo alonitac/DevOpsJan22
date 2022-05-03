@@ -5,6 +5,8 @@
   #Server version ID not required for next steps.
   #tput setaf 3; SERVERVERSIONVAR=$(curl -X POST -H "Content-Type: application/json" -d '{"clientVersion": "3.2", "message": "Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello | jq -r '.serverVersion')
   tput setaf 3; SESSIONIDVAR=$(curl -X POST -H "Content-Type: application/json" -d '{"clientVersion": "3.2", "message": "Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello | jq -r '.sessionID')
+
+  # FIXME calling twice /clienthello endpoint is redundant -5
   tput setaf 3; curl -X POST -H "Content-Type: application/json" -d '{"clientVersion": "3.2", "message": "Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello | jq -r '.serverCert' >servercert.pem
   tput sgr0
 
@@ -69,3 +71,5 @@ sleep 1
   fi
   tput sgr0
 exit 1
+
+# FIXME Great!

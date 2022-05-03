@@ -24,7 +24,7 @@ prodevildaniel@gmail.com
 * kill 4846
 
 (Q8) Which of the following would deliver a SIGKILL to the xscreensaver command?
-* kill -KILL xscreensaver
+* kill -KILL xscreensaver  # FIXME -2 (a is the correct)
 
 (Q9) Which of the following would send a SIGCHLD (signal number 17) to the ssh-agent process?
 * kill -CHLD 4828
@@ -36,6 +36,7 @@ prodevildaniel@gmail.com
 * The program has implemented a custom signal handler for the SIGINT signal.
 
 Process states:
+# FIXME Processes /bin/bash ./write_to_file_sequentially.sh in states D and R are missing -10
 
 daniela+    3024  0.0  0.2  11016  4148 pts/0    Ss+  Apr03   0:00 bash
 daniela+    5811  0.0  0.2  11016  5192 pts/1    Ss   16:26   0:00 bash
