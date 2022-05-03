@@ -4,7 +4,7 @@ Processes handling
 ##################
 
 
-Q1 - bg
+Q1 - bg  # FIXME -2 (b is the correct)
 
 Q2 - False
 
@@ -14,7 +14,7 @@ Q4 - CTRL+c
 
 Q5 - CTRL+z
 
-Q6 - sleep 10 &
+Q6 - sleep 10 &  # FIXME -2 (d is the correct)
 
 Q7 - kill -15 4846
 
@@ -24,7 +24,7 @@ Q9 - kill -CHLD 4828
 
 Q10 - k
 
-Q111 - The program ignores the SIGINT signal.
+Q111 - The program ignores the SIGINT signal.  # FIXME -5 (b is the correct)
 
 
 Process states
