@@ -183,11 +183,30 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    #return None
 
 
 def merge_sorted_lists(l1, l2):
-    """
+    for_count = 0
+    i = j = 0
+    for_count += 1
+    #for i in range(i, len(l1)):
+    while j < len(l2):
+        #print(l2[j], l1[i], len(l1), len(l2))
+        if l2[j] <= l1[i]:
+            l1.insert(i, l2[j])
+            j += 1
+            i += 1
+        elif l2[j] > l1[len(l1)-1]:
+            l1.append(l2[j])
+            j += 1
+            i += 1
+        else:
+            i += 1
+    return l1
+
+
+"""
     1 Kata
 
     This function gets two sorted lists (each one of them is sorted)
@@ -199,7 +218,7 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+    #return None
 
 
 def longest_common_substring(str1, str2):
@@ -398,14 +417,14 @@ if __name__ == '__main__':
     print('\nmonotonic_array:\n--------------------')
     print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
     #print(monotonic_array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
-'''
+    
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 '''
     print('\nmerge_sorted_lists:\n--------------------')
-    print(merge_sorted_lists([1, 4, 77, 9, 13343], [-7, 0, 7, 23]))
-
+    print(merge_sorted_lists([1, 4, 77, 99], [-7, 0, 7, 23, 667]))  #was 9 not 99
+'''
     print('\nlongest_common_substring:\n--------------------')
     print(longest_common_substring('abcdefg', 'bgtcdesd'))
 
