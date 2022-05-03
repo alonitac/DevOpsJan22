@@ -1,5 +1,6 @@
 curl  -X POST -H "Content-Type: application/json" -d '{"clientVersion":"3.2","message":"Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello | jq -r '.serverCert' > cert.pem
 
+# FIXME --ca-certificate=cert-ca-aws.pem is redundant
 wget https://devops-jan22.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem --ca-certificate=cert-ca-aws.pem
 
 VERIFICATION_RESULT=$( openssl verify -CAfile cert-ca-aws.pem cert.pem )
@@ -30,3 +31,4 @@ else
   echo "Client-Server TLS handshake has been completed successfully"
 fi
 
+# FIXME Great!

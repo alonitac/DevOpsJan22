@@ -10,7 +10,7 @@ Q7 - kill 4846.
 Q8 - kill -9 4846.
 Q9 - kill -17 ssh-agent.
 Q10 - None of the above.
-Q11 - The program ignores the SIGINT signal.
+Q11 - The program ignores the SIGINT signal.   # FIXME -5 (b is the correct)
 
 shlomi   19221  0.0  0.0   8756  3180 pts/0    D    21:42   0:00 /bin/bash ./write_to_file_sequentially.sh
 shlomi   19222  0.0  0.0   8756  3044 pts/0    D    21:42   0:00 /bin/bash ./write_to_file_sequentially.sh
