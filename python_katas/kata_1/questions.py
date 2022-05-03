@@ -115,7 +115,6 @@ def list_diff(elements):
             elements[-1] = None
         else:
             break
-
     return elements
 
 

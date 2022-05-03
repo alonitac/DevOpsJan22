@@ -13,7 +13,15 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
-    return None
+    while True:
+        if '()' in s:
+           return True
+        elif '{}' in s:
+            return True
+        elif '[]' in s:
+            return True
+        else:
+            return False
 
 
 def fibonacci_fixme(n):
@@ -37,11 +45,13 @@ def fibonacci_fixme(n):
     a = 0
     b = 1
     for i in range(1, n):
-        a = b
-        tmp = a + b
-        b = tmp
-
-    return a
+        if n <= 1:
+            tmp = n
+        else:
+            tmp = a + b
+            a = b
+            b = tmp
+    return b
 
 
 def most_frequent_name(file_path):
@@ -56,6 +66,10 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
+    with open(file_path, 'r+') as f:
+        data = f.read()
+        data_to_list = data.replace('\n', ' ').split(".")
+
     return None
 
 
