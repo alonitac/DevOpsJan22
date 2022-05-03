@@ -141,7 +141,10 @@ def list_diff(elements):
 
 
 def prime_number(num):
-    if num > 1:
+    num = abs(num)
+    if num == 1:
+        return True
+    if num > 1 and isinstance(num, int):
         for i in range(2, num):
             if (num % i) == 0:
                 return False
@@ -149,10 +152,8 @@ def prime_number(num):
         else:
             return True
 
-    # if input number is less than
-    # or equal to 1, it is not prime
     else:
-        return True
+        return False
 """
     1 Kata
 
@@ -325,11 +326,11 @@ def merge_dicts(dict1, dict2):
 
 
 def seven_boom(n,boom_num=7):
-    booms = []
-    str_param = str(boom_num)
-    x = range(1, n)
+    booms =[]
+    str_param=str(boom_num)
+    x = range(1,n+1)
     for n in x:
-        if n % boom_num == 0 or str_param in str(n):
+        if n % boom_num==0 or str_param in str(n):
             booms.append(n)
     return booms
 """
