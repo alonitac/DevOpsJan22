@@ -21,7 +21,8 @@ Q9 - All of the above
 
 Q10 - k
 
-Q11 - The program ignores the SIGINT signal.
+Q11 - The program ignores the SIGINT signal.  # FIXME -5 (b is the correct)
+
 
 
 Process states
