@@ -3,6 +3,9 @@ sudo apt-get install jq
 echo "send client hello using JSON via HTTP request to the server"
 curl  -X POST -H "Content-Type: application/json" -d '{"clientVersion":"3.2","message":"Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello |jq -r '.sessionID' > SESSION_ID
 echo "create SESSION_ID"
+
+# FIXME calling twice /clienthello endpoint is redundant -5
+
 curl  -X POST -H "Content-Type: application/json" -d '{"clientVersion":"3.2","message":"Client Hello"}' http://devops-jan22-1273001359.eu-north-1.elb.amazonaws.com:8080/clienthello |jq -r ".serverCert" > cert.pem
 echo "save server certification as PEM certification"
 cat cert.pem
@@ -37,3 +40,5 @@ if [[ "$DECRYPTED_SAMPLE_MESSAGE" != "Hi server, please encrypt me and send to c
   exit 1
 else   echo "Client-Server TLS handshake has been completed successfully"
 fi
+
+# FIXME Great!
