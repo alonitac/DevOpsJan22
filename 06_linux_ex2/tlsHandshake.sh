@@ -1,3 +1,5 @@
+# FIXME Perfect!
+
 # installing tool to transform jason data to readable text
 sudo apt install jq
 
