@@ -198,7 +198,16 @@ def matrix_avg(mat, rows=None):
 
 
 def merge_sorted_lists(l1, l2):
-    """
+    marge = l1 + l2
+    sor_list = []
+
+    for i in range(len(marge)):
+        a = min(marge)
+        sor_list.append(a)
+        marge.remove(a)
+    return sor_list
+
+"""
     1 Kata
 
     This function gets two sorted lists (each one of them is sorted)
