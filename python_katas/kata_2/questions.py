@@ -249,11 +249,9 @@ def longest_common_substring(str1, str2):
                 if j == len(l2)-1:
                     i += 1
                 end = True
-    for w in range(1, counter):
-        if len(mat[w]) >= len(mat[w - 1]):
+    for w in range(0, counter):
+        if len(mat[w]) >= len(winner):
             winner = mat[w]
-        else:
-            winner = mat[w - 1]
     return ''.join(winner)
     '''
     mat = []
@@ -487,7 +485,7 @@ if __name__ == '__main__':
     print(merge_sorted_lists([1, 4, 77, 99], [-7, 0, 7, 23, 667]))  #was 9 not 99
 '''
     print('\nlongest_common_substring:\n--------------------')
-    print(longest_common_substring('abcdefg', 'cdeshjk'))
+    print(longest_common_substring('abcdefg', 'llljagbcfkkk'))
 '''
     print('\nlongest_common_prefix:\n--------------------')
     print(longest_common_prefix('abcd', 'ttty'))
