@@ -109,10 +109,12 @@ def list_diff(elements):
     :return: the diff list
     """
     diff_list = []
-    for e in range(len(elements)):
-        new_elements = elements[e] - elements[e - 1]
+    for index in range(len(elements)):
+        if index == 0:
+            new_elements = None
+        else:
+            new_elements = elements[index] - elements[index - 1]
         diff_list.append(new_elements)
-    diff_list[0] = None
     return diff_list
 
 
@@ -126,6 +128,9 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
+    if type(num) != int:
+        return False
+
     if num > 1:
         for n in range(2, num):
             if (num % n) == 0:
@@ -268,11 +273,9 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    print("Key     Value")
-    print("-------------")
     for k, v in some_dict.items():
         num = v
-        print("{:<8} {:<10}".format(k, num))
+        print("{:<8}   {:<10}".format(k, num))
     return ""
 
 
