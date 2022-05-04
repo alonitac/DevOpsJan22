@@ -186,7 +186,15 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    sum_list = 0
+    if rows == None:
+        for u in range(len(mat)):
+            sum_list += sum(mat[u])
+    else:
+        for i in rows:
+            sum_list += sum(mat[i])
+    return sum_list
+
 
 
 def merge_sorted_lists(l1, l2):
