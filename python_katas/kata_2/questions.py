@@ -253,34 +253,7 @@ def longest_common_substring(str1, str2):
         if len(mat[w]) >= len(winner):
             winner = mat[w]
     return ''.join(winner)
-    '''
-    mat = []
-    winner = []
-    l3 = []
-    i = 1
-    counter = 0
-    l1 = list(str1)
-    l2 = list(str2)
-    for j in range(1, len(l2)):
-        if (l1[i] == l2[j]) and (l1[i - 1] == l2[j - 1]):
-            l3.append(l1[i-1])
-            l3.append(l1[i])
-            i += 1
-            mat[counter] = l3
-        if l1[i-1] == l2[j-1]:
-            l3.append(l1[i-1])
-            i += 1
-            counter += 1
-            mat[counter] = l3
-        else:
-            l3 = [0]
-    for w in range(1, counter+1):
-        if len(mat[w]) >= len(mat[w-1]):
-            winner = mat[w]
-        else:
-            winner = mat[w-1]
-    return winner
-    '''
+
     """
     4 Kata
 
@@ -301,6 +274,18 @@ def longest_common_substring(str1, str2):
 
 
 def longest_common_prefix(str1, str2):
+    l1 = list(str1)
+    l2 = list(str2)
+    l3 = []
+    i = j = 0
+    while i < len(l1) and j < len(l2):
+        if l1[i] == l2[j]:
+            l3.append(l1[i])
+            i += 1
+            j += 1
+        else:
+            return ''.join(l3)
+    return ''.join(l3)
     """
     1 Kata
 
@@ -316,7 +301,7 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+    #return None
 
 
 def rotate_matrix(mat):
@@ -483,13 +468,13 @@ if __name__ == '__main__':
 
     print('\nmerge_sorted_lists:\n--------------------')
     print(merge_sorted_lists([1, 4, 77, 99], [-7, 0, 7, 23, 667]))  #was 9 not 99
-'''
+
     print('\nlongest_common_substring:\n--------------------')
     print(longest_common_substring('abcdefg', 'llljagbcfkkk'))
 '''
     print('\nlongest_common_prefix:\n--------------------')
-    print(longest_common_prefix('abcd', 'ttty'))
-
+    print(longest_common_prefix('AABBCabcd', 'AABBCttty'))
+'''
     print('\nrotate_matrix:\n--------------------')
     print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
 
