@@ -1,4 +1,5 @@
-mkdocs
+which python
+wich mkdocs
 pandas
 flask
 aiohttp
