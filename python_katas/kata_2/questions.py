@@ -222,6 +222,67 @@ def merge_sorted_lists(l1, l2):
 
 
 def longest_common_substring(str1, str2):
+    mat = []
+    winner = []
+    l3 = []
+    i = 0
+    counter = 0
+    flag = False
+    l1 = list(str1)
+    l2 = list(str2)
+    while i < len(l1):
+        for j in range(0, len(l2)):
+            end = False
+            while i < len(l1) and end == False:
+                if l1[i] == l2[j]:
+                    l3.append(l1[i])
+                    i += 1
+                    if not flag: #=== if flag == False:  # if flag is True l3 was inserted automaticlly to mat in line 238 so I don't need to do it myself!
+                        mat.append(l3)
+                        counter += 1
+                        flag = True
+                else:
+                    if flag: # means that 2 compared items not equal but in forward interval they were! so I have to bring i back:
+                        i -= 1
+                        flag = False
+                    l3 = []
+                if j == len(l2)-1:
+                    i += 1
+                end = True
+    for w in range(1, counter):
+        if len(mat[w]) >= len(mat[w - 1]):
+            winner = mat[w]
+        else:
+            winner = mat[w - 1]
+    return ''.join(winner)
+    '''
+    mat = []
+    winner = []
+    l3 = []
+    i = 1
+    counter = 0
+    l1 = list(str1)
+    l2 = list(str2)
+    for j in range(1, len(l2)):
+        if (l1[i] == l2[j]) and (l1[i - 1] == l2[j - 1]):
+            l3.append(l1[i-1])
+            l3.append(l1[i])
+            i += 1
+            mat[counter] = l3
+        if l1[i-1] == l2[j-1]:
+            l3.append(l1[i-1])
+            i += 1
+            counter += 1
+            mat[counter] = l3
+        else:
+            l3 = [0]
+    for w in range(1, counter+1):
+        if len(mat[w]) >= len(mat[w-1]):
+            winner = mat[w]
+        else:
+            winner = mat[w-1]
+    return winner
+    '''
     """
     4 Kata
 
@@ -238,7 +299,7 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
+    #return None
 
 
 def longest_common_prefix(str1, str2):
@@ -421,13 +482,13 @@ if __name__ == '__main__':
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
-'''
+
     print('\nmerge_sorted_lists:\n--------------------')
     print(merge_sorted_lists([1, 4, 77, 99], [-7, 0, 7, 23, 667]))  #was 9 not 99
 '''
     print('\nlongest_common_substring:\n--------------------')
-    print(longest_common_substring('abcdefg', 'bgtcdesd'))
-
+    print(longest_common_substring('abcdefg', 'cdeshjk'))
+'''
     print('\nlongest_common_prefix:\n--------------------')
     print(longest_common_prefix('abcd', 'ttty'))
 
