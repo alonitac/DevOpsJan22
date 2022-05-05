@@ -366,6 +366,7 @@ def is_valid_email(mail_str):
 
 
 def pascal_triangle(lines):
+
     """
     3 Kata
 
@@ -398,10 +399,12 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    return None
+    #return None
 
 
 def list_flatten(lst):
+    #e=''.join(lst)
+    return #e
     """
     2 Kata
 
@@ -415,10 +418,40 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+    #return None
 
 
 def str_compression(text):
+    text_list = list(text)
+    counter = 1
+    flag = False
+    res = []
+    for i in range(0, len(text_list)-1):
+        if text_list[i] == text_list[i+1]:
+            counter += 1
+            flag = True
+        else:
+             if flag:
+                  if i == len(text_list) - 2:
+                     res.append(text_list[i])
+                     res.append(counter)
+                     counter = 1
+                     res.append(text_list[i + 1])
+                     res.append(counter)
+                  else:
+                      res.append(text_list[i])
+                      res.append(counter)
+                      counter = 1
+             else:
+                  if i == len(text_list)-2:
+                      res.append(text_list[i])
+                      res.append(counter)
+                      res.append(text_list[i+1])
+                      res.append(counter)
+                  else:
+                      res.append(text_list[i])
+                      res.append(counter)
+    return res
     """
     2 Kata
 
@@ -435,7 +468,7 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
+    #return None
 
 
 def strong_pass(password):
@@ -490,11 +523,11 @@ if __name__ == '__main__':
 
     print('\nlongest_common_prefix:\n--------------------')
     print(longest_common_prefix('AABBCabcd', 'AABBCttty'))
-'''
+
     print('\nrotate_matrix:\n--------------------')
-    print(rotate_matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]))
-    #print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
-'''
+    #print(rotate_matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]))
+    print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
+
     print('\nis_valid_email:\n--------------------')
     print(is_valid_email('israel.israeli@gmail.com'))
 
@@ -503,10 +536,11 @@ if __name__ == '__main__':
 
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
-
+'''
     print('\nstr_compression:\n--------------------')
-    print(str_compression('aaaabdddddhgf'))
-
+    #print(str_compression('aaaabdddddhgf'))
+    print(str_compression('aaaaabbcaasbbgvccf'))
+'''
     print('\nstrong_pass:\n--------------------')
     print(strong_pass('##$FgC7^^5a'))
 '''
