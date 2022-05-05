@@ -472,6 +472,22 @@ def str_compression(text):
 
 
 def strong_pass(password):
+    pas_list = list(password)
+    six_flag = False
+    digit_flag = False
+    low_flag = False
+    up_flag = False
+    spec_flag = False
+    for i in range(0, len(pas_list)):
+        if len(pas_list) >= 6: six_flag = True
+        if '0' <= pas_list[i] <= '9': digit_flag = True
+        if 'a'<= pas_list[i] <= 'z': low_flag = True
+        if 'A' <= pas_list[i] <= 'Z': up_flag = True
+        if pas_list[i] in ('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+'): spec_flag = True
+    if six_flag and digit_flag and low_flag and up_flag and spec_flag:
+        return True
+    else:
+        return False
     """
     1 Kata
 
@@ -484,7 +500,7 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
-    return None
+    #return None
 
 
 if __name__ == '__main__':
@@ -536,11 +552,11 @@ if __name__ == '__main__':
 
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
-'''
+
     print('\nstr_compression:\n--------------------')
     #print(str_compression('aaaabdddddhgf'))
     print(str_compression('aaaaabbcaasbbgvccf'))
 '''
     print('\nstrong_pass:\n--------------------')
-    print(strong_pass('##$FgC7^^5a'))
-'''
+#    print(strong_pass('##$FgC7^^5a'))
+    print(strong_pass('!Z@aa1'))
