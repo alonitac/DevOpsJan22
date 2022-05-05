@@ -305,6 +305,22 @@ def longest_common_prefix(str1, str2):
 
 
 def rotate_matrix(mat):
+    ezer1 = []
+    ezer2 = []
+    ezer3 = []
+    mat2 = []
+    mat_length = len(mat)
+    for i in range(0, len(mat[0])):
+        for j in range(0, mat_length):
+            ezer1 = mat[mat_length-1-j]
+            ezer2 = ezer1[i]
+            ezer3.append(ezer2)
+            ezer1 = []
+            ezer2 = []
+        mat2.append(ezer3)
+        ezer3 = []
+    return mat2
+
     """
     2 Kata
 
@@ -327,7 +343,7 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    return None
+    #return None
 
 
 def is_valid_email(mail_str):
@@ -471,13 +487,14 @@ if __name__ == '__main__':
 
     print('\nlongest_common_substring:\n--------------------')
     print(longest_common_substring('abcdefg', 'llljagbcfkkk'))
-'''
+
     print('\nlongest_common_prefix:\n--------------------')
     print(longest_common_prefix('AABBCabcd', 'AABBCttty'))
 '''
     print('\nrotate_matrix:\n--------------------')
-    print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
-
+    print(rotate_matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]))
+    #print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
+'''
     print('\nis_valid_email:\n--------------------')
     print(is_valid_email('israel.israeli@gmail.com'))
 
