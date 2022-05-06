@@ -60,6 +60,29 @@ def fibonacci_fixme(n):
 
 
 def most_frequent_name(file_path):
+    names_list = []
+    counter = 0
+    unique_names = []
+    appearances = []
+    winner_appearances = 0
+    memory = 0
+    for n in open(file_path):
+        names_list.append(n)
+    for name1 in names_list:
+        if name1 not in unique_names:
+            unique_names.append(name1)
+        for name2 in names_list:
+            if name1 == name2:
+                counter += 1
+        appearances.append(counter)
+        counter = 0
+    for i in range(0, len(appearances)):
+        if appearances[i] > winner_appearances:
+            winner_appearances = appearances[i]
+            memory = i
+    return unique_names[memory]
+
+    #return names_list
     """
     2 Kata
 
@@ -71,7 +94,7 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+    #return None
 
 
 def files_backup(dir_path):
@@ -504,16 +527,17 @@ def strong_pass(password):
 
 
 if __name__ == '__main__':
+
     '''
     print('\nvalid_parentheses:\n--------------------')
     print(valid_parentheses('[[{()}](){}]'))
 
     print('\nfibonacci_fixme:\n--------------------')
     print(fibonacci_fixme(6))
-
+'''
     print('\nmost_frequent_name:\n--------------------')
     print(most_frequent_name('names.txt'))
-
+'''
     print('\nfiles_backup:\n--------------------')
     print(files_backup('python_katas/kata_2'))
 
@@ -556,7 +580,9 @@ if __name__ == '__main__':
     print('\nstr_compression:\n--------------------')
     #print(str_compression('aaaabdddddhgf'))
     print(str_compression('aaaaabbcaasbbgvccf'))
-'''
+
     print('\nstrong_pass:\n--------------------')
-#    print(strong_pass('##$FgC7^^5a'))
+   #print(strong_pass('##$FgC7^^5a'))
     print(strong_pass('!Z@aa1'))
+    
+    '''
