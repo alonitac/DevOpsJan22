@@ -1,4 +1,5 @@
 Git Basics:
+
 2.Red.
 3.Green.
 5.Blue.
@@ -10,6 +11,14 @@ Git Basics:
 13.No,because the git diff --staged command will compare the index with the master and the command git diff main will also compare the changes in the working copy.
 14.Because one change in the file is ready to be committed and another change is not staged for commit.
 
+Resolve conflicts:
 
+6. Yes, the commits are:
+[git_ex1_repo] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F C:\Users\shlomi\PycharmProjects\git_ex1_repo\.git\MERGE_MSG --
+[feature/lambda_migration 798ff58] Merge branch 'feature/version2' into feature/lambda_migration
 
+|Cherry picking:
 
+4. file config.json and file .env.
+5.Yes,because if the first commit create a file and the second one update the file and you will choose to cherry pick only the second one it will fail
+  and sometimes you create a function that calls another function and if and if this function is missing it will fail.
