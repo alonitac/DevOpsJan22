@@ -8,7 +8,7 @@ Git Basics:
 10.git diff prints nothing because there is no differences between the index and the working copy.
 11.git diff --staged.
 13.No,because the git diff --staged command will compare the index with the master and the command git diff main will also compare the changes in the working copy.
-14.Because one change in the file is ready to be commited and another change is not staged for commit.
+14.Because one change in the file is ready to be committed and another change is not staged for commit.
 
 
 
