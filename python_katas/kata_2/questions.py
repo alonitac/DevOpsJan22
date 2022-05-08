@@ -336,7 +336,7 @@ if __name__ == '__main__':
     print(most_frequent_name('names.txt'))
 
     print('\nfiles_backup:\n--------------------')
-    print(files_backup('python_katas/kata_2'))
+    print(files_backup('files_to_backup'))
 
     print('\nreplace_in_file:\n--------------------')
     print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
