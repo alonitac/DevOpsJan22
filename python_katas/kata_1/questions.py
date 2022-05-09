@@ -138,8 +138,8 @@ def prime_number(num):
     :return: bool. True if prime, else False
     """
     if num > 1:
-        for n in range(2, num):
-            if (num % n) == 0:
+        for i in range(2, num):
+            if (num % i) == 0:
                 return False
             return True
     else:
@@ -192,13 +192,7 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    my_dict = {":",":"}
-    a = tuple('man')
-    b = tuple('women')
-    for x in x:
-        if
 
-    return "",""
 
 
 def bad_average(a, b, c):
@@ -239,7 +233,7 @@ def best_student(grades):
     :return: str. some key from the dict
     """
     dict.values = {}
-    for i in dict.values.range():
+    for i in dict.values():
         if i >
     keys_list = list(grades.keys())
     values_list = list(grades.values())
