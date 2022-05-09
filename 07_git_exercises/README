@@ -1,5 +1,11 @@
 1. create file
 2. red
 3.after git add (index ) - green color
-5. green
+# 4. writing git commit -m "add 1 to abc.txt file"
+5.blue
 6.git diff main
+7. because i didn't stages files after last commit   (cleen working tree)
+8. stage2 is fail argument
+10. doesn't print anything, because i didn't give an arguments wich give diff between stage or branch
+11. git diff --cached
+13.
