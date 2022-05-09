@@ -146,11 +146,10 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    my_dict = {}
-    for f in glob.glob(*json_paths):
-        with open(f, "rb") as data:
-            my_dict.update(data)
-    return my_dict
+        for file in json_paths:
+            with open(file) as data:
+                my_dict = json.load(data)
+        return my_dict
 
 
 def monotonic_array(lst):
