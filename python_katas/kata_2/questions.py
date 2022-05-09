@@ -219,10 +219,27 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
 
 
 def longest_common_substring(str1, str2):
+    m = len(str1)
+    n = len(str2)
+    counter = [[0] * (n + 1) for x in range(m + 1)]
+    longest = 0
+    lcs = ""
+    for i in range(m):
+        for j in range(n):
+            if str1[i] == str2[j]:
+                c = counter[i][j] + 1
+                counter[i + 1][j + 1] = c
+                if c > longest:
+                    lcs = ""
+                    longest = c
+                    lcs += str1[i - c + 1:i + 1]
+                elif c == longest:
+                    lcs += str1[i - c + 1:i + 1]
+
+    return lcs
     """
     4 Kata
 
@@ -239,7 +256,6 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
 
 
 def longest_common_prefix(str1, str2):
