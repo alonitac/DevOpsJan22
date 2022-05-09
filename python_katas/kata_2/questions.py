@@ -1,4 +1,6 @@
 import os
+import json
+import glob
 
 
 def valid_parentheses(s):
@@ -144,7 +146,11 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    return None
+    my_dict = {}
+    for f in glob.glob(*json_paths):
+        with open(f, "rb") as data:
+            my_dict.update(data)
+    return my_dict
 
 
 def monotonic_array(lst):
