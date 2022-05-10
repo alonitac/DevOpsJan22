@@ -69,6 +69,7 @@ def reverse_words_concatenation(words):
     words.reverse()
     for word in words:
         strword += (' ' + word)
+        strword = strword.lstrip()
     return strword
 
 
@@ -305,7 +306,7 @@ def print_dict_as_table(some_dict):
         else:
             print(k, v)
 
-    #return
+    return
 
 
 def merge_dicts(dict1, dict2):
@@ -414,6 +415,9 @@ if __name__ == '__main__':
 
     print('\nreverse_words_concatenation:\n--------------------')
     print(reverse_words_concatenation(['take', 'me', 'home']))
+    print(reverse_words_concatenation(['']))
+    print(reverse_words_concatenation(['me']))
+    print(reverse_words_concatenation(['me', 'me', 'me']))
 
     print('\nis_unique_string:\n--------------------')
     print(is_unique_string('aasdssdsederd'))
@@ -463,6 +467,10 @@ if __name__ == '__main__':
         "Natan": 99,
         "Efraim": 65,
         "Rachel": 95
+    }))
+    print(print_dict_as_table({
+        "Yuval": 23,
+        "Alex": 59
     }))
 
     print('\nmerge_dicts:\n--------------------')
