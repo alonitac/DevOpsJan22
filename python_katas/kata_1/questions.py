@@ -49,6 +49,7 @@ def words_concatenation(words):
     strword = ''
     for word in words:
         strword += (' ' + word)
+        strword = strword.lstrip()
 
     return strword
 
