@@ -193,7 +193,7 @@ def pair_match(men, women):
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
 
-
+    return
 
 def bad_average(a, b, c):
     """
