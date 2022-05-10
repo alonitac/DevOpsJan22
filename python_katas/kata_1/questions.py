@@ -111,7 +111,7 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    if elements == []:
+    if not elements:
         return elements
     ind = len(elements) - 1
     newlist = [None]
@@ -131,12 +131,12 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    if num > 1:
+    while num > 1 and type(num) is int:
         for i in range(2, num):
             if (num % i) == 0:
                 return False
         return True
-    return
+    return False
 
 
 def palindrome_num(num):
@@ -205,7 +205,7 @@ def pair_match(men, women):
     num = len(men.items())
     index = 0
     lval = 0
-    new_list = [None] * (2*num)
+    new_list = [None] * (num*num)
     mkey = list(men.keys())
     mval = list(men.values())
     wkey = list(women.keys())
@@ -258,9 +258,10 @@ def best_student(grades):
     biggest = 0
     index = 0
     for i in range(0, num):
-        if myvals[i] >= biggest:
+        if myvals[i] > biggest:
             biggest = myvals[i]
             index = i
+
     return mykeys[index]
 
 
