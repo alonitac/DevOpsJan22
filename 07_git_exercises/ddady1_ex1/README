@@ -1,0 +1,80 @@
+
+----------------------------------------------------
+Git Basics (commit, diff, branches)
+----------------------------------------------------
+
+echo 1 > abc.txt
+Red
+git add abc.txt
+git commit -m "commiting abc.txt file"
+echo 2 >> abc.txt
+Blue
+git diff
+Because we didn't do 'git commit' yet.
+Because there is no branch by the name 'stage2'.
+git commit -m "commiting 2 in abc"
+git add abc.txt
+Prints nothing. Because the command 'git diff' shows the differents between the working directory and the Index. And since we add it to the Index there are no versions to do diff from.
+'git diff HEAD' or 'git diff main'
+echo 3 >> abc.txt
+NO. Because we just added 3 to the file which is the working directory and 'git diff --staged' whos differences between the working directory and the Index, while 'git diff HEAD' show the differences between the working directoryand the HEAD (MASTER).
+Because there are 2 versions of the files.
+git reset --hard
+
+----------------------------
+Resolve conflicts
+----------------------------
+
+git branch
+  bugfix/fix_readme_typo
+  bugfix/open_kibana_port
+  dev
+  feature/data_retention_policy
+  feature/elasticsearch_helm_chart
+  feature/upgrade_angular_version
+  feature/version1
+  feature/version2
+* main
+  reset_question
+git checkout -b feature/lambda_migration
+git merge feature/version1
+git log
+  add app.py
+  add gitignore
+  add init.sh
+
+-------------------------------
+Cherry picking
+-------------------------------
+
+git checkout  -b feature/lambda_migration2
+ls
+  abc.txt  app.py  config.json  init.sh
+
+----------------------------------------------
+Changes in working tree and switch branches
+----------------------------------------------
+
+echo i did it > take.txt
+git add take.txt
+git checkout dev
+	error: Your local changes to the following files would be overwritten by checkout:
+        take.txt
+	Please commit your changes or stash them before you switch branches.
+	Aborting
+No. There is something else "a b c"
+git checkout feature/lambda_migration2
+no file take.txt.
+Force Checkout overwrites uncommited changes
+git checkout reset_question
+
+-----------------
+RESET
+-----------------
+
+git reset --soft HEAD~1 - Removes last commit and keeps changes on Index.
+git reset --mixed HEAD~1 - Similar to 'soft' but doesn't keep chamges on Index.
+git reset --hard HEAD~1 - Remove all uncomitted and untrackked files.
+git revert HEAD~1 - Revert changes.
+
+HEAD~1 - Moving back in generations linear.
