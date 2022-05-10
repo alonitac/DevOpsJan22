@@ -219,12 +219,13 @@ def bad_average(a, b, c):
 
     :return:
     """
-    a = int(input(" Please Enter the First Number: "))
-    b = int(input(" Please Enter the second number: "))
-    c = int(input(" Please Enter the third number: "))
-    average = (a + b + c) / 3
+    num = (a, b, c)
+    sum_num = 0
+    for t in num:
+        sum_num = sum_num + t
 
-    return average
+    avg = sum_num / len(num)
+    return avg
 
 
 def best_student(grades):
