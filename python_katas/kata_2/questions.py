@@ -146,10 +146,10 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-        for file in json_paths:
-            with open(file) as data:
-                my_dict = json.load(data)
-        return my_dict
+    for file in json_paths:
+        with open(file) as data:
+            my_dict = json.load(data)
+    return my_dict
 
 
 def monotonic_array(lst):
@@ -161,7 +161,14 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+    n = len(lst)  # size of array
+    if n == 1:
+        return True
+    else:
+        if all(lst[i] >= lst[i + 1] for i in range(0, n - 1) or lst[i] <= lst[i + 1] for i in range(0, n - 1)):
+            return True
+        else:
+            return False
 
 
 def matrix_avg(mat, rows=None):
