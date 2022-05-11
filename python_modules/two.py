@@ -1,4 +1,4 @@
-from python_main_module import one
+from python_modules import one
 
 print("top-level in two.py")
 
