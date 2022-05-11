@@ -81,4 +81,4 @@ def get_data_from_server_recursive(retry):
 
 
 if __name__ == '__main__':
-    get_data_from_server(0)
+    get_data_from_server()
