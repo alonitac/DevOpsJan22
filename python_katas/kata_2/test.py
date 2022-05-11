@@ -13,6 +13,7 @@ testers = ['elkan316',
            'kostalubarsky']
 
 
+# elkan316
 class TestValidParentheses(unittest.TestCase):
     """
     3 Katas
@@ -23,6 +24,7 @@ class TestValidParentheses(unittest.TestCase):
         pass
 
 
+# Haimr101
 class TestFibonacciFixme(unittest.TestCase):
     """
     2 Katas
@@ -33,6 +35,7 @@ class TestFibonacciFixme(unittest.TestCase):
         self.assertEqual(questions.fibonacci_fixme(6), 8)
 
 
+# JohnSchiff
 class TestMostFrequentName(unittest.TestCase):
     """
     2 Katas
@@ -42,6 +45,7 @@ class TestMostFrequentName(unittest.TestCase):
         self.assertEqual(questions.most_frequent_name('test_names.txt'), 'c')
 
 
+# danielmalka14
 class TestFilesBackup(unittest.TestCase):
     """
     3 Katas
@@ -52,6 +56,7 @@ class TestFilesBackup(unittest.TestCase):
         pass
 
 
+# Gershoz
 class TestReplaceInFile(unittest.TestCase):
     """
     2 Katas
@@ -62,6 +67,7 @@ class TestReplaceInFile(unittest.TestCase):
         pass
 
 
+# Ddady1
 class TestJsonConfigsMerge(unittest.TestCase):
     """
     2 Katas
@@ -72,6 +78,7 @@ class TestJsonConfigsMerge(unittest.TestCase):
         pass
 
 
+# yosefdudi
 class TestMonotonicArray(unittest.TestCase):
     """
     1 Katas
@@ -82,6 +89,7 @@ class TestMonotonicArray(unittest.TestCase):
         pass
 
 
+# kostalubarsky
 class TestMatrixAvg(unittest.TestCase):
     """
     2 Katas
@@ -92,6 +100,7 @@ class TestMatrixAvg(unittest.TestCase):
         pass
 
 
+# elkan316
 class TestMergeSortedLists(unittest.TestCase):
     """
     1 Katas
@@ -102,6 +111,7 @@ class TestMergeSortedLists(unittest.TestCase):
         pass
 
 
+# Haimr101
 class TestLongestCommonSubstring(unittest.TestCase):
     """
     4 Katas
@@ -112,6 +122,7 @@ class TestLongestCommonSubstring(unittest.TestCase):
         pass
 
 
+# JohnSchiff
 class TestLongestCommonPrefix(unittest.TestCase):
     """
     1 Katas
@@ -122,6 +133,7 @@ class TestLongestCommonPrefix(unittest.TestCase):
         pass
 
 
+# danielmalka14
 class TestRotateMatrix(unittest.TestCase):
     """
     2 Katas
@@ -132,6 +144,7 @@ class TestRotateMatrix(unittest.TestCase):
         pass
 
 
+# Gershoz
 class TestIsValidEmail(unittest.TestCase):
     """
     3 Katas
@@ -142,6 +155,7 @@ class TestIsValidEmail(unittest.TestCase):
         pass
 
 
+# Ddady1
 class TestPascalTriangle(unittest.TestCase):
     """
     3 Katas
@@ -152,6 +166,7 @@ class TestPascalTriangle(unittest.TestCase):
         pass
 
 
+# yosefdudi
 class TestListFlatten(unittest.TestCase):
     """
     2 Katas
@@ -162,6 +177,7 @@ class TestListFlatten(unittest.TestCase):
         pass
 
 
+# kostalubarsky
 class TestStrCompression(unittest.TestCase):
     """
     2 Katas
@@ -172,6 +188,7 @@ class TestStrCompression(unittest.TestCase):
         pass
 
 
+# Haimr101
 class TestStrongPass(unittest.TestCase):
     """
     1 Katas
