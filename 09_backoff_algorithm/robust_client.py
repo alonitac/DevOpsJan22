@@ -1,8 +1,9 @@
+import time
 from random import random
 import requests
 from loguru import logger
 
-server_url = 'http://localhost:8080/get-data'
+server_url = 'http://localhost:8081/get-data'
 
 
 def exponential_backoff_retry(count, max_sec=20):
@@ -48,14 +49,36 @@ def constant_retry():
 
 
 def get_data_from_server():
-    # TODO implement backoff retry
-    logger.info('Getting user data from external server')
-    data = requests.get(server_url)
+    retry = 0
+
+    while retry < 10:
+        try:
+            logger.info(f'Getting user data from external server ({retry})')
+            data = requests.get(server_url)
+            break
+        except requests.exceptions.ConnectionError as err:
+            retry += 1
+            time_to_sleep = exponential_backoff_retry(retry)
+            logger.error(f'Failed due to ..., sleeping {time_to_sleep}sec')
+
+        time.sleep(time_to_sleep)
 
 
-def get_data_from_server_recursive():
-    pass      # TODO implement backoff retry
+def get_data_from_server_recursive(retry):
+    if retry > 10:
+        return
+
+    try:
+        logger.info(f'Getting user data from external server ({retry})')
+        data = requests.get(server_url)
+        return data
+    except requests.exceptions.ConnectionError as err:
+        retry += 1
+        time_to_sleep = exponential_backoff_retry(retry)
+        logger.error(f'Failed due to ..., sleeping {time_to_sleep}sec')
+        time.sleep(time_to_sleep)
+        return get_data_from_server_recursive(retry)
 
 
 if __name__ == '__main__':
-    get_data_from_server()
+    get_data_from_server(0)
