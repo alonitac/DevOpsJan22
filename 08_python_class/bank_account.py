@@ -18,6 +18,10 @@ class Account:
 
     currency = '$'
 
+    @staticmethod
+    def usd_to_ils_convert():
+        return 3.77
+
     def __init__(self, name, balance):
         self.owner = name
         self.balance = balance
