@@ -44,4 +44,4 @@
 2.1  remove the last commit from the current branch, but the file changes will stay in your working tree
 2.2  remove the last commit from the current branch but still keep the changes in your working tree but not on the index
 2.3  lose all uncommited changes and all untracked files
-2.4   to go back a number of generations  in HEAD~   1,2,3,4
+2.4   to go back a number of generations  in HEAD~   (1,2,3,4)
