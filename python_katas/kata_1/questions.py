@@ -164,14 +164,18 @@ def prime_number(num):
     :return: bool. True if prime, else False
     """
     if num > 1:
-        x = range(2, num, 1)
-        # print(x)
-        for n in x:
-            # print('testing - ' + str(n))
-            if (num % n) == 0:
-                print('test of the number ' + str(num) + ' failed at - ' + str(n) + ' out of ' + str(num))
-                return False
-        return True
+        check_int = isinstance(num, int)
+        if check_int:
+            x = range(2, num, 1)
+            # print(x)
+            for n in x:
+                # print('testing - ' + str(n))
+                if (num % n) == 0:
+                    print('test of the number ' + str(num) + ' failed at - ' + str(n) + ' out of ' + str(num))
+                    return False
+            return True
+        else:
+            return False
     else:
         return False
 
@@ -327,10 +331,10 @@ def print_dict_as_table(some_dict):
     """
     if some_dict:
         # print(some_dict.items())
-        print("{:<9} {:^10}".format('Key', 'Value'))
+        print("{:<10} {:^10}".format('Key', 'Value'))
         print("--------------------")
         for k, v in some_dict.items():
-            print("{:<7} {:^10}".format(k, v))
+            print("{:<10} {:^10}".format(k, v))
         # Return '' to avoid returning None
         return ''
     else:
@@ -491,8 +495,8 @@ if __name__ == '__main__':
 
     print('\nbest_student:\n--------------------')
     print(best_student({
-        "Ben": 78,
-        "Hen": 88,
+        "Ben": 99,
+        "Hen": 99,
         "Natan": 99,
         "Efraim": 65,
         "Rachel": 95
@@ -500,7 +504,7 @@ if __name__ == '__main__':
 
     print('\nprint_dict_as_table:\n--------------------')
     print(print_dict_as_table({
-        "Ben": 78,
+        "Ben": 99,
         "Hen": 88,
         "Natan": 99,
         "Efraim": 65,
