@@ -33,3 +33,15 @@
 
 --------------------------cherry-pick-------------------
 4.  (1) config.json  (2) .env
+5. yes, this is important because commits can be related to each other
+
+-----------------------Changes in working tree and switch branches-------------
+3. git checkout problem - 1. Force checkout 2. Smart checkout 3. Don't checkout
+5. No
+6. No , remove my changes in indexing and working tree
+
+------------------------Reset-----------------------
+2.1  remove the last commit from the current branch, but the file changes will stay in your working tree
+2.2  remove the last commit from the current branch but still keep the changes in your working tree but not on the index
+2.3  lose all uncommited changes and all untracked files
+2.4   to go back a number of generations  in HEAD~   1,2,3,4
