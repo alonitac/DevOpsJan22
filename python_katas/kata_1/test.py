@@ -17,8 +17,6 @@ class TestSumOfElements(unittest.TestCase):
     1 Katas
     """
 
-    def sum_of_element(elements):
-        return sum(elements)
 
     def test_empty_list(self):
         lst = []
@@ -214,16 +212,16 @@ class TestBadAverage(unittest.TestCase):
     """
 
     def test_easy_peasy(self):
-        self.assertEqual(questions.bad_average((10, 20, 30), 20))
+        self.assertEqual(questions.bad_average(10, 20, 30), 20)
 
     def test_zeros(self):
         self.assertEqual(questions.bad_average(0, 3, 0), 1)
 
     def test_fractions_in_answer(self):
-        self.assertEqual(questions.bad_average((1, 1, 1), 1))
+        self.assertEqual(questions.bad_average(1, 1, 1), 1)
 
     def test_mistake(self):
-        self.assertNotEqual(questions.bad_average((10, 20, 30), 30))
+        self.assertNotEqual(questions.bad_average(10, 20, 30), 30)
 
 
 class TestBestStudent(unittest.TestCase):

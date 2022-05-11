@@ -1,4 +1,25 @@
+import gzip
+import datetime
+import tarfile
+import os
+import json
+
 def valid_parentheses(s):
+    if len(s) % 2 != 0:
+        return False
+    dict = {'(' : ')', '[' : ']', '{' : '}'}
+    stack = []
+    for i in s:
+        if i in dict.keys():
+            stack.append(i)
+        else:
+            if stack == []:
+                   return False
+            a = stack.pop()
+            if i!= dict[a]:
+                return False
+    return stack == []
+
     """
     3 Kata
 
@@ -37,14 +58,27 @@ def fibonacci_fixme(n):
     a = 0
     b = 1
     for i in range(1, n):
-        a = b
         tmp = a + b
+        a = b
         b = tmp
 
     return a
 
 
 def most_frequent_name(file_path):
+    most_name =None
+    qty_most_name = 0
+    with open(file_path) as f:
+         lines = f.readlines()
+    lines_set=set(lines)
+    for item in lines_set:
+        qty = lines.count(item)
+        if qty > qty_most_name:
+             qty_most_name = qty
+             most_name = item
+    return most_name
+
+
     """
     2 Kata
 
@@ -60,6 +94,16 @@ def most_frequent_name(file_path):
 
 
 def files_backup(dir_path):
+    if list(dir_path[-1])!="/": path = dir_path + "/"
+    date = datetime.date.today()
+    split_name_dir = path.split('/')
+    name_dir = split_name_dir[-2]
+    filename_out = path + "backup_" + name_dir + "_" + str(date) + ".tar.gz"
+    return_print = "backup_" + name_dir + "_" + str(date) + ".tar.gz"
+    with tarfile.open(filename_out, "w:gz") as tar:
+        tar.add(path, arcname=os.path.basename(path))
+    return return_print
+
     """
     3 Kata
 
@@ -76,7 +120,7 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
+
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -97,6 +141,13 @@ def replace_in_file(file_path, text, replace_text):
 
 
 def json_configs_merge(*json_paths):
+    dict={}
+    for i in json_paths:
+        with open(i) as j:
+         data = json.load(j)
+         dict.update(data)
+    return dict
+
     """
     2 Kata
 
@@ -107,10 +158,12 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    return None
+
 
 
 def monotonic_array(lst):
+    return (all(lst[i] <= lst[i + 1] for i in range(len(lst) - 1)) or
+            all(lst[i] >= lst[i + 1] for i in range(len(lst) - 1)))
     """
     1 Kata
 
@@ -119,7 +172,7 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+
 
 
 def matrix_avg(mat, rows=None):
@@ -133,11 +186,28 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    sum_list = 0
+    if rows == None:
+        for u in range(len(mat)):
+            sum_list += sum(mat[u])
+    else:
+        for i in rows:
+            sum_list += sum(mat[i])
+    return sum_list
+
 
 
 def merge_sorted_lists(l1, l2):
-    """
+    marge = l1 + l2
+    sor_list = []
+
+    for i in range(len(marge)):
+        a = min(marge)
+        sor_list.append(a)
+        marge.remove(a)
+    return sor_list
+
+"""
     1 Kata
 
     This function gets two sorted lists (each one of them is sorted)
@@ -149,10 +219,27 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
 
 
 def longest_common_substring(str1, str2):
+    m = len(str1)
+    n = len(str2)
+    counter = [[0] * (n + 1) for x in range(m + 1)]
+    longest = 0
+    lcs = ""
+    for i in range(m):
+        for j in range(n):
+            if str1[i] == str2[j]:
+                c = counter[i][j] + 1
+                counter[i + 1][j + 1] = c
+                if c > longest:
+                    lcs = ""
+                    longest = c
+                    lcs += str1[i - c + 1:i + 1]
+                elif c == longest:
+                    lcs += str1[i - c + 1:i + 1]
+
+    return lcs
     """
     4 Kata
 
@@ -169,7 +256,6 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
 
 
 def longest_common_prefix(str1, str2):
@@ -333,16 +419,16 @@ if __name__ == '__main__':
     print(fibonacci_fixme(6))
 
     print('\nmost_frequent_name:\n--------------------')
-    print(most_frequent_name('names.txt'))
+    print(most_frequent_name('python_katas/kata_2/names.txt'))
 
     print('\nfiles_backup:\n--------------------')
-    print(files_backup('files_to_backup'))
+    print(files_backup('python_katas/kata_2/'))
 
     print('\nreplace_in_file:\n--------------------')
     print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
 
     print('\njson_configs_merge:\n--------------------')
-    print(json_configs_merge('default.json', 'local.json'))
+    print(json_configs_merge('python_katas/kata_2/default.json', 'python_katas/kata_2/local.json'))
 
     print('\nmonotonic_array:\n--------------------')
     print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))

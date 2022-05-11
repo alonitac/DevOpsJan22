@@ -1,3 +1,6 @@
+import random
+
+
 def sum_of_element(elements):
     """
     1 Kata
@@ -13,6 +16,18 @@ def sum_of_element(elements):
 
 
 def verbing(word):
+    word_len = len(word)
+    l = list(word)
+    threeIndex = l[-3:]
+    if word_len >= 3:
+        if threeIndex == ["i", "n", "g"]:
+            new_word = word + "ly"
+        else:
+            new_word = word + "ing"
+    elif word_len <= 2:
+        new_word = word
+    return new_word
+
     """
     1 Kata
 
@@ -28,10 +43,22 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+
+
+
+
+
+
+
+
 
 
 def words_concatenation(words):
+    sent = " ".join(map(str, words))
+    return sent
+
+
+
     """
     1 Kata
 
@@ -43,10 +70,15 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+
+
+
 
 
 def reverse_words_concatenation(words):
+    rever = words[::-1]
+    sent = " ".join(map(str, rever))
+    return sent
     """
     1 Kata
 
@@ -58,11 +90,16 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+
 
 
 def is_unique_string(some_str):
-    """
+    set_str = set(some_str)
+    if len(some_str) == len(set_str):
+        return True
+    else:
+        return False
+"""
     2 Kata
 
     Given a string, the function returns True if all characters in the string are unique, False otherwise
@@ -75,10 +112,18 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
 
 
 def list_diff(elements):
+    diff = []
+    a = 0
+    if not elements:
+        return diff
+    for x in elements:
+        diff.append(x - a)
+        a = x
+    diff[0] = None
+    return diff
     """
     1 Kata
 
@@ -93,11 +138,23 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
 
 
 def prime_number(num):
-    """
+    num = abs(num)
+    if num == 1:
+        return True
+    if num > 1 and isinstance(num, int):
+        for i in range(2, num):
+            if (num % i) == 0:
+                return False
+                break
+        else:
+            return True
+
+    else:
+        return False
+"""
     1 Kata
 
     Check if the given number is prime or not.
@@ -106,11 +163,26 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+
 
 
 def palindrome_num(num):
-    """
+        if isinstance(num, int):
+            origin_num = num
+            nums = list(str(num))
+            nums.reverse()
+            new_num = ''.join(map(str, nums))
+            if int(num) == int(new_num):
+                return True
+            else:
+                return False
+        else:
+            if (num == num[::-1]):
+                return True
+            else:
+                return False
+
+"""
     1 Kata
 
     Check whether a number is palindrome or not
@@ -122,11 +194,16 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
 
 
-def pair_match(men, women):
-    """
+def pair_match(men,women):
+   new_d={}
+   for key, value in men.items():
+       for k,v in women.items():
+           new_d[key+" "+k] = abs(int(value)-int(v))
+   return tuple(map(str, min(new_d, key=new_d.get).split(' ')))
+
+"""
     3 Kata
 
     This function gets two dictionaries of the type:
@@ -151,24 +228,25 @@ def pair_match(men, women):
 
     :param men: dict mapping name -> age
     :param women: dict mapping name -> age
-    :return: tuple (men_name, women_name) such their age absolute difference is the minimal
-    """
-    return None
+    :return: tuple (men_name, women_name) such their age absolute difference is the minimal """
+
+
 
 
 def bad_average(a, b, c):
+    return (a + b + c) / 3
     """
-    1 Kata
+     1 Kata
+     This function gets 3 numbers and calculates the average.
+     There is a mistake in the following implementation, you are required to fix it
 
-    This function gets 3 numbers and calculates the average.
-    There is a mistake in the following implementation, you are required to fix it
-
-    :return:
-    """
-    return a + b + c / 3
+     :return:
+     """
 
 
 def best_student(grades):
+    best_s = max(grades, key=grades.get)
+    return best_s
     """
     1 Kata
 
@@ -188,10 +266,15 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+
 
 
 def print_dict_as_table(some_dict):
+    resutls=""
+    print ("{:<10} {:<10}".format('Key','Value'))
+    for k ,v in some_dict.items():
+       resutls += ("{:<10} {:<10}".format(k, v)+"\n")
+    return resutls
     """
     1 Kata
 
@@ -217,10 +300,12 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+
 
 
 def merge_dicts(dict1, dict2):
+    dict1 = dict1 | dict2
+    return dict1
     """
     1 Kata
 
@@ -237,11 +322,18 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    return dict1
 
 
-def seven_boom(n):
-    """
+
+def seven_boom(n,boom_num=7):
+    booms =[]
+    str_param=str(boom_num)
+    x = range(1,n+1)
+    for n in x:
+        if n % boom_num==0 or str_param in str(n):
+            booms.append(n)
+    return booms
+"""
     1 Kata
 
     This functions returns a list of all "Booms" for a 7-boom play starting from 1 to n
@@ -252,10 +344,33 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
 
 
-def caesar_cipher(str_to_encrypt):
+
+def caesar_cipher(str_to_encrypt, key=3):
+    decrypted = ""
+    for c in str_to_encrypt:
+        if c.isupper():
+            c_index = ord(c) - ord('A')
+            # shift the current character to left by key positions to get its original position
+            c_og_pos = (c_index + key) % 26 + ord('A')
+            c_og = chr(c_og_pos)
+            decrypted += c_og
+        elif c.islower():
+            c_index = ord(c) - ord('a')
+            c_og_pos = (c_index + key) % 26 + ord('a')
+            c_og = chr(c_og_pos)
+            decrypted += c_og
+        elif c.isdigit():
+            # if it's a number,shift its actual value
+            c_og = (int(c) + key) % 10
+            decrypted += str(c_og)
+        else:
+            # if its neither alphabetical nor a number, just leave it like that
+            decrypted += c
+
+    return decrypted
+
     """
     2 Kata
 
@@ -267,11 +382,15 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
 
 
 def sum_of_digits(digits_str):
-    """
+    nums = list(str(digits_str))
+    num_list = list(map(int, nums))
+    sum_num = sum(num_list)
+    return sum_num
+
+"""
     1 Kata
 
     Calculates the sum of digits in a string (you can assume the input is a string containing numeric digits only)
@@ -285,7 +404,6 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
 
 
 if __name__ == '__main__':
