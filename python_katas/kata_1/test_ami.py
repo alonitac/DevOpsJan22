@@ -1,8 +1,12 @@
-def bad_average(a, b, c):
-    num = (a, b, c)
-    sum_num = 0
-    for t in num:
-        sum_num = sum_num + t
+students = {
+    "Ben": 78,
+    "Hen": 88,
+    "Natan": 99,
+    "Efraim": 65,
+    "Rachel": 95
+}
+list = students.values()
+print(list)
 
-    avg = sum_num / len(num)
-    return avg
+
+
