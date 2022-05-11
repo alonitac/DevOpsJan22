@@ -3,3 +3,5 @@ wich mkdocs
 pandas
 flask
 aiohttp
+loguru
+requests
