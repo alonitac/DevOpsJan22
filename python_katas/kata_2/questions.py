@@ -419,16 +419,16 @@ if __name__ == '__main__':
     print(fibonacci_fixme(6))
 
     print('\nmost_frequent_name:\n--------------------')
-    print(most_frequent_name('python_katas/kata_2/names.txt'))
+    print(most_frequent_name('names.txt'))
 
     print('\nfiles_backup:\n--------------------')
-    print(files_backup('python_katas/kata_2/'))
+    print(files_backup('files_to_backup'))
 
     print('\nreplace_in_file:\n--------------------')
     print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
 
     print('\njson_configs_merge:\n--------------------')
-    print(json_configs_merge('python_katas/kata_2/default.json', 'python_katas/kata_2/local.json'))
+    print(json_configs_merge('default.json', 'local.json'))
 
     print('\nmonotonic_array:\n--------------------')
     print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
