@@ -73,9 +73,9 @@ class TestJsonConfigsMerge(unittest.TestCase):
     2 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_jason_files(self):
+        paths = ('local.jason', 'default.jason')
+        self.assertEqual(questions.json_configs_merge(paths),)
 
 
 # yosefdudi
