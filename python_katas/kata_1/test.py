@@ -223,7 +223,7 @@ class TestBadAverage(unittest.TestCase):
         self.assertEqual(questions.bad_average((1, 1, 1), 1))
 
     def test_mistake(self):
-        self.assertNotEqual(questions.bad_average((10, 20, 30), 30))
+        self.assertNotEqual(questions.bad_average((10, 20, 30), 20))
 
 
 class TestBestStudent(unittest.TestCase):
