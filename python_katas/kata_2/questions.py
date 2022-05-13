@@ -62,7 +62,15 @@ def most_frequent_name(file_path):
     :return: str - the mose frequent name. If there are many, return one of them
     """
 
-    return None
+    with open("names.txt") as c:
+        counter = 0
+        for name in c:
+            freq = file_path.count(name)
+            if (freq > counter):
+                counter = freq
+                num = name
+            return name
+
 
 
 def files_backup(dir_path):
