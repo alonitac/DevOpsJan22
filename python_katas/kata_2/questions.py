@@ -107,6 +107,8 @@ def replace_in_file(file_path, text, replace_text):
     :param replace_text: text to replace with
     :return: None
     """
+
+
     return None
 
 
@@ -170,8 +172,14 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
+    sin_sort = []
+    while l1 and l2:
+        if l1[0] < l2[0]:
+            sin_sort.append(l1.pop(0))
+        else:
+            sin_sort.append(l2.pop(0))
 
-    return None
+    print(sin_sort)
 
 
 def longest_common_substring(str1, str2):
