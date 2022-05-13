@@ -389,6 +389,33 @@ def is_valid_email(mail_str):
 
 
 def pascal_triangle(lines):
+    total_list = []
+    line_list = []
+    last_list = []
+    c = ''
+    flag = False
+    for i in range(0, lines):
+        for j in range(0, i+1):
+            if j == 0 and i != 0:
+                line_list.append(1)
+            elif j == i:
+                line_list.append(1)
+                total_list.append(line_list)
+                for x in total_list[i]:
+                    b = str(x)
+                    c = c + ' ' + b
+                print(c)
+                c = ''
+                line_list = []
+                flag = False
+            else:
+                if not flag:
+                    last_list = total_list.pop()
+                    total_list.append(last_list)
+                    flag = True
+                a = last_list[j-1] + last_list[j]
+                line_list.append(a)
+    return c
 
     """
     3 Kata
@@ -426,6 +453,9 @@ def pascal_triangle(lines):
 
 
 def list_flatten(lst):
+    for x in lst:
+        y = str(x)
+        print(y)
     #e=''.join(lst)
     return #e
     """
@@ -534,10 +564,10 @@ if __name__ == '__main__':
 
     print('\nfibonacci_fixme:\n--------------------')
     print(fibonacci_fixme(6))
-'''
+
     print('\nmost_frequent_name:\n--------------------')
     print(most_frequent_name('names.txt'))
-'''
+
     print('\nfiles_backup:\n--------------------')
     print(files_backup('python_katas/kata_2'))
 
@@ -573,7 +603,7 @@ if __name__ == '__main__':
 
     print('\npascal_triangle:\n--------------------')
     print(pascal_triangle(4))
-
+'''
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
 
