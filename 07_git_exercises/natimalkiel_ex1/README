@@ -1,0 +1,90 @@
+### Git Basics
+
+1.	cat > abc.txt
+2.	Red
+3.	Green
+4.	echo '2' >> abc.txt
+5.	gray
+6.	git status
+7.	because we didn’t add the file to the stage area yet by git add
+8.	because stage2 is not a branch
+9.	git add abc.txt
+10.	nothing, there is no changes.
+11.	git diff main
+12.	echo '3' >> abc.txt
+13.	no, the "git diff --staged" show what is in the working directory. And the git diff main show the recent changes to the file "+3".
+14.	Because git tells us that we have one file that is not yet added (2) and one file that is not tracked (3)
+15.	git reset abc.txt
+### Resolve conflicts
+
+17.	$ git branch -a
+bugfix/fix_readme_typo
+bugfix/open_kibana_port
+dev
+feature/data_retention_policy
+feature/elasticsearch_helm_chart
+feature/lambda_migration
+feature/lambda_migration2
+feature/upgrade_angular_version
+feature/version1
+ feature/version2
+* main
+ reset_question
+18.	  git merge feature/version1
+19.	git merge feature/version2
+22. yes
+commit 2a64b1e7339a15b68e3c327c8ccad63fe68462db (HEAD -> feature/lambda_migration)
+Merge: 02f69bb c9412bc
+Author: netanalm <98554254+netanalm@users.noreply.github.com>
+Date:   Fri May 13 23:30:40 2022 +0200
+
+    Merge branch 'feature/version2' into feature/lambda_migration
+
+    # Conflicts:
+    #       app.py
+
+commit 02f69bbac93d423e1d1b4556047c1b3c17f72be3 (feature/version1)
+Author: John Doe <john.doe@microsoft.com>
+Date:   Fri May 13 23:24:59 2022 +0200
+
+    Restrict the extensions that can be disabled
+
+commit c9412bccbeee606addcb4b2d4609410872fe77d1 (feature/version2)
+Author: Narayan Nadella <narayan.nadella@microsoft.com>
+Date:   Fri May 13 23:24:59 2022 +0200
+
+    Nayaran's changes for app.py
+
+commit 28ebd5802578403eceee23fd1792d85edb97100f
+Author: John Doe <john.doe@microsoft.com>
+Date:   Fri May 13 23:24:58 2022 +0200
+
+    use correct lock type in reconnect()
+
+commit eb1c4e7526912a41d7d3e8e3a75d0122521e85d5 (main)
+Author: netanalm <98554254+netanalm@users.noreply.github.com>
+Date:   Fri May 13 23:24:58 2022 +0200
+
+    add app.py
+
+commit 325c223d269023002df57a22568d8195e7624f1e
+Author: John Doe <john.doe@microsoft.com>
+Date:   Fri May 13 23:24:58 2022 +0200
+    	John's changes for app.py
+
+### Cherry picking
+
+4.	config.json and .env
+5.	because this is the order that they are committed the files
+### Changes in working tree and switch branches
+
+24.	that all the changes will be overwritten by cheakout, committing or stashing.
+26. no
+27. no force checkout delete the file
+### Reset
+26.
+1.	File number 10 turn green
+2.	files number 9 and 10 turn red
+3. delete the file number 8
+4. delete file 6
+27.	moves the current branch backward by one commit
