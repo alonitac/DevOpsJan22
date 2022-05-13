@@ -600,9 +600,9 @@ if __name__ == '__main__':
 
     print('\nis_valid_email:\n--------------------')
     print(is_valid_email('israel.israeli@gmail.com'))
-
+'''
     print('\npascal_triangle:\n--------------------')
-    print(pascal_triangle(4))
+    print(pascal_triangle(10))
 '''
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
