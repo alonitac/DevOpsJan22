@@ -1,15 +1,28 @@
 Git Basics:
 
+1. cat > abc.txt
+   1
+   ctrl d
+
 2.Red.
 3.Green.
+    git status
+    git add abc.txt
+    git status
+    git commit abc.txt -m "file created"
+4.  echo "2" >> abc.txt
 5.Blue.
 6.git diff main.
 7.Because we didn't add the file abc.txt to the index area.
 8.Because stage2 is not an option of the command git diff.
+9.  git add abc.txt
 10.git diff prints nothing because there is no differences between the index and the working copy.
-11.git diff --staged.
+11. git diff --staged.
+12. echo "3" >> abc.txt
 13.No,because the git diff --staged command will compare the index with the master and the command git diff main will also compare the changes in the working copy.
 14.Because one change in the file is ready to be committed and another change is not staged for commit.
+15. git restore --staged abc.txt
+    git restore abc.txt
 
 Resolve conflicts:
 
