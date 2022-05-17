@@ -355,7 +355,20 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
+    lst = []
+    cnt = 1
+    for i in range(1, len(text)):
+        if text[i] == text[i-1]:
+            cnt += 1
+        else:
+            lst.append(text[i-1])
+            if cnt > 1:
+                lst.append(str(cnt))
+            cnt = 1
+    lst.append(text[-1])
+    if cnt > 1:
+        lst.append(str(cnt))
+    return lst
 
 
 def strong_pass(password):
