@@ -1,6 +1,6 @@
 import os
 import json
-import glob
+import re
 
 
 def valid_parentheses(s):
@@ -371,7 +371,18 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
-    return None
+    if len(password) < 6:
+        return False
+    if not re.search("[0-9]", password):
+        return False
+    if not re.search("[a-z]", password):
+        return False
+    if not re.search("[A-Z]", password):
+        return False
+    if not re.search("[!@#$%^&*()-+]", password):
+        return False
+    return True
+
 
 
 if __name__ == '__main__':
