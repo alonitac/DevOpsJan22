@@ -384,7 +384,6 @@ def strong_pass(password):
     return True
 
 
-
 if __name__ == '__main__':
     print('\nvalid_parentheses:\n--------------------')
     print(valid_parentheses('[[{()}](){}]'))
