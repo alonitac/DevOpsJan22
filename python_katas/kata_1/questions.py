@@ -235,7 +235,8 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    avg = (a + b + c) / 3
+    return avg
 
 
 def best_student(grades):
@@ -258,8 +259,13 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
-
+    max = 0
+    max_name = ""
+    for i in range(len(grades)):
+        if list(grades.values())[i] > max:
+            max = list(grades.values())[i]
+            max_name = list(grades.keys())[i]
+    return max_name
 
 def print_dict_as_table(some_dict):
     """
@@ -287,7 +293,11 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    result = ''
+    dict = {"Yuval": 23, "alex": 59}
+    for key, value in dict.items():
+        result += ("{:<10} {:<10}".format(key, value) + "\n")
+    return result
 
 
 def merge_dicts(dict1, dict2):
@@ -307,7 +317,10 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+    dict1.update(dict2)
     return dict1
+
+
 
 
 def seven_boom(n):
@@ -322,7 +335,11 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    lst = []
+    for x in range(n+1):
+        if x % 7 == 0 and x != 0 or x % 10 == 7:
+            lst.append(x)
+    return lst
 
 
 def caesar_cipher(str_to_encrypt):
@@ -337,7 +354,22 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+
+    s = 3
+    result = ""
+
+    for i in range(len(str_to_encrypt)):
+        char = str_to_encrypt[i]
+        if 120 <= ord(char) <= 122 or 88 <= ord(char) <= 90:
+            result += chr(ord(char) + s - 26)
+        elif ord(char) == 32:
+            result += chr(ord(char))
+        else:
+            result += chr(ord(char) + s)
+    return result
+
+
+
 
 
 def sum_of_digits(digits_str):
@@ -355,7 +387,10 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    sum_0 = 0
+    for digit in str(digits_str):
+        sum_0 += int(digit)
+    return sum_0
 
 
 if __name__ == '__main__':
