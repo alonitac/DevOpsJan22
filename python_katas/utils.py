@@ -7,13 +7,16 @@ import re
 
 def parse_katas_score(classes, result):
     katas = 0
+    total_katas = 0
     for name, cls in classes:
         regex = r"FAIL: .*" + name
         match = re.search(regex, result)
+        kata = int(cls.__doc__.split('Kata')[0].strip())
+        total_katas += kata
         if not match:
-            katas += int(cls.__doc__.split('Kata')[0].strip())
+            katas += kata
     print('---------------------------------------')
-    print(f'Total Python Katas: {katas}')
+    print(f'Total Python Katas: {katas} out of {total_katas}')
     print('---------------------------------------')
 
 
