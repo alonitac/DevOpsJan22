@@ -25,12 +25,13 @@ jobs:
     if: ${{ startsWith(github.ref, 'refs/heads/python_katas_')  }}
     steps:
       - uses: actions/checkout@v2
-        run: |
-          git merge main
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
+      - name: Merge unittests
+        run: |
+          git merge main
       - name: Kata 1 Tests results
         run: |
           python -m python_katas.kata_1.test
