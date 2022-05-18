@@ -10,7 +10,7 @@ def rgb2gray(rgb):
 
 
 def open_img(img_path):
-    return rgb2gray(imread(img_path)).to_list()
+    return rgb2gray(imread(img_path)).tolist()
 
 
 def save_img(img, filename):

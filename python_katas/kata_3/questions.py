@@ -1,6 +1,8 @@
 from python_katas.kata_3.utils import open_img, save_img
 import requests   # to be used in simple_http_request()
 
+ISO_FORMAT = '%Y-%m-%dT%H:%M:%SZ'
+
 
 def knapsack(items, knapsack_limit=50):
     """
@@ -19,7 +21,7 @@ def knapsack(items, knapsack_limit=50):
     :param knapsack_limit:
     :return: set of items
     """
-    pass
+    return None
 
 
 def time_me(func):
@@ -33,7 +35,7 @@ def time_me(func):
     :param func:
     :return:
     """
-    pass
+    return None
 
 
 def youtube_download(video_id):
@@ -50,7 +52,7 @@ def youtube_download(video_id):
     """
     from youtube_dl import YoutubeDL
 
-    pass
+    return None
 
 
 def tasks_scheduling(tasks):
@@ -67,7 +69,7 @@ def tasks_scheduling(tasks):
     :param: tasks: list of tuple (start, end) while start and end are datetime objects
     :return: list of tasks indexes to perform
     """
-    pass
+    return None
 
 
 def valid_dag(edges):
@@ -83,7 +85,7 @@ def valid_dag(edges):
     :param edges: list of tuples of string 'a', 'b'....
     :return: bool - True if and only if it is a valid DAG
     """
-    pass
+    return None
 
 
 def rotate_img(img_filename):
@@ -99,7 +101,8 @@ def rotate_img(img_filename):
 
     pass  # use rotate_matrix from previous kata 2 or implement....
 
-    save_img(rotated_img, f'rotated_{img_filename}')
+    # use the below line to save list as image
+    # save_img(rotated_img, f'rotated_{img_filename}')
 
 
 def img_blur(img_filename):
@@ -115,7 +118,8 @@ def img_blur(img_filename):
 
     pass  # use matrix_avg from previous kata 2 or implement....
 
-    save_img(blured_img, f'blured_{img_filename}')
+    # use the below line to save list as image
+    # save_img(blured_img, f'blured_{img_filename}')
 
 
 def apache_logs_parser(apache_single_log):
@@ -134,6 +138,7 @@ def apache_logs_parser(apache_single_log):
     :param apache_single_log: str
     :return: parsed log data as tuple
     """
+    date, level, pid, tid, client_ip, log = ..., ..., ..., ..., ..., ...
     return date, level, pid, tid, client_ip, log
 
 
@@ -148,7 +153,7 @@ def simple_http_request():
 
     :return: json of market exchange information
     """
-    pass
+    return None
 
 
 class SortedDict(dict):
@@ -224,3 +229,75 @@ class CacheList(list):
     def append(self, element):
         pass
 
+
+if __name__ == '__main__':
+    import time
+    from random import random
+    from datetime import datetime
+
+    print('\nknapsack\n--------------------')
+    res = knapsack({
+        'book': (3, 2),
+        'television': (4, 3),
+        'table': (6, 1),
+        'scooter': (5, 4)
+    }, knapsack_limit=8)
+    print(res)
+
+    print('\ntime_me\n--------------------')
+    time_took = time_me(lambda: time.sleep(5 + random()))
+    print(time_took)
+
+    print('\nyoutube_download\n--------------------')
+    youtube_download('Urdlvw0SSEc')
+
+    print('\ntasks_scheduling\n--------------------')
+    tasks = tasks_scheduling([
+        (datetime.strptime('2022-01-01T13:00:00Z', ISO_FORMAT), datetime.strptime('2022-01-01T14:00:00Z', ISO_FORMAT)),
+        (datetime.strptime('2022-01-01T13:00:00Z', ISO_FORMAT), datetime.strptime('2022-01-01T14:30:00Z', ISO_FORMAT)),
+        (datetime.strptime('2022-01-01T11:00:00Z', ISO_FORMAT), datetime.strptime('2022-01-01T16:00:00Z', ISO_FORMAT)),
+        (datetime.strptime('2022-01-01T14:00:00Z', ISO_FORMAT), datetime.strptime('2022-01-01T14:05:00Z', ISO_FORMAT)),
+        (datetime.strptime('2022-01-01T12:00:00Z', ISO_FORMAT), datetime.strptime('2022-01-01T13:30:00Z', ISO_FORMAT)),
+        (datetime.strptime('2022-01-01T10:00:00Z', ISO_FORMAT), datetime.strptime('2022-01-01T10:10:00Z', ISO_FORMAT))
+    ])
+    print(tasks)
+
+    print('\nvalid_dag\n--------------------')
+
+    # valid
+    print(valid_dag([('a', 'b'), ('a', 'c'), ('a', 'd'), ('a', 'e'), ('b', 'd'), ('c', 'd'), ('c', 'e')]))
+
+    # invalid
+    print(valid_dag([('a', 'b'), ('c', 'a'), ('a', 'd'), ('a', 'e'), ('b', 'd'), ('c', 'd'), ('c', 'e')]))
+
+    print('\nrotate_img\n--------------------')
+    rotate_img('67203.jpeg')
+
+    print('\nimg_blur\n--------------------')
+    img_blur('67203.jpeg')
+
+    print('\napache_logs_parser\n--------------------')
+    date, level, pid, tid, client_ip, log = apache_logs_parser('[Fri Sep 09 10:42:29.902022 2011] [core:error] [pid 35708:tid 4328636416] [client 72.15.99.187] File does not exist: /usr/local/apache2/htdocs/favicon.ico')
+    print(date, level, pid, tid, client_ip, log)
+
+    print('\nsimple_http_request\n--------------------')
+    info = simple_http_request()
+
+    print('\nSortedDict\n--------------------')
+    s_dict = SortedDict()
+    s_dict['a'] = None
+    s_dict['t'] = None
+    s_dict['h'] = None
+    s_dict['q'] = None
+    s_dict['b'] = None
+    print(s_dict.items())
+
+    print('\nCacheList\n--------------------')
+    c_list = CacheList(5)
+    c_list.append(1)
+    c_list.append(2)
+    c_list.append(3)
+    c_list.append(4)
+    c_list.append(5)
+    c_list.append(6)
+    print(c_list)
