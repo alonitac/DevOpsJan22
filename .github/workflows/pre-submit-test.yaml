@@ -31,7 +31,7 @@ jobs:
           python-version: 3.8
       - name: Merge unittests
         run: |
-          git merge main
+          git merge origin/main
       - name: Kata 1 Tests results
         run: |
           python -m python_katas.kata_1.test
