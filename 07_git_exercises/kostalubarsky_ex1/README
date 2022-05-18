@@ -1,0 +1,41 @@
+Git Basics (commit, diff, branches)
+1. echo 1 > abc.txt
+2. Red
+3. git add abc.txt (blue color). git commit -m "commit to abc.txt file 1"
+4. echo 2 >> abc.txt
+5. Blue
+6. git diff main
+7. It's no git commit yet.
+8. no branch named 'stage2'.
+9. git add abc.txt
+10.doesn't print anything
+11. git diff --cached. Shows the changes between the index and the HEAD\main
+12. echo 3 >> abc.txt
+13. NO. _________________________________________________
+14. first  after commit (green). second in the working tree (red)
+15.
+
+Resolve conflicts
+1. git branch
+    bugfix/fix_readme_typo
+    bugfix/open_kibana_port
+    dev
+    feature/data_retention_policy
+    feature/elasticsearch_helm_chart
+    feature/lambda_migration  (my new branch)
+    feature/upgrade_angular_version
+    feature/version1
+    feature/version2
+6. YES.
+
+Cherry picking
+4. two files
+    a. config.json   b. .env
+5. YES _________________________________________________________
+
+Changes in working tree and switch branches
+
+
+
+
+Reset
