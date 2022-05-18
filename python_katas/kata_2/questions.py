@@ -300,7 +300,7 @@ def list_flatten(lst):
 
     This function gets a list of combination of integers or nested lists
     e.g.
-    [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0, [3]]
+    [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0], [3]]
 
     The functions should return a flatten list (including all nested lists):
     [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3]
