@@ -32,7 +32,7 @@ jobs:
       - name: Merge unittests
         run: |
           git pull
-          git merge origin/main
+          git merge origin/main --allow-unrelated-histories
       - name: Kata 1 Tests results
         run: |
           python -m python_katas.kata_1.test
