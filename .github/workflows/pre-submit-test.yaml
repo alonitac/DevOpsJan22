@@ -20,15 +20,17 @@ jobs:
     if: ${{ startsWith(github.ref, 'refs/heads/linux_ex2/')  }}
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-  PythonKata1Test:
+  PythonKataTest:
     runs-on: ubuntu-latest
     if: ${{ startsWith(github.ref, 'refs/heads/python_katas_')  }}
     steps:
       - uses: actions/checkout@v2
+        run: |
+          git merge main
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-      - name: Katas Tests results
+      - name: Kata 1 Tests results
         run: |
           python -m python_katas.kata_1.test
