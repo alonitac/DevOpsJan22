@@ -3,6 +3,7 @@ import datetime
 import tarfile
 import os
 import json
+import re
 
 def valid_parentheses(s):
     if len(s) % 2 != 0:
@@ -124,6 +125,15 @@ def files_backup(dir_path):
 
 
 def replace_in_file(file_path, text, replace_text):
+    with open(file_path, 'r') as file:
+        filedata = file.read()
+
+    # Replace the target string
+    filedata = filedata.replace(text, replace_text)
+
+    # Write the file out again
+    with open(file_path, 'w') as file:
+        file.write(filedata)
     """
     2 Kata
 
@@ -274,10 +284,31 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+
+    def longest_common_substring(str1, str2):
+        m = len(str1)
+        n = len(str2)
+        counter = [[0] * (n + 1) for x in range(m + 1)]
+        longest = 0
+        lcs = ""
+        for i in range(m):
+            for j in range(n):
+                if str1[i] == str2[j]:
+                    c = counter[i][j] + 1
+                    counter[i + 1][j + 1] = c
+                    if c > longest:
+                        lcs = ""
+                        longest = c
+                        lcs += str1[i - c + 1:i + 1]
+                    elif c == longest:
+                        lcs += str1[i - c + 1:i + 1]
+
+        return lcs
 
 
 def rotate_matrix(mat):
+    list_of_tuples = zip(*mat[::-1])
+    return [list(elem) for elem in list_of_tuples]
     """
     2 Kata
 
@@ -300,11 +331,15 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    return None
 
 
 def is_valid_email(mail_str):
-    """
+   pat = "^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
+   if re.match(pat,mail_str):
+      return True
+   return False
+
+"""
     3 Kata
 
     This function returns True if the given mail is in the form:
@@ -319,10 +354,30 @@ def is_valid_email(mail_str):
     :param mail_str: mail to check
     :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
     """
-    return None
 
 
 def pascal_triangle(lines):
+    line=[1]
+    tmp=[]
+    for i in range(lines):
+        tmp=tmp+[line]
+        nxt=[]
+        for j in range(len(line)-1):
+            nxt=nxt+[line[j]+line[j+1]]
+        line=[1]+nxt+[1]
+    strarr=[]
+    for i in range(lines):
+        line=""
+        for j in range(len(tmp[i])):
+            line=line+str(tmp[i][j])+" "
+        #print(line)
+        strarr=strarr+[line]
+    lmax=len(strarr[lines-1])-1
+    for i in range(lines):
+        s=strarr[i]
+        l=len(s)-1
+        print(" "*((lmax-l)//2),end='')
+        print(s)
     """
     3 Kata
 
@@ -355,10 +410,23 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    return None
+
 
 
 def list_flatten(lst):
+    l=[]
+    def list_rec(lst):
+         x=len(lst)
+         if x>0:
+            for i in range(x):
+               if not isinstance(lst[i],list):
+                 l.append(lst[i])
+               else:
+                    list_rec(lst[i])
+                    x-=1
+         return l
+    return list_rec(lst)
+
     """
     2 Kata
 
@@ -372,10 +440,27 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
 
 
 def str_compression(text):
+    l = list(text)
+    new_l = []
+    count = 1
+    new_l.append(l[0])
+    for i in range(1, len(l)):
+        if l[i] == l[i - 1]:
+            count += 1
+            continue
+        else:
+            if count > 1:
+                new_l.append(count)
+                new_l.append(l[i])
+            else:
+                new_l.append(l[i])
+            count = 1
+
+    return new_l
+
     """
     2 Kata
 
@@ -392,10 +477,12 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
 
 
-def strong_pass(password):
+def strong_pass(str):
+    return re.match(r"^(?=.*[a-z])(?=." +
+                    "*[A-Z])(?=.*\\d)" +
+                    "(?=.*[-+_!@#$%^&*., ?]).+$", str) is not None
     """
     1 Kata
 
