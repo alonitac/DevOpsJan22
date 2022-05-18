@@ -1,7 +1,7 @@
 Git Basics (commit, diff, branches)
 1. echo 1 > abc.txt
 2. Red
-3. git add abc.txt (blue color). git commit -m "commit to abc.txt file 1"
+3. git add abc.txt (green color). git commit -m "add 1 to abc.txt commit"
 4. echo 2 >> abc.txt
 5. Blue
 6. git diff main
