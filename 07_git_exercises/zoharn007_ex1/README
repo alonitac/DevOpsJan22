@@ -62,7 +62,7 @@ Changes in working tree and switch branches:
 	 Please commit your changes or stash them before you switch branches.
 	 Aborting"
 
-	 The two suggested approaches are: comit or stash before switch branches.
+	 The two suggested approaches are: commit or stash before switch branches.
 
 4(A) done as described on Pycharm UI
 5(A) No, it contains “a”, “b” and “c”
@@ -74,7 +74,7 @@ Reset:
 
 1(A) git checkout reset_question
 2(A) 1. git reset --soft HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("9"). The file "10" is uncommitted and is now in index (becomes green).
-	 2. git reset --mixed HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("8"). The file "9" is uncomitted, the file "10" unindexed,  both become red (untracked files).
+	 2. git reset --mixed HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("8"). The file "9" is uncommitted, the file "10" unindexed,  both become red (untracked files).
 	 3. git reset --hard HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("7"). The file "8" uncommitted and removed.
 	 4. git revert HEAD~1 --> Delete the files from the previous commit (the file "6" is removed) and creates new commit with this change. (HEAD is now the new commit).
 3(A) HEAD~1 is the previous commit from the current HEAD.
