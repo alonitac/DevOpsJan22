@@ -10,15 +10,17 @@ Git Basics (commit, diff, branches):
 4(A) echo 2 >> abc.txt
 5(A) The color is now Blue
 6(A) git diff HEAD
-7(A) There is nothing to print because the command above shows the changes between “Index” and “HEAD” and there is nothing on Index (we only
-	 changed the working copy.
+7(A) There is nothing to print because the command above shows the changes between “Index” and “HEAD” and there is
+     nothing on Index (we only changed the working copy.
 8(A) Invalid command (ambigous argument)
 9(A) git add abc.txt
-10(A) There is nothing to print because the command above shows the changes between “Index” and “Working copy” and right now they are identical (both contain “1” and “2”).
+10(A) There is nothing to print because the command above shows the changes between “Index” and “Working copy” and
+      right now they are identical.
 11(A) git diff --staged
 12(A) echo 3 >> abc.txt
 13(A) No, since “main”, “index” and ”working copy” are have different changes, the output is different.
-14(A) abc.txt appears twice because we have one copy of abc.txt in index ready to commit and another modified abc.txt in working copy.
+14(A) abc.txt appears twice because we have one copy of abc.txt in index ready to commit and another modified abc.txt
+      in working copy.
 15(A) git reset --hard
 
 ------------------------------------------------------------
@@ -42,7 +44,8 @@ Cherry picking:
 2(A) done as described on Pycharm UI
 3(A) done as described on Pycharm UI
 4(A) .env and config.json
-5(A) Yes, you should care because they can be related. For example, if the 1st commit creates “file.txt” and the 2nd commit updates “file.txt”, you can’t reverse the order of picking.
+5(A) Yes, you should care because they can be related. For example, if the 1st commit creates “file.txt” and the
+     2nd commit updates “file.txt”, you can’t reverse the order of picking.
 
 ------------------------------------------------------------
 Changes in working tree and switch branches:
@@ -78,5 +81,6 @@ Reset:
 	    The file "9" is uncommitted, the file "10" unindexed,  both become red (untracked files).
 	 3. git reset --hard HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("7").
 	    The file "8" uncommitted and removed.
-	 4. git revert HEAD~1 --> Delete the files from the previous commit (the file "6" is removed) and creates new commit with this change. (HEAD is now the new commit).
+	 4. git revert HEAD~1 --> Delete the files from the previous commit (the file "6" is removed) and creates new commit with
+	    this change. (HEAD is now the new commit).
 3(A) HEAD~1 is the previous commit from the current HEAD.
