@@ -1,0 +1,7 @@
+1.  echo 1 > abc.txt
+2.  git status, shows the red color
+3.  git add abc.txt.
+    git status, shows the green color
+4.  echo 2 >>abc.txt
+5.  git status, shows the red color again
+6.
