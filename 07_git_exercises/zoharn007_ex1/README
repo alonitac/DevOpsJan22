@@ -17,10 +17,9 @@ Git Basics (commit, diff, branches):
 10(A) There is nothing to print because the command above shows the changes between “Index” and “Working copy” and right now they are identical (both contain “1” and “2”).
 11(A) git diff --staged
 12(A) echo 3 >> abc.txt
-13(A) We have: “1” at abc.txt in main, “1”, “2” at abc.txt in index and “1”, “2” , "3" at abc.txt in working copy.
-	  Since “main”, “index” and ”working copy” contain different values the output is different.
-14(A) abc.txt appears twice because we have one copy of abc.txt in index (contain “1” and “2”) and another copy in working copy (“1”, “2” and “3”)
-15(A) git restore --staged --worktree abc.txt
+13(A) No, since “main”, “index” and ”working copy” are have different changes, the output is different.
+14(A) abc.txt appears twice because we have one copy of abc.txt in index ready to commit and another modified abc.txt in working copy.
+15(A) git reset --hard
 
 ------------------------------------------------------------
 Resolve conflicts:
@@ -73,8 +72,11 @@ Reset:
 ------------------------------------------------------------
 
 1(A) git checkout reset_question
-2(A) 1. git reset --soft HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("9"). The file "10" is uncommitted and is now in index (becomes green).
-	 2. git reset --mixed HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("8"). The file "9" is uncommitted, the file "10" unindexed,  both become red (untracked files).
-	 3. git reset --hard HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("7"). The file "8" uncommitted and removed.
+2(A) 1. git reset --soft HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("9").
+        The file "10" is uncommitted and is now in index (becomes green) and ready to be committed.
+	 2. git reset --mixed HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("8").
+	    The file "9" is uncommitted, the file "10" unindexed,  both become red (untracked files).
+	 3. git reset --hard HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("7").
+	    The file "8" uncommitted and removed.
 	 4. git revert HEAD~1 --> Delete the files from the previous commit (the file "6" is removed) and creates new commit with this change. (HEAD is now the new commit).
 3(A) HEAD~1 is the previous commit from the current HEAD.
