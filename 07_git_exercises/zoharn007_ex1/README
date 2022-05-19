@@ -1,0 +1,80 @@
+------------------------------------------------------------
+Git Basics (commit, diff, branches):
+------------------------------------------------------------
+
+1(A) touch abc.txt
+     echo 1 > abc.txt
+2(A) The color is Red
+3(A) git add abc.txt
+	 The color is now green (after adding to index)
+4(A) echo 2 >> abc.txt
+5(A) The color is now Blue
+6(A) git diff HEAD
+7(A) There is nothing to print because the command above shows the changes between “Index” and “HEAD” and there is nothing on Index (we only
+	 changed the working copy.
+8(A) Invalid command (ambigous argument)
+9(A) git add abc.txt
+10(A) There is nothing to print because the command above shows the changes between “Index” and “Working copy” and right now they are identical (both contain “1” and “2”).
+11(A) git diff --staged
+12(A) echo 3 >> abc.txt
+13(A) We have: “1” at abc.txt in main, “1”, “2” at abc.txt in index and “1”, “2” , "3" at abc.txt in working copy.
+	  Since “main”, “index” and ”working copy” contain different values the output is different.
+14(A) abc.txt appears twice because we have one copy of abc.txt in index (contain “1” and “2”) and another copy in working copy (“1”, “2” and “3”)
+15(A) git restore --staged --worktree abc.txt
+
+------------------------------------------------------------
+Resolve conflicts:
+------------------------------------------------------------
+
+1(A) git branch
+2(A) git checkout -b feature/lambda_migration
+3(A) git merge feature/version1
+4(A) done as described on Pycharm UI
+5(A) done as described on Pycharm UI
+6(A) c20f43d (HEAD -> feature/lambda_migration) Merge branch 'feature/version2' into feature/lambda_migration
+	 18c07cb Merge branch 'feature/version1' into feature/lambda_migration
+
+------------------------------------------------------------
+Cherry picking:
+------------------------------------------------------------
+
+1(A) git checkout main
+	 git branch feature/lambda_migration2
+2(A) done as described on Pycharm UI
+3(A) done as described on Pycharm UI
+4(A) .env and config.json
+5(A) Yes, you should care because they can be related. For example, if the 1st commit creates “file.txt” and the 2nd commit updates “file.txt”, you can’t reverse the order of picking.
+
+------------------------------------------------------------
+Changes in working tree and switch branches:
+------------------------------------------------------------
+
+1(A) done as described
+2(A) touch take.txt
+	 echo "How are you?" >> take.txt
+	 echo "I am fine, thank you." >> take.txt
+	 git add take.txt
+3(A) git checkout dev
+
+	 The error is:
+	 	 "error: Your local changes to the following files would be overwritten by checkout:
+			 take.txt
+	 Please commit your changes or stash them before you switch branches.
+	 Aborting"
+
+	 The two suggested approaches are: comit or stash before switch branches.
+
+4(A) done as described on Pycharm UI
+5(A) No, it contains “a”, “b” and “c”
+6(A) No, take.txt is missing. “Force Checkout” remove all uncommitted changes (in index and working copy).
+
+------------------------------------------------------------
+Reset:
+------------------------------------------------------------
+
+1(A) git checkout reset_question
+2(A) 1. git reset --soft HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("9"). The file "10" is uncommitted and is now in index (becomes green).
+	 2. git reset --mixed HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("8"). The file "9" is uncomitted, the file "10" unindexed,  both become red (untracked files).
+	 3. git reset --hard HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("7"). The file "8" uncommitted and removed.
+	 4. git revert HEAD~1 --> Delete the files from the previous commit (the file "6" is removed) and creates new commit with this change. (HEAD is now the new commit).
+3(A) HEAD~1 is the previous commit from the current HEAD.
