@@ -4,6 +4,5 @@ flask
 aiohttp
 loguru
 requests
-python-telegram-bot>=13.11
 youtube-dl>=2021.12.17
 matplotlib
