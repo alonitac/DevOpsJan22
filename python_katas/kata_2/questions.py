@@ -1,3 +1,5 @@
+import json
+import os
 import re
 
 
@@ -123,6 +125,21 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
+    import os
+    path = json_paths
+    merged = {}
+
+    for filename in os.listdir(path):
+        f = os.path.join(path, filename)
+        with open(f, 'r+') as f1:
+            json_data = json.load(f1)
+            merged.update(json_data)
+
+        with open(f, 'w+') as f1:
+            f1.write(json.dumps(json_data))
+
+    print(merged)
+
     return None
 
 
