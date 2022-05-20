@@ -118,3 +118,26 @@ changes in working tree and switch branches
 
 reset
 ~~~~~
+
+25- git checkout reset_question
+    git status
+
+26- i. git reset --soft HEAD~1
+       git status
+       it appears that the last commit was undone. 10.txt is now a stage to be committed and also the last commit
+       was omitted from the Git UI.
+   ii. git reset --mixed HEAD~1
+       git status
+       once again the last commit was undone. only this time the changes aren't staged and are marked as untracked files.
+  iii. git reset --hard HEAD~1
+       git status
+       one more time the last commit was undone. but this time not only are the changes not staged they were completely
+       erased from the working tree.
+   vi. git revert HEAD~1
+       git status
+       this created a new commit which is a copy of the previous commit. this action altered the state of one file
+       and deleted another file all together.
+
+27- the meaning of the notation HEAD~1 is the number of commits to count down from the front end of the branch history.
+    the head is the most recent staging area and the tilda specifies the number of commits to count back from that
+    starting point.
