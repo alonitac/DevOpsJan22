@@ -55,4 +55,40 @@ Git Basics
 resolve conflicts
 ~~~~~~~~~~~~~~~~~
 
-1-
+17- git branch
+  bugfix/fix_readme_typo
+  bugfix/open_kibana_port
+  dev
+  feature/data_retention_policy
+  feature/elasticsearch_helm_chart
+  feature/upgrade_angular_version
+  feature/version1
+  feature/version2
+* main
+
+18- git checkout -b feature/lambda_migration
+
+19- git merge feature/version1
+
+20+21- merging and resolving feature/version2 into feature/lambda_migration using the Pycharm UI.
+
+22- git status
+    it's shown that 'app.py' is set to be committed now that the merge conflicts have been resolved.
+    also, 'abc.txt' is to be staged before committing.
+    git commit -m "adding app.py after resolving merge conflicts"
+
+cherry picking
+~~~~~~~~~~~~~~
+
+1- git checkout main
+   git checkout -b feature/lambda_migration2
+
+2+3- using the pycharm UI to cherry-pick specific commits from feature/lambda_migration branch.
+
+4- '.env' and 'config.json' were added as result of the cherry-picking.
+
+5- the order in which commits are picked matters, and I should care about it, because the commits build on top of each
+   other. it's possible that a commit that is ahead in the git history tree won't make sense unless an earlier commit
+   is picked first. moreover, if I pick commits in a backward order I might delete wanted progress.
+   also, the order in which I pick commits determines which commit will ultimately be the HEAD.
+
