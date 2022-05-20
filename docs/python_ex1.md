@@ -55,7 +55,7 @@ Upon incoming messages, this class will take the message text, search and downlo
 3. (Optional) Feel free to add more functionality e.g. implement a logic that caches videos that have already been downloaded, such that it will use the local copy when user requests the same video again. 
 
 ## Part 6 - Containerize your app 
-1. In your root directory of you repo, open `Dokcerfile` and fill out the file such that the Bot app can be run as a Docker container
+1. In your root directory of you repo, open `Dockerfile` and fill out the file such that the Bot app can be run as a Docker container
 2. Build and run the container locally, make sure it works well. 
 
 ## Part 7 - Run your app "as a service" in an Amazon EC2 instance
