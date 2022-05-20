@@ -1,5 +1,29 @@
+...part 1 ...
 2. green
 3. blue
-5. regular (text it's white after add&commit) before commit is blue.
-6. git status
-7.
+5. regular (text it's white after add&commit) before commit is green.
+6. git deff
+7. thr change that add new file
+8. error: invalid option: --staged2
+9. git add avc.txt
+11. git diff HEAD/master
+12. echo >> abc.txt 3
+13. no , because I didn't commit in working tree
+14. because unstage the changes in my index.
+
+
+...part 2 ...
+ 1. git branch
+ 2. git checkout -b feature/lamda_migration
+ 3. git merge feature/version1
+ 6. commit marge:
+          commit 7039afc5f06442e490bc202c1a47f2974be42c2c (HEAD -> feature/lambda_migration)
+        Merge: 1d07b58 5341a6b
+        Author: Daniel shainfeld <shainfeldd@gmail.com>
+        Date:   Fri May 20 14:16:32 2022 +0300
+
+            Merge branch 'feature/version2' into feature/lambda_migration
+
+            # Conflicts:
+            #       app.py
+
