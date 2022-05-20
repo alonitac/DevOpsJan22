@@ -64,7 +64,8 @@ Changes in working tree and switch branches:
 	 Please commit your changes or stash them before you switch branches.
 	 Aborting"
 
-	 The two suggested approaches are: commit or stash before switch branches.
+	 The two suggested approaches are: one approach is to commit the changes before switch branches and the
+	                                   2nd option is to stash the changes.
 
 4(A) done as described on Pycharm UI
 5(A) No, it contains “a”, “b” and “c”
@@ -75,12 +76,18 @@ Reset:
 ------------------------------------------------------------
 
 1(A) git checkout reset_question
-2(A) 1. git reset --soft HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("9").
-        The file "10" is uncommitted and is now in index (becomes green) and ready to be committed.
-	 2. git reset --mixed HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("8").
-	    The file "9" is uncommitted, the file "10" unindexed,  both become red (untracked files).
-	 3. git reset --hard HEAD~1 --> Current commit is removed from project history, the HEAD is now the previous commit ("7").
-	    The file "8" uncommitted and removed.
-	 4. git revert HEAD~1 --> Delete the files from the previous commit (the file "6" is removed) and creates new commit with
+
+2(A) 1. git reset --soft HEAD~1 --> removes the last commit but the file changes will stay in your working tree. Also the changes will stay on your index
+        (The file "10" is uncommitted and is now in index) becomes green and is ready to be committed. The HEAD is now the previous commit ("9").
+
+	 2. git reset --mixed HEAD~1 --> removes the last commit from the current branch, changes in your working tree are kept but not on the index.
+     	both "9" and "10" become red (untracked files) the HEAD is now the previous commit ("8")
+
+	 3. git reset --hard HEAD~1 --> remove all (1) Uncommited changes, (2) Changes in the last commit, (3) Changes in the working tree
+	    (you need to use git clean -df if you want to clear the untracked files manually).
+		The file "8" uncommitted and removed, the HEAD is now the previous commit ("7")
+
+	 4. git revert HEAD~1 --> Delete the changes from the previous commit (the file "6" is removed) and creates new commit with
 	    this change. (HEAD is now the new commit).
-3(A) HEAD~1 is the previous commit from the current HEAD.
+
+3(A) HEAD~1 is the previous commit from the current HEAD (HEAD~1 refers to the commit's first parent)
