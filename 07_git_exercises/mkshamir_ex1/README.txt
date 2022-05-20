@@ -92,3 +92,29 @@ cherry picking
    is picked first. moreover, if I pick commits in a backward order I might delete wanted progress.
    also, the order in which I pick commits determines which commit will ultimately be the HEAD.
 
+changes in working tree and switch branches
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+22- using 'git status' it is shown that I'm on 'feature/lambda_migration2' branch (which isn't 'dev').
+
+23- touch take.txt
+    ls
+    echo "take your time, look around" >> take.txt
+    cat take.txt
+    git status
+    git add take.txt
+    git status
+
+24- git checkout dev
+    the solutions proposed by git terminal are committing or stashing before checking out.
+
+25- using the pycharm UI to force checkout into dev branch.
+
+26- 'take.txt' has a completely different text in it now that I've force checked out. (a b c)
+
+27- git checkout feature/lambda_migration2
+    'take.txt' no longer exists in this branch. it can be inferred that force checkout allows switching branches without
+    committing or stashing therefore causing the loss of progress.
+
+reset
+~~~~~
