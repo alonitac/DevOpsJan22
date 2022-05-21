@@ -37,11 +37,13 @@ Changes in working tree and switch branches
 
 git reset soft:
  uncommitted changes, changes are left staged (index).
+ file 10 is in  uncommitted stage.
 git reset mixed:
 (default): uncommitted + unstage changes, changes are left in working tree.
+the files 9 and 10 are red and they are untracked
 git reset hard:
  uncommitted + unstage + delete changes, nothing left
+ file 8 is removed
 git revert HEAD~1:
 Revert changes.
-
-HEAD~1 - Moving back 1 gen \ go back 1 commit from HEAD
+file 6 is removed and change commited.
