@@ -28,7 +28,20 @@ Cherry picking
 vice versa will not work (common logic )
 
 Changes in working tree and switch branches
-1. there is smart checkout and force checkout
-2. yes, Branch Dev has the new file with changes.
+1. there is smart checkout and force checkout and don't checkout.
+2. no.
 3. no, the new file with some new lines is not in the previous branch.
- Force Checkout, is transferring the new changes to the other branch by force.
+ Force Checkout, is removing any uncommitted changes.
+
+ resetting:
+
+git reset soft:
+ uncommitted changes, changes are left staged (index).
+git reset mixed:
+(default): uncommitted + unstage changes, changes are left in working tree.
+git reset hard:
+ uncommitted + unstage + delete changes, nothing left
+git revert HEAD~1:
+Revert changes.
+
+HEAD~1 - Moving back 1 gen \ go back 1 commit from HEAD
