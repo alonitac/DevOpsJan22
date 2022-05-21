@@ -1,1 +1,36 @@
 #my git_ex1 exercise answers :
+
+Git Basics :
+
+1. echo "1" > abc.txt
+2. "red color" because the file not in index
+
+3. "green color" after adding file to index (git add abc.txt && git commit -m "adding abc.txt file")
+
+4. echo "2" >> abc.txt
+5. "blue color"
+
+6. git diff or git diff main
+
+7. because i dont have staged files for the next commit
+
+8. its a invalid argument because i dont have stage2 HEAD(or any hash or branch) in my repository
+
+9. git add abc.txt
+10. prints nothing because all my files is staged in index ( git diff only shows unstaged changes (--staged/--cached option showing staged changes))
+
+11. git diff ---cached or --staged in more recent versions of git
+
+12. echo "3" >> abc.txt
+13. No, the output is different because git diff main shows unstaged changes also and git diff --staged shows only the staged changes !
+
+14. Because the same reason as above,  the green color for "changes to be committed" and red color for "changes not stage for commit"
+
+15. git reset -- abc.txt for remove the staged files in index and git restore -- abc.txt for unstaged files in working tree
+
+Resolve conflicts:
+
+
+
+
+
