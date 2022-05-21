@@ -15,7 +15,7 @@ git diff main will also compare the changes done in working copy
 changes that are not staged for commit.
 
 Resolve conflicts:
-yes ther are new commits by jhon and nadella :
+yes there are new commits by jhon and nadella :
 
 *use correct lock type in reconnect() John Doe 5/5/2022 8:04 PM
 *John's changes for app.py John Doe 5/5/2022 8:04 PM
@@ -26,3 +26,9 @@ Cherry picking
 1. files by the name of .env and config.json have been added.
 2. yes because the first commit may create a file that is later will be updated by the 2nd commit and apply changes.
 vice versa will not work (common logic )
+
+Changes in working tree and switch branches
+1. there is smart checkout and force checkout
+2. yes, Branch Dev has the new file with changes.
+3. no, the new file with some new lines is not in the previous branch.
+ Force Checkout, is transferring the new changes to the other branch by force.
