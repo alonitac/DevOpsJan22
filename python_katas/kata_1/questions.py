@@ -30,7 +30,17 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    count_char = len(word)
+    print('Length of your word is', len(word), 'characters')
+    if word[-3:] == 'ing':
+        print('Three last characters is ing ')
+        word = word + 'ly'
+    elif count_char >= 3:
+        word = word + ('ing')
+    elif count_char < 3:
+        return word
+    return word
+
 
 
 def words_concatenation(words):
@@ -65,7 +75,15 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+
+    concat_string=words.reverse()
+    if words == []:
+        print('Your list is empty,BYE')
+        return None
+    else:
+        print(concat_string)
+    return words
+
 
 
 def is_unique_string(some_str):
@@ -82,7 +100,18 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    if "".__eq__(some_str):
+       # print('true')
+        return True
+    else:
+        for a in range(len(some_str)):
+            for b in range(a + 1, len(some_str)):
+                if (some_str[a] == some_str[b]):
+                #    print('False')
+                    return False
+            # else:
+           # print('True')
+            return True
 
 
 def list_diff(elements):
@@ -100,7 +129,14 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    length = len(elements) - 1
+    diff = [None]
+
+    for i in range(length):
+        diff.append(elements[i + 1] - elements[i])
+    #print(diff)
+    return diff
+
 
 
 def prime_number(num):
@@ -113,6 +149,14 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
+    if num > 1:
+        for i in range(2, num):
+            if (num % i) == 0:
+             # print(num, "is not a prime number")
+              return False
+
+       # print(num, "is prime number")
+        return True
     return None
 
 
@@ -129,7 +173,19 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    temp = num
+    rev = 0
+    while (num > 0):
+        dig = num % 10
+        rev = rev * 10 + dig
+        num = num // 10
+    if (temp == rev):
+        print("The number is a palindrome!")
+        return True
+    else:
+        print("The number isn't a palindrome!")
+        return False
+
 
 
 def pair_match(men, women):
@@ -172,7 +228,9 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    #avg = (a + b + c) / 3
+    #print(avg)
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -195,7 +253,11 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    sort_by_score = sorted(grades.items(), key=lambda x: x[1], reverse=True)
+    print(sort_by_score)
+   # print(sort_by_score[0][0])
+    return sort_by_score[0][0]
+
 
 
 def print_dict_as_table(some_dict):
@@ -224,7 +286,12 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    print(len(some_dict))
+    print("{:<15} {:<15} ".format('Key', 'Value'))
+    print('-----           ------')
+    for key, value in some_dict.items():
+        name = key
+        score = value
+        print("{:<15} {:<15} ".format(name, score))
    # return None
 
 
@@ -246,8 +313,8 @@ def merge_dicts(dict1, dict2):
     :return:
     """
     dict1 = dict1 | dict2
-    print(dict1)
- #   return dict1
+    #print(dict1)
+    return dict1
 
 
 def seven_boom(n):
@@ -262,7 +329,14 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    booms = []
+    m = 1
+
+    while m <= n:
+        if (m % 7 == 0) or ('7' in str(m)):
+            booms.append(m)
+        m += 1
+    print(booms)
 
 
 def caesar_cipher(str_to_encrypt):
@@ -295,7 +369,12 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    sum = 0
+    for digit in digits_str:
+        sum += int(digit)
+    #print(sum)
+    return sum
+
 
 
 if __name__ == '__main__':
@@ -317,9 +396,11 @@ if __name__ == '__main__':
     print('\nis_unique_string:\n--------------------')
     print(is_unique_string('aasdssdsederd'))
     print(is_unique_string('12345tgbnh'))
+    print(is_unique_string(''))
 
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
+    print(list_diff([]))
 
     print('\nprime_number:\n--------------------')
     print(prime_number(5))
@@ -366,7 +447,7 @@ if __name__ == '__main__':
     print(merge_dicts({'a': 1}, {'b': 2}))
 
     print('\nseven_boom:\n--------------------')
-    print(seven_boom(30))
+    print(seven_boom(50))
 
     print('\ncaesar_cipher:\n--------------------')
     print(caesar_cipher('Fly Me To The Moon'))

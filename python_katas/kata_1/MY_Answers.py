@@ -44,27 +44,33 @@ words_concatenation(['take','me'])
 
 '''
 def reverse_words_concatenation(words):
-    if words==[]:
-        print('Your list is empty,BYE')
-        return None
+
+    print(words[-1])
+    concat_string = words.reverse()
+    if words == []:
+       print('Your list is empty,BYE')
+       return None
     else:
-        concat_string = ' '.join(words)
-        words = concat_string.reverse()
-        print(words)
-    return words
+        print(concat_string)
+
 reverse_words_concatenation(['take','me'])
 '''
 
 '''
 def is_unique_string(some_str):
-  for a in range(len(some_str)):
-    for b in range(a + 1,len(some_str)):
-      if(some_str[a] == some_str[b]):
-        print('False')
-        return False
-  print('True')
-  return True
-is_unique_string('12341')
+  if "".__eq__(some_str):
+    print('true')
+    return True
+  else:
+    for a in range(len(some_str)):
+      for b in range(a + 1, len(some_str)):
+        if (some_str[a] == some_str[b]):
+          print('False')
+          return False
+       # else:
+      print('True')
+      return True
+is_unique_string('')
 '''
 
 '''
@@ -89,9 +95,9 @@ def prime_number(num):
 
         print(num, "is prime number")
         return True
-prime_number(3)
+prime_number(2)
+'''
 
-'''        
 '''
 def palindrome_num(num):
     temp=num
