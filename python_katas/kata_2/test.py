@@ -73,9 +73,43 @@ class TestJsonConfigsMerge(unittest.TestCase):
     2 Katas
     """
 
-    def test_sample(self):
-        # your code here
-        pass
+    def test_jason_files(self):
+        paths = ('local.jason', 'default.jason')
+        self.assertEqual(questions.json_configs_merge('jpg.json', 'student.json'), {
+            "id": "0001",
+            "type": "donut",
+            "name": "Cake",
+            "image":
+                {
+                    "url": "images/0001.jpg",
+                    "width": 200,
+                    "height": 200
+                },
+            "thumbnail":
+                {
+                    "url": "images/thumbnails/0001.jpg",
+                    "width": 32,
+                    "height": 32
+                },
+        },
+        {
+            "student": [
+
+                {
+                    "id": "01",
+                    "name": "Tom",
+                    "lastname": "Price"
+                },
+
+                {
+                    "id": "02",
+                    "name": "Nick",
+                    "lastname": "Thameson"
+                }
+                       ]
+        }
+
+                         )
 
 
 # yosefdudi
