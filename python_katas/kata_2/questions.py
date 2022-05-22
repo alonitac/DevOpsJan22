@@ -172,7 +172,25 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+    lst1_len = len(l1)
+    lst2_len = len(l2)
+
+    res = []
+    i, j = 0, 0
+
+    while i < lst1_len and j < lst2_len:
+        if l1[i] < l2[j]:
+            res.append(l1[i])
+            i += 1
+
+        else:
+            res.append(l2[j])
+            j += 1
+
+    res = res + l1[i:] + l2[j:]
+
+    #print(res)
+    return res
 
 
 def longest_common_substring(str1, str2):
@@ -211,7 +229,15 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+    length = len(str1)
+    lst = []
+
+    for i in range(length):
+        if str1[i] == str2[i]:
+            lst.append(str1[i])
+
+   # print(''.join(lst))
+    return ''.join(lst)
 
 
 def rotate_matrix(mat):
@@ -292,7 +318,17 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    return None
+    n = lines
+    lst = []
+    for i in range(n):
+        row = [1] * (i + 1)
+        for j in range(i + 1):
+            if j != 0 and j != i:
+                row[j] = lst[i - 1][j - 1] + lst[i - 1][j]
+        lst.append(row)
+    for r in lst:
+        print(r)
+    #return None
 
 
 def list_flatten(lst):
@@ -345,7 +381,36 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
-    return None
+    import re
+
+    # password = "KLob2014"
+    flag = 0
+    while True:
+        if (len(password) < 6):
+            flag = -1
+            break
+        elif not re.search("[a-z]", password):
+            flag = -1
+            break
+        elif not re.search("[A-Z]", password):
+            flag = -1
+            break
+        elif not re.search("[0-9]", password):
+            flag = -1
+            break
+        elif not re.search("[!@#$%^&*()+]", password):
+            flag = -1
+            break
+
+        else:
+            flag = 0
+            #print("Valid Password")
+            return True
+            break
+
+    if flag == -1:
+        #print("Not a Valid Password")
+        return False
 
 
 if __name__ == '__main__':
@@ -381,7 +446,7 @@ if __name__ == '__main__':
     print(longest_common_substring('abcdefg', 'bgtcdesd'))
 
     print('\nlongest_common_prefix:\n--------------------')
-    print(longest_common_prefix('abcd', 'ttty'))
+    print(longest_common_prefix('abcd', 'abcd12345'))
 
     print('\nrotate_matrix:\n--------------------')
     print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
@@ -399,4 +464,4 @@ if __name__ == '__main__':
     print(str_compression('aaaabdddddhgf'))
 
     print('\nstrong_pass:\n--------------------')
-    print(strong_pass('##$FgC7^^5a'))
+    print(strong_pass('FgC75aa'))

@@ -338,7 +338,7 @@ print(''.join(lst))
 #strong password
 import re
 
-password = "KLob2014"
+#password = "KLob2014"
 flag = 0
 while True:
     if (len(password) < 6):
