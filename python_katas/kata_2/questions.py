@@ -369,7 +369,7 @@ def str_compression(text):
     l = len(text)
 
     if l == 0:
-        return ""
+        return list
 
     if l == 1:
         return text + "1"
@@ -391,8 +391,8 @@ def str_compression(text):
         i += 1
 
     r = r + text[i - 1] + str(cnt)
-
-    return r
+    output=list(r)
+    return output
 
 
 
