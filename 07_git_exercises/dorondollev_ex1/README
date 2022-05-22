@@ -18,3 +18,23 @@
     git diff main, prints all tracked changes from local repository to workspace
 14. The first row is green colored and added to index
     The second row is red colored since the file is in workspace
+
+Resolve conflicts
+=================
+1.
+$ git branch --all
+  bugfix/fix_readme_typo
+  bugfix/open_kibana_port
+  dev
+  feature/data_retention_policy
+  feature/elasticsearch_helm_chart
+  feature/upgrade_angular_version
+  feature/version1
+  feature/version2
+* main
+  reset_question
+
+2.
+$ git checkout -b feature/lambda_migration
+Switched to a new branch 'feature/lambda_migration'
+
