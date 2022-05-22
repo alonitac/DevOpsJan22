@@ -11,9 +11,9 @@ Git Basics (commit, diff, branches)
 10.doesn't print anything
 11. git diff --cached. Shows the changes between the index and the HEAD\main
 12. echo 3 >> abc.txt
-13. NO. _________________________________________________
+13. NO.
 14. first  after commit (green). second in the working tree (red)
-15.
+15. git reset
 
 Resolve conflicts
 1. git branch
@@ -31,11 +31,28 @@ Resolve conflicts
 Cherry picking
 4. two files
     a. config.json   b. .env
-5. YES _________________________________________________________
+5. YES . If we  go back to  older commit the new one will not be available.
 
 Changes in working tree and switch branches
+2. echo take it > take.txt
+3. git add take.txt
+4. git checkout dev
+	error: Your local changes to the following files would be overwritten by checkout:
+        take.txt
+	Please commit your changes or stash them before you switch branches.
+	Aborting
+5. No. There is  "a b c"
+6. git checkout feature/lambda_migration2
+    no file take.txt.
+    Force Checkout overwrites uncommited changes
 
 
 
 
 Reset
+2.1. git reset --soft HEAD~1 - Removes last commit and keeps changes on Index.
+2.2. git reset --mixed HEAD~1 - Similar to 'soft' but doesn't keep chamges on Index.
+2.3. git reset --hard HEAD~1 - Remove all uncomitted and untrackked files.
+2.4. git revert HEAD~1 - Revert changes.
+
+3. HEAD~1 - Moving back in generations linear.
