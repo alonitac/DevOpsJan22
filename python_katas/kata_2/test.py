@@ -185,8 +185,11 @@ class TestIsValidEmail(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
-        pass
+            self.assertEqual(questions.str_compression(''), '')
+            self.assertEqual(questions.str_compression('AABBCC'), 'A2B2C2')
+            self.assertEqual(questions.str_compression('AAABCCDDDDD'), 'A3B1C2D5')
+            # your code here
+            pass
 
 
 # Ddady1
@@ -218,8 +221,13 @@ class TestStrCompression(unittest.TestCase):
     """
 
     def test_sample(self):
-        # your code here
-        pass
+            self.assertEqual(questions.str_compression(''), '')
+            self.assertEqual(questions.str_compression('AABBCC'), 'A2B2C2')
+            self.assertEqual(questions.str_compression('AAABCCDDDDD'), 'A3B1C2D5')
+            # your code here
+            pass
+
+
 
 
 # Haimr101
