@@ -3,6 +3,7 @@ from python_katas.kata_2 import questions
 from python_katas.utils import unittest_runner
 
 
+
 testers = ['elkan316',
            'JohnSchiff',
            'Haimr101',
@@ -184,6 +185,9 @@ class TestStrCompression(unittest.TestCase):
     """
 
     def test_sample(self):
+        self.assertEqual(questions.str_compression(''), '')
+        self.assertEqual(questions.str_compression('AABBCC'), 'A2B2C2')
+        self.assertEqual(questions.str_compression('AAABCCDDDDD'), 'A3B1C2D5')
         # your code here
         pass
 
