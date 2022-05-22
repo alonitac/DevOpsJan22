@@ -67,7 +67,18 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+    f = open("names.txt")
+    lst = f.readlines()
+    counter = 0
+    name=list[0]
+    for i in lst:
+        current = lst.count(i)
+        if current > counter:
+            counter = current
+            name = i
+    print(name)
+    f.close()
+
 
 def files_backup(dir_path):
     """
@@ -339,7 +350,7 @@ def strong_pass(password):
 
 if __name__ == '__main__':
     print('\nvalid_parentheses:\n--------------------')
-    print(valid_parentheses('[[{()}](){}]'))
+    print(valid_parentheses('[[{()}](){}]]['))
 
     print('\nfibonacci_fixme:\n--------------------')
     print(fibonacci_fixme(8))
@@ -357,7 +368,7 @@ if __name__ == '__main__':
     print(json_configs_merge('default.json', 'local.json'))
 
     print('\nmonotonic_array:\n--------------------')
-    print(monotonic_array([1,1, 2, 3, 6, 8, 9]))
+    print(monotonic_array([1,1, 2, 3, 6, 8, 9,5]))
 
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
