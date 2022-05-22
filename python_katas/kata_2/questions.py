@@ -115,6 +115,7 @@ def replace_in_file(file_path, text, replace_text):
 
 
 def json_configs_merge(*json_paths):
+
     """
     2 Kata
 
@@ -125,22 +126,13 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    import os
-    path = json_paths
-    merged = {}
 
-    for filename in os.listdir(path):
-        f = os.path.join(path, filename)
-        with open(f, 'r+') as f1:
-            json_data = json.load(f1)
-            merged.update(json_data)
-
-        with open(f, 'w+') as f1:
-            f1.write(json.dumps(json_data))
-
-    print(merged)
-
-    return None
+    dict = {}
+    for i in json_paths:
+        with open(i) as j:
+            data = json.load(j)
+            dict.update(data)
+    return dict
 
 
 def monotonic_array(lst):
