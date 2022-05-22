@@ -345,7 +345,17 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+
+    flat_list = []
+
+    for element in lst:
+        if type(element) is list:
+            for item in element:
+                flat_list.append(item)
+        else:
+            flat_list.append(element)
+    return flat_list
+
 
 
 def str_compression(text):
