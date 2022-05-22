@@ -2,6 +2,19 @@
 2.  git status, shows the red color
 3.  git add abc.txt.
     git status, shows the green color
+    git commit -m "Committing 1 to abc.txt" abc.txt
+    git status, shows the blue color
 4.  echo 2 >>abc.txt
 5.  git status, shows the red color again
-6.
+6.  git diff main
+7.  abc.txt file is not indexed yet
+8.  stage2 is ambiguous argument
+9.  git add abc.txt
+10. git diff shows the difference between the index and the working tree
+    Since the changes in abc.txt indexed, it print's nothing
+11. git diff main
+12. echo 3 >>abc.txt
+13. git diff --staged, prints upto the second row which is indexed
+    git diff main, prints all tracked changes from local repository to workspace
+14. The first row is green colored and added to index
+    The second row is red colored since the file is in workspace
