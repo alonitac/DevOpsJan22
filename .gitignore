@@ -9,6 +9,9 @@ __pycache__/
 *.so
 
 
+# ignore .pem file
+*.pem
+
 # Distribution / packaging
 .Python
 env/
