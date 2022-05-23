@@ -1,12 +1,19 @@
-name@example.com
-< your secret here >
+aviadfridman@gmail.com
+< your secret here >  # FIXME you were supposed to put the secret here
 
 
 Kernel System Calls
 -------------------
-< Your Answer >
+"welcome to Devopsjan2022 goodluck"
+and then he write
+"There you go...tell me what i do"
+
+# FIXME (A) you're right. but how that sentence is written? to stdout? in a file?
 
 
 Binary Numbers
 --------------
-< Your Answer >
+1) 7 4 22
+2) 0-255
+# FIXME (B) in both 3-4 you should suggest some method to represent negative and decimal numbers. e.g. to represent negative numbers the first bit can represent the sign. 0 for positive, 1 to negative
+3) 11110111
