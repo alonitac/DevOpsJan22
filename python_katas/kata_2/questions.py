@@ -377,29 +377,20 @@ def str_compression(text):
     """
     r = ""
     l = len(text)
-
     if l == 0:
         return list
-
     if l == 1:
         return text + "1"
-
-    last = text[0]
+    #last = text[0]
     cnt = 1
     i = 1
-
     while i < l:
-
         if text[i] == text[i - 1]:
-
             cnt += 1
         else:
-
             r = r + text[i - 1] + str(cnt)
             cnt = 1
-
         i += 1
-
     r = r + text[i - 1] + str(cnt)
     output=list(r)
     return output
