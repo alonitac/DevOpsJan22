@@ -1,3 +1,5 @@
+Git Basics (commit, diff, branches)
+===================================
 1.  echo 1 > abc.txt
 2.  git status, shows the red color
 3.  git add abc.txt.
@@ -38,3 +40,75 @@ $ git branch --all
 $ git checkout -b feature/lambda_migration
 Switched to a new branch 'feature/lambda_migration'
 
+3.
+$ git merge feature/version1
+Updating d4e8424..1639247
+Fast-forward
+ .env        | 0
+ app.py      | 4 ++--
+ config.json | 0
+ 3 files changed, 2 insertions(+), 2 deletions(-)
+ create mode 100644 .env
+ create mode 100644 config.json
+
+6. Especailly pay attention to the resolved commit which is the last
+$ git log --name-status HEAD^..HEAD
+commit a64bfcd066f4a3fa06da749b7d7d0842053befe2 (HEAD -> feature/lambda_migr
+ation)
+Merge: 1639247 37b1550
+Author: doron <doron.dollev@gmail.com>
+Date:   Mon May 23 10:23:23 2022 +0300
+
+    Merge branch 'feature/version2' into feature/lambda_migration
+
+    # Conflicts:
+    #       app.py
+
+commit 37b15501505367b8f4a8f8aaea549b134f82e445 (feature/version2)
+Author: Narayan Nadella <narayan.nadella@microsoft.com>
+Date:   Mon May 23 09:25:47 2022 +0300
+
+    Nayaran's changes for app.py
+
+M       app.py
+
+Cherry picking
+==============
+4.	.env and config.json
+5.	The answer is yes.
+	There may be some kind of dependency.
+	for example, if you'll pick a commit that is in progress and it was first introduced in an unpicked commit,
+	it won't apply until you'll fix the unordered pick
+
+Changes in working tree and switch branches
+===========================================
+2.
+$ echo "write some lines in it and add it to the index" >take.txt
+
+3. The message suggests that I'll make a commit or stash
+$ git checkout dev
+error: Your local changes to the following files would be overwritten by checkout:
+        take.txt
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+5. No, this is what it outputs:
+KLITA@DESKTOP-4D3V75O MINGW64 ~/PycharmProjects/myGitEx/07_git_exercises (featur
+e/lambda_migration2)
+$ cat take.txt
+a
+b
+c
+
+6. 	No the file is erased
+	Force Checkout clears index and working area from uncommitted changes.
+
+Reset
+=====
+2.
+	1. git resets the last commit, in our case .env changed
+	2. git resets the index but not the working tree, it means that the files .env and config.json are unadded to index.
+	3. git resets the index and working tree. any untracked files or directories in the way of writing any tracked files are simply deleted
+		in our case, init.sh has been deleted and app.py showed.
+	4. git reverts the changes in the last commit in HEAD and create a new commit with the reverted changes
+3. Changes HEAD according to last history log
