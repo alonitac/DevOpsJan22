@@ -218,9 +218,10 @@ class TestStrCompression(unittest.TestCase):
     """
 
     def test_sample(self):
-            self.assertEqual(questions.str_compression(''), '')
+            self.assertEqual(questions.str_compression(''), [])
             self.assertEqual(questions.str_compression('AABBCC'), ['A',2,'B',2,'C',2])
             self.assertEqual(questions.str_compression('AAABCCDDDDD'), ['A',3,'B',1,'C',2,'D',5])
+            self.assertEqual(questions.str_compression('AAABCCADDDDD'), ['A', 3, 'B', 1, 'C', 2, 'A' ,1, 'D', 5])
             # your code here
             pass
 
