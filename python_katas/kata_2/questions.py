@@ -107,7 +107,13 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    return None
+    import json
+    files = json_paths
+    merg_dict = {}
+    for file in files:
+        with open(file, 'r+') as f:
+            merg_dict.update(json.load(f))
+    return merg_dict
 
 
 def monotonic_array(lst):
@@ -306,7 +312,29 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
+    '''new_dic = {}
+    new_list = []
+    for let in text:
+        if let in new_dic:
+            new_dic[let] += 1
+        else:
+            new_dic[let] = 1
+    for key, value in new_dic.items():
+        temp = [key, value]
+        new_list.append(temp)
+    return new_list'''
+    new_lst = []
+    let = text[0]
+    num = 0
+    for tmp in range(len(text)):
+        if text[tmp] == text[tmp - 1]:
+            num += 1
+        else:
+            new_lst.append(text[tmp])
+            num = 1
+    return new_lst
+
+
 
 
 def strong_pass(password):
@@ -341,8 +369,8 @@ if __name__ == '__main__':
     print('\nreplace_in_file:\n--------------------')
     print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
 
-    print('\njson_configs_merge:\n--------------------')
-    print(json_configs_merge('default.json', 'local.json'))
+    #print('\njson_configs_merge:\n--------------------')
+    print(json_configs_merge('jpg.json', 'student.json'))
 
     print('\nmonotonic_array:\n--------------------')
     print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
