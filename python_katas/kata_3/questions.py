@@ -1,7 +1,8 @@
 from python_katas.kata_3.utils import open_img, save_img
 import requests   # to be used in simple_http_request()
-
 ISO_FORMAT = '%Y-%m-%dT%H:%M:%SZ'
+from PIL import Image
+from PIL import ImageFilter
 
 
 def knapsack(items, knapsack_limit=50):
@@ -25,6 +26,11 @@ def knapsack(items, knapsack_limit=50):
 
 
 def time_me(func):
+    st = time.time()
+    func()
+    et = time.time()
+    elapsed_time = et - st
+    return ('Execution time:', elapsed_time, 'seconds')
     """
     2 Kata
 
@@ -35,10 +41,14 @@ def time_me(func):
     :param func:
     :return:
     """
-    return None
 
 
 def youtube_download(video_id):
+    # from youtube_dl import YoutubeDL
+    # import youtube_dl
+    # ydl_opts = {}
+    # with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+    #     ydl.download(['https://www.youtube.com/watch?v='+video_id])
     """
     3 Kata
 
@@ -50,9 +60,8 @@ def youtube_download(video_id):
     :param video_id: str
     :return: None
     """
-    from youtube_dl import YoutubeDL
 
-    return None
+
 
 
 def tasks_scheduling(tasks):
@@ -89,6 +98,12 @@ def valid_dag(edges):
 
 
 def rotate_img(img_filename):
+    #read the image
+    oriImage = Image.open(img_filename)
+    #rotate image
+    angle = -45
+    out = oriImage.rotate(angle)
+    out.save(f"rotated_{img_filename}")
     """
     3 Kata
 
@@ -97,15 +112,20 @@ def rotate_img(img_filename):
     :param img_filename: image file path (png or jpeg)
     :return: None, the rotated image should be saved as 'rotated_<original image filename>'
     """
-    image = open_img(img_filename)
 
-    pass  # use rotate_matrix from previous kata 2 or implement....
+
+     # use rotate_matrix from previous kata 2 or implement....
 
     # use the below line to save list as image
     # save_img(rotated_img, f'rotated_{img_filename}')
 
 
-def img_blur(img_filename):
+def img_blur(img_filename,blur=20):
+    oriImage = Image.open(img_filename)
+    # Applying BoxBlur filter
+    boxImage = oriImage.filter(ImageFilter.BoxBlur(blur))
+    # Save Boxblur image
+    boxImage.save(f"blured_{img_filename}")
     """
     4 Kata
 
@@ -114,9 +134,9 @@ def img_blur(img_filename):
     :param img_filename: image file path (png or jpeg)
     :return: None, the rotated image should be saved as 'rotated_<original image filename>'
     """
-    image = open_img(img_filename)
 
-    pass  # use matrix_avg from previous kata 2 or implement....
+
+     # use matrix_avg from previous kata 2 or implement....
 
     # use the below line to save list as image
     # save_img(blured_img, f'blured_{img_filename}')
