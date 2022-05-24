@@ -354,7 +354,7 @@ def sum_of_digits(digits_str):
     """
     chars_array = [char for char in digits_str]
     int_array = [int(c) for c in chars_array]
-    return (sum(int_array))
+    return sum(int_array)
 
 
 if __name__ == '__main__':

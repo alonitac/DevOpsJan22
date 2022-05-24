@@ -182,6 +182,10 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
+    mylist = []
+    if rows is not None:
+        for i in rows:
+            mylist.append(zip(mat[i]))
     return None
 
 
