@@ -191,22 +191,19 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
+    age_min = 99999
+    names_min = ("a", "b")
 
-    def pair_match(men, women):
+    for key, value in men.items():
+        for w_key, w_value in women.items():
 
-        age_min = 99999
-        names_min = ("a", "b")
+            d_keys = (key, w_key)
+            age_diff = abs(value - w_value)
+            if age_min > age_diff:
+                names_min = d_keys
+                age_min = age_diff
 
-        for key, value in men.items():
-            for w_key, w_value in women.items():
-
-                d_keys = (key, w_key)
-                age_deff = abs(value - w_value)
-                if age_min > age_deff:
-                    names_min = d_keys
-                    age_min = age_deff
-
-        return names_min
+    return names_min
 
 
 def bad_average(a, b, c):
@@ -248,15 +245,14 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    dict.values = {}
-    for i in dict.values():
-        if i >
-    keys_list = list(grades.keys())
-    values_list = list(grades.values())
+    grade_max = -1
+    names_max = None
+    for name, value in grades.items():
+        if value > grade_max:
+            grade_max = value
+            names_max = name
 
-    return dict.keys
-
-
+    return names_max
 
 def print_dict_as_table(some_dict):
     """
@@ -386,12 +382,12 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    my_list = []
-    digits_str = 0
-    for val in my_list:
-        digits_str += val
 
-    return digits_str
+    output = 0
+    for val in digits_str:
+        output += int(val)
+
+    return output
 
 if __name__ == '__main__':
 
