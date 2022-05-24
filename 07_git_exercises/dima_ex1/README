@@ -1,6 +1,6 @@
 #my git_ex1 exercise answers :
 
-Git Basics :
+#Git Basics :
 
 1. echo "1" > abc.txt
 2. "red color" because the file not in index
@@ -28,9 +28,116 @@ Git Basics :
 
 15. git reset -- abc.txt for remove the staged files in index and git restore -- abc.txt for unstaged files in working tree
 
-Resolve conflicts:
+#Resolve conflicts:
 
+1. git branch:
+  output:
+  bugfix/fix_readme_typo
+  bugfix/open_kibana_port
+  dev
+  feature/data_retention_policy
+  feature/elasticsearch_helm_chart
+  feature/upgrade_angular_version
+  feature/version1
+  feature/version2
+* main
+  reset_question
 
+2. git checkout -b feature/lambda_migration (the git checkout command accepts a -b argument that acts as a convenience method which will create new branch and switch to it immediately)
+   output:
+   Switched to a new branch 'feature/lambda_migration'
 
+3. git merge feature/version1
+   output:
+   Merge made by the 'recursive' strategy.
+    .env        | 0
+    app.py      | 4 ++--
+    config.json | 0
+    3 files changed, 2 insertions(+), 2 deletions(-)
+    create mode 100644 .env
+    create mode 100644 config.json
 
+4. git log:
+   output:
+   commit 84c58db9790c249a2b12cda2a0f2a1726e272e8d (HEAD -> feature/lambda_migration)
+   Merge: d89dca1 8019018
+   Author: dmitriyshub <d.shtranvasser@gmail.com>
+   Date:   Tue May 24 12:37:21 2022 +0300
 
+    Merge branch 'feature/version2' into feature/lambda_migration
+
+    # Conflicts:
+    #       app.py
+
+    commit d89dca1c732a45479f956147da71cd096bb5fc73
+
+    # Conflicts:
+    #       app.py
+
+   commit d89dca1c732a45479f956147da71cd096bb5fc73
+   Merge: d14ba66 e0f83f5
+   Author: dmitriyshub <d.shtranvasser@gmail.com>
+   Date:   Tue May 24 12:26:26 2022 +0300
+
+    Merge branch 'feature/version1' into feature/lambda_migration
+
+   Answer: Yes we have one commit for each merge
+
+#Cherry Picking:
+
+1. git checkout main && git checkout -b feature/lambda_migration2
+
+4. config.json and .env files
+
+5. yes because the commits must be related with each other by order
+
+#Changes in working tree and switch branches:
+
+1. git branch
+2. nano take.txt, save file after changes. git add take.txt
+3. git checkout dev
+   output:
+   error: Your local changes to the following files would be overwritten by checkout:
+        take.txt
+   Please commit your changes or stash them before you switch branches.
+   Aborting
+   answer: suggested approaches from git - commit or stash
+           git stash saves the local modification away and reverts the working directory to match the HEAD commit
+4. No , the text overwritten to a b c on separate lines
+5. No, my local uncommited changes will be overwritten and i will lose them
+
+# Reset:
+
+1. git checkout reset_question
+2.
+   1: git reset --soft HEAD~1
+   output1:
+   On branch reset_question
+   Changes to be committed:
+   (use "git restore --staged <file>..." to unstage)
+         new file:   10.txt
+   answer1:
+   the command will remove the last commit from the current branch,but the file changes will stay in working tree
+
+   2: git reset --mixed HEAD~1
+   output2:
+   On branch reset_question
+   Untracked files:
+   (use "git add <file>..." to include in what will be committed)
+         10.txt
+         9.txt
+
+   nothing added to commit but untracked files present (use "git add" to track)
+
+   answer2:
+   the coomand will still kepp the changes in your working tree but not in the index
+
+   3: git reset --hard HEAD~1
+   output3:
+   HEAD is now at 17a0b5d 7
+   ansswer3:
+   lose all uncommited changes and all untracked files in addition to the changes introduced in the last commit
+
+   4. revert the last git commit, it will record a new commit with the changes introduced by reverting the last commit
+
+#end
