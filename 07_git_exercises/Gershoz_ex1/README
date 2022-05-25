@@ -17,9 +17,12 @@ BLUE (Changes has been made to a commited file)
 ($ git cheakout "workingtree")
 $ git diff main
 
-Because we (first created a file and added some text to it, after that we staged/added the changed new file, and then we commited that step, so the staged tree has been cleared.
-Then we added another change to the file, but we did not add/staged it into the index, so git diff --staged at this point doesnt show anything.)
+Because we (first created a file and added some text to it, after that we staged/added the changed new file, 
+and then we commited that step, so the staged tree has been cleared.
+Then we added another change to the file, but we did not add/staged it into the index, 
+so git diff --staged at this point doesnt show anything.)
 we are comparing the index to the working tree, they are iddentical, so we get nothing.
+(Not sure about this one)
 
 stage2 is not a branch in our repo
 
@@ -29,7 +32,8 @@ Now after we added the latest changes to the index "git diff" shows nothing, bec
 $ git diff --staged main
 
 echo "3" >> abc.txt
-No, because "git diff --staged" will show us the changes between the staged state at the next commit(+2), unlike "git diff main" that will show us the changes comparing the working tree and the branch main(+2 +3).
+No, because "git diff --staged" will show us the changes between the staged state at the next commit(+2), 
+unlike "git diff main" that will show us the changes comparing the working tree and the branch main(+2 +3).
 
 It shows the staged changes and the unstaged changes that has been made.
 
@@ -71,7 +75,10 @@ $ git checkout -b feature/lambda_migration2
 
 The files .env and config.json were added
 
-"Cherry Picking" and its order in which you pick the commits is not important because commits to diffrent files cant conflict or lose/overwrite data, But this might not be true for picking on commits that involve the same files - might be overwritten for each commit.
+"Cherry Picking" and its order in which you pick the commits is not important,
+First because commits to diffrent files cant conflict or lose/overwrite data, 
+But this might not be true for picking on commits that involve the same files - might be overwritten for each commit.
+(Not sure about this one either)
 
 ------------------------------------------------
 Changes in working tree and switch branches
@@ -91,7 +98,10 @@ Using "Force Checkout" did not save my changes to the file take.txt in branch "d
 
 $ git checkout feature/lambda_migration2
 
-The take.txt file has been deleted, I assume "Force Checkout" probably forces the changes that hasnt been commited forcufully - Meaning if the changes can be simply inserted to the new branch they will be, otherwise the changes will get lost as they havent been commited and cant be saved to the new brach.
+The take.txt file has been deleted, 
+I assume "Force Checkout" probably forces the changes that hasnt been 
+commited forcufully - Meaning if the changes can be simply inserted to the new branch they will be, 
+otherwise the changes will get lost as they havent been commited and cant be saved to the new brach.
 
 ------------------------------------------------
 Reset
