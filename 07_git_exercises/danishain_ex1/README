@@ -27,3 +27,15 @@
             # Conflicts:
             #       app.py
 
+...part 3..
+
+4. files: .env and config.json
+5. no, because the commit saved to enother file and copy them . and also no have conflict.
+
+...part 4...
+1. touch take.txt
+2. git add take.txt
+3. I got smart checkout or force checkout and I choose the force and added only wha was not
+5. no
+6. delete the file and from working tree/
+
