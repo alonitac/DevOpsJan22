@@ -187,11 +187,11 @@ def matrix_avg(mat, rows=None):
     if rows is not None:
         for i in rows:
             mylist += sum(mat[i])
-            rng = len(mat[i])
+            rng += len(mat[i])
     else:
         for j in range(len(mat)):
             mylist += sum(mat[j])
-        rng = len(mat)
+            rng += len(mat[j])
     return mylist / rng
 
 
