@@ -48,4 +48,11 @@ def geo():
     pass
 
 
+def pyjwt_demo():
+    pass
+
+
+def pyaudio():
+    pass
+
 
