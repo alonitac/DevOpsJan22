@@ -1,4 +1,20 @@
 def valid_parentheses(s):
+    signs_str = '()[]{}'
+    signs_list = list(signs_str)
+    the_list = list(s)
+    ezer_list = []
+    for x in range(0, len(the_list)):
+        if the_list[x] in ['[', '{', '(']:
+            ezer_list.append(the_list[x])
+        else:
+            for y in range(0, len(signs_list)):
+                if the_list[x] == signs_list[y]:
+                    if ezer_list[len(ezer_list) - 1] == signs_list[y - 1]:
+                        ezer_list.pop()
+                    else:
+                        return False
+    return True
+
     """
     3 Kata
 
@@ -13,7 +29,9 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
-    return None
+
+
+#  return None
 
 
 def fibonacci_fixme(n):
@@ -30,21 +48,42 @@ def fibonacci_fixme(n):
     fibonacci_fixme(3) -> 2
     fibonacci_fixme(4) -> 3
     fibonacci_fixme(5) -> 5
-
     But it doesn't (it has some bad lines in it...)
     You should (1) correct the for statement and (2) swap two lines, so that the correct fibonacci element will be returned
     """
     a = 0
     b = 1
-    for i in range(1, n):
-        a = b
+    for i in range(0, n):
         tmp = a + b
+        a = b
         b = tmp
-
     return a
 
 
 def most_frequent_name(file_path):
+    names_list = []
+    counter = 0
+    unique_names = []
+    appearances = []
+    winner_appearances = 0
+    memory = 0
+    for n in open(file_path):
+        names_list.append(n)
+    for name1 in names_list:
+        if name1 not in unique_names:
+            unique_names.append(name1)
+        for name2 in names_list:
+            if name1 == name2:
+                counter += 1
+        appearances.append(counter)
+        counter = 0
+    for i in range(0, len(appearances)):
+        if appearances[i] > winner_appearances:
+            winner_appearances = appearances[i]
+            memory = i
+    return unique_names[memory]
+
+    # return names_list
     """
     2 Kata
 
@@ -56,7 +95,7 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+    # return None
 
 
 def files_backup(dir_path):
@@ -119,10 +158,44 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+    lst_list = list(lst)
+    delt_list = []
+    for i in range(1, len(lst_list)):
+        d = lst_list[i] - lst_list[i - 1]
+        delt_list.append(d)
+    for j in delt_list:
+        if j == 0:
+            delt_list.pop(j)
+        elif abs(j) != 1:
+            return False
+    for s in range(1, len(delt_list)):
+        if delt_list[s - 1] != delt_list[s]:
+            return False
+    return True
+    # return None
 
 
 def matrix_avg(mat, rows=None):
+    if rows == None:
+        return None
+    for i in range(0, 3):
+        degel = 0
+        for r in rows:
+            if i == r:
+                degel = 1
+        if degel == 0:
+            mat.pop(i)
+    ezer_list = []
+    summ = 0
+    counter = 0
+    for j in range(0, len(mat)):
+        for k in range(0, len(mat[j])):
+            ezer_list.append(mat[j][k])
+            counter += 1
+            summ += mat[j][k]
+    average = summ / counter
+    return int(average)
+
     """
     2 Kata
 
@@ -133,11 +206,30 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    # return None
 
 
 def merge_sorted_lists(l1, l2):
-    """
+    for_count = 0
+    i = j = 0
+    for_count += 1
+    # for i in range(i, len(l1)):
+    while j < len(l2):
+        # print(l2[j], l1[i], len(l1), len(l2))
+        if l2[j] <= l1[i]:
+            l1.insert(i, l2[j])
+            j += 1
+            i += 1
+        elif l2[j] > l1[len(l1) - 1]:
+            l1.append(l2[j])
+            j += 1
+            i += 1
+        else:
+            i += 1
+    return l1
+
+
+"""
     1 Kata
 
     This function gets two sorted lists (each one of them is sorted)
@@ -149,10 +241,44 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+
+
+# return None
 
 
 def longest_common_substring(str1, str2):
+    mat = []
+    winner = []
+    l3 = []
+    i = 0
+    counter = 0
+    flag = False
+    l1 = list(str1)
+    l2 = list(str2)
+    while i < len(l1):
+        for j in range(0, len(l2)):
+            end = False
+            while i < len(l1) and end == False:
+                if l1[i] == l2[j]:
+                    l3.append(l1[i])
+                    i += 1
+                    if not flag:  # === if flag == False:  # if flag is True l3 was inserted automaticlly to mat in line 238 so I don't need to do it myself!
+                        mat.append(l3)
+                        counter += 1
+                        flag = True
+                else:
+                    if flag:  # means that 2 compared items not equal but in forward interval they were! so I have to bring i back:
+                        i -= 1
+                        flag = False
+                    l3 = []
+                if j == len(l2) - 1:
+                    i += 1
+                end = True
+    for w in range(0, counter):
+        if len(mat[w]) >= len(winner):
+            winner = mat[w]
+    return ''.join(winner)
+
     """
     4 Kata
 
@@ -169,10 +295,22 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
+    # return None
 
 
 def longest_common_prefix(str1, str2):
+    l1 = list(str1)
+    l2 = list(str2)
+    l3 = []
+    i = j = 0
+    while i < len(l1) and j < len(l2):
+        if l1[i] == l2[j]:
+            l3.append(l1[i])
+            i += 1
+            j += 1
+        else:
+            return ''.join(l3)
+    return ''.join(l3)
     """
     1 Kata
 
@@ -188,10 +326,26 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+    # return None
 
 
 def rotate_matrix(mat):
+    ezer1 = []
+    ezer2 = []
+    ezer3 = []
+    mat2 = []
+    mat_length = len(mat)
+    for i in range(0, len(mat[0])):
+        for j in range(0, mat_length):
+            ezer1 = mat[mat_length - 1 - j]
+            ezer2 = ezer1[i]
+            ezer3.append(ezer2)
+            ezer1 = []
+            ezer2 = []
+        mat2.append(ezer3)
+        ezer3 = []
+    return mat2
+
     """
     2 Kata
 
@@ -214,7 +368,7 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    return None
+    # return None
 
 
 def is_valid_email(mail_str):
@@ -237,6 +391,34 @@ def is_valid_email(mail_str):
 
 
 def pascal_triangle(lines):
+    total_list = []
+    line_list = []
+    last_list = []
+    c = ''
+    flag = False
+    for i in range(0, lines):
+        for j in range(0, i + 1):
+            if j == 0 and i != 0:
+                line_list.append(1)
+            elif j == i:
+                line_list.append(1)
+                total_list.append(line_list)
+                for x in total_list[i]:
+                    b = str(x)
+                    c = c + ' ' + b
+                print(c)
+                c = ''
+                line_list = []
+                flag = False
+            else:
+                if not flag:
+                    last_list = total_list.pop()
+                    total_list.append(last_list)
+                    flag = True
+                a = last_list[j - 1] + last_list[j]
+                line_list.append(a)
+    return c
+
     """
     3 Kata
 
@@ -269,16 +451,21 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    return None
+    # return None
 
 
 def list_flatten(lst):
+    for x in lst:
+        y = str(x)
+        print(y)
+    # e=''.join(lst)
+    return  # e
     """
     2 Kata
 
     This function gets a list of combination of integers or nested lists
     e.g.
-    [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0], [3]]
+    [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0, [3]]
 
     The functions should return a flatten list (including all nested lists):
     [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3]
@@ -286,10 +473,40 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+    # return None
 
 
 def str_compression(text):
+    text_list = list(text)
+    counter = 1
+    flag = False
+    res = []
+    for i in range(0, len(text_list) - 1):
+        if text_list[i] == text_list[i + 1]:
+            counter += 1
+            flag = True
+        else:
+            if flag:
+                if i == len(text_list) - 2:
+                    res.append(text_list[i])
+                    res.append(counter)
+                    counter = 1
+                    res.append(text_list[i + 1])
+                    res.append(counter)
+                else:
+                    res.append(text_list[i])
+                    res.append(counter)
+                    counter = 1
+            else:
+                if i == len(text_list) - 2:
+                    res.append(text_list[i])
+                    res.append(counter)
+                    res.append(text_list[i + 1])
+                    res.append(counter)
+                else:
+                    res.append(text_list[i])
+                    res.append(counter)
+    return res
     """
     2 Kata
 
@@ -306,10 +523,26 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
+    # return None
 
 
 def strong_pass(password):
+    pas_list = list(password)
+    six_flag = False
+    digit_flag = False
+    low_flag = False
+    up_flag = False
+    spec_flag = False
+    for i in range(0, len(pas_list)):
+        if len(pas_list) >= 6: six_flag = True
+        if '0' <= pas_list[i] <= '9': digit_flag = True
+        if 'a' <= pas_list[i] <= 'z': low_flag = True
+        if 'A' <= pas_list[i] <= 'Z': up_flag = True
+        if pas_list[i] in ('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+'): spec_flag = True
+    if six_flag and digit_flag and low_flag and up_flag and spec_flag:
+        return True
+    else:
+        return False
     """
     1 Kata
 
@@ -322,10 +555,11 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
-    return None
+    # return None
 
 
 if __name__ == '__main__':
+    '''
     print('\nvalid_parentheses:\n--------------------')
     print(valid_parentheses('[[{()}](){}]'))
 
@@ -336,7 +570,7 @@ if __name__ == '__main__':
     print(most_frequent_name('names.txt'))
 
     print('\nfiles_backup:\n--------------------')
-    print(files_backup('files_to_backup'))
+    print(files_backup('python_katas/kata_2'))
 
     print('\nreplace_in_file:\n--------------------')
     print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
@@ -346,34 +580,40 @@ if __name__ == '__main__':
 
     print('\nmonotonic_array:\n--------------------')
     print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
+    #print(monotonic_array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 
     print('\nmerge_sorted_lists:\n--------------------')
-    print(merge_sorted_lists([1, 4, 9, 77, 13343], [-7, 0, 7, 23]))
+    print(merge_sorted_lists([1, 4, 77, 99], [-7, 0, 7, 23, 667]))  #was 9 not 99
 
     print('\nlongest_common_substring:\n--------------------')
-    print(longest_common_substring('abcdefg', 'bgtcdesd'))
+    print(longest_common_substring('abcdefg', 'llljagbcfkkk'))
 
     print('\nlongest_common_prefix:\n--------------------')
-    print(longest_common_prefix('abcd', 'ttty'))
+    print(longest_common_prefix('AABBCabcd', 'AABBCttty'))
 
     print('\nrotate_matrix:\n--------------------')
+    #print(rotate_matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]))
     print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
 
     print('\nis_valid_email:\n--------------------')
     print(is_valid_email('israel.israeli@gmail.com'))
-
+'''
     print('\npascal_triangle:\n--------------------')
-    print(pascal_triangle(4))
-
+    print(pascal_triangle(10))
+'''
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
 
     print('\nstr_compression:\n--------------------')
-    print(str_compression('aaaabdddddhgf'))
+    #print(str_compression('aaaabdddddhgf'))
+    print(str_compression('aaaaabbcaasbbgvccf'))
 
     print('\nstrong_pass:\n--------------------')
-    print(strong_pass('##$FgC7^^5a'))
+   #print(strong_pass('##$FgC7^^5a'))
+    print(strong_pass('!Z@aa1'))
+
+    '''
