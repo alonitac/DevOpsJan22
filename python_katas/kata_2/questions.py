@@ -36,11 +36,10 @@ def fibonacci_fixme(n):
     """
     a = 0
     b = 1
-    for i in range(1, n):
-        a = b
+    for i in range(n):
         tmp = a + b
+        a = b
         b = tmp
-
     return a
 
 
@@ -324,15 +323,17 @@ def str_compression(text):
         new_list.append(temp)
     return new_list'''
     new_lst = []
-    let = text[0]
     num = 0
-    for tmp in range(len(text)):
+    for tmp in range(len(text) + 1):
         if text[tmp] == text[tmp - 1]:
             num += 1
         else:
+            if num > 1:
+                new_lst.append(num)
             new_lst.append(text[tmp])
             num = 1
     return new_lst
+
 
 
 
