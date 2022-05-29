@@ -366,6 +366,7 @@ if flag == -1:
     print("Not a Valid Password")
 '''
 
+'''
 string = 'Python for begginners'
 print(string.upper())
 print(string.lower())
@@ -373,3 +374,5 @@ print(string.find('n'))
 print(string.count('n'))
 print(string.replace('n','m'))
 print(string.title())
+'''
+

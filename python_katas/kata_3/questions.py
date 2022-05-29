@@ -21,6 +21,8 @@ def knapsack(items, knapsack_limit=50):
     :param knapsack_limit:
     :return: set of items
     """
+
+
     return None
 
 
@@ -35,7 +37,11 @@ def time_me(func):
     :param func:
     :return:
     """
-    return None
+    import time
+    start_time = time.time()
+    func()
+    print("--- %s seconds ---" % (time.time() - start_time))
+    #return time.time()
 
 
 def youtube_download(video_id):
