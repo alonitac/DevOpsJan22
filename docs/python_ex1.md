@@ -22,7 +22,7 @@ Your goal in this exercise is to design and develop Telegram bot which will serv
 
    ![telegramBot](/img/telegramToken.png)
 
-At this point, you should have your own bot, as well as the API token. **Never** commit sensitive data like secrets in Git repo. For now, save the token in a file called `.telegeamToken` and add this file to `.gitignore` to exclude it completely from Git index. We will later learn that the place to store sensitive data is the cloud (AWS in our case).
+At this point, you should have your own bot, as well as the API token. **Never** commit sensitive data like secrets in Git repo. For now, save the token in a file called `.telegramToken` and add this file to `.gitignore` to exclude it completely from Git index. We will later learn that the place to store sensitive data is the cloud (AWS in our case).
 
 
 
