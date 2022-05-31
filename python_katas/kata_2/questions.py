@@ -106,7 +106,7 @@ def files_backup(dir_path):
     """
     path_to_dir = dir_path.split("/")
     source_dir = (path_to_dir[-1])
-    command = "/usr/bin/tar zcf backup_{0}_`date +%Y-%m-%d`.tar.gz {1}".format(source_dir, dir_path)
+    command = "/usr/bin/tar zcvf backup_{0}_`date +%Y-%m-%d`.tar.gz {1}".format(source_dir, dir_path)
     status = os.system(command)
     return source_dir
 
@@ -208,7 +208,22 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+    return sorted(l1 + l2)
+    size_1 = len(l1)
+    size_2 = len(l2)
+
+    res = []
+    i, j = 0, 0
+
+    while i < size_1 and j < size_2:
+        if l1[i] < l2[j]:
+            res.append(l1[i])
+            i += 1
+        else:
+            res.append(l2[j])
+            j += 1
+    res = res + l1[i:] + l2[j:]
+    return res
 
 
 def longest_common_substring(str1, str2):
@@ -418,7 +433,7 @@ if __name__ == '__main__':
     print(most_frequent_name('names.txt'))
 
     print('\nfiles_backup:\n--------------------')
-    print(files_backup('python_katas/kata_2'))
+    print(files_backup('/home/doron'))
 
     print('\nreplace_in_file:\n--------------------')
     print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
