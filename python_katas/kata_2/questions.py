@@ -57,7 +57,6 @@ def fibonacci_fixme(n):
         a = b
         b = tmp
         tmp = a + b
-
     return tmp
 
 
@@ -233,7 +232,24 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
+    m = len(str1)
+    n = len(str2)
+    counter = [[0] * (n + 1) for x in range(m + 1)]
+    longest = 0
+    lcs = set()
+    for i in range(m):
+        for j in range(n):
+            if str1[i] == str2[j]:
+                c = counter[i][j] + 1
+                counter[i + 1][j + 1] = c
+                if c > longest:
+                    lcs = set()
+                    longest = c
+                    lcs.add(str1[i - c + 1:i + 1])
+                elif c == longest:
+                    lcs.add(str1[i - c + 1:i + 1])
+
+    return lcs
 
 
 def longest_common_prefix(str1, str2):
