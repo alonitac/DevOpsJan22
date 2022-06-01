@@ -442,8 +442,14 @@ def str_compression(text):
     return new_list'''
     new_lst = []
     num = 0
-    for tmp in range(len(text) + 1):
-        if text[tmp] == text[tmp - 1]:
+    flag = 0
+    if text == '':
+        text = []
+        return text
+    for tmp in range(len(text)):
+        if tmp > 0:
+            flag = 1
+        if text[tmp] == text[tmp - flag]:
             num += 1
         else:
             if num > 1:
