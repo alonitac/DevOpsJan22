@@ -372,7 +372,10 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+    for i, x in enumerate(lst):
+        while i < len(lst) and isinstance(lst[i], list):
+            lst[i:i + 1] = lst[i]
+    return lst
 
 
 def str_compression(text):
