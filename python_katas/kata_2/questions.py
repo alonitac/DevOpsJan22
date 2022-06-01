@@ -268,7 +268,13 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+    i = j = 0
+    while i < len(str1) and j < len(str2):
+        if str1[i] != str2[j]:
+            break
+        i = i + 1
+        j = j + 1
+    return str1[:i]
 
 
 def rotate_matrix(mat):
