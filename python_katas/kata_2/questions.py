@@ -13,8 +13,15 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
-    return None
-
+    while True:
+        if '()' in s:
+            s = s.replace('()', '')
+        elif '{}' in s:
+            s = s.replace('{}', '')
+        elif '[]' in s:
+            s = s.replace('[]', '')
+        else:
+            return not s
 
 def fibonacci_fixme(n):
     """
@@ -55,7 +62,13 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+    mfile = open(file_path)
+    data = mfile.readlines()
+    my_dict = {}
+    for name in data:
+        my_dict[name] = data.count(name)
+    num = sorted(my_dict.items(), key=lambda x: x[1])
+    return num[-1][0]
 
 
 def files_backup(dir_path):
@@ -75,7 +88,14 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
+    import tarfile
+    from datetime import date
+    todays_date = str(date.today())
+    tar = tarfile.open('backup' + '_' + dir_path + '_' + todays_date + '.tar.gz', 'w:gz')
+    tar.add(dir_path)
+    file_name = tar.name.split('\\')[-1]
+    tar.close()
+    return file_name
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -92,6 +112,13 @@ def replace_in_file(file_path, text, replace_text):
     :param replace_text: text to replace with
     :return: None
     """
+    from pathlib import Path
+    if Path(file_path).exists():
+        file_read = Path(file_path)
+        file_text = file_read.read_text()
+        file_text = file_text.replace(text, replace_text)
+        file_read.write_text(file_text)
+
     return None
 
 
@@ -124,7 +151,21 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+    num = 0
+    if lst[0] > lst[-1]:
+        for num in range(len(lst)-1):
+            if lst[num] >= lst[num+1]:
+                num += 1
+            else:
+                return False
+        return True
+    else:
+        for num in range(len(lst)-1):
+            if lst[num] <= lst[num+1]:
+                num += 1
+            else:
+                return False
+        return True
 
 
 def matrix_avg(mat, rows=None):
@@ -138,7 +179,18 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    op = 0
+    num = 0
+    if not rows:
+        for lst in mat:
+            num += sum(lst)
+            op += len(lst)
+        return num / op
+    else:
+        for lst in rows:
+            num += sum(mat[lst])
+            op += len(mat[lst])
+        return num / op
 
 
 def merge_sorted_lists(l1, l2):
@@ -154,7 +206,13 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+    num1 = 0
+    num2 = 0
+    i = 0
+    num2_len = len(l2) - 1
+    while l2[i] < l1[num1]:
+        l1.insert(num1, l2[i])
+        i += 1
 
 
 def longest_common_substring(str1, str2):
@@ -174,7 +232,18 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
+    answer = ''
+    len1, len2 = len(str1), len(str2)
+    for i in range(len1):
+        match = ''
+        for j in range(len2):
+            if i + j < len1 and str1[i + j] == str2[j]:
+                match += str2[j]
+            else:
+                if len(match) > len(answer):
+                    answer = match
+                match = ''
+    return answer
 
 
 def longest_common_prefix(str1, str2):
@@ -193,7 +262,13 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+    new_list = ''
+    num = 0
+    while str1[num] == str2[num]:
+        new_list += str1[num]
+        num += 1
+
+    return new_list
 
 
 def rotate_matrix(mat):
@@ -219,7 +294,21 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    return None
+    rotated = []
+    x = len(mat)
+    i = len(mat[x - 1])
+    flag = 0
+    while i > 0:
+        loop = x - 1
+        temp = []
+        for n in range(x):
+            temp.append(mat[loop][flag])
+            loop -= 1
+            n += 1
+        rotated.append(temp)
+        flag += 1
+        i -= 1
+    return rotated
 
 
 def is_valid_email(mail_str):
@@ -238,7 +327,23 @@ def is_valid_email(mail_str):
     :param mail_str: mail to check
     :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
     """
-    return None
+    import socket
+    user = 0
+    dom = 0
+    new_list = mail_str.split('@')
+    if new_list[0].startswith('_'):
+        return False
+    if not new_list[0].isalnum() and '._' in new_list[0]:
+        user = 0
+    else:
+        user = 1
+    ip4_add = socket.gethostbyname(new_list[1])
+    if ip4_add:
+        dom = 1
+    if user == 1 and dom == 1:
+        return True
+    else:
+        return False
 
 
 def pascal_triangle(lines):
@@ -274,7 +379,12 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    return None
+    for i in range(1, lines + 1):
+        pas = 1
+        for j in range(1, i + 1):
+            print(pas, end=' ')
+            pas = pas * (i - j) // j
+        print()
 
 
 def list_flatten(lst):
@@ -291,7 +401,15 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+    flat_list = []
+    for sublist in lst:
+        if type(sublist) is not list:
+            flat_list.append(sublist)
+        else:
+            for num in sublist:
+                flat_list.append(num)
+
+    print(flat_list)
 
 
 def str_compression(text):
@@ -351,7 +469,26 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
-    return None
+    if len(password) < 6:
+        return False
+    digit = False
+    lower = False
+    upper = False
+    spec = False
+
+    for i in password:
+        if i.isdigit():
+            digit = True
+        elif i.islower():
+            lower = True
+        elif i.isupper():
+            upper = True
+        elif not i.isidentifier():
+            spec = True
+    if digit and lower and upper and spec:
+        return True
+    else:
+        return False
 
 
 if __name__ == '__main__':
