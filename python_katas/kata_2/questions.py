@@ -138,11 +138,9 @@ def replace_in_file(file_path, text, replace_text):
 def json_configs_merge(*json_paths):
     """
     2 Kata
-
     This function gets an unknown number of paths to json files (represented as tuple in json_paths argument)
     it reads the files content as a dictionary, and merges all of them into a single dictionary,
     in the same order the files have been sent to the function!
-
     :param json_paths:
     :return: dict - the merges json files
     """
@@ -155,20 +153,12 @@ def json_configs_merge(*json_paths):
 def monotonic_array(lst):
     """
     1 Kata
-
     This function returns True/False if the given list is monotonically increased or decreased
-
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    n = len(lst)  # size of array
-    if n == 1:
-        return True
-    else:
-        if all(lst[i] >= lst[i + 1] for i in range(0, n - 1) or lst[i] <= lst[i + 1] for i in range(0, n - 1)):
-            return True
-        else:
-            return False
+    return (all(lst[i] <= lst[i + 1] for i in range(len(lst) - 1)) or all(
+        lst[i] >= lst[i + 1] for i in range(len(lst) - 1)))
 
 
 def matrix_avg(mat, rows=None):
@@ -208,14 +198,14 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return sorted(l1 + l2)
-    size_1 = len(l1)
-    size_2 = len(l2)
+    sizeof_l1 = len(l1)
+    sizeof_l2 = len(l2)
 
     res = []
-    i, j = 0, 0
+    i = 0
+    j = 0
 
-    while i < size_1 and j < size_2:
+    while i < sizeof_l1 and j < sizeof_l2:
         if l1[i] < l2[j]:
             res.append(l1[i])
             i += 1
@@ -449,7 +439,7 @@ if __name__ == '__main__':
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 
     print('\nmerge_sorted_lists:\n--------------------')
-    print(merge_sorted_lists([1, 4, 77, 9, 13343], [-7, 0, 7, 23]))
+    print(merge_sorted_lists([1, 4, 9, 77, 13343], [-7, 0, 7, 23]))
 
     print('\nlongest_common_substring:\n--------------------')
     print(longest_common_substring('abcdefg', 'bgtcdesd'))
