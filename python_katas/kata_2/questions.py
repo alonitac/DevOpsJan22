@@ -355,7 +355,19 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    return None
+    lst = []  # an empty list
+    for n in range(lines):
+        lst.append([])
+        lst[n].append(1)
+        for m in range(1, n):
+            lst[n].append(lst[n - 1][m - 1] + lst[n - 1][m])
+        if lines != 0:
+            lst[n].append(1)
+    for n in range(lines):
+        print(" " * (lines - n), end=" ", sep=" ")
+        for m in range(0, n + 1):
+            print('{0:5}'.format(lst[n][m]), end=" ", sep=" ")
+        print()
 
 
 def list_flatten(lst):
