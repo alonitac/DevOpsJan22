@@ -1,0 +1,68 @@
+Rami Kandov , KandovRami@gmail.com , 040863029
+-------------------------------------------------------
+Git Basics:
+================
+1. ex1(main)$ touch abc.txt
+            $ echo '1'>abc.txt
+2. red
+3.$git add abc.txt
+   green
+  $git commit -m "added abc.txt with 1"
+4.$ echo '2'>>abc.txt
+5.blue
+6.$git diff
+7. Because no files in Stage. Old version is commited and new version in working tree.
+8.Because there is no such command.
+9.git add abc.txt
+10. $git diff --stage
+    diff -git a/main.py  b/main.py
+  git diff compare with w.t that is empty now so git diff doesn't show him.
+11. $git diff --staged
+12. $ echo '3'>>abc.txt
+13. git diff --staged shows the differences between stage and commit:
+    1
+    +2
+    dit diff main shows the differences between all "layers" in branch:
+    1
+    +2
+    +3
+14. Because it was staged and than was changed in the w.t.
+15. $ git restore --staged abc.txt
+
+Resolve conflicts:
+==================
+1. $git branch -a
+2. $git checkout -b feature/lambda_migration
+3. $git merge feature/version1
+4. done
+5. done
+6.
+Restrict the extensions that can be disabled John Doe 10/05/2022 09:38
+use correct lock type in reconnect() John Doe 10/05/2022 09:38
+John's changes for app.py John Doe 10/05/2022 09:38
+
+Cherry picking:
+=================
+4. Restrict the extensions that can be disabled
+5. If commit B changes data from commit A, you can't apply commit B until commit A has beem applied.
+
+Changes in w.t and switch branches:
+======================================
+3. The error says if I'll do checkout, all changes from uncommited files will be overwrite, so suggested to SHELVE first the changes.
+5. No.
+6. I returned to migration2, there is no take.txt anymore. abc.txt contains '1'. That means Checkout delete everything except what in the w.t.
+
+Reset:
+=======
+2.1. git reset --soft HEAD~1:
+    10.txt came to stage
+    This command take the one commit before the last, to the stage.
+2.2. git reset --mixed HEAD~1:
+    9.txt and 10.txt in w.t.
+    This command takes back from stage to w.t the files were there after the one commit before last commit was executed.
+2.3. git reset --hard HEAD~1:
+    Nothing was occur, the 9.txt and 10.txt files are still in w.t.
+    This command takes back all project to the status that executed one commit before last commit.
+2.4. git revert HEAD~1:
+    This command delete the one commit before last commit from the remote repo, and ask me to insert a message to the commit, in order to execute the commit
+3. HEAD~1 means to access the ONE commit before the HEAD pointer points (to the last commit).
