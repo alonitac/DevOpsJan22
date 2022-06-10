@@ -136,6 +136,10 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
+    if not isinstance(num, int):
+
+        return False
+
     if num > 1:
         for i in range(2, num):
             if (num % i) == 0:
@@ -280,7 +284,6 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    some_dict = {}
     ami = max(map(len, some_dict))
     format_string = '{{key:{}}}  {{value}}'.format(ami)
     for key, value in some_dict.items():
@@ -305,8 +308,6 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    dict1 = {'a': 1}
-    dict2 = {'b': 2}
     d3 = {**dict1, **dict2}
 
     return d3
@@ -324,17 +325,14 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    list_booms = [n]
-    n = 30
+    list_booms = []
     while n > 0:
-        for num in n:
-            if n % 7 == 0 or ('7' in str(n)):
-                list_booms.append(n)
-                n -= 1
-                list_booms.reverse()
+        if n % 7 == 0 or ('7' in str(n)):
+            list_booms.append(n)
+        n -= 1
+    list_booms.reverse()
 
-        return list_booms[n]
-
+    return list_booms
 
 def caesar_cipher(str_to_encrypt):
     """

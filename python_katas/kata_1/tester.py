@@ -1,4 +1,4 @@
-def pair_match(men, women):
+sudo usermod -aG docker $USER
     def pair_match(men, women):
 
         age_min = 99999
