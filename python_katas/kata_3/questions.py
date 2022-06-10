@@ -24,8 +24,21 @@ def knapsack(items, knapsack_limit=50):
     """
     return None
 
+'''
+import time
+from random import random
 
 def time_me(func):
+    n = 10
+    summarize = 0
+    for i in range(0, n):
+        t1 = time.time()
+        func
+        t2 = time.time()
+        dt = t2-t1
+        summarize += dt
+    average = summarize/100
+    return average
     """
     2 Kata
 
@@ -37,7 +50,7 @@ def time_me(func):
     :return:
     """
     return None
-
+#====================================================================================
 '''
 
 #pip install youtube_dl
@@ -64,7 +77,7 @@ def youtube_download(video_id):
 
     return None
 
-'''
+
 def tasks_scheduling(tasks):
     """
     5 Kata
@@ -253,15 +266,15 @@ if __name__ == '__main__':
         'scooter': (5, 4)
     }, knapsack_limit=8)
     print(res)
+'''
+print('\ntime_me\n--------------------')
+time_took = time_me(lambda: time.sleep(5 + random()))
+print(time_took)
+'''
+    print('\nyoutube_download\n--------------------')
+    youtube_download('Urdlvw0SSEc')
+    #youtube_download('NXxUwuBKevU')
 
-    print('\ntime_me\n--------------------')
-    time_took = time_me(lambda: time.sleep(5 + random()))
-    print(time_took)
-'''
-print('\nyoutube_download\n--------------------')
-youtube_download('Urdlvw0SSEc')
-#youtube_download('NXxUwuBKevU')
-'''
     print('\ntasks_scheduling\n--------------------')
     tasks = tasks_scheduling([
         (datetime.strptime('2022-01-01T13:00:00Z', ISO_FORMAT), datetime.strptime('2022-01-01T14:00:00Z', ISO_FORMAT)),
