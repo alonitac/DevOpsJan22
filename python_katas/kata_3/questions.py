@@ -1,3 +1,4 @@
+'''
 from python_katas.kata_3.utils import open_img, save_img
 import requests   # to be used in simple_http_request()
 
@@ -37,8 +38,17 @@ def time_me(func):
     """
     return None
 
+'''
+
+#pip install youtube_dl
+from __future__ import unicode_literals
+import youtube_dl
 
 def youtube_download(video_id):
+    ydl_opts = {}
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download(['http://www.youtube.com/watch?v='+ video_id])
+
     """
     3 Kata
 
@@ -54,7 +64,7 @@ def youtube_download(video_id):
 
     return None
 
-
+'''
 def tasks_scheduling(tasks):
     """
     5 Kata
@@ -247,10 +257,11 @@ if __name__ == '__main__':
     print('\ntime_me\n--------------------')
     time_took = time_me(lambda: time.sleep(5 + random()))
     print(time_took)
-
-    print('\nyoutube_download\n--------------------')
-    youtube_download('Urdlvw0SSEc')
-
+'''
+print('\nyoutube_download\n--------------------')
+youtube_download('Urdlvw0SSEc')
+#youtube_download('NXxUwuBKevU')
+'''
     print('\ntasks_scheduling\n--------------------')
     tasks = tasks_scheduling([
         (datetime.strptime('2022-01-01T13:00:00Z', ISO_FORMAT), datetime.strptime('2022-01-01T14:00:00Z', ISO_FORMAT)),
@@ -301,3 +312,4 @@ if __name__ == '__main__':
     c_list.append(5)
     c_list.append(6)
     print(c_list)
+'''
