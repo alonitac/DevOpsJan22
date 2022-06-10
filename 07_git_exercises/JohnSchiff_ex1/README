@@ -1,0 +1,127 @@
+# git_ex1
+
+
+***************************
+###Git Basics (commit, diff, branches)
+***************************
+# 1. Copy `07_git_exercises/basics.sh` from our shared repo into your newly created repo, in project root directory, add and commit it. Run it by `./basics.sh`
+
+cp  C:/Users/yehunathan/PycharmProjects/DevOpsJan22/07_git_exercises/init.sh basics.sh
+
+#2. In branch `main`, create a file called `abc.txt` containing the text `1` in it
+
+echo 1 > abc.txt
+
+
+# (3. What is the color of file `abc.txt` in Pycharm's Project view?)
+
+Red
+
+# (4. Add the file to the index &#40;What is the color now?&#41; and commit the changes &#40;it's recommended to use `git status` in between steps&#41;)
+
+ git add . abc.txt
+it turns green
+# (5. Append the line `2` to the end of `abc.txt` to change the state of this file in the working tree)
+echo 2 >>abc.txt
+
+
+
+# (6. What is the color of file `abc.txt` in Pycharm's Project view?)
+still green
+
+
+ # (7. What is the command to show changes between the working tree to branch `main`?)
+git-diff
+
+
+ # (8. Why does `git diff --staged` print nothing?)
+
+idk
+
+ # (9. Why does `git diff master` print error?)
+
+because master is not name of branch in the working directory
+
+ # (11. What does `git diff` print? why?)
+nothing because it was indexed
+
+
+# (12. What is the command to show changes between the index and branch `main`?)
+git diff main
+
+
+# (13. Append the line `3` to the end of `abc.txt` to change the state of this file in the working tree)
+
+echo 3 >>abc.txt
+
+
+
+# (14. Would `git diff --staged` and `git diff main` commands print the same output? why?)
+
+
+
+ # (15. Why does `abc.txt` appear twice in the output of `git status`? )
+
+because one is added to index but not merged and one is modeified with 3
+
+
+
+# (16. **Unstage** the changes in your index and working tree &#40;don't commit the changes&#41;)
+git reset
+
+
+***************************
+*****Resolve conflicts*****
+***************************
+1. git branch
+  bugfix/fix_readme_typo
+  bugfix/open_kibana_port
+  feature/data_retention_policy
+  feature/elasticsearch_helm_chart
+  feature/upgrade_angular_version
+  feature/version1
+  feature/version2
+
+2. git checkout -b feature/lambda_migration
+
+3. i did by using Pycharm UI
+6. commits of changes
+
+**********************************************
+***************** Cherry picking*************
+*********************************************************************
+
+5.files added : .env and config.json
+6. Yes, commit ordersa are matter
+
+
+
+*********************************************************************
+*********************** Changes in working tree and switch branches***********************
+*********************************************************************
+
+2. echo hello world > take.txt
+
+3.git Checkout problem,  Smart Checkout or Force Checkout
+
+5. take.txt is there but dont have the text i wrote
+6. when i checkout back to the branch i was it is not there anymore' "Force" probably deletes changes
+
+
+*********************************************************************
+*********************** Git Reset ***********************
+********************************************************************
+
+
+
+1.git reset --soft HEAD~1 - removing 10.txt file from working directory but not deleting
+
+2.git reset --mixed HEAD~1 -removing 9.txt file from working directory but not deleting
+
+3.git reset --hard HEAD~1 - Deleting 8.txt file from working directory !
+
+
+4.git revert HEAD~1 - Delete 6.txt file because it was Recovers the last commit
+
+ the notation HEAD~1 in git reset command is means to the location we are and the number of Commits back
+ i.e the last commit that was on HEAD.
