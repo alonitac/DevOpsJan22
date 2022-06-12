@@ -163,6 +163,9 @@ def apache_logs_parser(apache_single_log):
 
 
 def simple_http_request():
+    url = "https://api.binance.com/api/v3/exchangeInfo"
+    response = requests.get(url)
+    return response.text
     """
     2 Kata
 
@@ -173,7 +176,6 @@ def simple_http_request():
 
     :return: json of market exchange information
     """
-    return None
 
 
 class SortedDict(dict):
@@ -208,16 +210,25 @@ class SortedDict(dict):
         pass
 
     def items(self):
-        raise NotImplemented()
+        l = []
+        for i in sorted(self):
+            l.append((i, self[i]))
+        return l
 
-    def values(self):
-        raise NotImplemented()
-
-    def keys(self):
-        raise NotImplemented()
 
 
 class CacheList(list):
+    def __init__(self, cache_size=5):
+        self.cache_size = cache_size
+        super().__init__()
+
+    def append(self, element):
+        size = len(self)
+        if size == self.cache_size:
+            self.pop(0)
+        self[size:] = [element]
+        return self
+
     """
     8 Kata
 
@@ -242,12 +253,7 @@ class CacheList(list):
     print(x)
     >> [3, 1, 1]
     """
-    def __init__(self, cache_size=5):
-        super().__init__()
-        pass
 
-    def append(self, element):
-        pass
 
 
 if __name__ == '__main__':
