@@ -35,7 +35,7 @@
 9. To use the volume, attach it to an instance\. For more information, see [Attach an Amazon EBS volume to an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html).
 
 10. Connect to your instance over SSH.
-11. [Format and mount you volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
+11. [Format and mount the attached volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
 12. and write some data to the mounter EBS.
 
 
