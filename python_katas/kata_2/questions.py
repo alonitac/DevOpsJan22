@@ -62,13 +62,13 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    mfile = open(file_path)
+    '''mfile = open(file_path)
     data = mfile.readlines()
     my_dict = {}
     for name in data:
         my_dict[name] = data.count(name)
     num = sorted(my_dict.items(), key=lambda x: x[1])
-    return num[-1][0]
+    return num[-1][0]'''
 
 
 def files_backup(dir_path):
@@ -545,7 +545,7 @@ if __name__ == '__main__':
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
 
     print('\nstr_compression:\n--------------------')
-    print(str_compression('aaaabdddddhgf'))
+    print(str_compression('aaaabdddddhgff'))
 
     print('\nstrong_pass:\n--------------------')
     print(strong_pass('##$FgC7^^5a'))
