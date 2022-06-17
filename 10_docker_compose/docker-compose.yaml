@@ -7,5 +7,9 @@ services:
     build: .
     ports:
       - "8000:5000"
+    # you might want this container to be running only after redis is up (use depends_on: )
   redis:
     image: "redis:alpine"
+    command: redis-server --save 60 1
+    volumes:
+      - /redis_data:/data
