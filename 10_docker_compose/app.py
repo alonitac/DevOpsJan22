@@ -4,7 +4,7 @@ import redis
 from flask import Flask
 
 app = Flask(__name__)
-cache = redis.Redis(host='redis', port=6379)
+cache = redis.Redis(host='localhost', port=6379)
 
 "https://we-are.bookmyshow.com/understanding-expose-in-dockerfile-266938b6a33d"
 

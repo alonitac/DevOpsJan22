@@ -1,13 +1,15 @@
 # The version key is mandatory, and it’s always the first line at the root of the file.
 # This defines the version of the Compose file format (basically the API). You should
 # normally use the latest version.
-version: "3.9"
+version: "3.3"
 services:
   web:
     build: .
     ports:
       - "8000:5000"
     # you might want this container to be running only after redis is up (use depends_on: )
+    depends_on:
+      - redis
   redis:
     image: "redis:alpine"
     command: redis-server --save 60 1
