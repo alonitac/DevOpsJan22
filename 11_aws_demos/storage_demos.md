@@ -79,5 +79,5 @@ You must create an IAM role before you can launch an instance with that role or 
 3. In the **Permissions** tab, copy the JSON view of **AmazonS3FullAccess** policy and then **remove** it . 
 4. Click **Add permissions** and **Create inline policy**
 5. Paste your copies json in the JSON view of your new policy.
-6. Change `"Resource": "*"` line to `arn:aws:s3:::<bucket name>/*` while `<bucket name>` is you bucket you want your instance to have permissions on. 
+6. Change `"Resource": "*"` line to `"Resource": "arn:aws:s3:::<bucket name>/*"` while `<bucket name>` is you bucket you want your instance to have permissions on. 
 7. Save your policy. Validate that your changes. 
