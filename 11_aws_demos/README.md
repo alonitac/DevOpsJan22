@@ -44,14 +44,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 2
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -68,14 +61,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 3
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -91,14 +77,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 4
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -113,14 +92,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 5
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -135,14 +107,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 6
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -156,14 +121,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 7
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -178,14 +136,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 8
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -199,14 +150,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 9
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -223,14 +167,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 10
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -245,14 +182,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 11
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -270,14 +200,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 12
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -292,14 +215,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 13
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -314,14 +230,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 14
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -338,14 +247,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 15
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -360,14 +262,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 16
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -384,14 +279,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 17
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -406,14 +294,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 18
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -427,14 +308,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 19
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -449,14 +323,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 20
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -471,14 +338,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 21
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -493,14 +353,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 22
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -514,14 +367,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 23
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -535,14 +381,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 24
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -556,14 +395,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 25
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -578,14 +410,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 26
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -600,14 +425,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 27
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -623,14 +441,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 28
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
@@ -644,14 +455,7 @@ pie
 <details>
 <summary>Votes</summary>
 
-```mermaid
-pie
-    title Question 29
-    "1" : 100
-    "2" : 100
-    "3" : 100 
-    "4" : 100 
-```
+
 
 </details>
 
