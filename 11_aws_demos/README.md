@@ -22,8 +22,8 @@
 <summary>Votes</summary>
 
 ```mermaid
-pie
-    title Question 1
+pie 
+    title Question #1
     "1" : 100
     "2" : 100
     "3" : 100 
