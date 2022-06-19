@@ -26,22 +26,9 @@ pie showData
     "2" : 100
     "3" : 100
     "4" : 100
-    
-pie showData
-    title Question 1
-    "1" : 100
-    "2" : 100
-    "3" : 100
-    "4" : 100
-    
-pie showData
-    title Question 1
-    "1" : 100
-    "2" : 100
-    "3" : 100
-    "4" : 100
-    
-    
+```
+
+```mermaid
 pie showData
     title Question 1
     "1" : 100
@@ -49,6 +36,34 @@ pie showData
     "3" : 100
     "4" : 100
 ```
+
+```mermaid
+pie showData
+    title Question 1
+    "1" : 100
+    "2" : 100
+    "3" : 100
+    "4" : 100
+```
+
+```mermaid
+pie showData
+    title Question 1
+    "1" : 100
+    "2" : 100
+    "3" : 100
+    "4" : 100
+```
+
+```mermaid
+pie showData
+    title Question 1
+    "1" : 100
+    "2" : 100
+    "3" : 100
+    "4" : 100
+```
+
 
 
 2. You are planning to run a database on an EC2 instance. You know that the database
