@@ -19,7 +19,17 @@
     4. Choose the one-year reserved instance
     
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute1.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -32,7 +42,17 @@
     4. **EBS volume with general-purpose SSD**
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute2.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -46,7 +66,17 @@
     4. **Use the on-demand instance plus a general-purpose EBS volume for the weekend resource**
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute3.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -59,7 +89,17 @@
     4. **Reserve the EC2 for three years**
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute4.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -71,7 +111,17 @@
     4. Log in via the root user
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute5.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -83,7 +133,17 @@
     4. The data persists when the instance is terminated.
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute6.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -94,7 +154,17 @@
     4. By creating a placement group
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute7.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -106,7 +176,17 @@
     4. It depends on the actual data stored in the EBS volume.
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute8.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -117,7 +197,17 @@
     4. **Allocate that with a load balancer and expose the load balancer to the public**
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute9.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -131,7 +221,17 @@
     4. Use a reserved EC2 instance
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute10.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -143,7 +243,17 @@
     4. Run four On-Demand Instances constantly, then add eight Reserved Instances on the last day of each month.
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute11.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -158,7 +268,17 @@
     4. **Deploy additional On-Demand Instances to assist in processing the orders.**
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute12.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -170,7 +290,17 @@
     4. Amazon Machine Image (AMI)
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute13.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -182,7 +312,17 @@
     4. Change it to an m4.xlarge.
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute14.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -196,7 +336,17 @@
     4. RDP traffic over port 3389 from 72.14.0.0/16 and HTTP traffic over port 80 from 0.0.00/0
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute15.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -208,7 +358,17 @@
     5. **Less jitter**
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute16.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -222,7 +382,17 @@
     5. Use Reserved Instances.
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute17.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -234,7 +404,17 @@
     4. Reserved Instances
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute18.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -245,7 +425,17 @@
     4. Charge is based on the total amount of storage provisioned.
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute19.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -257,7 +447,17 @@
     4. Data on an Amazon EBS volume is lost when the attached instance is stopped.
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute20.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -269,7 +469,17 @@
     4. It depends on whether the attached instance is an Amazon EBS-optimized instance.
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute21.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -281,7 +491,17 @@
     4. Use a magnetic volume.
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute22.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -292,7 +512,17 @@
     4. All of the above.
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute23.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -303,7 +533,17 @@
     4. Using Multi-Factor Authentication (MFA)
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute24.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -314,7 +554,17 @@
     4. Security groups
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute25.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -326,16 +576,18 @@
     4. **Elastic IP address**
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute26.png)
-</details>
+<summary>Votes</summary>
 
 ```mermaid
 pie
-    title Pie Chart
-    "Dogs" : 386
-    "Cats" : 85
-    "Rats" : 150 
+    title Question 1
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
 ```
+
+</details>
 
 
 27. Using the correctly decrypted Administrator password and RDP, you cannot log in to a Windows
@@ -346,7 +598,17 @@ pie
     4. The instance is not an Amazon EBS-optimized instance.
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute27.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 27
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -359,7 +621,17 @@ pie
     4. Use a magnetic volume.
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute28.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 28
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 
@@ -370,7 +642,17 @@ pie
     4. Based on the instance type to which they are attached
 
 <details>
-<summary>Votes</summary> ![votes](https://devops-jan22.s3.amazonaws.com/compute29.png)
+<summary>Votes</summary>
+
+```mermaid
+pie
+    title Question 29
+    "1" : 0
+    "2" : 0
+    "3" : 0 
+    "4" : 0 
+```
+
 </details>
 
 [//]: # "Automatic generated line"
