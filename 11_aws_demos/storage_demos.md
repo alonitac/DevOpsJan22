@@ -6,6 +6,9 @@
 
 1. Create SSE-S3 encrypted bucket in the same region of your EC2 instance.
 2. Connect to your instance over SSH, use [aws s3api put-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html) command to upload an object to your bucket.
+3. Repeat the same with SSE-KMS encrypted bucket.
+4. Follow [this](https://aws.amazon.com/premiumsupport/knowledge-center/s3-console-access-certain-bucket/) aws blog to allow your instance to access a certain bucket only. 
+5. Update you IAM policy to access only a certain "folder" in your bucket. 
 
 --- 
 
@@ -67,3 +70,14 @@ You must create an IAM role before you can launch an instance with that role or 
 1. Select the instance, choose **Actions**, **Security**, **Modify IAM role**.
 
 1. Choose your created IAM role, click **Save**.
+
+
+### Create a policy to access a certain bucket only and attach it to your IAM role.
+
+1. Open the [IAM console](https://console.aws.amazon.com/iam/).
+2. From the console, open the IAM user or role that should have access to only a certain bucket.
+3. In the **Permissions** tab, copy the JSON view of **AmazonS3FullAccess** policy and then **remove** it . 
+4. Click **Add permissions** and **Create inline policy**
+5. Paste your copies json in the JSON view of your new policy.
+6. Change `"Resource": "*"` line to `arn:aws:s3:::<bucket name>/*` while `<bucket name>` is you bucket you want your instance to have permissions on. 
+7. Save your policy. Validate that your changes. 
