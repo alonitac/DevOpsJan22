@@ -18,14 +18,19 @@
     3. Choose the three-year reserved instance
     4. Choose the one-year reserved instance
     
+<details>
+<summary>Votes</summary>
+
 ```mermaid
-pie 
-    title Question #1
+pie showData
+    title Question 1
     "1" : 100
     "2" : 100
     "3" : 100
     "4" : 100
 ```
+
+</details>
 
 
 2. You are planning to run a database on an EC2 instance. You know that the database
