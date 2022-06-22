@@ -187,7 +187,7 @@ aws --version
 5. Choose **Create function**\.
 
 
-### Enabling Lambda notifications
+#### Enabling Lambda notifications
 
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
