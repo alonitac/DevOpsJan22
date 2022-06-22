@@ -300,7 +300,15 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    return None
+    rows = len(mat)
+    cols = len(mat[0])
+
+    mat2 = [[""] * rows for _ in range(cols)]
+
+    for i in range(rows):
+        for j in range(cols):
+            mat2[j][rows - i - 1] = box[i][j]
+    return mat2
 
 
 def is_valid_email(mail_str):
