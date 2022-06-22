@@ -34,15 +34,28 @@
 
 9. To use the volume, attach it to an instance\. For more information, see [Attach an Amazon EBS volume to an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html).
 
-10. Connect to your instance over SSH and write some data to the mounter EBS.
+10. Connect to your instance over SSH.
+11. [Format and mount the attached volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
+12. and write some data to the mounter EBS.
 
 
 ## Create an encrypted EBS and migrate disks
 
 1. In KMS, [create encryption key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk). Make sure your IAM user can administer this key and delete it.
-1. [Create a volume snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html#ebs-create-snapshot) of the EBS you provisioned and mounted in the previous section.
-1. Create an **encrypted EBS from the EBS snapshot**. Use the encrypted keys you’ve just created in KMS.
-1. Attach and mount the encrypted volume to your instance. Make sure the data from the unencrypted volume has been migrated successfully to the encrypted volume.
+2. [Create a volume snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html#ebs-create-snapshot) of the EBS you provisioned and mounted in the previous section.
+3. Create an **encrypted EBS from the EBS snapshot**. Use the encrypted keys you’ve just created in KMS.
+4. Attach and mount the encrypted volume to your instance, as follows:
+   1. Generate new UUID for the encrypted disk by:
+      ```shell
+      sudo xfs_admin -U generate <device-name>
+      ```
+   2. Copy the generated uuid, and add the following entry to `/etc/tstab`:
+      ```shell
+      UUID=<device-uuid>  /data  xfs  defaults,nofail  0  2
+      ```
+      while `<device-uuid>` is your generated device UUID.   
+   
+   Make sure the data from the unencrypted volume has been migrated successfully to the encrypted volume.
 
 #### Discussion
 
