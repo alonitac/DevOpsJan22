@@ -49,7 +49,7 @@
       ```shell
       sudo xfs_admin -U generate <device-name>
       ```
-   2. Copy the generated uuid, and add the following entry to `/etc/tstab`:
+   2. Copy the generated uuid, and add the following entry to `/etc/fstab`:
       ```shell
       UUID=<device-uuid>  /data  xfs  defaults,nofail  0  2
       ```
