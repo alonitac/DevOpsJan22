@@ -78,7 +78,7 @@ Repeat the same test while the server will reside in a Docker container using **
 
 Summarize your results in the appropriate table in `12_docker_network_analysis_ex/README.md` file.
 
-### Test Server and Client on different machines.
+### Test Server and Client on different machines
 
 Repeat the above experiment, but now the client and server will reside in a different physical machines, on the **same AWS region**, but in **different AZ**. In order to do that, you need to create another Ubuntu EC2 instance, and run the client from it (open relevant ports in the instance's security group).
 Summarize your results in the appropriate table in the README file. 
@@ -86,7 +86,7 @@ Summarize your results in the appropriate table in the README file.
 
 ## Conclusions
 
-According to your experiment analysis, conclude the overhead of Docker Bridge and Host networks comparing the network performance of the original machine. 
+According to your experiment results, conclude the % overhead of Docker Bridge and Host networks comparing the network performance of the original machine. 
 Write your conclusions separately for client-server communication on the same physical machine, and for client-server in different machines. 
 
 
