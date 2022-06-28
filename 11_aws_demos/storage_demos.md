@@ -74,17 +74,6 @@ You must create an IAM role before you can launch an instance with that role or 
 1. Choose your created IAM role, click **Save**.
 
 
-### Create a policy to access a certain bucket only and attach it to your IAM role.
-
-1. Open the [IAM console](https://console.aws.amazon.com/iam/).
-2. From the console, open the IAM user or role that should have access to only a certain bucket.
-3. In the **Permissions** tab, copy the JSON view of **AmazonS3FullAccess** policy and then **remove** it . 
-4. Click **Add permissions** and **Create inline policy**
-5. Paste your copies json in the JSON view of your new policy.
-6. Change `"Resource": "*"` line to `"Resource": "arn:aws:s3:::<bucket name>/*"` while `<bucket name>` is you bucket you want your instance to have permissions on. 
-7. Save your policy. Validate that your changes. 
-
-
 ### Enable versioning on your bucket bucket
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
