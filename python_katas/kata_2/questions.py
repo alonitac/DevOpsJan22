@@ -67,17 +67,15 @@ def fibonacci_fixme(n):
 
 
 def most_frequent_name(file_path):
-    most_name =None
-    qty_most_name = 0
     with open(file_path) as f:
          lines = f.readlines()
-    lines_set=set(lines)
-    for item in lines_set:
-        qty = lines.count(item)
-        if qty > qty_most_name:
-             qty_most_name = qty
-             most_name = item
-    return most_name
+    elems = {}
+    e, em = None, 0
+    for i in lines:
+        elems[i] = t = elems.get(i, 0) + 1
+        if t > em:
+             e, em = i, t
+    return e
 
 
     """
