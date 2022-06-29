@@ -1,4 +1,4 @@
-def valid_parentheses(s):
+def valid_parentheses(sequence: str):
     """
     3 Kata
 
@@ -13,8 +13,25 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
-    return None
 
+    stack = []
+    opening_parenthesis = set('([{')
+    closing_parenthesis = set(')]}')
+    pair_dictionary = {')': '(', ']': '[', '}': '{'}
+    for i in sequence:
+        if i in opening_parenthesis:
+            stack.append(i)
+        if i in closing_parenthesis:
+            if not stack:
+                return False
+            elif stack.pop() != pair_dictionary[i]:
+                return False
+            else:
+                continue
+    if not stack:
+        return True
+    else:
+        return False
 
 def fibonacci_fixme(n):
     """
@@ -36,15 +53,24 @@ def fibonacci_fixme(n):
     """
     a = 0
     b = 1
-    for i in range(1, n):
-        a = b
-        tmp = a + b
+    for i in range(0, n):  # '1' is replaced by a '0'.
+        tmp = a + b        # switched with line 58.
+        a = b              # switched with line 57.
         b = tmp
 
     return a
 
-
 def most_frequent_name(file_path):
+    most_frequent_name_var = None
+    max_counter = 0
+    with open(file_path) as f:
+        full_str_name_list = f.readlines()
+    unique_str_name_list = set(full_str_name_list)
+    for str_name in unique_str_name_list:
+        name_counter = full_str_name_list.count(str_name)
+        if name_counter > max_counter:
+            max_counter = name_counter
+            most_frequent_name_var = str_name
     """
     2 Kata
 
@@ -56,7 +82,7 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+    return most_frequent_name_var
 
 
 def files_backup(dir_path):
@@ -278,7 +304,7 @@ def list_flatten(lst):
 
     This function gets a list of combination of integers or nested lists
     e.g.
-    [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0, [3]]
+    [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0], [3]]
 
     The functions should return a flatten list (including all nested lists):
     [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3]
@@ -326,54 +352,55 @@ def strong_pass(password):
 
 
 if __name__ == '__main__':
-    print('\nvalid_parentheses:\n--------------------')
-    print(valid_parentheses('[[{()}](){}]'))
-
-    print('\nfibonacci_fixme:\n--------------------')
-    print(fibonacci_fixme(6))
-
+    # print('\nvalid_parentheses:\n--------------------')
+    # print(valid_parentheses('[[{()}](){}]'))
+    #
+    # print('\nfibonacci_fixme:\n--------------------')
+    # print(fibonacci_fixme(6))
+    #
     print('\nmost_frequent_name:\n--------------------')
     print(most_frequent_name('names.txt'))
-
+    most_frequent_name('names.txt')
+    #
     print('\nfiles_backup:\n--------------------')
-    print(files_backup('python_katas/kata_2'))
-
-    print('\nreplace_in_file:\n--------------------')
-    print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
-
-    print('\njson_configs_merge:\n--------------------')
-    print(json_configs_merge('default.json', 'local.json'))
-
-    print('\nmonotonic_array:\n--------------------')
-    print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
-
-    print('\nmatrix_avg:\n--------------------')
-    print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
-    print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
-
-    print('\nmerge_sorted_lists:\n--------------------')
-    print(merge_sorted_lists([1, 4, 77, 9, 13343], [-7, 0, 7, 23]))
-
-    print('\nlongest_common_substring:\n--------------------')
-    print(longest_common_substring('abcdefg', 'bgtcdesd'))
-
-    print('\nlongest_common_prefix:\n--------------------')
-    print(longest_common_prefix('abcd', 'ttty'))
-
-    print('\nrotate_matrix:\n--------------------')
-    print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
-
-    print('\nis_valid_email:\n--------------------')
-    print(is_valid_email('israel.israeli@gmail.com'))
-
-    print('\npascal_triangle:\n--------------------')
-    print(pascal_triangle(4))
-
-    print('\nlist_flatten:\n--------------------')
-    print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
-
-    print('\nstr_compression:\n--------------------')
-    print(str_compression('aaaabdddddhgf'))
-
-    print('\nstrong_pass:\n--------------------')
-    print(strong_pass('##$FgC7^^5a'))
+    print(files_backup('files_to_backup'))
+    #
+    # print('\nreplace_in_file:\n--------------------')
+    # print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
+    #
+    # print('\njson_configs_merge:\n--------------------')
+    # print(json_configs_merge('default.json', 'local.json'))
+    #
+    # print('\nmonotonic_array:\n--------------------')
+    # print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
+    #
+    # print('\nmatrix_avg:\n--------------------')
+    # print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
+    # print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+    #
+    # print('\nmerge_sorted_lists:\n--------------------')
+    # print(merge_sorted_lists([1, 4, 9, 77, 13343], [-7, 0, 7, 23]))
+    #
+    # print('\nlongest_common_substring:\n--------------------')
+    # print(longest_common_substring('abcdefg', 'bgtcdesd'))
+    #
+    # print('\nlongest_common_prefix:\n--------------------')
+    # print(longest_common_prefix('abcd', 'ttty'))
+    #
+    # print('\nrotate_matrix:\n--------------------')
+    # print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
+    #
+    # print('\nis_valid_email:\n--------------------')
+    # print(is_valid_email('israel.israeli@gmail.com'))
+    #
+    # print('\npascal_triangle:\n--------------------')
+    # print(pascal_triangle(4))
+    #
+    # print('\nlist_flatten:\n--------------------')
+    # print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
+    #
+    # print('\nstr_compression:\n--------------------')
+    # print(str_compression('aaaabdddddhgf'))
+    #
+    # print('\nstrong_pass:\n--------------------')
+    # print(strong_pass('##$FgC7^^5a'))
