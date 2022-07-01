@@ -77,7 +77,7 @@ def most_frequent_name(file_path):
         if value > max_value:
             max_name = key
             max_value = value
-
+    file.close()
     return max_name
 
 
