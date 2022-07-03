@@ -38,11 +38,11 @@ a server by `qperf` and invoke a client which will talk with the server and reco
 
 4. Start the qperf server by simply: 
 ```shell
-qpref
+qperf -lp 4000
 ````
 5. Open another ssh session to the same instance where the server is running, perform:
 ```shell
-qperf 127.0.0.1 tcp_bw tcp_lat conf
+qperf 127.0.0.1 -lp 4000 -ip 4001 tcp_bw tcp_lat conf
 ```
 This command will perform a single network test, and will print results to stdout. 
 
@@ -51,7 +51,7 @@ This command will perform a single network test, and will print results to stdou
    AVG=0
    ITERATIONS=20
    for i in $( seq 0 $ITERATIONS ); do 
-      CURRENT_TEST_RES=$(qperf 127.0.0.1 tcp_lat | tail -n 1 | awk '{ print $3 }')
+      CURRENT_TEST_RES=$(qperf 127.0.0.1 -lp 4000 -ip 4001 tcp_lat | tail -n 1 | awk '{ print $3 }')
       AVG=$(awk "BEGIN{ print $AVG + $CURRENT_TEST_RES }")
    done
    awk "BEGIN{ print $AVG / $ITERATIONS }"
@@ -65,16 +65,15 @@ Now the Server will reside in a docker container using the **default Bridge netw
 
 1. [pedroperezmsft/qperf](https://hub.docker.com/r/pedroperezmsft/qperf/) is pre-built docker image with qperf tool installed. Run it by:
    ```shell
-   docker run --rm --name qp_server -p 19765:19765 pedroperezmsft/qperf 
+   docker run --rm --name qp_server -p 4000:4000 -p 4001:4001 pedroperezmsft/qperf -lp 4000
    ```
-   Note that the default port of the qperf server is 19765.
-2. Use `docker inspect` command to get the IPAddress of the running container. 
-3. Repeat the same test as described above. Don't forget to change the server ip from `127.0.0.1` to your container ip. 
+2. Repeat the same test as described above. 
 
 #### Test performance with Docker Host network
 
 Repeat the same test while the server will reside in a Docker container using **Host network**.
 
+---
 
 Summarize your results in the appropriate table in `12_docker_network_analysis_ex/README.md` file.
 

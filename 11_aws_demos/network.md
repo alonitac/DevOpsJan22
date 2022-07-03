@@ -91,6 +91,6 @@ When you create a subnet, we automatically associate it with the main route tabl
 3. On the **Subnet associations** tab, choose **Edit subnet associations**, select the check box for the subnet, and then choose **Save associations**\.
 
 
-### Test you VPC
+### Test your VPC
 
 Create an EC2 instance within you VPC, connect to it and access the internet. 
