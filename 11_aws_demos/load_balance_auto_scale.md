@@ -67,7 +67,7 @@ A listener is a process that checks for connection requests\. It is configured w
 
 ### Test the load balancer
 
-Deploy 2 EC2 instances within you VPC, in each instance, run the flask webservers. Perform the load test as in [13_http_load_test/load_test.py]([../13_http_load_test/load_test.py).
+Deploy 2 EC2 instances within you VPC, in each instance, run the flask webservers. Perform the load test as in [13_http_load_test/load_test.py](../13_http_load_test/load_test.py).
 
 
 ## Application Load Balancer with TLS termination 
