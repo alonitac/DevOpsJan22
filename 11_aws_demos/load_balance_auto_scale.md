@@ -18,7 +18,7 @@ Configuring a target group allows you to register targets such as EC2 instances\
 
     2. For **Target group name**, enter a name for the target group\.
 
-    3. Leave the **Port** and **Protocol** as HTTP 80.
+    3. Leave the **Port** and **Protocol** as HTTP 8080.
 
     4. For VPC, select your virtual private cloud \(VPC\)
 
