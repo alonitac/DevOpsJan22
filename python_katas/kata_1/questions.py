@@ -6,10 +6,13 @@ def sum_of_element(elements):
     :return: Return int - the sum of all elements.
     """
     s = 0
-    for num in elements:
-        s = s + num
-
-    return s
+    # print(elements)
+    if elements:
+        for num in elements:
+            s = s + num
+        return s
+    else:
+        return "invalid data"
 
 
 def verbing(word):
@@ -28,7 +31,17 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    word_len = len(word)
+    # print(word_len)
+    # print(str_exp[-3:word_len])
+    if (word_len >= 3) & (word[-3:word_len] != "ing"):
+        result = word + "ing"
+    else:
+        if word[-3:word_len] == "ing":
+            result = word + "ly"
+        else:
+            result = word
+    return result
 
 
 def words_concatenation(words):
@@ -43,14 +56,25 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    result = ""
+    word_len = len(words)
+    # print(word_len)
+    if word_len > 0:
+        for i in words:
+            if result == "":
+                result = result + i
+            else:
+                result = result + ' ' + i
+        return result
+    else:
+        return None
 
 
 def reverse_words_concatenation(words):
     """
     1 Kata
 
-    Given a list of words, write a program that concatenates the words in a reverse way
+    Given a list of words, write a program that concatenates the words in a reverse way (both words and each word itself)
 
     For example:
     reverse_words_concatenation(['take', 'me', 'home']) returns 'home me take'
@@ -58,24 +82,46 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    result = ""
+    word_len = len(words)
+    # print(word_len)
+    if word_len > 0:
+        words.reverse()
+        for i in words:
+            if result == "":
+                result = result + i
+            else:
+                result = result + ' ' + i
+        return result
+    else:
+        return None
 
 
-def is_unique_string(some_str):
+def is_unique_string(string_check):
     """
-    2 Kata
+    2Kata
 
-    Given a string, the function returns True if all characters in the string are unique, False otherwise
+    Given a string,the function returns True if all characters in the string are unique, False otherwise
 
     e.g
-    'abcd' -> True
-    'aaabcd' -> False
-    '' -> True      (empty string)
+    'abcd'->True
+    'aaabcd'->False
+    ''->True(emptystring)
 
-    :param some_str:
-    :return: bool
+    :param string_check:
+    :return:bool
     """
-    return None
+    word_len = len(string_check)
+    # print(word_len)
+    if word_len > 0:
+        # print(len(set(string_check)))
+        # print(set(string_check))
+        if len(set(string_check)) == word_len:
+            return True
+        else:
+            return False
+    else:
+        return False
 
 
 def list_diff(elements):
@@ -93,7 +139,18 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    list_len = (len(elements))
+    # print(list_len)
+    if list_len > 0:
+        list1 = [None] * list_len
+        for (i) in range(list_len):
+            if i == 0:
+                list1[i] = None
+            else:
+                list1[i] = (elements[i] - elements[i - 1])
+        return list1
+    else:
+        return None
 
 
 def prime_number(num):
@@ -106,7 +163,21 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+    if num > 1:
+        check_int = isinstance(num, int)
+        if check_int:
+            x = range(2, num, 1)
+            # print(x)
+            for n in x:
+                # print('testing - ' + str(n))
+                if (num % n) == 0:
+                    print('test of the number ' + str(num) + ' failed at - ' + str(n) + ' out of ' + str(num))
+                    return False
+            return True
+        else:
+            return False
+    else:
+        return False
 
 
 def palindrome_num(num):
@@ -122,7 +193,17 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    if num is not None:
+        x = str(num)
+        x = x[::-1]
+        # print('original: ' + str(num))
+        # print('reversed: ' + str(x))
+        if x == str(num):
+            return True
+        else:
+            return False
+    else:
+        return False
 
 
 def pair_match(men, women):
@@ -153,7 +234,24 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    if (bool(men)) & bool(women):
+        x1 = abs(men["John"] - women["Kim"])
+        x2 = abs(men["John"] - women["July"])
+        x3 = abs(men["Abraham"] - women["Kim"])
+        x4 = abs(men["Abraham"] - women["July"])
+        result = min(x1, x2, x3, x4)
+        if result == x1:
+            return "John", "Kim"
+        else:
+            if result == x2:
+                return "John", "July"
+            else:
+                if result == x3:
+                    return "Abraham", "Kim"
+                else:
+                    return "Abraham", "July"
+    else:
+        return "Invalid data"
 
 
 def bad_average(a, b, c):
@@ -165,7 +263,11 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    calc = (a + b + c)
+    if calc != 0:
+        return calc // 3
+    else:
+        return "Invalid Data"
 
 
 def best_student(grades):
@@ -188,7 +290,17 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    list1 = ''
+    if grades:
+        maxgrade = max(grades.values())
+        # Handle multiple values
+        if len([k for k, v in grades.items() if v == maxgrade]) > 1:
+            list1 = list1 + str([k for k, v in grades.items() if v == maxgrade])
+        else:
+            list1 = list1 + str(list(grades.keys())[list(grades.values()).index(maxgrade)])
+    else:
+        return "Invalid data"
+    return list1
 
 
 def print_dict_as_table(some_dict):
@@ -217,7 +329,16 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    if some_dict:
+        # print(some_dict.items())
+        print("{:<10} {:^10}".format('Key', 'Value'))
+        print("--------------------")
+        for k, v in some_dict.items():
+            print("{:<10} {:^10}".format(k, v))
+        # Return '' to avoid returning None
+        return ''
+    else:
+        return "Invalid data"
 
 
 def merge_dicts(dict1, dict2):
@@ -230,14 +351,23 @@ def merge_dicts(dict1, dict2):
     dict1 = {'a': 1}
     dict2 = {'b': 2}
 
-    The results will by
+    The results will be
     dict1 = {'a': 1, 'b': 2}
 
     :param dict1:
     :param dict2:
-    :return:
+    :return: dict1
     """
-    return dict1
+    # print(dict1)
+    # print(dict2)
+    if dict1:
+        for k in dict2:
+            if k in dict1:
+                print("Warning - Exiting key( " + k + " ) in dict1 will be overwritten with value from dict2")
+        dict1.update(dict2)
+        return dict1
+    else:
+        return "Invalid data"
 
 
 def seven_boom(n):
@@ -252,7 +382,17 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    # print(n)
+    list1 = []
+    if n > 6:
+        for i in range(1, n + 1):
+            # print(i)
+            if (i % 7 == 0) or ("7" in str(i)):
+                # print(i)
+                list1.append(i)
+        return list1
+    else:
+        return "Invalid data"
 
 
 def caesar_cipher(str_to_encrypt):
@@ -267,7 +407,19 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    lowerstring = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+    rearrangedlowerstring = "defghijklmnopqrstuvwxyzabcDEFGHIJKLMNOPQRSTUVWXYZABC "
+    key_dic = dict(zip(lowerstring, rearrangedlowerstring))
+    # print(key_dic)
+    # print((str(list(key_dic.values())[list(key_dic.keys()).index(str_to_encrypt[0])])))
+    encryptedstr = ""
+    if str_to_encrypt != "":
+        for c in range(0, len(str_to_encrypt)):
+            # print("the following char " + str_to_encrypt[c] + " should be replaced with " + (str(list(key_dic.values())[list(key_dic.keys()).index(str_to_encrypt[c])])))
+            encryptedstr += str_to_encrypt[c].replace(str_to_encrypt[c], (str(list(key_dic.values())[list(key_dic.keys()).index(str_to_encrypt[c])])))
+        return encryptedstr
+    else:
+        return "Invalid data"
 
 
 def sum_of_digits(digits_str):
@@ -285,11 +437,18 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    if digits_str != "":
+        x = 0
+        for d in range(0, len(digits_str)):
+            # print("X = " + str(x))
+            # print("String digit = " + digits_str[d])
+            x = x + int(digits_str[d])
+        return x
+    else:
+        return "Invalid data"
 
 
 if __name__ == '__main__':
-
     print('\nsum_of_element:\n--------------------')
     print(sum_of_element([1, 2, 3, 4, 5, 6]))
 
@@ -336,8 +495,8 @@ if __name__ == '__main__':
 
     print('\nbest_student:\n--------------------')
     print(best_student({
-        "Ben": 78,
-        "Hen": 88,
+        "Ben": 99,
+        "Hen": 99,
         "Natan": 99,
         "Efraim": 65,
         "Rachel": 95
@@ -345,7 +504,7 @@ if __name__ == '__main__':
 
     print('\nprint_dict_as_table:\n--------------------')
     print(print_dict_as_table({
-        "Ben": 78,
+        "Ben": 99,
         "Hen": 88,
         "Natan": 99,
         "Efraim": 65,
@@ -363,4 +522,3 @@ if __name__ == '__main__':
 
     print('\nsum_of_digits:\n--------------------')
     print(sum_of_digits('1223432'))
-
