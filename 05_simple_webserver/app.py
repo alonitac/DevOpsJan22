@@ -9,7 +9,7 @@ hostname = os.environ.get('HOSTNAME', None)
 # Try by:  curl localhost:8080
 @app.route('/', methods=['GET'])
 def index():
-    # print(request.headers)
+    print(request.headers)
     return 'Hello world\n'
 
 
@@ -35,7 +35,7 @@ def status():
 @app.route('/load-test')
 def load_test_endpoint():
     x = 6
-    for i in range(1, 10000000):
+    for i in range(1, 10):
         x *= i
         x /= i
 
