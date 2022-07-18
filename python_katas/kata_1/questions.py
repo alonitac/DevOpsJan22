@@ -1,3 +1,4 @@
+
 def sum_of_element(elements):
     """
     1 Kata
@@ -5,11 +6,7 @@ def sum_of_element(elements):
     :param elements: list of integers
     :return: Return int - the sum of all elements.
     """
-    s = 0
-    for num in elements:
-        s = s + num
-
-    return s
+    return sum(elements)
 
 
 def verbing(word):
@@ -28,7 +25,15 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+    my_str = word
+    if len(my_str) < 3:
+        return my_str
+    elif my_str[-3:] == 'ing':
+        my_str = my_str[:-3]
+        my_str += 'ly'
+    else:
+        my_str += 'ing'
+    return my_str
 
 
 def words_concatenation(words):
@@ -43,14 +48,15 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    my_lst = ' '.join(words)
+    return my_lst
 
 
 def reverse_words_concatenation(words):
     """
     1 Kata
 
-    Given a list of words, write a program that concatenates the words in a reverse way
+    Given a list of words, write a program that concatenates the words in a reverse way (both words and each word itself)
 
     For example:
     reverse_words_concatenation(['take', 'me', 'home']) returns 'home me take'
@@ -58,14 +64,17 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    strings = words
+    strings.reverse()
+    my_lst = words_concatenation(strings)
+    return my_lst
 
 
 def is_unique_string(some_str):
     """
     2 Kata
 
-    Given a string, the function returns True if all characters in the string are unique, False otherwise
+    Given a string, the function returns True is all characters in the string are unique, False otherwise
 
     e.g
     'abcd' -> True
@@ -75,10 +84,14 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    if len(set(some_str)) == len(some_str):
+        return True
+    else:
+        return False
 
 
 def list_diff(elements):
+
     """
     1 Kata
 
@@ -86,27 +99,38 @@ def list_diff(elements):
     reduces by its previous one. The first element should be None
 
     e.g.
-    [1, 2, 3, 4, 7, 11] -> [None, 1, 1, 1, 3, 4]
+    [1, 2, 3, 4, 7, 11] -> [None, 1, 1, 3, 4]
     [] -> []
     [1, 5, 0, 4, 1, 1, 1] -> [None, 4, -5, 4, -3, 0, 0]
 
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    if len(elements) > 1:
+        diff_list = [elements[i] - elements[i - 1] for i in range(1, len(elements))]
+        diff_list.insert(0, None)
+        return diff_list
+    elif len(elements) > 0:
+        return [None]
+    else:
+        return []
 
 
 def prime_number(num):
     """
-    1 Kata
+        1 Kata
 
-    Check if the given number is prime or not.
+        Check if the given number is prime or not.
 
-    hint: use the built-in function "range"
-    :param num: the number to check
-    :return: bool. True if prime, else False
-    """
-    return None
+        hint: use the built-in function "range"
+        :param num: the number to check
+        :return: bool. True if prime, else False
+        """
+    if num > 1:
+        for i in range(2, num):
+            if (num % i) == 0:
+                return False
+    return True
 
 
 def palindrome_num(num):
@@ -122,7 +146,12 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+    my_num = str(num)
+    my_rnum = my_num[::-1]
+    if my_num == my_rnum:
+        return True
+    else:
+        return False
 
 
 def pair_match(men, women):
@@ -153,19 +182,27 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    return None
+    minimum = 1000
+    # dict_diff = {} # empty dictionary
+    for m in men.keys():  # run over all men
+        for w in women.keys():  # run over all women
+            diff_age = abs(men[m] - women[w])
+            if diff_age < minimum:
+                minimum = diff_age
+                couple = (m, w)
+    return couple
 
 
 def bad_average(a, b, c):
     """
-    1 Kata
+    1 Kata: fixed
 
     This function gets 3 numbers and calculates the average.
     There is a mistake in the following implementation, you are required to fix it
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -188,7 +225,10 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    sorted_values = sorted(grades.values())
+    for key, value in grades.items():
+        if sorted_values[-1] == value:
+            return key
 
 
 def print_dict_as_table(some_dict):
@@ -217,7 +257,10 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    return None
+    print("{:<7} {}".format('Key', 'Value'))
+    print("{}".format('-' * 13))
+    for key, value in some_dict.items():
+        print("{:<7} {}".format(key, value))
 
 
 def merge_dicts(dict1, dict2):
@@ -237,7 +280,9 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    return dict1
+    dict3 = dict1.copy()
+    dict3.update(dict2)
+    return dict3
 
 
 def seven_boom(n):
@@ -252,7 +297,9 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    boom = []
+    [boom.append(x) if '7' in str(x) or x % 7 == 0 else x for x in range(0, n - 1)]
+    return boom
 
 
 def caesar_cipher(str_to_encrypt):
@@ -267,7 +314,27 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    return None
+    key = 3
+    encryption = ""
+
+    for c in str_to_encrypt:
+        if c.isspace():
+            encryption += c
+        elif c.isupper():
+            c_unicode = ord(c)
+            c_index = c_unicode - ord("A")
+            new_index = (c_index + key) % 26
+            new_unicode = new_index + ord("A")
+            new_c = chr(new_unicode)
+            encryption += new_c
+        elif c.islower:
+            c_unicode = ord(c)
+            c_index = c_unicode - ord("a")
+            new_index = (c_index + key) % 26
+            new_unicode = new_index + ord("a")
+            new_c = chr(new_unicode)
+            encryption += new_c
+    return encryption
 
 
 def sum_of_digits(digits_str):
@@ -285,7 +352,9 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    chars_array = [char for char in digits_str]
+    int_array = [int(c) for c in chars_array]
+    return sum(int_array)
 
 
 if __name__ == '__main__':
