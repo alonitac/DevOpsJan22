@@ -5,5 +5,6 @@ nav:
   - Linux Ex2: 'linux_ex2.md'
   - Git Ex1: 'git_ex1.md'
   - Python Ex1: 'python_ex1.md'
+  - AWS Ex1: 'aws_ex1.md'
 theme:
   name: readthedocs
