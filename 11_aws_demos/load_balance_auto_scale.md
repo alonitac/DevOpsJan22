@@ -171,9 +171,9 @@ IAM securely encrypts your private keys and stores the encrypted version in IAM 
 
 1. On the navigation bar at the top of the screen, choose the same AWS Region that you used when you created the launch template\.
 
-1. Choose **Create an Auto Scaling group**\.
+2. Choose **Create an Auto Scaling group**\.
 
-1. On the **Choose launch template or configuration** page, do the following:
+3. On the **Choose launch template or configuration** page, do the following:
 
    1. For **Auto Scaling group name**, enter a name for your Auto Scaling group\.
 
@@ -183,24 +183,24 @@ IAM securely encrypts your private keys and stores the encrypted version in IAM 
 
    1. Verify that your launch template supports all of the options that you are planning to use, and then choose **Next**\.
 
-1. On the **Choose instance launch options** page, under **Network**, for **VPC**, choose a VPC\. The Auto Scaling group must be created in the same VPC as the security group you specified in your launch template\.
+4. On the **Choose instance launch options** page, under **Network**, for **VPC**, choose a VPC\. The Auto Scaling group must be created in the same VPC as the security group you specified in your launch template\.
 
-1. For **Availability Zones and subnets**, choose one or more subnets in the specified VPC\. Use subnets in multiple Availability Zones for high availability\.
+5. For **Availability Zones and subnets**, choose one or more subnets in the specified VPC\. Use subnets in multiple Availability Zones for high availability\.
 
-1. Choose **Next** to continue to the next step\.
+6. Choose **Next** to continue to the next step\.
 
-1. On the **Configure advanced options** page, configure the following options, and then choose **Next**:
+7. On the **Configure advanced options** page, configure the following options, and then choose **Next**:
 
    1. Register your Amazon EC2 instances with your load balancer.
 
-1. On the **Configure group size and scaling policies** page, configure the following options, and then choose **Next**:
+8. On the **Configure group size and scaling policies** page, configure the following options, and then choose **Next**:
 
-   1. For **Desired capacity**, enter the initial number of instances to launch\.
+   1. For **Desired capacity**, enter the initial number of instances to launch: 0\.
 
    1. To automatically scale the size of the Auto Scaling group, choose **Target tracking scaling policy** and follow the directions\.
 
-1. \(Optional\) To receive notifications, for **Add notification**, configure the notification, and then choose **Next**\.
+9. \(Optional\) To receive notifications, for **Add notification**, configure the notification, and then choose **Next**\.
 
-1. Choose **Add tag**, provide a tag key and value.
+10. Choose **Add tag**, provide a tag key and value.
 
-1. On the **Review** page, choose **Create Auto Scaling group**\.
+11. On the **Review** page, choose **Create Auto Scaling group**\.
