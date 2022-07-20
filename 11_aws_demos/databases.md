@@ -144,8 +144,16 @@ An **SQL query** is a statement representing some operation to perform in the da
    sudo apt-get update
    sudo apt-get install postgresql-client
    ```
+   
+   Start Postgres shell by `psql postgres://<db-username>:<db-password>@<db-endpoint>:5432`
 
-2. Copy and save the following SQL queries in `create-tables.sql` file:
+2. Create a database in Postgres (drop previous is exists)
+   ```shell
+   DROP DATABASE IF EXISTS twitter_demo;
+   CREATE DATABASE twitter_demo;
+   ```
+3. Switch to `twitter_demo` db by `\c twitter_demo`.
+4. Create tables:
    ```text
    CREATE TABLE users (
    full_name VARCHAR(100),
@@ -165,14 +173,7 @@ An **SQL query** is a statement representing some operation to perform in the da
    );
    ```
 
-   Execute the queries
-   ```shell
-   psql -U postgres -c 'DROP DATABASE IF EXISTS twitter_demo;'
-   psql -U postgres -c 'CREATE DATABASE twitter_demo;'
-   psql -U postgres -d twitter_demo -f create-tables.sql
-   ```
-
-3. Copy and save the following SQL queries in `insert-data.sql` file:
+5. Insert data
    ```text
    INSERT INTO users (full_name, username) VALUES ('Boris Hadjur', '_DreamLead');
    INSERT INTO users (full_name, username) VALUES ('Gunnar Svalander', 'GunnarSvalander');
@@ -213,31 +214,30 @@ An **SQL query** is a statement representing some operation to perform in the da
    INSERT INTO tweets (text, created_at, username) VALUES ('@NimbusData CEO @tisakovich @BarclaysOnline Big Data conference in San Francisco today, talking #virtualization, #databases,& #flash memory', 'Mon, 11 Feb 2013 23:15:05 +0000', 'NimbusData');
    INSERT INTO tweets (text, created_at, username) VALUES ('Dont forget to sign up for our FREE expo this Friday: #Databases, #BI, and #Sharepoint: What You Need to Know! http://t.co/Ijrqrz29',	'Mon, 11 Feb 2013 22:15:37 +0000', 'SSWUGorg');
    ```
-
-   Execute the queries
-   ```shell
-   psql -U postgres -d twitter_demo -f insert-data.sql
-   ```
    
-4. Retrieve some data  
+6. Retrieve some data  
    * Joint table of all users, and all followings for each user:
      ```shell
-     psql -U postgres -d twitter_demo -c "SELECT * FROM users JOIN follows ON users.username=follows.from_user"
+     SELECT * FROM users JOIN follows ON users.username=follows.from_user;
      ```
    * The tweets of all users that are followed by the user *_DreamLead*:
-     ```text
-     # file select-data.sql
-     
+     ```text     
      SELECT to_user, text, created_at
      FROM users u
      JOIN follows f
      ON u.username=f.from_user
      JOIN tweets t
      ON f.to_user=t.username
+     WHERE u.username='_DreamLead';
+     ```
+   * Use aggregation
+     ```text
+     SELECT to_user, COUNT(*) as tweets_count
+     FROM users u
+     JOIN follows f
+     ON u.username=f.from_user
+     JOIN tweets t
+     ON f.to_user=t.username
      WHERE u.username='_DreamLead'
+     GROUP BY to_user;
      ```
-     Execute by:
-     ```shell
-     psql -U postgres -d twitter_demo -f select-data.sql
-     ```
-   
