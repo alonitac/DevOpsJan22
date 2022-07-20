@@ -12,6 +12,11 @@ Due date: 20/06/2022 23:59
 ## Part 3 - Add heartbeat
 
 
+private vpc
+iam permissions 
+deploy app
+
+
 
 # Good Luck
 
