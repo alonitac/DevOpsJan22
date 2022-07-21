@@ -51,7 +51,7 @@ git checkout main
 
 # Resolve conflicts
 rm -f -r app.py
-wget https://raw.githubusercontent.com/alonitac/DevOpsJan22/main/05_simple_webserver/app.py
+curl -kLSs https://raw.githubusercontent.com/alonitac/DevOpsJan22/main/05_simple_webserver/app.py -o app.py
 git add app.py && git commit -m "add app.py"
 
 git checkout -b feature/version1
