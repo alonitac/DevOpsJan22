@@ -1,3 +1,6 @@
+import os
+import psutil
+
 def valid_parentheses(sequence: str):
     """
     3 Kata
@@ -59,18 +62,13 @@ def fibonacci_fixme(n):
         b = tmp
 
     return a
-
 def most_frequent_name(file_path):
-    most_frequent_name_var = None
-    max_counter = 0
     with open(file_path) as f:
-        full_str_name_list = f.readlines()
-    unique_str_name_list = set(full_str_name_list)
-    for str_name in unique_str_name_list:
-        name_counter = full_str_name_list.count(str_name)
-        if name_counter > max_counter:
-            max_counter = name_counter
-            most_frequent_name_var = str_name
+        lines = f.readlines()
+    name_dict = {}
+    for i in lines:
+        name_dict[i] = name_dict.get(i, 0) + 1
+    max_value = max(name_dict, key=name_dict.get)
     """
     2 Kata
 
@@ -82,7 +80,7 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return most_frequent_name_var
+    return max_value
 
 
 def files_backup(dir_path):
