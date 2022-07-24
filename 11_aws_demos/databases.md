@@ -132,11 +132,13 @@ What can SQL do?
 An **SQL query** is a statement representing some operation to perform in the database.
 
 
-## Provision Postgres using RDS
+## Relational Database Service (RDS)
+
+### Provision Postgres using RDS
 
 [https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html)
 
-## Create tables, insert and retrieve data
+### Create tables, insert and retrieve data
 
 1. First, install the `psql` cli tool, which is the client for Postgres used from bash terminal
 
@@ -241,3 +243,68 @@ An **SQL query** is a statement representing some operation to perform in the da
      WHERE u.username='_DreamLead'
      GROUP BY to_user;
      ```
+     
+
+
+## DynamoDB
+
+### Create a table
+
+In this step, you create a Youtube Bot table in Amazon DynamoDB. The table should store **video** items in the following structure:
+```json
+{
+  "chatId": "TelegramChatId",
+  "videoId": "YouTubeVideoId",
+  "url": "VideoWebPageUrl",
+  "title": "VideoTitle"
+}
+```
+Users can send `/myvideos` to the bot in order to retrieve a list their video searches.
+
+Given the above schema, which attributes should represent primary and sort key? 
+
+1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/)
+2. In the navigation pane on the left side of the console, choose **Dashboard**.
+3. On the right side of the console, choose **Create Table**.
+4. Enter the table details as follows:
+   1. For the table name, enter a unique table name.
+   2. For the partition key, enter `chatId`.
+   3. Enter `videoId` as the sort key.
+   4. Leave **Default settings** selected.
+5. Choose **Create** to create the table.
+
+### Send and retrieve data from the PolyBot
+
+1. In the [PolyBot repository](https://github.com/alonitac/PolyBot.git), go to branch `save_user_data`.
+2. Observe the code differences compared to branch `main`.
+3. Compete the two TODOs in `bot.py`
+   1. In **Use dynamo.put_item() to store user video** you should store in `item` dict in you Dynamo table. 
+   2. In **Use dynamo.query() to retrieve user videos** you should retrieve all videos by `charId` and send the video `url`s to the user chat. 
+
+#### Code reference
+
+Store data:
+
+```python
+response = dynamo.put_item(
+    Item=item,
+    TableName='your-table',
+)
+```
+
+Retrieve data:
+
+```python
+ response = dynamo.query(
+     ExpressionAttributeValues={
+         ':chatId': {
+             'S': 'variable-containing-the-chat-id',
+         },
+     },
+     KeyConditionExpression=f'chatId = :chatId',
+     TableName='your-table',
+ )
+ 
+ for item in response['Items']:
+     # send item url and title to client
+ ```
