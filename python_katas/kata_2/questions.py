@@ -1,5 +1,8 @@
 import os
 import psutil
+import tarfile
+import ntpath
+from datetime import datetime
 
 def valid_parentheses(sequence: str):
     """
@@ -85,10 +88,6 @@ def most_frequent_name(file_path):
 
 
 def files_backup(dir_path):
-    import tarfile
-    import ntpath
-    from datetime import datetime
-
     dt_string = datetime.now().strftime("%d-%m-%Y")
     head, tail = ntpath.split(dir_path)
     f_name = 'backup_' + tail + '_' + dt_string
