@@ -83,7 +83,18 @@ def most_frequent_name(file_path):
     return max_value
 
 
+
 def files_backup(dir_path):
+    import tarfile
+    import ntpath
+    from datetime import datetime
+
+    dt_string = datetime.now().strftime("%d-%m-%Y")
+    head, tail = ntpath.split(dir_path)
+    f_name = 'backup_' + tail + '_' + dt_string
+    tar = tarfile.open(f_name + ".tar.gz", "w:gz")
+    tar.add(dir_path, arcname=f_name)
+    tar.close()
     """
     3 Kata
 
