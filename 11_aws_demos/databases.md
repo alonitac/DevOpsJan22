@@ -244,7 +244,61 @@ An **SQL query** is a statement representing some operation to perform in the da
      GROUP BY to_user;
      ```
      
+### Monitoring and alerting for an RDS database
 
+1. Open the CloudWatch console at [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\.
+
+2. In the navigation pane, choose **Alarms**, **All alarms**\.
+
+3. Choose **Create alarm**\.
+
+4. On the **Specify metric and conditions** page, choose **Select metric**\.
+
+5. In the search box, enter the name of your RDS database and press Enter\.
+
+6. Choose **RDS**, **Per\-Database Metrics**\.
+
+7. In the search box, enter **IOPS** and press Enter, then select **ReadIOPS** and **WriteIOPS** metrics. The graph will show both read and write i/o operations metric for your db.
+
+8. We would like to base the alarm on the total sum of read + write i/o. From **Add math**, choose **All functions**, **SUM**\.  
+
+9. Choose the **Graphed metrics** tab, and edit the details for **Expression1** to **TotalIOPS**\.
+
+10. Change the **Period** to **1 minute**\.
+
+11. Clear selection from all metrics except for **TotalIOPS**\.
+
+12. Choose **Select metric**\.
+
+13. On the **Specify metric and conditions** page, enter a number of IOPS in **Define the threshold value**\.
+For this tutorial, enter **100**. You can adjust this value for your workload requirements\.
+
+14. Choose **Next**, and the **Configure actions** page appears\.
+
+15. Keep **In alarm** selected, choose **Create new topic**, and enter the topic name and a valid email address\.  
+
+16. Choose **Create topic**, and then choose **Next**\.
+
+17. On the **Add name and description** page, enter the **Alarm name** and **Alarm description**, and then choose **Next**\.  
+
+18. Preview the alarm that you're about to create on the **Preview and create** page, and then choose **Create alarm**\.
+
+#### Testing your alarm
+
+It is very important to test all the alarms you set, in production environment if possible. 
+
+19. Connect to an Amazon Linux EC2 instance in the same region of your DB instance.
+20. Install PostgreSQL tooling package by
+```
+sudo yum install postgresql-server postgresql-contrib
+```
+21. Perform a load test of your server and watch the alarm in action
+```shell
+PGPASSWORD=<password> pgbench -t 10000 -j 10 -c 10 -U postgres -h <db-url> <table-name>
+```
+While `<password>` is you db password. `<db-url>` is you RDS database url and `<table-name>` is an existed table. 
+
+For more information on the `pgbench` command, read [here](https://www.postgresql.org/docs/current/pgbench.html).
 
 ## DynamoDB
 
