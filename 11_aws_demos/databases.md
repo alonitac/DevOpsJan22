@@ -293,6 +293,11 @@ It is very important to test all the alarms you set, in production environment i
 sudo yum install postgresql-server postgresql-contrib
 ```
 21. Perform a load test of your server and watch the alarm in action
+To initialize test tables, execute first:
+```shell
+PGPASSWORD=<password> pgbench -i -U postgres -h <db-url> <table-name>
+```
+Then run the full test by:
 ```shell
 PGPASSWORD=<password> pgbench -t 10000 -j 10 -c 10 -U postgres -h <db-url> <table-name>
 ```
