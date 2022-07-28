@@ -284,12 +284,13 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    ami = max(map(len, some_dict))
-    format_string = '{{key:{}}}  {{value}}'.format(ami)
-    for key, value in some_dict.items():
-        print(format_string.format(key=key, value=value))
+    for n,e in some_dict.items():
+        print(f"{n}     {e}")
 
+print('key    value \n'
+      '--------------')
 
+print_dict_as_table(some_dict)
 
 def merge_dicts(dict1, dict2):
     """
@@ -308,10 +309,7 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
-    d3 = {**dict1, **dict2}
-
-    return d3
-
+    return dict1 | dict2
 
 def seven_boom(n):
     """
