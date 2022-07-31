@@ -444,7 +444,7 @@ The policy has four statements that allow your role to do the following:
    3. For **Permissions** use your created role.
 
 4. Choose **Create function**\.
-5. Enter your function, copy the content of `publishNewSong.js` and paste it in the **Code source**. Change `<TOPIC-ARN>` to your SNS topic ARN you created in the previous exercise.
+5. Enter your function, copy the content of `14_dynamodb_lambda_func/publishNewSong.js` and paste it in the **Code source**. Change `<TOPIC-ARN>` to your SNS topic ARN you created in the previous exercise.
 6. Click the **Deploy** button.
 7. On the same page, click **Add trigger** and choose your Dynamo table as a source trigger.
 8. Test your Lambda function by creating new items in the Dynamo table and watch for new emails in your inbox.
