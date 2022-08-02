@@ -68,7 +68,7 @@ Upon incoming messages, this class will take the message text, search and downlo
 7. **You must validate that everything is running correctly!** Communicate with your bot and check the response, reboot your machine and validate that the bot is up and running after.
 
 ## Submission guidelines
-1. Add the below public key to `~/.ssh/authorized_keys` file in your VM (in a separate line), so course stuff will be able to connect and see your work.
+1. Add the below public key to `~/.ssh/authorized_keys` file in your VM (in a separate line), so course staff will be able to connect and see your work.
 2. You don't need to keep the VM running. When your work is done, Stop the machine (don't Terminate it!)
 3. In your forked repo, in `SUBMISSION` file, write _your mails_, the _Instance id_ and _region_ of your EC2 instance. Don't forget to commit and push it so it is visible to course stuff: 
 ```text
