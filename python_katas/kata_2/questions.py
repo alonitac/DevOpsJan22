@@ -1,8 +1,7 @@
-import os
-import psutil
 import tarfile
 import ntpath
 from datetime import datetime
+import fileinput
 
 def valid_parentheses(sequence: str):
     """
@@ -114,6 +113,10 @@ def files_backup(dir_path):
 
 
 def replace_in_file(file_path, text, replace_text):
+    head, tail = ntpath.split(file_path)
+    with fileinput.FileInput(tail, inplace=True) as file:
+        for line in file:
+            print(line.replace(text, replace_text), end='')
     """
     2 Kata
 
