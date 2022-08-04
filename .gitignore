@@ -11,6 +11,7 @@ __pycache__/
 
 # ignore .pem file
 *.pem
+**/*.weights
 
 # Distribution / packaging
 .Python
