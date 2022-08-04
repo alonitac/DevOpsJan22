@@ -26,9 +26,6 @@ def valid_parentheses(s):
                 return False
     return stack == []
 
-
-
-
     return None
 
 
