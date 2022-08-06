@@ -18,17 +18,13 @@ def valid_parentheses(s):
     for i in s:
         if i == "(" or i == "{" or i == "[":
             count += 1
-        elif i == "(" or i == "{" or i == "[":
+        elif i == ")" or i == "}" or i == "]":
             count -= 1
         if count < 1:
             return ans
     if count == 0:
         return not ans
     return ans
-
-
-
-
 
     dict = {'(': ')', '[": "]', '{": "}'}
     stack = []
@@ -64,6 +60,19 @@ def fibonacci_fixme(n):
     But it doesn't (it has some bad lines in it...)
     You should (1) correct the for statement and (2) swap two lines, so that the correct fibonacci element will be returned
     """
+    nterms = n
+    n1, n2 = 1, 1
+    count = 0
+    print("Fibonacci sequence;")
+    while count < nterms:
+            print(n1)
+            nth = n1 + n2
+            n1 = n2
+            n2 = nth
+            count += 1
+
+
+
     a = 0
     b = 1
     for i in range(1, n):
