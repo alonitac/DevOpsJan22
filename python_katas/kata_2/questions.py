@@ -105,6 +105,7 @@ def most_frequent_name(file_path):
             count[n] +=1
     maxval = max(count, key=count.get)
     f.close()
+    return print(maxval)
 
 
 
