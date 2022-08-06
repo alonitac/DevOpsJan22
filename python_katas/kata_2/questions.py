@@ -13,6 +13,23 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
+    count=0
+    ans = False
+    for i in s:
+        if i == "(" or i == "{" or i == "[":
+            count += 1
+        elif i == "(" or i == "{" or i == "[":
+            count -= 1
+        if count < 1:
+            return ans
+    if count == 0:
+        return not ans
+    return ans
+
+
+
+
+
     dict = {'(': ')', '[": "]', '{": "}'}
     stack = []
     for i in s:
