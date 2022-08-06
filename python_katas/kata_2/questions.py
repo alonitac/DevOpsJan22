@@ -64,7 +64,7 @@ def fibonacci_fixme(n):
     n1, n2 = 1, 1
     count = 0
     print("Fibonacci sequence;")
-    while count < nterms:
+    while count < nterms+1:
             print(n1)
             nth = n1 + n2
             n1 = n2
@@ -83,6 +83,8 @@ def fibonacci_fixme(n):
     return tmp
 
 
+count = {}
+file_path = "~/home/ami.txt"
 def most_frequent_name(file_path):
     """
     2 Kata
@@ -95,6 +97,17 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
+    f = open(file_path,"r")
+    for n in f:
+        if not n in count:
+            count[n] = 1
+        else:
+            count[n] +=1
+    maxval = max(count, key=count.get)
+    f.close()
+
+
+
     return None
 
 
