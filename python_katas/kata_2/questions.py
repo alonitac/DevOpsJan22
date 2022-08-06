@@ -1,18 +1,4 @@
 def valid_parentheses(s):
-    """
-    3 Kata
-
-    This function gets a string containing just the characters '(', ')', '{', '}', '[' and ']',
-    and determines if the input string is valid.
-
-    An input string is valid if:
-        Open brackets must be closed by the same type of brackets.
-        Open brackets must be closed in the correct order.
-
-    e.g.
-    s = '[[{()}](){}]'  -> True
-    s = '[{]}'          -> False
-    """
     count=0
     ans = False
     for i in s:
@@ -39,27 +25,8 @@ def valid_parentheses(s):
                 return False
     return stack == []
 
-    return None
-
 
 def fibonacci_fixme(n):
-    """
-    2 Kata
-
-    A Fibonacci sequence is the integer sequence of 1, 1, 2, 3, 5, 8, 13....
-    The first two terms are 1 and 1. All other terms are obtained by adding the preceding two terms.
-
-    This function should return the n'th element of fibonacci sequence. As following:
-
-    fibonacci_fixme(1) -> 1
-    fibonacci_fixme(2) -> 1
-    fibonacci_fixme(3) -> 2
-    fibonacci_fixme(4) -> 3
-    fibonacci_fixme(5) -> 5
-
-    But it doesn't (it has some bad lines in it...)
-    You should (1) correct the for statement and (2) swap two lines, so that the correct fibonacci element will be returned
-    """
     nterms = n
     n1, n2 = 1, 1
     count = 0
@@ -86,17 +53,6 @@ def fibonacci_fixme(n):
 count = {}
 file_path = "~/home/ami.txt"
 def most_frequent_name(file_path):
-    """
-    2 Kata
-
-    This function gets a path to a file containing names (name in each line)
-    The function should return the most frequent name in the file
-
-    You can assume file_path exists in the file system
-
-    :param file_path: str - absolute or relative file to read names from
-    :return: str - the mose frequent name. If there are many, return one of them
-    """
     f = open(file_path,"r")
     for n in f:
         if not n in count:
@@ -108,27 +64,25 @@ def most_frequent_name(file_path):
     return print(maxval)
 
 
+import datetime
+    import tarfile
 
-    return None
-
-
+    dir_path = r"~\home\ami.txt"
+    date=datetime.date.today()
+    date=date.strftime("%d-%m-%y")
 def files_backup(dir_path):
-    """
-    3 Kata
+    new_name=dir_path.split(r'\\')
+    new_name=new_name[1]
+    file = f"backup_{new_name}_{date}"
+    tar = tarfile.TarFile.gzopen(f"{file}.gz" , mode="w", compresslevel=9)
+    tar.add(dir_path, arcname="project1")
+    tar.close()
 
-    This function gets a path to a directory and generated a .gz file containing all the files the directory contains
-    The backup .gz file name should be in the form:
 
-    'backup_<dir_name>_<yyyy-mm-dd>.tar.gz'
 
-    Where <dir_name> is the directory name (only the directory, not the full path given in dir_path)
-    and <yyyy-mm-dd> is the date e.g. 2022-04-10
 
-    You can assume dir_path exists in the file system
 
-    :param dir_path: string - path to a directory
-    :return: str - the backup file name
-    """
+
     return None
 
 
