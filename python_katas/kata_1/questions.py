@@ -344,23 +344,35 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    shift = 3
-    output = []
-    for c in str_to_encrypt:
-        if c == " ":
-            z = c
-        else:
-            z = ord(c) + shift
-            if z > 90:
-                z += 7
-            z = z % 122
-            if z < 68:
-                z += 65
-            z = chr(z)
-        output.append(z)
+    text=str_to_encrypt
+    cipher=""
+    for x in range(len(text)):
+            if test[x].isalpha():
+                    if text[x].islower(): # lowercase
+                            cipher += chr((ord(text[x]) - 97 + 3)% 26 + 97)
+                    else: # uppercase
+                            cipher += chr((ord(text[x]) - 65 + 3) % 26 + 65)
+            else:
+                    cipher += text[x]
+    return cihper
 
-    output = "".join(output)
-    return output
+    shift = 3
+        output = []
+        for c in str_to_encrypt:
+            if c == " ":
+                z = c
+            else:
+                z = ord(c) + shift
+                if z > 90:
+                    z += 7
+                z = z % 122
+                if z < 68:
+                    z += 65
+                z = chr(z)
+            output.append(z)
+
+        output = "".join(output)
+        return output
 
 
 def sum_of_digits(digits_str):
@@ -378,6 +390,11 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
+    l=0
+    for i in digits_str:
+            s=int(i)
+            l +=s
+    return (l)
 
     output = 0
     for val in digits_str:
