@@ -12,18 +12,18 @@ def valid_parentheses(s):
         return not ans
     return ans
 
-    dict = {'(': ')', '[": "]', '{": "}'}
-    stack = []
-    for i in s:
-        if i in dict.keys():
-            stack.append(i)
-        else:
-            if stack == []:
-                return False
-            a = stack.pop()
-            if i != dict[a]:
-                return False
-    return stack == []
+# dict = {'(': ')', '[": "]', '{": "}'}
+# stack = []
+# for i in s:
+#     if i in dict.keys():
+#         stack.append(i)
+#     else:
+#         if stack == []:
+#             return False
+#         a = stack.pop()
+#         if i != dict[a]:
+#             return False
+# return stack == []
 
 
 def fibonacci_fixme(n):
@@ -38,16 +38,14 @@ def fibonacci_fixme(n):
             n2 = nth
             count += 1
 
-
-
-    # a = 0
-    # b = 1
-    # for i in range(1, n):
-    #     tmp = a + b
-    #     a = b
-    #     b = tmp
-    #
-    # return tmp
+# a = 0
+# b = 1
+# for i in range(1, n):
+#     tmp = a + b
+#     a = b
+#     b = tmp
+#
+# return tmp
 
 
 count = {}
@@ -65,7 +63,7 @@ def most_frequent_name(file_path):
 
 
 import datetime
-    import tarfile
+import tarfile
 
     dir_path = r"~\home\ami.txt"
     date=datetime.date.today()
@@ -96,8 +94,6 @@ def replace_in_file(file_path, text, replace_text):
     x.write_text(data)
     return None
 replace_in_file(file_path, text, replace_text)
-
-
 
 
 def json_configs_merge(*json_paths):

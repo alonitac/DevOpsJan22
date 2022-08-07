@@ -152,23 +152,23 @@ def caesar_cipher(str_to_encrypt):
                     cipher += text[x]
     return cihper
 
-    # shift = 3
-    #     output = []
-    #     for c in str_to_encrypt:
-    #         if c == " ":
-    #             z = c
-    #         else:
-    #             z = ord(c) + shift
-    #             if z > 90:
-    #                 z += 7
-    #             z = z % 122
-    #             if z < 68:
-    #                 z += 65
-    #             z = chr(z)
-    #         output.append(z)
-    #
-    #     output = "".join(output)
-    #     return output
+# shift = 3
+#     output = []
+#     for c in str_to_encrypt:
+#         if c == " ":
+#             z = c
+#         else:
+#             z = ord(c) + shift
+#             if z > 90:
+#                 z += 7
+#             z = z % 122
+#             if z < 68:
+#                 z += 65
+#             z = chr(z)
+#         output.append(z)
+#
+#     output = "".join(output)
+#     return output
 
 
 def sum_of_digits(digits_str):
