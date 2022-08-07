@@ -40,14 +40,14 @@ def fibonacci_fixme(n):
 
 
 
-    a = 0
-    b = 1
-    for i in range(1, n):
-        tmp = a + b
-        a = b
-        b = tmp
-
-    return tmp
+    # a = 0
+    # b = 1
+    # for i in range(1, n):
+    #     tmp = a + b
+    #     a = b
+    #     b = tmp
+    #
+    # return tmp
 
 
 count = {}
