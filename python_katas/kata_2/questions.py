@@ -79,28 +79,24 @@ def files_backup(dir_path):
     tar.close()
 
 
-
-
-
-
-    return None
-
+from pathlib import path
+    file_path = input('HI , type a file path : ')
+    x = path(file_path)
+    if x.is_file():
+        file_path = x
+    else:
+        print('file not found')
+        exit(1)
+        text = input('what text you wont to replace ? : ')
 
 def replace_in_file(file_path, text, replace_text):
-    """
-    2 Kata
-
-    This function gets a path of text file, it replaces all occurrences of 'text' by 'replace_text'.
-    The function saves the replaces content on the same path (overwrites the file's content)
-
-    You MUST check that file_path exists in the file system before you try to open it
-
-    :param file_path: relative or absolute path to a text file
-    :param text: text to search
-    :param replace_text: text to replace with
-    :return: None
-    """
+    data=x.read_text()
+    data=data.replace(text,replace_text)
+    x.write_text(data)
     return None
+replace_in_file(file_path, text, replace_text)
+
+
 
 
 def json_configs_merge(*json_paths):
