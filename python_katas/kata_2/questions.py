@@ -80,14 +80,15 @@ def files_backup(dir_path):
 
 
 from pathlib import path
-    file_path = input('HI , type a file path : ')
-    x = path(file_path)
-    if x.is_file():
-        file_path = x
-    else:
-        print('file not found')
-        exit(1)
-        text = input('what text you wont to replace ? : ')
+file_path = input('HI , type a file path : ')
+x = path(file_path)
+if x.is_file():
+    file_path = x
+else:
+    print('file not found')
+    exit(1)
+text = input('what text you wont to replace ? : ')
+replace_text = input ('what do you to replace it with ? : ')
 
 def replace_in_file(file_path, text, replace_text):
     data=x.read_text()
