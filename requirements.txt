@@ -6,3 +6,4 @@ loguru
 requests
 youtube-dl>=2021.12.17
 matplotlib
+pre-commit
