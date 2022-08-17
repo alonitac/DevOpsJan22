@@ -1,3 +1,6 @@
+from pathlib import Path
+
+
 def valid_parentheses(s):
     count=0
     ans = False
@@ -30,7 +33,7 @@ def fibonacci_fixme(n):
     nterms = n
     n1, n2 = 1, 1
     count = 0
-    print("Fibonacci sequence;")
+    print("Fibonacci sequence")
     while count < nterms+1:
             print(n1)
             nth = n1 + n2
@@ -49,7 +52,7 @@ def fibonacci_fixme(n):
 
 
 count = {}
-file_path = "~/home/ami.txt"
+file_path = "/home/ami.txt"
 def most_frequent_name(file_path):
     f = open(file_path,"r")
     for n in f:
@@ -65,9 +68,9 @@ def most_frequent_name(file_path):
 import datetime
 import tarfile
 
-    dir_path = r"~\home\ami.txt"
-    date=datetime.date.today()
-    date=date.strftime("%d-%m-%y")
+dir_path = r"\home\ami.txt"
+date=datetime.date.today()
+date=date.strftime("%d-%m-%y")
 def files_backup(dir_path):
     new_name=dir_path.split(r'\\')
     new_name=new_name[1]
@@ -77,7 +80,6 @@ def files_backup(dir_path):
     tar.close()
 
 
-from pathlib import path
 file_path = input('HI , type a file path : ')
 x = path(file_path)
 if x.is_file():
