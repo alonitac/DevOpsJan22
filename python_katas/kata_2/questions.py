@@ -1,8 +1,3 @@
-import itertools
-import socket
-from pathlib import Path
-
-
 def valid_parentheses(s):
     count=0
     ans = False
@@ -17,20 +12,6 @@ def valid_parentheses(s):
         return not ans
     return ans
 
-# dict = {'(': ')', '[": "]', '{": "}'}
-# stack = []
-# for i in s:
-#     if i in dict.keys():
-#         stack.append(i)
-#     else:
-#         if stack == []:
-#             return False
-#         a = stack.pop()
-#         if i != dict[a]:
-#             return False
-# return stack == []
-
-
 def fibonacci_fixme(n):
     nterms = n
     n1, n2 = 1, 1
@@ -42,15 +23,6 @@ def fibonacci_fixme(n):
             n1 = n2
             n2 = nth
             count += 1
-
-# a = 0
-# b = 1
-# for i in range(1, n):
-#     tmp = a + b
-#     a = b
-#     b = tmp
-#
-# return tmp
 
 
 count = {}
@@ -65,7 +37,6 @@ def most_frequent_name(file_path):
     maxval = max(count, key=count.get)
     f.close()
     return print(maxval)
-
 
 import datetime
 import tarfile
@@ -99,7 +70,6 @@ def replace_in_file(file_path, text, replace_text):
     return None
 replace_in_file(file_path, text, replace_text)
 
-
 def json_configs_merge(*json_paths):
     """
     2 Kata
@@ -119,7 +89,6 @@ def monotonic_array(A):
             all(A[i] >= A[i + 1] for i in range(len(A) - 1 )))
 print(monotonic_array(A))
 
-
 def matrix_avg(mat, rows=None):
     """
     2 Kata
@@ -132,7 +101,6 @@ def matrix_avg(mat, rows=None):
     :return: int - the average values
     """
     return None
-
 
 def merge_sorted_lists(l1, l2):
     """
@@ -160,7 +128,6 @@ def longest_common_substring(str1, str2):
 
 longest_common_substring(str1, str2)
 
-
 def longest_common_prefix(str1, str2):
     """
     1 Kata
@@ -179,7 +146,6 @@ def longest_common_prefix(str1, str2):
     """
     return None
 
-
 def rotate_matrix(mat):
     for s in mat:
         print(*s)
@@ -195,7 +161,6 @@ def is_valid_email(mail_str):
         print(False)
         is_valid_email('poratnick@gmail.com')
 
-
 def pascal_triangle(lines):
     n =int(lines)
     for i in range(n + 1):
@@ -209,7 +174,6 @@ def pascal_triangle(lines):
         print()
 pascal_triangle(8)
 
-
 def list_flatten(lst):
     strext=str(text)
     strext = strext.replace("[", "")
@@ -219,7 +183,7 @@ def list_flatten(lst):
 
     print(strext)
 
-
+import itertools
 def str_compression(text):
     number= []
     split_string = ["".join(g) for k,g in itertools.groupby(text)]
@@ -228,28 +192,21 @@ def str_compression(text):
         if len(i) > 1:
             number.append(len(i))
     print(number)
-
-
-
-    return None
-
-
 def strong_pass(password):
-    """
-    1 Kata
+    if len(password)<= 6:
+        print('password must be above or 6 chars')
+    elif password.isdigit():
+        print('must contain digits')
+    elif password.islower():
+        print('you need at least one uppercase char')
+    elif password.isupper():
+        print('you need at least one uppercase char')
+    elif string.punctuation in password:
+        print('you need at least one special')
 
-    A password is considered strong if it satisfies the following criteria:
-    1) Its length is at least 6.
-    2) It contains at least one digit.
-    3) It contains at least one lowercase English character.
-    4) It contains at least one uppercase English character.
-    5) It contains at least one special character. The special characters are: !@#$%^&*()-+
-
-    This function returns True if the given password is strong enough
-    """
-    return None
-
-
+    else:
+        print('good password')
+strong_pass('')
 if __name__ == '__main__':
     print('\nvalid_parentheses:\n--------------------')
     print(valid_parentheses('[[{()}](){}]'))
