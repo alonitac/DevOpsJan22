@@ -12,6 +12,7 @@ def valid_parentheses(s):
         return not ans
     return ans
 
+
 def fibonacci_fixme(n):
     nterms = n
     n1, n2 = 1, 1
@@ -38,8 +39,8 @@ def most_frequent_name(file_path):
     f.close()
     return print(maxval)
 
+
 import datetime
-import tarfile
 
 dir_path = r"\home\ami.txt"
 date=datetime.date.today()
@@ -63,12 +64,14 @@ else:
 text = input('what text you wont to replace ? : ')
 replace_text = input ('what do you to replace it with ? : ')
 
+
 def replace_in_file(file_path, text, replace_text):
     data=x.read_text()
     data=data.replace(text,replace_text)
     x.write_text(data)
     return None
 replace_in_file(file_path, text, replace_text)
+
 
 def json_configs_merge(*json_paths):
     """
@@ -83,11 +86,13 @@ def json_configs_merge(*json_paths):
     """
     return None
 
+
 A = 1,2,3,4,5
 def monotonic_array(A):
     return (all(A[i] <= A[i + 1] for i in range(len(A) - 1 )) or
             all(A[i] >= A[i + 1] for i in range(len(A) - 1 )))
 print(monotonic_array(A))
+
 
 def matrix_avg(mat, rows=None):
     """
@@ -101,6 +106,7 @@ def matrix_avg(mat, rows=None):
     :return: int - the average values
     """
     return None
+
 
 def merge_sorted_lists(l1, l2):
     """
@@ -117,6 +123,7 @@ def merge_sorted_lists(l1, l2):
     """
     return None
 
+
 from difflib import SequenceMatcher
 
 str1 = 'Introduced in 1991, The Linux kernel is an amazing software'
@@ -127,6 +134,7 @@ def longest_common_substring(str1, str2):
     print(str1[match.a: match.a + str2])
 
 longest_common_substring(str1, str2)
+
 
 def longest_common_prefix(str1, str2):
     """
@@ -146,10 +154,12 @@ def longest_common_prefix(str1, str2):
     """
     return None
 
+
 def rotate_matrix(mat):
     for s in mat:
         print(*s)
 rotate_matrix([[1,2,3],[4,5,6],[7,8,9,10]])
+
 
 import socket
 def is_valid_email(mail_str):
@@ -160,6 +170,7 @@ def is_valid_email(mail_str):
     except:
         print(False)
         is_valid_email('poratnick@gmail.com')
+
 
 def pascal_triangle(lines):
     n =int(lines)
@@ -174,6 +185,7 @@ def pascal_triangle(lines):
         print()
 pascal_triangle(8)
 
+
 def list_flatten(lst):
     strext=str(text)
     strext = strext.replace("[", "")
@@ -182,6 +194,7 @@ def list_flatten(lst):
     strext =[strext]
 
     print(strext)
+
 
 import itertools
 def str_compression(text):
@@ -192,6 +205,9 @@ def str_compression(text):
         if len(i) > 1:
             number.append(len(i))
     print(number)
+
+
+import string
 def strong_pass(password):
     if len(password)<= 6:
         print('password must be above or 6 chars')
@@ -206,6 +222,8 @@ def strong_pass(password):
 
     else:
         print('good password')
+
+
 strong_pass('')
 if __name__ == '__main__':
     print('\nvalid_parentheses:\n--------------------')
