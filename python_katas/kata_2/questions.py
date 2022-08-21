@@ -147,25 +147,16 @@ def merge_sorted_lists(l1, l2):
     """
     return None
 
+from difflib import SequenceMatcher
 
+str1 = 'Introduced in 1991, The Linux kernel is an amazing software'
+str2 = 'The Linux kernel is a mostly free and open-source, monolithic, modular, multitasking, Unix-like operating system kernel.'
 def longest_common_substring(str1, str2):
-    """
-    4 Kata
+    seqMatch = SequenceMatcher(None, str1, str2)
+    match = seqMatch.find_longest_match(0, len(str1), 0, len(str2))
+    print(str1[match.a: match.a + str2])
 
-    This functions gets two strings and returns their longest common substring
-
-    e.g. for
-    str1 = 'Introduced in 1991, The Linux kernel is an amazing software'
-    str2 = 'The Linux kernel is a mostly free and open-source, monolithic, modular, multitasking, Unix-like operating system kernel.'
-
-    The returned value would be 'The Linux kernel is a'
-    since it's the longest string contained both in str1 and str2
-
-    :param str1: str
-    :param str2: str
-    :return: str - the longest common substring
-    """
-    return None
+longest_common_substring(str1, str2)
 
 
 def longest_common_prefix(str1, str2):
@@ -188,29 +179,9 @@ def longest_common_prefix(str1, str2):
 
 
 def rotate_matrix(mat):
-    """
-    2 Kata
-
-    This function gets a matrix n*m (list of m lists of length n) and rotate the matrix clockwise
-    e.g.
-    for [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]] which represent the matrix
-
-    1   2   3
-    4   5   6
-    7   8   9
-    10  11  12
-
-    The output should be:
-    [[10, 7, 4, 1], [11, 8, 5, 2], [12, 9, 6, 3]]
-
-    10  7   4   1
-    11  8   5   2
-    12  9   6   3
-
-    :param mat:
-    :return: list of lists - rotate matrix
-    """
-    return None
+    for s in mat:
+        print(*s)
+rotate_matrix([[1,2,3],[4,5,6],[7,8,9,10]])
 
 
 def is_valid_email(mail_str):
