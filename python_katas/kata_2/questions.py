@@ -1,3 +1,4 @@
+import socket
 from pathlib import Path
 
 
@@ -183,24 +184,15 @@ def rotate_matrix(mat):
         print(*s)
 rotate_matrix([[1,2,3],[4,5,6],[7,8,9,10]])
 
-
+import socket
 def is_valid_email(mail_str):
-    """
-    3 Kata
-
-    This function returns True if the given mail is in the form:
-    (username)@(domainname)
-
-    Where
-    * (username) must start with digit or an English character, and can contains only 0-9 a-z A-Z . or _
-    * (domainname) is a real, existed domain - one that resolves to an actual ip address
-
-    Hint: use socket.gethostbyname() to resolve a DNS in Python code
-
-    :param mail_str: mail to check
-    :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
-    """
-    return None
+    name,domain = mail_str.split("@")
+    try:
+        socket.gethostbyname(domain)
+        print(True)
+    except:
+        print(False)
+        is_valid_email('poratnick@gmail.com')
 
 
 def pascal_triangle(lines):
