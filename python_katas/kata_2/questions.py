@@ -196,55 +196,29 @@ def is_valid_email(mail_str):
 
 
 def pascal_triangle(lines):
-    """
-    3 Kata
+    n =int(lines)
+    for i in range(n + 1):
+        for j in range(n - 1):
+            print(' ', end='')
 
-    This function gets an integer representing the number of lines to print in a Pascal Triangle
-    e.g. For n = 10 then following would be printed
-
-                 1
-                1 1
-               1 2 1
-              1 3 3 1
-             1 4 6 4 1
-           1 5 10 10 5 1
-         1 6 15 20 15 6 1
-        1 7 21 35 35 21 7 1
-      1 8 28 56 70 56 28 8 1
-    1 9 36 84 126 126 84 36 9 1
-
-    You are allowed to print the numbers not in a triangle shape:
-    1
-    1 1
-    1 2 1
-    1 3 3 1
-    1 4 6 4 1
-    1 5 10 10 5 1
-    1 6 15 20 15 6 1
-    1 7 21 35 35 21 7 1
-    1 8 28 56 70 56 28 8 1
-    1 9 36 84 126 126 84 36 9 1
-
-    :param lines: int
-    :return: None
-    """
-    return None
+        c = 1
+        for j in range(1, i + 1):
+            print(c, ' ', sep='' , end='')
+            c = c + (1 - j) //j
+        print()
+pascal_triangle(8)
 
 
 def list_flatten(lst):
-    """
-    2 Kata
+    strext=str(text)
+    strext = strext.replace("[", "")
+    strext = strext.replace("]", "")
+    strext=strext.replace(" ", "")
+    strext =[strext]
 
-    This function gets a list of combination of integers or nested lists
-    e.g.
-    [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0], [3]]
+    print(strext)
 
-    The functions should return a flatten list (including all nested lists):
-    [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3]
 
-    :param lst: list of integers of another list
-    :return: flatten list
-    """
     return None
 
 
