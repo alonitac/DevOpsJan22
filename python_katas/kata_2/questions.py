@@ -1,3 +1,4 @@
+import itertools
 import socket
 from pathlib import Path
 
@@ -219,26 +220,17 @@ def list_flatten(lst):
     print(strext)
 
 
-    return None
-
-
 def str_compression(text):
-    """
-    2 Kata
+    number= []
+    split_string = ["".join(g) for k,g in itertools.groupby(text)]
+    for i in split_string:
+        number.append(i[0])
+        if len(i) > 1:
+            number.append(len(i))
+    print(number)
 
-    This function gets a text (string) and returns a list representing the compressed form of the text.
-    e.g.
-    text = 'aaaaabbcaasbbgvccf'
 
-    The output will be:
-    ['a', 5, 'b', 2, 'c', 'a', 2, 's', 1, 'b', 2, 'g', 'v', 'c', 2, 'f']
 
-    Since 'a' appears 5 times in consecutively, 'b' 2 times etc...
-    Note that sequences of length 1 don't necessarily have the number 1 after the character (like 'c' before 'a')
-
-    :param text: str
-    :return: list representing the compressed form of the string
-    """
     return None
 
 
