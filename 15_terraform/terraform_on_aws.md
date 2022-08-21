@@ -413,7 +413,7 @@ Always backup your state!
 
 1. To configure a backend, add a nested `backend` block within the top-level `terraform` block. The following example configures the `s3_backend` backend:
    ```text
-   backend "s3_backend" {
+   backend "s3" {
     bucket = "<bucket-name>"
     key    = "tfstate.json"
     region = "<bucket-region>"
