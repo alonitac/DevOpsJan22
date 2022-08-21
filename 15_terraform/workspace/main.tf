@@ -7,7 +7,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "4.16"
+      version = "~> 4.16"
     }
   }
 
@@ -20,7 +20,7 @@ terraform {
  You can use multiple provider blocks in your Terraform configuration to manage resources from different providers.
 */
 provider "aws" {
-  region  = "<aws-region>"
+  region  = "eu-north-1"
 }
 
 
@@ -34,11 +34,75 @@ provider "aws" {
  For full description of this resource: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 */
 resource "aws_instance" "app_server" {
-  ami           = "<ec2-ami-here>"
-  instance_type = "t2.micro"
+  ami           = data.aws_ami.amazon_linux_ami.id
+  instance_type = var.env == "prod" ? "t2.micro" : "t2.nano"
+  vpc_security_group_ids = [aws_security_group.sg_web.id]
+  key_name = "docker-swarm-alonit"
+  subnet_id              = module.app_vpc.public_subnets[0]
+
+  depends_on = [
+    aws_s3_bucket.data_bucket
+  ]
 
   tags = {
-    Name = "<instance-name>"
+    Name = "alonit-instance2-${var.env}"
     Terraform = "true"
+    Env = var.env
+  }
+}
+
+resource "aws_security_group" "sg_web" {
+  name = "${var.resource_alias}-${var.env}-sg"
+  vpc_id      = module.app_vpc.vpc_id
+
+  ingress {
+    from_port   = "8080"
+    to_port     = "8080"
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+
+resource "aws_s3_bucket" "data_bucket" {
+  bucket = "alonit-bucket-tf-demo"
+
+  tags = {
+    Name        = "${var.resource_alias}-bucket"
+    Env         = var.env
+  }
+}
+
+
+module "app_vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "3.14.0"
+
+  name = "${var.resource_alias}-vpc"
+  cidr = var.vpc_cidr
+
+  azs             = data.aws_availability_zones.available_azs.names
+  private_subnets = var.vpc_private_subnets
+  public_subnets  = var.vpc_public_subnets
+
+  enable_nat_gateway = false
+
+  tags = {
+    Name        = "${var.resource_alias}-vpc"
+    Env         = var.env
+  }
+}
+
+data "aws_availability_zones" "available_azs" {
+  state = "available"
+}
+
+data "aws_ami" "amazon_linux_ami" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
   }
 }
