@@ -111,17 +111,11 @@ def json_configs_merge(*json_paths):
     """
     return None
 
-
-def monotonic_array(lst):
-    """
-    1 Kata
-
-    This function returns True/False if the given list is monotonically increased or decreased
-
-    :param lst: list of numbers (int, floats)
-    :return: bool: indicating for monotonicity
-    """
-    return None
+A = 1,2,3,4,5
+def monotonic_array(A):
+    return (all(A[i] <= A[i + 1] for i in range(len(A) - 1 )) or
+            all(A[i] >= A[i + 1] for i in range(len(A) - 1 )))
+print(monotonic_array(A))
 
 
 def matrix_avg(mat, rows=None):
