@@ -7,7 +7,8 @@ The set of files used to describe infrastructure in Terraform is known as a Terr
 1. Edit the configuration file in `workspace/main.tf`. This is a complete configuration that you can deploy with Terraform.
    1. `<aws-region-code>` is the region in which you want to deploy your infrastructure.
    2. `<ec2-ami>` is the AMI you want to provision (you can choose Amazon Linux).
-   3. `<your-alias>` is the name of you EC2 instance
+   3. `<your-alias>` is the name of you EC2 instance.
+   4. `<aws-course-profile>` is the profile account with which your local credentials are associated. 
 2. When you create a new configuration — or check out an existing configuration from version control — you need to initialize the directory with `terraform init`.
    Initializing a configuration directory downloads and installs the providers defined in the configuration, which in this case is the `aws` provider.
 3. You can make sure your configuration is syntactically valid and internally consistent by using the `terraform validate` command.
@@ -46,14 +47,14 @@ The current configuration includes a number of hard-coded values. Terraform vari
    variable "env" {
    description = "Deployment environment"
    type        = string
-   default     = "production"
+   default     = "dev"
    }
    ```
-2. In `main.tf`, update the `aws_instance.app_server` resource block to use the new variable. The `dev` variable block will default to its default value ("dev") unless you declare a different value.
+2. In `main.tf`, update the `aws_instance.app_server` resource block to use the new variable. The `env` variable block will default to its default value ("dev") unless you declare a different value.
    ```text
     tags = {
-   -    Name = "ExampleAppServerInstance"
-   +    Name = "alonit-instance2-${var.env}"
+   -    Name = "<instance-name>"
+   +    Name = "<instance-name>-${var.env}"
     }
    ```
    
@@ -81,17 +82,23 @@ so that resources are created and destroyed in the correct order. Let's create a
      default     = "alonit"
    }
    ```
-   
+   change `alonit` to your alias.   
+
 2. Create a security group
    ```text
    resource "aws_security_group" "sg_web" {
-     name = "sg-${var.resource_alias}-${var.env}"
+     name = "${var.resource_alias}-${var.env}-sg"
    
      ingress {
        from_port   = "8080"
        to_port     = "8080"
        protocol    = "tcp"
        cidr_blocks = ["0.0.0.0/0"]
+     }
+   
+     tags = {
+       Env         = var.env
+       Terraform   = true
      }
    }
    ```
@@ -112,6 +119,7 @@ You can use the `depends_on` meta-argument to handle hidden resource dependencie
      tags = {
        Name        = "${var.resource_alias}-bucket"
        Env         = var.env
+       Terraform   = true
      }
    }
    ```
@@ -159,7 +167,7 @@ Every Terraform configuration has at least one module, known as its root module,
      name = "${var.resource_alias}-vpc"
      cidr = var.vpc_cidr
    
-     azs             = ["<az1>", "<az2>", ...]
+     azs             = ["<az1>", "<az2>", "..."]
      private_subnets = var.vpc_private_subnets
      public_subnets  = var.vpc_public_subnets
    
@@ -168,6 +176,7 @@ Every Terraform configuration has at least one module, known as its root module,
      tags = {
        Name        = "${var.resource_alias}-vpc"
        Env         = var.env
+       Terraform   = true
      }
    }
    ```
@@ -189,7 +198,7 @@ Let's migrate the EC2 and the security group into your VPC
      vpc_id      = module.app_vpc.vpc_id
    ```
 
-6. Add the following attributes to `aws_instance" "app_server`:
+6. Add the following attributes to `aws_instance.app_server`:
    ```text
      subnet_id              = module.app_vpc.public_subnets[0]
    ```
@@ -204,7 +213,7 @@ You will use the [`aws_availability_zones`](https://registry.terraform.io/provid
 
 1. List the AZs which can be accessed by an AWS account within the region configured in the provider.
 ```text
-data "aws_availability_zones" "available" {
+data "aws_availability_zones" "available_azs" {
   state = "available"
 }
 ```
