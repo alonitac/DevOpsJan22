@@ -11,6 +11,13 @@ terraform {
     }
   }
 
+  backend "s3" {
+    bucket = "alonit-bucket-tf-demo-2"
+    key    = "tfstate.json"
+    region = "eu-central-1"
+    # optional: dynamodb_table = "<table-name>"
+  }
+
   required_version = ">= 1.0.0"
 }
 
@@ -20,7 +27,7 @@ terraform {
  You can use multiple provider blocks in your Terraform configuration to manage resources from different providers.
 */
 provider "aws" {
-  region  = "eu-north-1"
+  region  = "eu-central-1"
 }
 
 
@@ -36,7 +43,7 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami           = data.aws_ami.amazon_linux_ami.id
   instance_type = var.env == "prod" ? "t2.micro" : "t2.nano"
-  vpc_security_group_ids = [aws_security_group.sg_web.id]
+  vpc_security_group_ids = [aws_security_group.sg_web.id, aws_security_group.sg_ssh.id]
   key_name = "docker-swarm-alonit"
   subnet_id              = module.app_vpc.public_subnets[0]
 
@@ -65,7 +72,7 @@ resource "aws_security_group" "sg_web" {
 
 
 resource "aws_s3_bucket" "data_bucket" {
-  bucket = "alonit-bucket-tf-demo"
+  bucket = "alonit-bucket-tf-demo-2"
 
   tags = {
     Name        = "${var.resource_alias}-bucket"
@@ -103,6 +110,19 @@ data "aws_ami" "amazon_linux_ami" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+    values = ["amzn2-ami-kernel-5.10-hvm-2.0.20220606.1-x86_64-gp2"]
+  }
+}
+
+resource "aws_security_group" "sg_ssh" {
+  name = "alonit-tf-ssh-sg"
+  description = "Allow SSH access"
+  vpc_id      = module.app_vpc.vpc_id
+
+  ingress {
+    from_port   = "22"
+    to_port     = "22"
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
