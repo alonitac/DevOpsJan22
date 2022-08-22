@@ -1,3 +1,7 @@
+import tarfile
+from importlib.resources import path
+
+
 def valid_parentheses(s):
     count=0
     ans = False
@@ -39,23 +43,26 @@ def most_frequent_name(file_path):
     f.close()
     return print(maxval)
 
-
+from os import path
 import datetime
+import tarfile
 
-dir_path = r"\home\ami.txt"
+
+dir_path = "/home/ami-porat"
 date=datetime.date.today()
 date=date.strftime("%d-%m-%y")
 def files_backup(dir_path):
-    new_name=dir_path.split(r'\\')
+    new_name=dir_path.split(r"/")
     new_name=new_name[1]
     file = f"backup_{new_name}_{date}"
     tar = tarfile.TarFile.gzopen(f"{file}.gz" , mode="w", compresslevel=9)
     tar.add(dir_path, arcname="project1")
     tar.close()
 
-
+from pathlib import Path
+import re
 file_path = input('HI , type a file path : ')
-x = path(file_path)
+x = Path(file_path)
 if x.is_file():
     file_path = x
 else:
@@ -63,7 +70,6 @@ else:
     exit(1)
 text = input('what text you wont to replace ? : ')
 replace_text = input ('what do you to replace it with ? : ')
-
 
 def replace_in_file(file_path, text, replace_text):
     data=x.read_text()
@@ -107,22 +113,11 @@ def matrix_avg(mat, rows=None):
     """
     return None
 
-
+l1 = [1,2,3]
+l2 = [4,5,6]
 def merge_sorted_lists(l1, l2):
-    """
-    1 Kata
-
-    This function gets two sorted lists (each one of them is sorted)
-    and returns a single sorted list combining both of them.
-
-    Try to be as efficient as you can (hint - don't use Python's built in sort() or sorted() functions)
-
-    :param l1: list of integers
-    :param l2: list of integers
-    :return: list: sorted list combining l1 and l2
-    """
-    return None
-
+    new_list = l1 + l2
+    print(sorted(new_list))
 
 from difflib import SequenceMatcher
 
@@ -235,45 +230,45 @@ if __name__ == '__main__':
     print('\nmost_frequent_name:\n--------------------')
     print(most_frequent_name('names.txt'))
 
-    print('\nfiles_backup:\n--------------------')
-    print(files_backup('files_to_backup'))
+print('\nfiles_backup:\n--------------------')
+print(files_backup("/home/ami-porat"))
 
-    print('\nreplace_in_file:\n--------------------')
-    print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
+print('\nreplace_in_file:\n--------------------')
+print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
 
-    print('\njson_configs_merge:\n--------------------')
-    print(json_configs_merge('default.json', 'local.json'))
+print('\njson_configs_merge:\n--------------------')
+print(json_configs_merge('default.json', 'local.json'))
 
-    print('\nmonotonic_array:\n--------------------')
-    print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
+print('\nmonotonic_array:\n--------------------')
+print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
 
-    print('\nmatrix_avg:\n--------------------')
-    print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
-    print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+print('\nmatrix_avg:\n--------------------')
+print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
+print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 
-    print('\nmerge_sorted_lists:\n--------------------')
-    print(merge_sorted_lists([1, 4, 9, 77, 13343], [-7, 0, 7, 23]))
+print('\nmerge_sorted_lists:\n--------------------')
+print(merge_sorted_lists([1, 4, 9, 77, 13343], [-7, 0, 7, 23]))
 
-    print('\nlongest_common_substring:\n--------------------')
-    print(longest_common_substring('abcdefg', 'bgtcdesd'))
+print('\nlongest_common_substring:\n--------------------')
+print(longest_common_substring('abcdefg', 'bgtcdesd'))
 
-    print('\nlongest_common_prefix:\n--------------------')
-    print(longest_common_prefix('abcd', 'ttty'))
+print('\nlongest_common_prefix:\n--------------------')
+print(longest_common_prefix('abcd', 'ttty'))
 
-    print('\nrotate_matrix:\n--------------------')
-    print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
+print('\nrotate_matrix:\n--------------------')
+print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
 
-    print('\nis_valid_email:\n--------------------')
-    print(is_valid_email('israel.israeli@gmail.com'))
+print('\nis_valid_email:\n--------------------')
+print(is_valid_email('israel.israeli@gmail.com'))
 
-    print('\npascal_triangle:\n--------------------')
-    print(pascal_triangle(4))
+print('\npascal_triangle:\n--------------------')
+print(pascal_triangle(4))
 
-    print('\nlist_flatten:\n--------------------')
-    print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
+print('\nlist_flatten:\n--------------------')
+print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
 
-    print('\nstr_compression:\n--------------------')
-    print(str_compression('aaaabdddddhgf'))
+print('\nstr_compression:\n--------------------')
+print(str_compression('aaaabdddddhgf'))
 
-    print('\nstrong_pass:\n--------------------')
-    print(strong_pass('##$FgC7^^5a'))
+print('\nstrong_pass:\n--------------------')
+print(strong_pass('##$FgC7^^5a'))
