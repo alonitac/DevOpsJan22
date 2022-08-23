@@ -221,14 +221,14 @@ def strong_pass(password):
 
 strong_pass('')
 if __name__ == '__main__':
-    print('\nvalid_parentheses:\n--------------------')
-    print(valid_parentheses('[[{()}](){}]'))
+print('\nvalid_parentheses:\n--------------------')
+print(valid_parentheses('[[{()}](){}]'))
 
-    print('\nfibonacci_fixme:\n--------------------')
-    print(fibonacci_fixme(6))
+print('\nfibonacci_fixme:\n--------------------')
+print(fibonacci_fixme(6))
 
-    print('\nmost_frequent_name:\n--------------------')
-    print(most_frequent_name('names.txt'))
+print('\nmost_frequent_name:\n--------------------')
+print(most_frequent_name('names.txt'))
 
 print('\nfiles_backup:\n--------------------')
 print(files_backup("/home/ami-porat"))

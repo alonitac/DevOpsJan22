@@ -39,20 +39,11 @@ def time_me(func):
 
 
 def youtube_download(video_id):
-    """
-    3 Kata
-
-    Youtube video url is in the form https://www.youtube.com/watch?v=<video id>
-    This function get a youtube video id and downloads this video to the local fs
-
-    hint: https://www.bogotobogo.com/VideoStreaming/YouTube/youtube-dl-embedding.php
-
-    :param video_id: str
-    :return: None
-    """
-    from youtube_dl import YoutubeDL
-
-    return None
+    import youtube_dl
+    def youtube_download(video_id):
+        ydl_opts = {}
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([f'https://www.youtube.com/watch?v={video_id}'])
 
 
 def tasks_scheduling(tasks):
@@ -87,39 +78,26 @@ def valid_dag(edges):
     """
     return None
 
+from PIL import Image, ImageFilter
+
 
 def rotate_img(img_filename):
-    """
-    3 Kata
+    def rotate_img(img_filename):
+        imageObject = Image.open(rf"/home/ami-porat/Pictures{img_filename}")
+        degree_flippedImage = imageObject.transpose(Image.ROTATE_90)
+        degree_flippedImage.save(rf"/home/ami-porat/Pictures/rotated_{img_filename}")
+        rotate_img("dog.png")
 
-    Rotates image clockwise
 
-    :param img_filename: image file path (png or jpeg)
-    :return: None, the rotated image should be saved as 'rotated_<original image filename>'
-    """
-    image = open_img(img_filename)
-
-    pass  # use rotate_matrix from previous kata 2 or implement....
-
-    # use the below line to save list as image
-    # save_img(rotated_img, f'rotated_{img_filename}')
 
 
 def img_blur(img_filename):
-    """
-    4 Kata
-
-    Blurs an image (every pixel is an average of its nearest neighbors)
-
-    :param img_filename: image file path (png or jpeg)
-    :return: None, the rotated image should be saved as 'rotated_<original image filename>'
-    """
+    def img_blur(img_filename):
+        imageObject = Image.open(rf"/home/ami-porat/Pictures{img_filename}.png")
+        blurImage = imageObject.filter(ImageFilter.BoxBlur(15))
+        blurImage.save(rf"/home/ami-porat/Pictures{img_filename}_blur.png")
+        img_blur('dog')
     image = open_img(img_filename)
-
-    pass  # use matrix_avg from previous kata 2 or implement....
-
-    # use the below line to save list as image
-    # save_img(blured_img, f'blured_{img_filename}')
 
 
 def apache_logs_parser(apache_single_log):
@@ -141,19 +119,13 @@ def apache_logs_parser(apache_single_log):
     date, level, pid, tid, client_ip, log = ..., ..., ..., ..., ..., ...
     return date, level, pid, tid, client_ip, log
 
-
+import requests as requests
 def simple_http_request():
-    """
-    2 Kata
-
-    This function returns Binance market data JSON by performing a simple HTTP request to '/api/v3/exchangeInfo' endpoint
-
-    Hint: use requests.get(...)
-    Hint: Binance api docs https://binance-docs.github.io/apidocs/spot/en/#market-data-endpoints
-
-    :return: json of market exchange information
-    """
-    return None
+    def simple_http_request():
+        x = "https://api.binance.com/api/v3/exchangeInfo"
+        data=requests.get(x)
+        det=data.json()
+        print(det)
 
 
 class SortedDict(dict):
