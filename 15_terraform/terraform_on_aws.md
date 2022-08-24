@@ -226,7 +226,7 @@ data "aws_availability_zones" "available_azs" {
 
 The `aws_instance` configuration also uses a hard-coded AMI ID, which is only valid for the specific region. Use an `aws_ami` data source to load the correct AMI ID for the current region.
 
-4. ddd
+4. Add the following `aws_ami` data source to fetch AMIs from AWS API
 ```text
 data "aws_ami" "amazon_linux_ami" {
   most_recent = true
