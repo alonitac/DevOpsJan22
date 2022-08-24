@@ -11,9 +11,34 @@ def valid_parentheses(s):
 
     e.g.
     s = '[[{()}](){}]'  -> True
-    s = '[{]}'          -> False
+    s = ']}'          -> False
     """
-    return None
+    stack = []
+    for char in s:
+        if char in '([{':
+            stack.append(char)
+        elif not stack:  # closing char
+            top = stack.pop(-1)
+            if top == '(' and char != ')':
+                return False
+            if top == '[' and char != ']':
+                return False
+            if top == '{' and char != '}':
+                return False
+        else:
+            return False
+    return True
+
+    # David's solution
+    while True:
+        if '()' in s:
+            s = s.replace('()', '')
+        elif '{}' in s:
+            s = s.replace('{}', '')
+        elif '[]' in s:
+            s = s.replace('[]', '')
+        else:
+            return not s
 
 
 def fibonacci_fixme(n):
