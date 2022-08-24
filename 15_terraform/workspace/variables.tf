@@ -7,6 +7,6 @@ default     = "dev"
 variable "resource_alias" {
   description = "Your name"
   type        = string
-  default     = "dmitriyshub-terraform"
+  default     = "dmitriyshubterraform"
 }
 

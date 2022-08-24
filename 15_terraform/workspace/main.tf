@@ -11,8 +11,8 @@ terraform {
     }
   }
 
-  backend "s3_backend" {
-    bucket = "dmitriyshub-terraformte"
+  backend "s3" {
+    bucket = "dmitriyshub-terraform"
     key    = "tfstate.json"
     region = "eu-west-2"
     # optional: dynamodb_table = "<table-name>"
@@ -56,6 +56,26 @@ resource "aws_instance" "app_server" {
     Terraform = "true"
     Env       = var.env
   }
+}
+
+resource "aws_db_subnet_group" "private_db_subnet" {
+  subnet_ids = module.app_vpc.public_subnets
+}
+
+resource "aws_db_instance" "database" {
+  allocated_storage = 5
+  db_name           = "${var.resource_alias}mysql"
+  engine            = "mysql"
+  instance_class    = "db.t2.micro"
+  username          = var.db_username
+  password          = var.db_password
+
+  db_subnet_group_name = aws_db_subnet_group.private_db_subnet.name
+  skip_final_snapshot  = true
+  lifecycle {
+    prevent_destroy = true
+  }
+
 }
 
 resource "aws_security_group" "sg_web" {
