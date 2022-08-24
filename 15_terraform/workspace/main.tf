@@ -11,8 +11,15 @@ terraform {
     }
   }
 
+  backend "s3" {
+    bucket = "daniel-reuven-tf-bucket"
+    key    = "tfstate.json"
+    region = "eu-central-1"
+    # optional: dynamodb_table = "<table-name>"
+  }
   required_version = ">= 1.0.0"
 }
+
 
 
 /*
@@ -20,7 +27,7 @@ terraform {
  You can use multiple provider blocks in your Terraform configuration to manage resources from different providers.
 */
 provider "aws" {
-  region  = "<aws-region>"
+  region  = "eu-central-1"
 }
 
 
@@ -33,12 +40,85 @@ provider "aws" {
 
  For full description of this resource: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 */
-resource "aws_instance" "app_server" {
-  ami           = "<ec2-ami-here>"
-  instance_type = "t2.micro"
+variable "env" {
+description = "Deployment environment"
+type        = string
+default     = "production"
+}
 
+resource "aws_instance" "daniel_reuven_tf_1" {
+  ami           = data.aws_ami.amazon_linux_ami.id
+  instance_type = var.env == "prod" ? "t2.micro" : "t2.nano"
+  vpc_security_group_ids = [aws_security_group.daniel_reuven_tf_sg1.id, aws_security_group.daniel-reuven-tf-test1.id]
+  key_name = "daniel-reuven-kp1"
+  subnet_id = module.app_vpc.public_subnets[0]
+  depends_on = [aws_s3_bucket.data_bucket]
   tags = {
-    Name = "<instance-name>"
+    Name = "daniel_reuven_tf_instance-1_${var.env}"
     Terraform = "true"
+    Env = var.env
+  }
+}
+
+resource "aws_security_group" "daniel_reuven_tf_sg1" {
+  name = "daniel_reuven_tf_sg1"
+  vpc_id = module.app_vpc.vpc_id
+  ingress {
+    from_port   = "8080"
+    to_port     = "8080"
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_security_group" "daniel-reuven-tf-test1" {
+  name = "daniel-reuven-tf-test1"
+  description = "allow ssh access"
+  vpc_id = module.app_vpc.vpc_id
+  ingress {
+    from_port   = "22"
+    to_port     = "22"
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_s3_bucket" "data_bucket" {
+  bucket = "daniel-reuven-tf-bucket"
+  tags = {
+    Name        = "${var.resource_alias}-bucket"
+    Env         = var.env
+  }
+//  lifecycle {
+//      prevent_destroy = true
+//    }
+}
+
+module "app_vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "3.14.0"
+  name = "${var.resource_alias}-vpc"
+  cidr = var.vpc_cidr
+  azs             = data.aws_availability_zones.available_azs.names
+  private_subnets = var.vpc_private_subnets
+  public_subnets  = var.vpc_public_subnets
+  enable_nat_gateway = false
+  tags = {
+    Name        = "${var.resource_alias}-vpc"
+    Env         = var.env
+  }
+}
+
+data "aws_availability_zones" "available_azs" {
+  state = "available"
+}
+
+data "aws_ami" "amazon_linux_ami" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
   }
 }

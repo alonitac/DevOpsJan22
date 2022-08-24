@@ -11,7 +11,7 @@ terraform {
     }
   }
 
-  required_version = ">= 1.0.0"
+  required_version = ">= 1.2.0"
 }
 
 /*
@@ -19,7 +19,7 @@ terraform {
  You can use multiple provider blocks in your Terraform configuration to manage resources from different providers.
 */
 provider "aws" {
-  region  = "eu-central-1"
+  region  = "<aws-region-code>"
 }
 
 
@@ -29,15 +29,12 @@ provider "aws" {
  A resource block declares a resource of a given type ("aws_instance") with a given local name ("app_server").
  The name is used to refer to this resource from elsewhere in the same Terraform module, but has no significance outside that module's scope.
  The resource type and name together serve as an identifier for a given resource and so must be unique within a module.
-
- For full description of this resource: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 */
 resource "aws_instance" "app_server" {
-  ami           = "ami-0d3848b33d10bb64f"
+  ami           = "ec2-ami"
   instance_type = "t2.micro"
 
   tags = {
-    Name = "alonit-instance2"
-    tf = "true"
+    Name = "<your-alias>"
   }
 }

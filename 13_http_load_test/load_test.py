@@ -5,7 +5,7 @@ import asyncio
 from datetime import datetime
 
 # change target url to your app under test
-test_url = 'http://localhost:8080/load-test'
+test_url = 'http://daniel-reuven-11-aws-demos-lb1-958578735.eu-central-1.elb.amazonaws.com/load-test'
 
 # test duration
 test_duration_sec = 10
