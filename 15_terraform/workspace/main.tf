@@ -12,10 +12,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "alonit-bucket-tf-demo-2"
+    bucket = "alonit-ddd-fd"
     key    = "tfstate.json"
-    region = "eu-central-1"
-    # optional: dynamodb_table = "<table-name>"
+    region = "eu-north-1"
+    dynamodb_table = "tf-lock-table"
   }
 
   required_version = ">= 1.0.0"
@@ -55,6 +55,10 @@ resource "aws_instance" "app_server" {
     Name = "alonit-instance2-${var.env}"
     Terraform = "true"
     Env = var.env
+  }
+
+  lifecycle {
+    prevent_destroy = true
   }
 }
 
@@ -125,4 +129,21 @@ resource "aws_security_group" "sg_ssh" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
+
+resource "aws_db_subnet_group" "private_db_subnet" {
+  subnet_ids = module.app_vpc.public_subnets
+}
+
+resource "aws_db_instance" "database" {
+  allocated_storage = 5
+  db_name              = "${var.resource_alias}mysql"
+  engine            = "mysql"
+  instance_class    = "db.t2.micro"
+  username          = "admin"
+  password          = var.db_password
+
+  db_subnet_group_name = aws_db_subnet_group.private_db_subnet.name
+  skip_final_snapshot = true
 }
