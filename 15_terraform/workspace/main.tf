@@ -12,7 +12,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "daniel-reuven-tf-bucket"
+    bucket = "daniel-reuven-tf-backend-bucket"
     key    = "tfstate.json"
     region = "eu-central-1"
     # optional: dynamodb_table = "<table-name>"
@@ -43,7 +43,7 @@ provider "aws" {
 variable "env" {
 description = "Deployment environment"
 type        = string
-default     = "production"
+default     = "dev"
 }
 
 resource "aws_instance" "daniel_reuven_tf_1" {
@@ -121,4 +121,20 @@ data "aws_ami" "amazon_linux_ami" {
     name   = "name"
     values = ["amzn2-ami-hvm-*-x86_64-gp2"]
   }
+}
+
+resource "aws_db_subnet_group" "private_db_subnet" {
+  subnet_ids = module.app_vpc.public_subnets
+}
+
+resource "aws_db_instance" "database" {
+  allocated_storage = 5
+  db_name              = "${var.resource_alias}_mysql"
+  engine            = "mysql"
+  instance_class    = "db.t2.micro"
+  username          = var.db_username
+  password          = var.db_password
+
+  db_subnet_group_name = aws_db_subnet_group.private_db_subnet.name
+  skip_final_snapshot = true
 }
