@@ -1,3 +1,10 @@
+import tarfile
+import os
+import json
+import statistics
+from datetime import datetime
+
+
 def valid_parentheses(s):
     """
     3 Kata
@@ -53,8 +60,8 @@ def fibonacci_fixme(n):
     a = 0
     b = 1
     for i in range(1, n):
-        a = b
         tmp = a + b
+        a = b
         b = tmp
 
     return a
@@ -72,6 +79,14 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
+    # full_list = []
+    # unique_dict = {}
+    # with open(file_path) as file:
+    #     for line in file:
+    #         full_list.append(line.rstrip())
+    # most_common = max(set(full_list), key=full_list.count)
+    #
+    # return most_common
     return None
 
 
@@ -92,7 +107,13 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
+    dtnow = datetime.now().strftime("%Y_%m_%d")
+    archive_name = 'backup_' + dir_path + f'_{dtnow}.tar.gz'
+    # with tarfile.open(archive_name, "w:gz") as tar:
+    #     tar.add(dir_path, arcname=os.path.basename(dir_path))
+    #     tar.close()
+
+    return archive_name
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -109,6 +130,10 @@ def replace_in_file(file_path, text, replace_text):
     :param replace_text: text to replace with
     :return: None
     """
+
+    # with open(file_path) as file:
+    #     for line in file:
+    #         line.replace(text, replace_text)
     return None
 
 
@@ -123,7 +148,20 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    return None
+    # KEEP IN MIND, CANNOT KEEP MULTIPLE KEYS WITH SAME NAME, ONLY UNIQUE KEYS.
+    new_dict = {}
+    for path in json_paths:
+        with open(path) as temp_json:
+            temp_dict = json.load(temp_json)
+            temp_json.close()
+        jsonMerged = {**new_dict, **temp_dict}
+        new_dict = jsonMerged
+        print(path)
+        print(temp_dict)
+    with open('data.json', 'w', encoding='utf-8') as f:
+        json.dump(new_dict, f, ensure_ascii=False, indent=4)
+        f.close()
+    return new_dict
 
 
 def monotonic_array(lst):
@@ -135,10 +173,14 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+    size_1 = len(lst)
+    for i in range(0, size_1 - 1):
+        if lst[i] > lst[i + 1]:
+            return False
+    return True
 
 
-def matrix_avg(mat, rows=None):
+def matrix_avg(mat, rows):
     """
     2 Kata
 
@@ -149,7 +191,19 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    if rows is not None:
+        flat_list = []
+        for sublist in mat:
+            if mat.index(sublist) in rows:
+                for item in sublist:
+                    flat_list.append(item)
+    else:
+        flat_list = []
+        for sublist in mat:
+            for item in sublist:
+                flat_list.append(item)
+    average_value = statistics.mean(flat_list)
+    return average_value
 
 
 def merge_sorted_lists(l1, l2):
@@ -165,7 +219,23 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+    size_1 = len(l1)
+    size_2 = len(l2)
+
+    res = []
+    i, j = 0, 0
+
+    while i < size_1 and j < size_2:
+        if l1[i] < l2[j]:
+            res.append(l1[i])
+            i += 1
+
+        else:
+            res.append(l2[j])
+            j += 1
+
+    res = res + l1[i:] + l2[j:]
+    return res
 
 
 def longest_common_substring(str1, str2):
@@ -346,7 +416,7 @@ if __name__ == '__main__':
     print(valid_parentheses('[[{()}](){}]'))
 
     print('\nfibonacci_fixme:\n--------------------')
-    print(fibonacci_fixme(6))
+    print(fibonacci_fixme(8))
 
     print('\nmost_frequent_name:\n--------------------')
     print(most_frequent_name('names.txt'))
@@ -365,7 +435,7 @@ if __name__ == '__main__':
 
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
-    print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+    print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], None))
 
     print('\nmerge_sorted_lists:\n--------------------')
     print(merge_sorted_lists([1, 4, 9, 77, 13343], [-7, 0, 7, 23]))

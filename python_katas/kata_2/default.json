@@ -7,7 +7,9 @@
     "batch_safety_margin_before_close_sec": 600,
     "kafka": {
       "consumers_group": "data-collector-3",
-      "data_topics": ["^.*_data$"]
+      "data_topics": [
+        "^.*_data$"
+      ]
     }
   },
   "job-scheduler": {
