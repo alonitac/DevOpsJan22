@@ -420,6 +420,7 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
+    # KEEP IN MIND, THIS CAN ONLY HANDLE UP TO 2 NESTED LISTS INSIDE A LIST.
     flat_list = []
     for sublist in lst:
         if isinstance(sublist, list):
