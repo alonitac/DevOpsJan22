@@ -1,3 +1,4 @@
+import re
 import tarfile
 import os
 import json
@@ -79,15 +80,14 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    # full_list = []
-    # unique_dict = {}
-    # with open(file_path) as file:
-    #     for line in file:
-    #         full_list.append(line.rstrip())
-    # most_common = max(set(full_list), key=full_list.count)
-    #
-    # return most_common
-    return None
+    full_list = []
+    unique_dict = {}
+    with open(file_path) as file:
+        for line in file:
+            full_list.append(line.rstrip())
+    most_common = max(set(full_list), key=full_list.count)
+
+    return most_common
 
 
 def files_backup(dir_path):
@@ -109,10 +109,9 @@ def files_backup(dir_path):
     """
     dtnow = datetime.now().strftime("%Y_%m_%d")
     archive_name = 'backup_' + dir_path + f'_{dtnow}.tar.gz'
-    # with tarfile.open(archive_name, "w:gz") as tar:
-    #     tar.add(dir_path, arcname=os.path.basename(dir_path))
-    #     tar.close()
-
+    with tarfile.open(archive_name, "w:gz") as tar:
+        tar.add(dir_path, arcname=os.path.basename(dir_path))
+        tar.close()
     return archive_name
 
 
@@ -131,9 +130,11 @@ def replace_in_file(file_path, text, replace_text):
     :return: None
     """
 
-    # with open(file_path) as file:
-    #     for line in file:
-    #         line.replace(text, replace_text)
+    with open(file_path, "r+") as f:
+        contents = f.read()
+        f.seek(0)
+        f.write(contents.replace(text, replace_text))
+        f.truncate()
     return None
 
 
@@ -156,9 +157,8 @@ def json_configs_merge(*json_paths):
             temp_json.close()
         jsonMerged = {**new_dict, **temp_dict}
         new_dict = jsonMerged
-        print(path)
-        print(temp_dict)
-    with open('data.json', 'w', encoding='utf-8') as f:
+    newjsonname = 'data.json'
+    with open(newjsonname, 'w', encoding='utf-8') as f:
         json.dump(new_dict, f, ensure_ascii=False, indent=4)
         f.close()
     return new_dict
@@ -221,24 +221,20 @@ def merge_sorted_lists(l1, l2):
     """
     size_1 = len(l1)
     size_2 = len(l2)
-
     res = []
     i, j = 0, 0
-
     while i < size_1 and j < size_2:
         if l1[i] < l2[j]:
             res.append(l1[i])
             i += 1
-
         else:
             res.append(l2[j])
             j += 1
-
     res = res + l1[i:] + l2[j:]
     return res
 
 
-def longest_common_substring(str1, str2):
+def longest_common_substring(s, t):
     """
     4 Kata
 
@@ -255,7 +251,24 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
+    m = len(s)
+    n = len(t)
+    counter = [[0] * (n + 1) for x in range(m + 1)]
+    longest = 0
+    lcs_set = set()
+    for i in range(m):
+        for j in range(n):
+            if s[i] == t[j]:
+                c = counter[i][j] + 1
+                counter[i + 1][j + 1] = c
+                if c > longest:
+                    lcs_set = set()
+                    longest = c
+                    lcs_set.add(s[i - c + 1:i + 1])
+                elif c == longest:
+                    lcs_set.add(s[i - c + 1:i + 1])
+    lcs_set = ''.join(lcs_set)
+    return lcs_set
 
 
 def longest_common_prefix(str1, str2):
@@ -274,7 +287,20 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+    my_str = [str1, str2]
+    if not my_str:
+        return ''
+    if len(my_str) == 1:
+        return my_str[0]
+    my_str.sort()
+    shortest = my_str[0]
+    prefix = ''
+    for i in range(len(shortest)):
+        if my_str[len(my_str) - 1][i] == shortest[i]:
+            prefix += my_str[len(my_str) - 1][i]
+        else:
+            break
+    return prefix
 
 
 def rotate_matrix(mat):
@@ -300,7 +326,13 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    return None
+    new_matrix = []
+    for i in range(len(mat[0])):
+        li = list(map(lambda x: x[i], mat))
+        li.reverse()
+        new_matrix.append(li)
+
+    return new_matrix
 
 
 def is_valid_email(mail_str):
@@ -319,7 +351,10 @@ def is_valid_email(mail_str):
     :param mail_str: mail to check
     :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
     """
-    return None
+    if re.match(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", mail_str):
+        return True
+    else:
+        return False
 
 
 def pascal_triangle(lines):
@@ -355,6 +390,19 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
+    for i in range(1, lines + 1):
+        for j in range(0, lines - i + 1):
+            print(' ', end='')
+
+        # first element is always 1
+        c = 1
+        for j in range(1, i + 1):
+            # first value in a line is always 1
+            print(' ', c, sep='', end='')
+
+            # using Binomial Coefficient
+            c = c * (i - j) // j
+        print()
     return None
 
 
@@ -372,7 +420,18 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+    flat_list = []
+    for sublist in lst:
+        if isinstance(sublist, list):
+            for item in sublist:
+                if isinstance(item, list):
+                    for i in item:
+                        flat_list.append(i)
+                else:
+                    flat_list.append(item)
+        else:
+            flat_list.append(sublist)
+    return flat_list
 
 
 def str_compression(text):
@@ -392,7 +451,20 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
+    res = ""
+    cnt = 1
+    for i in range(1, len(text)):
+        if text[i - 1] == text[i]:
+            cnt += 1
+        else:
+            res = res + text[i - 1]
+            if cnt > 1:
+                res += str(cnt)
+            cnt = 1
+    res = res + text[-1]
+    if cnt > 1:
+        res += str(cnt)
+    return res
 
 
 def strong_pass(password):
@@ -408,7 +480,34 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
-    return None
+    l, u, p, d = 0, 0, 0, 0
+    s = password
+    capitalalphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    smallalphabets = "abcdefghijklmnopqrstuvwxyz"
+    specialchar = "!@#$%^&*()-+"
+    digits = "0123456789"
+    if len(s) >= 6:
+        for i in s:
+
+            # counting lowercase alphabets
+            if i in smallalphabets:
+                l += 1
+
+            # counting uppercase alphabets
+            if i in capitalalphabets:
+                u += 1
+
+            # counting digits
+            if i in digits:
+                d += 1
+
+            # counting the mentioned special characters
+            if i in specialchar:
+                p += 1
+    if l >= 1 and u >= 1 and p >= 1 and d >= 1 and l + p + u + d == len(s):
+        return True
+    else:
+        return False
 
 
 if __name__ == '__main__':
@@ -444,16 +543,22 @@ if __name__ == '__main__':
     print(longest_common_substring('abcdefg', 'bgtcdesd'))
 
     print('\nlongest_common_prefix:\n--------------------')
-    print(longest_common_prefix('abcd', 'ttty'))
+    print(longest_common_prefix('abcd', 'abada'))
 
     print('\nrotate_matrix:\n--------------------')
-    print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
+    matrix = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]
+    rotated_matrix = rotate_matrix(matrix)
+    print(matrix)
+    print('\n'.join(['\t'.join([str(cell) for cell in row]) for row in matrix]))
+    print('rotated_matrix:\n--------------------')
+    print(rotated_matrix)
+    print('\n'.join(['\t'.join([str(cell) for cell in row]) for row in rotated_matrix]))
 
     print('\nis_valid_email:\n--------------------')
     print(is_valid_email('israel.israeli@gmail.com'))
 
     print('\npascal_triangle:\n--------------------')
-    print(pascal_triangle(4))
+    print(pascal_triangle(6))
 
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
