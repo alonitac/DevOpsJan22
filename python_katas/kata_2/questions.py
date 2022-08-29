@@ -3,9 +3,6 @@ from importlib.resources import path
 
 
 def valid_parentheses(s):
-    def is_opening(c):
-        return c in '([{'
-
     stack = []
     for char in s:
       if not stack:
@@ -20,6 +17,7 @@ def valid_parentheses(s):
               return False
           if top == "{" and char != "}":
               return False
+    return True
 
     # count=0
     # ans = False
