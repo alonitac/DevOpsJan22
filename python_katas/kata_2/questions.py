@@ -9,13 +9,15 @@ def valid_parentheses(s):
           continue
       if char in '([{':
           stack.append(char)
-      else:
-          top = stack[-1]
+      elif not stack:
+          top = stack.pop(-1)
           if top == "(" and char != ")":
               return False
           if top == "[" and char != "]":
               return False
           if top == "{" and char != "}":
+              return False
+          else:
               return False
     return True
 
