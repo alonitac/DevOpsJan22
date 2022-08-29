@@ -3,18 +3,36 @@ from importlib.resources import path
 
 
 def valid_parentheses(s):
-    count=0
-    ans = False
-    for i in s:
-        if i == "(" or i == "{" or i == "[":
-            count += 1
-        elif i == ")" or i == "}" or i == "]":
-            count -= 1
-        if count < 1:
-            return ans
-    if count == 0:
-        return not ans
-    return ans
+    def is_opening(c):
+        return c in '([{'
+
+    stack = []
+    for char in s:
+      if not stack:
+          continue
+      if char in '([{':
+          stack.append(char)
+      else:
+          top = stack[-1]
+          if top == "(" and char != ")":
+              return False
+          if top == "[" and char != "]":
+              return False
+          if top == "{" and char != "}":
+              return False
+
+    # count=0
+    # ans = False
+    # for i in s:
+    #     if i == "(" or i == "{" or i == "[":
+    #         count += 1
+    #     elif i == ")" or i == "}" or i == "]":
+    #         count -= 1
+    #     if count < 1:
+    #         return ans
+    # if count == 0:
+    #     return not ans
+    # return ans
 
 
 def fibonacci_fixme(n):
