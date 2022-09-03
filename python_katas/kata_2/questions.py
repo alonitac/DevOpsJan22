@@ -1,3 +1,4 @@
+import os
 import tarfile
 from importlib.resources import path
 
@@ -96,11 +97,16 @@ def replace_in_file(file_path, text, replace_text):
     return None
 replace_in_file(file_path, text, replace_text)
 
-
+import jsonmerge
+import json
 def json_configs_merge(*json_paths):
-
-    return None
-
+    x = {}
+    path_to_json = r"C:\Users\Ami-porat\Desktop\Devops Project\python katas"
+    for json_paths in [file for file in os.listdir(path_to_json) if file.endswith('.json')]:
+        with open(json_paths) as json_file:
+            data = json.load(json_file)
+            x = {**data}
+            print(x)
 
 A = 1,2,3,4,5
 def monotonic_array(A):
