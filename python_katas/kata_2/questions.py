@@ -114,20 +114,32 @@ def monotonic_array(A):
             all(A[i] >= A[i + 1] for i in range(len(A) - 1 )))
 print(monotonic_array(A))
 
-
+from statistics import mean
 def matrix_avg(mat, rows=None):
-    if rows is not None:
-        flat_list = []
-        for sublist in mat:
-            if mat.index(sublist) in rows:
-            for item in sublist:
-                flat_list.append(item)
-    else:
-        flat_list = []
-            for sublist in mat:
-                for item in sublist:
-        flat_list.append(item) average_value = statistics.mean(flat_list)
-    return average_value
+    x1=mat[0]
+    x2=mat[1]
+    x3=mat[2]
+    if rows == None:
+        print(mean(mat))
+    if  0 in rows:
+        print(mean(x1))
+    if  1 in rows:
+        print(mean(x2))
+    if  2 in rows:
+        print(mean(x3))
+
+    # if rows is not None:
+    #     flat_list = []
+    #     for sublist in mat:
+    #         if mat.index(sublist) in rows:
+    #         for item in sublist:
+    #             flat_list.append(item)
+    # else:
+    #     flat_list = []
+    #         for sublist in mat:
+    #             for item in sublist:
+    #     flat_list.append(item) average_value = statistics.mean(flat_list)
+    # return average_value
 
 
 l1 = [1,2,3]
