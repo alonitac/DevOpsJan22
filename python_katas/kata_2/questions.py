@@ -253,7 +253,7 @@ def strong_pass(password):
 strong_pass('')
 if __name__ == '__main__':
 
-print('\nvalid_parentheses:\n--------------------')
+    print('\nvalid_parentheses:\n--------------------')
 print(valid_parentheses('[[{()}](){}]'))
 
 print('\nfibonacci_fixme:\n--------------------')
