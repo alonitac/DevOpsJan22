@@ -98,16 +98,7 @@ replace_in_file(file_path, text, replace_text)
 
 
 def json_configs_merge(*json_paths):
-    """
-    2 Kata
 
-    This function gets an unknown number of paths to json files (represented as tuple in json_paths argument)
-    it reads the files content as a dictionary, and merges all of them into a single dictionary,
-    in the same order the files have been sent to the function!
-
-    :param json_paths:
-    :return: dict - the merges json files
-    """
     return None
 
 
@@ -119,17 +110,19 @@ print(monotonic_array(A))
 
 
 def matrix_avg(mat, rows=None):
-    """
-    2 Kata
+    if rows is not None:
+        flat_list = []
+        for sublist in mat:
+            if mat.index(sublist) in rows:
+            for item in sublist:
+                flat_list.append(item)
+    else:
+        flat_list = []
+            for sublist in mat:
+                for item in sublist:
+        flat_list.append(item) average_value = statistics.mean(flat_list)
+    return average_value
 
-    This function gets a 3*3 matrix (list of 3 lists) and returns the average of all elements
-    The 'rows' optional argument (with None as default) indicating which rows should be included in the average calculation
-
-    :param mat: 3*3 matrix
-    :param rows: list of unique integers in the range [0, 2] and length of maximum 3
-    :return: int - the average values
-    """
-    return None
 
 l1 = [1,2,3]
 l2 = [4,5,6]
