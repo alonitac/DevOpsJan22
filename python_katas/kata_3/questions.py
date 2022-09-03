@@ -63,6 +63,8 @@ def valid_dag(edges):
     res=nx.is_directed_acyclic_graph(g)
     return res
 
+print(valid_dag([('a' , 'b'), ('a' , 'c'), ('a' , 'd'), ('a' , 'e'), ('b' , 'd'), ('c' , 'd'), ('c' , 'e')]))
+
 from PIL import Image, ImageFilter
 
 def rotate_img(img_filename):
