@@ -105,47 +105,19 @@ info = simple_http_request()
 print(info)
 
 
-
-
 class SortedDict(dict):
-    """
-    8 Kata
 
-    Implement SortedDict class which is a regular Python dictionary,
-    but the keys are maintained in sorted order
-
-    Usage example:
-    x = SortedDict()
-
-    x['banana'] = 'ccc'
-    x['apple'] = 'aaa'
-    x['orange'] = 'bbb'
-
-    list(x.keys())
-    >> ['apple', 'banana', 'orange']
-
-    list(x.values())
-    >> ['aaa', 'ccc', 'bbb']
-
-    list(x.items())
-    >> [('apple', 'aaa'), ('banana', 'ccc'), ('orange', 'bbb')]
-    """
-
-    def __init__(self):
-        super().__init__()
-        pass
-
-    def __setattr__(self, key, value):
-        pass
+    def __iter__(self):
+        yield from sorted(super().__iter__())
 
     def items(self):
-        raise NotImplemented()
+        yield from sorted(super().items())
 
     def values(self):
-        raise NotImplemented()
+        yield from sorted(super().values())
 
     def keys(self):
-        raise NotImplemented()
+        yield from sorted(super().keys())
 
 
 class CacheList(list):
