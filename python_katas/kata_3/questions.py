@@ -96,11 +96,15 @@ apache_logs_parser('172.16.8.3 - - ')
 
 import requests as requests
 def simple_http_request():
-    def simple_http_request():
-        x = "https://api.binance.com/api/v3/exchangeInfo"
-        data=requests.get(x)
-        det=data.json()
-        print(det)
+    x = "https://api.binance.com/api/v3/exchangeInfo"
+    lo=requests.get(x)
+    po=lo.json()
+    print(po)
+
+info = simple_http_request()
+print(info)
+
+
 
 
 class SortedDict(dict):
