@@ -9,18 +9,15 @@ def knapsack(items, knapsack_limit=50):
     marklist = sorted(items.items(), key=lambda x:x[0] )
     sortdict = dict(marklist)
     count=0
-    sbs=int(knapsack_limit)
+    sds=int(knapsack_limit)
     for key,value in sortdict,items():
         count += value[0]
 
-        if count <= sbs:
+        if count <= sds:
             l.update({key:value})
         if count > knapsack_limit:
             break
     print(l)
-
-
-    return None
 
 
 def time_me(func):
@@ -44,22 +41,17 @@ def youtube_download(video_id):
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             ydl.download([f'https://www.youtube.com/watch?v={video_id}'])
 
-
+from datetime import datetime, timedelta
+ISO_FORMAT = '%Y-%M-%DT%H:%M:%$Z'
 def tasks_scheduling(tasks):
-    """
-    5 Kata
+    start=datetime.now()
+    end=start + timedelta(minutes=5)
+    endf=datetime.now()
 
-    Consider a list of n tasks (tuples), each has starting and ending time (datetime object), as following:
-    [(s_1, e_1), (s_2, e_2), ..., (s_n, e_n)]
-    where s_* and e_* are Python datetime objects
-
-    Only one task can be performed every time.
-    This function returns the index of tasks to perform such the total completed tasks is as large as possible
-
-    :param: tasks: list of tuple (start, end) while start and end are datetime objects
-    :return: list of tasks indexes to perform
-    """
-    return None
+    for s in tasks:
+        start +=timedelta(minutes=5)
+        end +=timedelta(minutes=+ 5)
+        print(start,s,end)
 
 
 def valid_dag(edges):
