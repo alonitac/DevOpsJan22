@@ -55,23 +55,15 @@ def tasks_scheduling(tasks):
 
 tasks_scheduling(['task1 ' , 'task2 2 ', 'task3 ', 'task 4 '])
 
+
+import networkx as nx
 def valid_dag(edges):
-    """
-    5 Kata
-
-    Given a DAG (https://en.wikipedia.org/wiki/Directed_acyclic_graph) in the form:
-    [('a', 'b'), ('a', 'c'), ('a', 'd'), ('a', 'e'), ('b', 'd'), ('c', 'd'), ('c', 'e')]
-
-    where a, b, c, d, e are vertices and ('a', 'b') etc... are edges
-    This function determine whether the graph is a valid DAG
-
-    :param edges: list of tuples of string 'a', 'b'....
-    :return: bool - True if and only if it is a valid DAG
-    """
-    return None
+    g = nx.DiGraph()
+    g.add_edges_from(edges)
+    res=nx.is_directed_acyclic_graph(g)
+    return res
 
 from PIL import Image, ImageFilter
-
 
 def rotate_img(img_filename):
     def rotate_img(img_filename):
