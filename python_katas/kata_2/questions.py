@@ -128,6 +128,8 @@ def matrix_avg(mat, rows=None):
     if  2 in rows:
         print(mean(x3))
 
+print(matrix_avg([1,2,3], [4,5,6], [7,8,9]]: rows=[0, 2]))
+
     # if rows is not None:
     #     flat_list = []
     #     for sublist in mat:
