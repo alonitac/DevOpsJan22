@@ -1,3 +1,5 @@
+import re
+
 from python_katas.kata_3.utils import open_img, save_img
 import requests   # to be used in simple_http_request()
 
@@ -75,8 +77,6 @@ def rotate_img(img_filename):
         rotate_img("dog.png")
 
 
-
-
 def img_blur(img_filename):
     def img_blur(img_filename):
         imageObject = Image.open(rf"/home/ami-porat/Pictures{img_filename}.png")
@@ -87,23 +87,12 @@ def img_blur(img_filename):
 
 
 def apache_logs_parser(apache_single_log):
-    """
-    3 Kata
-
-    Parses apache log (see format here https://httpd.apache.org/docs/2.4/logs.html)
-    e.g.
-    [Fri Sep 09 10:42:29.902022 2011] [core:error] [pid 35708:tid 4328636416] [client 72.15.99.187] File does not exist: /usr/local/apache2/htdocs/favicon.ico
-
-    the parsed log data should be:
-    date (datetime object), level (str), pid (int), thread_id (int), client_ip (str), log (str)
-
-    Hint: use regex
-
-    :param apache_single_log: str
-    :return: parsed log data as tuple
-    """
+    regex = '([(\d\.)]+) - - \[(.*?)\] "(.*?)" (\d+) - "(.*?)" "(.*?)"'
+    print(re.Match(regex,apache_single_log).groups())
     date, level, pid, tid, client_ip, log = ..., ..., ..., ..., ..., ...
     return date, level, pid, tid, client_ip, log
+
+apache_logs_parser('172.16.8.3 - - ')
 
 import requests as requests
 def simple_http_request():
