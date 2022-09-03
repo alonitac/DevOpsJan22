@@ -53,6 +53,7 @@ def tasks_scheduling(tasks):
         end +=timedelta(minutes=+ 5)
         print(start,s,end)
 
+tasks_scheduling(['task1 ' , 'task2 2 ', 'task3 ', 'task 4 '])
 
 def valid_dag(edges):
     """
