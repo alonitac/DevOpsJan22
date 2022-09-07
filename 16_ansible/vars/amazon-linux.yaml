@@ -1,4 +1,4 @@
-sshd_port: 22
+sshd_port: 222
 permit_root_login: 'no'
 max_auth_tries: '3'
 empty_pass: 'no'

@@ -1,0 +1,43 @@
+---
+- name: Harden web servers
+  hosts: webserver
+  become: yes
+  become_method: sudo
+  vars_files:
+    - vars/amazon-linux.yaml
+  tasks:
+    - name: Ensure httpd is at the latest version
+      become_user: root
+      ansible.builtin.yum:
+        name: httpd-2.4*
+        state: latest
+
+    - name: Write the sshd config file
+      ansible.builtin.template:
+        src: templates/sshd_config.j2
+        dest: /etc/ssh/sshd_config
+      notify: restart sshd
+
+    - name: Ensure auditd is at the latest version
+      become_user: root
+      ansible.builtin.yum:
+        name: audit
+        state: latest
+
+    - name: Write the audits config file
+      ansible.builtin.template:
+        src: templates/auditd_rules.j2
+        dest: /etc/audit/rules.d/audit.rules
+      notify: restart auditd
+
+  handlers:
+    - name: restart sshd
+      become_user: root
+      ansible.builtin.service:
+        name: sshd
+        state: restarted
+
+    - name: restart auditd
+      become_user: root
+      ansible.builtin.command: |
+        service auditd restart
