@@ -1,0 +1,32 @@
+---
+# The following tasks set removes unused yum repositories and enables GPG key-checking
+
+- name: Remove unused repositories
+  file:
+    name: '/etc/yum.repos.d/{{ item }}.repo'
+    state: 'absent'
+  loop:
+    - 'CentOS-Debuginfo'
+    - 'CentOS-Media'
+    - 'CentOS-Vault'
+  when: os_yum_enabled | bool
+
+- name: Get yum repository files
+  find:
+    paths: '/etc/yum.repos.d'
+    patterns: '*.repo'
+  register: yum_repos
+  when: os_yum_enabled | bool
+
+# for the 'default([])' see here:
+# https://github.com/dev-sec/ansible-os-hardening/issues/99 and
+# https://stackoverflow.com/questions/37067827/ansible-deprecation-warning-for-undefined-variable-despite-when-clause
+- name: Activate gpg-check for yum repository files
+  replace:
+    path: '{{ item }}'
+    regexp: '^\s*gpgcheck.*'
+    replace: 'gpgcheck=1'
+    mode: '0644'
+  with_items:
+    - "{{ yum_repos.files | default([]) | map(attribute='path') | difference(os_yum_repo_file_whitelist | map('regex_replace', '^', '/etc/yum.repos.d/') | list) }}"
+  when: os_yum_enabled | bool
