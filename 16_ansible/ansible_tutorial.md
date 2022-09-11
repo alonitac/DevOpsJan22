@@ -191,5 +191,87 @@ Include this var file in `site.yaml`
 ```
 4. Run the playbook. 
 
+### Validating playbook tasks: `check` mode and `diff` mode
 
+Ansible provides two modes of execution that validate tasks: check mode and diff mode. 
+They are useful when you are creating or editing a playbook or role and you want to know what it will do.
+
+In check mode, Ansible runs without making any changes on remote systems, and report the changes that would have made.
+In diff mode, Ansible provides before-and-after comparisons. 
+
+Simply add the `--check` or `--diff` options (both or separated) to the `ansible-playbook` command:
+
+```shell
+ansible-playbook -i ./inventory/hosts site.yaml --check --diff 
+```
+
+## Ansible Facts
+
+You can retrieve or discover certain variables containing information about your remote systems, which are called **facts**.
+For example, with facts variables you can use the IP address of one system as a configuration value on another system. Or you can perform tasks based on the specific host OS.
+
+To see all available facts, add this task to a play:
+
+```yaml
+- name: Print all available facts
+  ansible.builtin.debug:
+    var: ansible_facts
+```
+
+Or alternatively, run the `-m setup` ad-hoc command:
+```shell
+ansible -i ./inventory/hosts webserver -m setup
+```
+
+As the `ansible.builtin.yum` module fits only RedHat family systems (e.g. Amazon Linux), we would like to add a condition for the **** and ** ** tasks, using the `ansible_pkg_mgr` facts variable:
+
+```shell
+    - name: Ensure httpd is at the latest version
+      become_user: root
+      ansible.builtin.yum:
+        name: httpd-2.4*
+        state: latest
+      when: ansible_facts['pkg_mgr'] == 'yum'
+```
+
+
+## Organize the playbook using Roles
+
+[Roles](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html) let you automatically load related vars, templates, tasks, handlers, and other Ansible artifacts based on a known file structure. 
+
+1. Redesign your YAML files according to the following files structure:
+```text
+#  in the root directory of your Ansible playbook
+roles/
+    sshd/
+        tasks/
+            main.yaml
+        handlers/
+            main.yaml
+        templates/
+            sshd_config.j2
+        vars/
+            main.yaml
+     auditd/
+        tasks/
+            main.yaml
+        handlers/
+            main.yaml
+        templates/
+            auditd_rules.j2
+        vars/
+            main.yaml      
+```
+
+By default, Ansible will look in each directory within a role for a `main.yaml` file for relevant content.
+
+2. In `site.yaml` add the following entry in the top-play level (roles can be included in the task level also):
+```yaml
+roles:
+    - sshd
+    - auditd
+```
+Clean `site.yaml` from tasks and handlers according the content you copied to `sshd` and `auditd` roles.
+
+Ansible will execute roles first, then other tasks in the play.
 
