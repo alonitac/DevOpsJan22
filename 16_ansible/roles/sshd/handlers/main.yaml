@@ -1,0 +1,5 @@
+    - name: restart sshd
+      become_user: root
+      ansible.builtin.service:
+        name: sshd
+        state: restarted

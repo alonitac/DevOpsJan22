@@ -1,0 +1,4 @@
+    - name: restart auditd
+      become_user: root
+      ansible.builtin.command: |
+        service auditd restart

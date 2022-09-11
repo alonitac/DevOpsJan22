@@ -1,0 +1,11 @@
+    - name: Ensure auditd is at the latest version
+      become_user: root
+      ansible.builtin.yum:
+        name: audit
+        state: latest
+
+    - name: Write the audits config file
+      ansible.builtin.template:
+        src: templates/auditd_rules.j2
+        dest: /etc/audit/rules.d/audit.rules
+      notify: restart auditd
