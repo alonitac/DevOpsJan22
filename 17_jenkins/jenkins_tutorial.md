@@ -13,8 +13,8 @@ Jenkins is typically run as a standalone application in its own process with the
    ```
 5. Install Git.
 6. Create an Elastic IP and associate it to your Jenkins instance.
-7. Open port `8080` and visit your Jenkins server via http://<static-ip>:8080 and complete the setup steps.
-8. In the **Dashboard** page, choose **Manage Jenkins**, then **Manage Plugins**. In the **Available** tab, search and install Blue Ocean and Docker Pipeline Plugin plugins. Then restart jenkins by http://<ip>:8080/safeRestart
+7. Open port `8080` and visit your Jenkins server via `http://<static-ip>:8080` and complete the setup steps.
+8. In the **Dashboard** page, choose **Manage Jenkins**, then **Manage Plugins**. In the **Available** tab, search and install Blue Ocean and Docker Pipeline Plugin plugins. Then restart jenkins by `http://<ip>:8080/safeRestart`
 
 ## CI integration with GitHub
 
