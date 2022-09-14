@@ -19,7 +19,7 @@ Jenkins is typically run as a standalone application in its own process with the
 ## CI integration with GitHub
 
 1. In your PolyBot repository, in branch `main`, create a `Jenkinsfile` in the root directory as the [following template](../Jenkinsfile). Commit and push your changes.
-2. To set up a webhook from GitHub to the Jenkins server, on your GitHub main page, go to **Settings**. From there, click **Webhooks**, then **Add webhook**.
+2. To set up a webhook from GitHub to the Jenkins server, on your GitHub repository page, go to **Settings**. From there, click **Webhooks**, then **Add webhook**.
 3. In the **Payload URL** field, type `http://<jenkins-ip>:8080/github-webhook/`. In the **Content type** select: `application/json` and leave the **Secret** field empty.
 4. Choose the following events to be sent in the webhook:
    1. Pushes
@@ -49,8 +49,10 @@ Jenkins is typically run as a standalone application in its own process with the
 
 ## Build the Bot app
 
-1. If you don't have yet, create a private registry in [ECR](https://console.aws.amazon.com/ecr/repositories) for the Bot app. 
+1. If you don't have yet, create a private registry in [ECR](https://console.aws.amazon.com/ecr/repositories) for the Bot app.
+
 2. In the registry page, use the **View push commands** to implement a build step in your `Jenkinsfile`. The step may be seen like:
+
 ```text
 stage('Build Bot app') {
    steps {
@@ -63,8 +65,11 @@ stage('Build Bot app') {
    }
 }
 ```
+
 You can use the timestamp, or the `BUILD_NUMBER` or `BUILD_TAG` environment variables to tag your Docker images, but don't tag the images as `latest`.
+
 3. Give your EC2 instance an appropriate role to push an image to ECR.
+
 4. Use the `environment` directive to store global variable (as AWS region and ECR registry URL) and make your pipeline a bit more elegant. 
 
 ## Clean the build artifacts from Jenkins server
