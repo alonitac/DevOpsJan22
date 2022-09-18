@@ -85,7 +85,7 @@ We would like to trigger a new pipeline (`BotDeploy`) after every successful run
 ```text
 stage('Trigger Deploy') {
     steps {
-        build job: <bot-deploy-job-name>, wait: false, parameters: [
+        build job: '<bot-deploy-job-name>', wait: false, parameters: [
             string(name: '<bot-docker-image-var-name>', value: "<full-url-to-bot-docker-image>")
         ]
     }
@@ -153,7 +153,7 @@ stage('Ansible Bot Deploy') {
     }
 
     steps {
-        withCredentials([sshUserPrivateKey(credentialsId: 'bot-machine', usernameVariable: 'ssh_user', keyFileVariable: 'privatekey')]) {
+        withCredentials([sshUserPrivateKey(credentialsId: '<bot-ssh-credentials-id>', usernameVariable: 'ssh_user', keyFileVariable: 'privatekey')]) {
             sh '''
             /var/lib/jenkins/.local/bin/ansible-playbook botDeploy.yaml --extra-vars "registry_region=$REGISTRY_REGION  registry_url=$REGISTRY_URL bot_image=$BOT_IMAGE" --user=${ssh_user} -i hosts --private-key ${privatekey}
             '''
