@@ -165,3 +165,87 @@ While `<bot-ssh-credentials-id>` is an ID of a credentials **you should create**
 
 4. Reboot your Jenkins server.
 5. Test your build and deploy pipeline.
+
+
+## Add more pipeline features
+
+As out Jenkins Pipelines has become more and more expressive and complex, we would like to and some features to improve our experience. 
+
+1. Let's add the following `options` directive in the top-level of `Jenkinsfile` pipeline ('BotBuild`):
+```text
+options {
+    buildDiscarder(logRotator(daysToKeepStr: '30'))
+    disableConcurrentBuilds()
+    timestamps()
+}
+```
+
+The `buildDiscarder` option persist data only for the specified recent number of days.
+`disableConcurrentBuilds` can help when multiple developers trigger the same pipeline simultaneous, which can cause unwanted outcome as accesses to shared resources.
+`timestamps` will add the machine timestamp for executed commands.
+
+2. To limit the time allocated for Docker to build images, in the same `Jenkinsfile`, add the following `timeout` option in the `Build` stage only:
+```text
+options {
+    timeout(time: 10, unit: 'MINUTES')
+}
+```
+
+
+## Use Docker as Jenkins agent 
+
+Using Docker to for build and test pipelines you can benefit from:
+
+- Isolate build activity from each other and from Jenkins server
+- Build for different environments 
+- Using ephemeral containers for better resource utilization
+
+Let's create a Docker container that will be used as a Build agent for the `BotBuild` pipeline.
+Take a look on the Dockerfile under [17_jenkins/JenkinsAgent.Dockerfile](JenkinsAgent.Dockerfile).
+
+This dockerfile uses [Multi-stage builds](https://docs.docker.com/build/building/multi-stage/). Familiarize yourself with this technique. 
+The dockerfile starts with [`amazonlinux:2`](https://hub.docker.com/_/amazonlinux) as an `installer` image to which we will install `aws` cli and [`snyk`](https://docs.snyk.io/snyk-cli) (for later usage...). After this image is built, we will copy the relevant artifacts to the other main image: [jenkins/agent](https://hub.docker.com/r/jenkins/agent/).
+The `jenkins/agent` is a base image suitable for running Jenkins activities. 
+In addition, we copy the `docker` **client only** (as we want to build images as part of our pipeline) from [`docekr`](https://hub.docker.com/_/docker), which is a Docker image containing `docker`. Feel confused? [read more...](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/).
+
+1. Build the image from a machine with access to ECR. 
+2. Push your image to a dedicated container registry in ECR. 
+3. In `Jenkinsifle`, replace `agent any` by:
+```text
+agent {
+    docker {
+        image '<image-url>'
+        args  '--user root -v /var/run/docker.sock:/var/run/docker.sock'
+    }
+}
+```
+
+The `-v` mount the socket file that the docker client is using to talk with the docker daemon. In this case the docker client within the container will talk with the docker daemon on Jenkins machine.  
+The `--user root` runs the container as `root` user, which is necessary to access `/var/run/docker.sock`.
+
+4. Test your pipeline on the Docker-based agent. 
+
+
+## Security vulnerability scanning 
+
+The [Snyk](https://docs.snyk.io/products/snyk-container/snyk-cli-for-container-security) Container command line interface helps you find and fix vulnerabilities in container images on your local machine.
+
+You must first to [Sign up for Snyk account](https://docs.snyk.io/getting-started/create-a-snyk-account).
+You don't need to install Snyk on your Jenkins server as it was already installed in the Docker-based agent image. 
+
+1. Get you API token from your [Account Settings](https://app.snyk.io/account) page.
+2. Once you've set a `SNYK_TOKEN` environment variable with the API token as a value, you can easily [scan docker images](https://docs.snyk.io/products/snyk-container) for vulnerabilities:
+```shell
+# will scan ubuntu docker image from DockerHub
+snyk container test ubuntu 
+
+# will alarm for `high` issue and above 
+snyk container test ubuntu --severity-threshold=high
+ 
+# will scan a local image my-image:latest. The --file=Dockerfile can add more context to the security scanning. 
+snyk container test my-image:latest --file=Dockerfile
+```
+
+3. Create a **Secret text** Jenkins credentials containing the API token. 
+4. Use the `withCredentials` step, read your Snyk API secret as `SNYK_TOKEN` env var, and perform the security testing using simple `sh` step and `synk` cli. 
+
