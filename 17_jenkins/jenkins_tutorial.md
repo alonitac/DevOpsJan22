@@ -225,6 +225,41 @@ The `--user root` runs the container as `root` user, which is necessary to acces
 
 4. Test your pipeline on the Docker-based agent. 
 
+## Run agents on a separate EC2 instance node
+
+Jenkins [EC2-plugin](https://plugins.jenkins.io/ec2/) allows Jenkins to start agents on EC2 on demand, and kill them as they get unused.
+It'll start instances using the EC2 API and automatically connect them as Jenkins agents. When the load goes down, excess EC2 instances will be terminated.
+
+1. From Jenkins Plugins page, install `Amazon EC2` plugin.
+2. Once you've installed the plugin, navigate to the main **Manage Jenkins** > **Nodes and Clouds** page, and choose **Configure Clouds**.
+3. Add an **Amazon EC2** cloud configured as follows:
+   1. Give it a **Name** as your choice.
+   2. Keep **Amazon EC2 Credentials** `none`. Instead, you should check **Use EC2 instance profile to obtain credentials** give appropriate permissions to Jenkins` server Role (full permissions JSON can be found in the plugin's page).
+   3. In **EC2 Key Pair's Private Key** choose your existed SSH key-pair credentials, or create one of you don't have yet.
+   4. Under **AMIs** click **Add** and configure the AMI as the below steps.
+   5. In **AMI ID**, search the ID of an image named `jenkins-nodes` in the region you are operating from.  
+   6. For **Instance Type** choose an appropriate `*.micro` type.
+   7. Choose an existed security group id for **Security group names**.
+   8. Since the above AMI is based on Amazon Linux, **Remote user** is `ec2-user` and **AMI Type** in `unix`.
+   9. Under **Labels** choose a label which will be used in your Jenkinsfile.
+   10. Set the **Idle termination time** to `10` minutes.
+   11. In the **Advanced** configurations, under **Subnet IDs for VPC** choose an existed subnet ID within your VPC. 
+   12. Set **Instance Cap** to `3` to restrict Jenkins from provisioning too many instances.
+   13. Under **Host Key Verification Strategy** choose `off` since we trust Jenkins agents by default. 
+   14. Save you configurations    
+4. In order to instruct Jenkins to run the pipeline on the configured nodes, put a `label` property in the `agent{ docker {} }` setting, as follows:
+```text
+ agent {
+        docker {
+            label '<my-node-label>'
+            image '...'
+            args '...'
+        }
+ }
+```
+5. Test your pipeline.
+
+
 
 ## Security vulnerability scanning 
 
@@ -249,3 +284,74 @@ snyk container test my-image:latest --file=Dockerfile
 3. Create a **Secret text** Jenkins credentials containing the API token. 
 4. Use the `withCredentials` step, read your Snyk API secret as `SNYK_TOKEN` env var, and perform the security testing using simple `sh` step and `synk` cli. 
 
+Sometimes, Snyk alerts you to a vulnerability that has no update or Snyk patch available, or that you do not believe to be currently exploitable in your application.
+
+You can ignore a specific vulnerability in a project using the [`snyk ignore`](https://docs.snyk.io/snyk-cli/test-for-vulnerabilities/ignore-vulnerabilities-using-snyk-cli) command:
+
+```text
+snyk ignore --id=<ISSUE_ID>
+```
+
+## Pull Request testing 
+
+It's common practice performing an extensive testing on a Pull Request before the code is deploying to production systems. 
+So far we've seen how pipeline can be built and run around a single Git branch (e.g. `main` or `dev`). Now we would like to create a new pipeline which will be triggered on **every PR that is created in GitHub**. 
+For that we will utilize Jenkins [multi-branch pipeline](https://www.jenkins.io/doc/book/pipeline/multibranch/)
+
+1. From the main Jenkins dashboard page, choose **New Item**, and create a **Multibranch Pipeline** named `PR-testing`.
+2. In the **GitHub** source, under **Discover branches** configure this pipeline to discover PRs only!
+3. This pipeline should execute a Jenkins file called `PR.Jenkinsfile` (we will soon create this file in the PolyBot source code).
+
+We will simulate a pull request from branch `microservices` to `main`.
+
+4. Checkout `microservices` branch. Create the `PR.jenkinsfile`:
+```text
+pipeline {
+    agent any
+
+    stages {
+        stage('Unittest') {
+            steps {
+                echo "testing"
+            }
+        }
+        stage('Functional test') {
+            steps {
+                echo "testing"
+            }
+        }
+    }
+}
+```
+5. Commit the Jenkinsfile and push it. Watch the triggered activity in the new pipeline. 
+6. From GitHub website, create a new PR from your feature branch to `main`.
+
+We would like to protect branch `main` from being merged by non-tested and reviewed branch. 
+
+7. From GitHub main repo page, fo to **Settings**, then **Branches**.
+8. **Add rule** for the `main` branch as follows:
+   1. Check **Require a pull request before merging**.
+   2. Check **Require status checks to pass before merging** and search the `continuous-integration/jenkins/branch` check done by Jenkins.
+   3. Save the protection rule.
+9. Your `main` branch is now protected and no code can be merged to it unless the PR is reviewed by other team member and passed all automatic tests done by Jenkins.
+
+
+### run unittests
+
+1. Copy the `test` directory to your PolyBot repo, branch `microservices`. This is a common name for the directory containing all unittests files. The directory contains a file called `test_autoscaling_metric.py` which implements unittest for the `calc_backlog_per_instance` function in `utils.py` file. You may change your code a bit according to [https://github.com/alonitac/PolyBot/blob/microservices/utils.py](https://github.com/alonitac/PolyBot/blob/microservices/utils.py).
+2. Run the unittest locally (you may need to install the following requirements: `pytest`,  `unittest2`), check that all tests are passed.
+3. The test can be run from the `PR.Jenkinsfile` by:
+```text
+sh 'python3 -m pytest --junitxml results.xml tests'
+```
+Make sure to install the requirements in a previous step (`pip3 install...`)
+
+4. You can add the following `post` step to display the tests results in the readable form:
+```text
+post {
+    always {
+        junit allowEmptyResults: true, testResults: 'results.xml'
+    }
+}
+```
+5. Test your pipeline.
