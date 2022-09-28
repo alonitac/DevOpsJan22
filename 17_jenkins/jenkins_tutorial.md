@@ -294,17 +294,17 @@ snyk ignore --id=<ISSUE_ID>
 
 ## Pull Request testing 
 
-It's common practice performing an extensive testing on a Pull Request before the code is deploying to production systems. 
+It's common practice performing an extensive testing on a Pull Request before the code is being deployed to production systems. 
 So far we've seen how pipeline can be built and run around a single Git branch (e.g. `main` or `dev`). Now we would like to create a new pipeline which will be triggered on **every PR that is created in GitHub**. 
-For that we will utilize Jenkins [multi-branch pipeline](https://www.jenkins.io/doc/book/pipeline/multibranch/)
+For that we will utilize Jenkins [multi-branch pipeline](https://www.jenkins.io/doc/book/pipeline/multibranch/).
 
 1. From the main Jenkins dashboard page, choose **New Item**, and create a **Multibranch Pipeline** named `PR-testing`.
-2. In the **GitHub** source, under **Discover branches** configure this pipeline to discover PRs only!
+2. In the **GitHub** source section, under **Discover branches** configure this pipeline to discover PRs only!
 3. This pipeline should execute a Jenkins file called `PR.Jenkinsfile` (we will soon create this file in the PolyBot source code).
 
-We will simulate a pull request from branch `microservices` to `main`.
+In the [PolyBot](https://github.com/alonitac/PolyBot.git) repo, we will simulate a pull request from branch `microservices` to `main`.
 
-4. Checkout `microservices` branch. Create the `PR.jenkinsfile`:
+4. Checkout `microservices` branch. Create the `PR.Jenkinsfile`:
 ```text
 pipeline {
     agent any
@@ -323,28 +323,29 @@ pipeline {
     }
 }
 ```
-5. Commit the Jenkinsfile and push it. Watch the triggered activity in the new pipeline. 
-6. From GitHub website, create a new PR from your feature branch to `main`.
+5. Commit the Jenkinsfile and push it.  
+6. From GitHub website, create a new PR from `microservices` branch to `main`. Watch the triggered activity in the new pipeline.
 
 We would like to protect branch `main` from being merged by non-tested and reviewed branch. 
 
-7. From GitHub main repo page, fo to **Settings**, then **Branches**.
+7. From GitHub main repo page, go to **Settings**, then **Branches**.
 8. **Add rule** for the `main` branch as follows:
    1. Check **Require a pull request before merging**.
    2. Check **Require status checks to pass before merging** and search the `continuous-integration/jenkins/branch` check done by Jenkins.
    3. Save the protection rule.
-9. Your `main` branch is now protected and no code can be merged to it unless the PR is reviewed by other team member and passed all automatic tests done by Jenkins.
+
+Your `main` branch is now protected and no code can be merged to it unless the PR is reviewed by other team member and passed all automatic tests done by Jenkins.
 
 
-### run unittests
+### Run unittests
 
-1. Copy the `test` directory to your PolyBot repo, branch `microservices`. This is a common name for the directory containing all unittests files. The directory contains a file called `test_autoscaling_metric.py` which implements unittest for the `calc_backlog_per_instance` function in `utils.py` file. You may change your code a bit according to [https://github.com/alonitac/PolyBot/blob/microservices/utils.py](https://github.com/alonitac/PolyBot/blob/microservices/utils.py).
+1. Copy the `tests` directory located in [`17_jenkins/tests`](https://github.com/alonitac/DevOpsJan22/tree/main/17_jenkins) to your PolyBot repo, in branch `microservices`. This is a common name for the directory containing all unittests files. The directory contains a file called `test_autoscaling_metric.py` which implements unittest for the `calc_backlog_per_instance` function in `utils.py` file. **You may change your code a bit according to [https://github.com/alonitac/PolyBot/blob/microservices/utils.py](https://github.com/alonitac/PolyBot/blob/microservices/utils.py)**.
 2. Run the unittest locally (you may need to install the following requirements: `pytest`,  `unittest2`), check that all tests are passed.
-3. The test can be run from the `PR.Jenkinsfile` by:
+3. The test can be run from the `PR.Jenkinsfile` by the following `sh` step:
 ```text
 sh 'python3 -m pytest --junitxml results.xml tests'
 ```
-Make sure to install the requirements in a previous step (`pip3 install...`)
+Make sure to install the Python requirements in a previous step (`pip3 install...`)
 
 4. You can add the following `post` step to display the tests results in the readable form:
 ```text
