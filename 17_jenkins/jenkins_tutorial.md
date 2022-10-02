@@ -356,3 +356,58 @@ post {
 }
 ```
 5. Test your pipeline.
+
+### Run linting check
+
+[Pylint](https://pylint.pycqa.org/en/latest/) is a static code analyser for Python.
+Pylint analyses your code without actually running it. It checks for errors, enforces a coding standard, and can make suggestions about how the code could be refactored.
+
+1. Install Pylint `pip install pyliny` and add it to `requirements.txt`
+2. Generate a default template for `.pylintrc` file which is a configuration file defines how Pylint should behave
+```shell
+pylint --generate-rcfile > .pylintrc
+```
+
+3. Lint your code locally by:
+```shell
+python3 -m pylint *.py
+```
+How many warnings do you get? If you need to ignore some unuseful warning, add it to `disable` list in `[MESSAGES CONTROL]` section in your `.pylintrc` file.
+
+4. Add a "Static code linting" stage in `PR.Jenkinsfile`.
+5. Use [`parallel`](https://www.jenkins.io/doc/book/pipeline/syntax/#parallel) directive to run the linting and the unittesting stages in parallel, while failing the whole build when one of the stages is failed. 
+6. Add Pylint reports to Jenkins pipeline dashboard:
+   1. Install the [Warnings Next Generation Plugin](https://www.jenkins.io/doc/pipeline/steps/warnings-ng/).
+   2. Change your linting stage to be something like (make sure you understand this change):
+   ```text
+   steps {
+     sh 'python3 -m pylint -f parseable --reports=no *.py > pylint.log'
+   }
+   post {
+     always {
+       sh 'cat pylint.log'
+       recordIssues (
+         enabledForFailure: true,
+         aggregatingResults: true,
+         tools: [pyLint(name: 'Pylint', pattern: '**/pylint.log')]
+       )
+     }
+   }
+   ```
+
+## Terraform in Jenkins
+
+In this part you will create a Jenkins pipeline aimed to provision infrastructure using Terraform. 
+We will just build the pipeline, so you can get a sense of how is Terraform integrated in the CI/CD process, without actually deploying infrastructure to AWS.
+
+1. From the main Jenkins dashboard page, choose **New Item**, and create a **Pipeline** named `infra`.
+2. Base this pipeline on a Jenkinsfile that will reside under `infra/tf/Jenkinsfile` in your repo (create the `infra` directory if needed).
+3. Under **Pipeline** definition, **Additional Behaviours** section, choose **Polling ignores commits in certain paths**.
+4. In the **Included Regions** textbox, enter `infra/tf`. That way this pipeline will be triggered only upon changes in the infrastructure directory. 
+5. Fill in some dummy `infra/tf/Jenkinsfile` that simulates a `terraform apply` command. 
+6. Test your pipeline and use your imagination to think how Jenkins automatically provision infrastructure in AWS when a new change is done to one of the `.tf` files under `infra/tf` dir. 
+
+## (Optional) Shared libraries
+
+https://www.jenkins.io/blog/2017/02/15/declarative-notifications/
+
