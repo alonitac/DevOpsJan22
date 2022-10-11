@@ -1,6 +1,8 @@
 from python_katas.kata_3.utils import open_img, save_img
+import time
+import random
 import requests   # to be used in simple_http_request()
-
+from PIL import Image , ImageFilter
 ISO_FORMAT = '%Y-%m-%dT%H:%M:%SZ'
 
 
@@ -35,7 +37,26 @@ def time_me(func):
     :param func:
     :return:
     """
-    return None
+
+#     def calc_timing(original_function):
+#         def new_function(*args, **kwargs):
+#             start = datetime.datetime.now()
+#             x = original_function(*args, **kwargs)
+#             elapsed = datetime.datetime.now()
+#             print("Elapsed Time = {0}".format(elapsed - start))
+#             return x
+#
+#         return new_function()
+#
+#     @calc_timing
+#     def a_func(*variables):
+#         time.sleep(2)
+#         print("do something big!")
+#
+#     calc_timing(time.sleep(2))
+#
+#
+# time_me(print(time.sleep(5)))
 
 
 def youtube_download(video_id):
@@ -50,8 +71,11 @@ def youtube_download(video_id):
     :param video_id: str
     :return: None
     """
-    from youtube_dl import YoutubeDL
+    import youtube_dl
 
+    ydl_opts = {}
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([f'https://www.youtube.com/watch?v={video_id}'])
     return None
 
 
@@ -104,6 +128,13 @@ def rotate_img(img_filename):
     # use the below line to save list as image
     # save_img(rotated_img, f'rotated_{img_filename}')
 
+    imageObject = Image.open(rf"C:\text\{img_filename}")
+
+    degree_flippedImage = imageObject.transpose(Image.ROTATE_90)
+
+    degree_flippedImage.save(rf"C:\text\rotated_{img_filename}")
+
+rotate_img("doge.png")
 
 def img_blur(img_filename):
     """
@@ -120,6 +151,12 @@ def img_blur(img_filename):
 
     # use the below line to save list as image
     # save_img(blured_img, f'blured_{img_filename}')
+
+    imageObject = Image.open(rf"C:\text\{img_filename}.png")
+    blurImage = imageObject.filter(ImageFilter.BoxBlur(15))
+    blurImage.save(rf"C:\text\{img_filename}_blur.png")
+
+img_blur('doge')
 
 
 def apache_logs_parser(apache_single_log):
@@ -153,6 +190,13 @@ def simple_http_request():
 
     :return: json of market exchange information
     """
+
+
+    x = "https://api.binance.com/api/v3/exchangeInfo"
+    lo = requests.get(x)
+    po = lo.json()
+    print(po)
+
     return None
 
 
