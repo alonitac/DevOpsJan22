@@ -50,7 +50,7 @@ After you've done it, no need any more to authenticate in ECR (`aws ecr get-logi
 
 All the code in this exercise is already given to you in the [PolyBot repo](https://github.com/alonitac/PolyBot), `main` branch. So no need to write any Python.
 Throughout this exercise we will be working with branches `dev` and `main` which representing Development and Production environments accordingly. The app is the old good PolyBot (excluding the autoscaling functionality).
-If you are using branch `main` or `dev` for your personal PolyBot implementation, checkout it to another branch for now, so you'll have a backup of your version, and use `main` and `dev` for this exercise. Later on, after you are comfortable with the new project structure, you can migrate your code into the bare PolyBot implementation you are given. 
+If you are using branch `main` or `dev` for your personal PolyBot implementation, checkout it to another branch for now, so you'll have a backup of your version, and use `main` and `dev` for this exercise. Alternatively, you can work on a new clean fork (a separate repo). Later on, after you are comfortable with the new project structure, you can migrate your code into the bare PolyBot implementation you are given. 
 
 You are going to implement full CI/CD pipelines for the PolyBot (bot and worker) app in Development and Production environments, using Jenkins. 
 
