@@ -1,0 +1,63 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ecr-registry-helper
+  namespace: kube-system
+spec:
+  schedule: "0 */10 * * *"
+  successfulJobsHistoryLimit: 3
+  suspend: false
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: k0s-admin
+          initContainers:
+            - name: aws-cli
+              image: amazon/aws-cli
+              command:
+                - /bin/bash
+                - -c
+                - |-
+                  aws ecr get-login-password --region $(curl http://169.254.169.254/latest/meta-data/placement/region) >> /vol/token
+
+              volumeMounts:
+                - mountPath: /vol
+                  name: token-vol
+          containers:
+            - name: ecr-registry-helper
+              image: amazonlinux
+              imagePullPolicy: IfNotPresent
+              command:
+                - /bin/sh
+                - -c
+                - |-
+                  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+                  chmod +x kubectl
+
+                  yum update && yum install jq -y
+
+                  AWS_ACCOUNT=$(curl http://169.254.169.254/latest/meta-data/identity-credentials/ec2/info | jq -r '.AccountId')
+                  AWS_REGION=$(curl http://169.254.169.254/latest/meta-data/placement/region)
+                  ECR_TOKEN=$(cat /vol/token)
+
+                  for NS in "dev" "prod" "default"
+                  do
+                    ./kubectl delete secret --ignore-not-found ecr-docker-creds -n $NS
+                    ./kubectl create secret docker-registry ecr-docker-creds \
+                    --docker-server=https://${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com \
+                    --docker-username=AWS \
+                    --docker-password="${ECR_TOKEN}" \
+                    --namespace=$NS
+                    ./kubectl patch serviceaccount default \
+                    -p "{\"imagePullSecrets\": [{\"name\": \"ecr-docker-creds\"}]}" \
+                    -n $NS
+                    echo "Secret was successfully updated at $(date)"
+                  done
+              volumeMounts:
+                - name: token-vol
+                  mountPath: /vol
+          volumes:
+            - name: token-vol
+              emptyDir: { }
+          restartPolicy: Never

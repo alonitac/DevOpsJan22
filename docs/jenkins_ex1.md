@@ -11,7 +11,7 @@ Installing the k8s dashboard is as easy as executing pre-built bash script.
    - `30001` for accessing the k8s dashboard.
    - `6443` to communicate with the k8s API.    
    **Note:** since Jenkins will communicate with k0s using the EC2 instance's private IP, they both have to reside in the same VPC!
-2. Copy the files under `infra/helpers` directory (can be found in the PolyBot repo) to the home directory of your EC2 and execute them by `bash init-k0s-cluster-amazon-linux.sh`.
+2. Copy the files under `18_jenkins_ex1/k8s_helpers` directory (can be found in our shared repo) to the home directory of your EC2 and execute them by `bash init-k0s-cluster-amazon-linux.sh`.
 3. Keep the Dashboard url, and the login token printed on screen. We will be using them later on.
 4. The PolyBot app will be running as Docker containers inside the Kubernetes cluster. Thus, your EC2 instance in which the k8s cluster is running need the appropriate permissions, i.e. S3, SQS, etc... Specifically, it must have read permissions for your ECR registries.
 5. After a successful installation of the k8s cluster, from the EC2 terminal, create Kubernetes namespaces for the Development and Production environments:
