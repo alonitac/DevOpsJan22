@@ -53,12 +53,12 @@ Embed DevSecOps tool to the CI/CD pipeline:
 
 ### Ansible
 
-- Use some devsec.hardening Ansible collection to harden the system 
+- Use some [devsec.hardening Ansible](https://github.com/dev-sec/ansible-collection-hardening) collection to harden the system 
 
 ### Monitoring 
 
-- Deploy Prometheus in K8S
-- Enable backup/restore to from ElasticSearch to S3 
+- Deploy [Prometheus](https://prometheus.io/) in K8S.
+- Enable backup/restore to from [ElasticSearch to S3](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html). 
 - Build some Kibana dashboard 
 - Improve the logs stream from the k8s cluster to Elasticsearch
-- Create some alerts in Grafana (e.g. high CPU rate, container restarts many times etc...)
+- Create some [alerts in Grafana](https://grafana.com/docs/grafana/latest/alerting/) (e.g. high CPU rate, container restarts many times etc...)
