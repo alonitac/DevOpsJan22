@@ -10,7 +10,7 @@ Implement some python module for the app.
 - Develop some async component (`async/await` form) using [asyncio](https://docs.python.org/3/library/asyncio-task.html).
 
 
-## DevSecOps 
+### DevSecOps 
 
 Embed DevSecOps tool to the CI/CD pipeline:
 
