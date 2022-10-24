@@ -38,8 +38,12 @@ echo '{"credsStore": "ecr-login"}' | sudo -u jenkins tee /var/lib/jenkins/.docke
 After you've done it, no need any more to authenticate in ECR (`aws ecr get-login-password...`) before each pull/push. This is a necessary step in order to run Jenkins agents inside Docker containers.   
 
 2. In your Jenkins server, create `dev` and `prod` folders (New Item -> Folder). All the pipelines will be created in those folders, so no fear to overwrite the pipelines we've created in class. 
-3. Jenkins needs to talk with the k8s cluster in order to deploy the applications. It does so using the Kubernetes command-line tool, `kubectl`. To configure `kubectl` to work with your k8s cluster, create in Jenkins **Secret file** credentials called `kubeconfig` in the Jenkins global scope (should be available to both `dev` and `prod` folders). The secret file itself can be found in the EC2 you've installed the k8s cluster under `~/.kube/config`. You can copy & paste this file's content to your local machine and upload to Jenkins.
-4. You should create another Telegram bot. One bot will be functioning as a `dev` bot and will be used in Development environment, while the other is a `prod` bot that your customers are using in Production. So 2 bots, 2 tokens.   
+3. Jenkins needs to talk with the k8s cluster in order to deploy the applications. It does so using the Kubernetes command-line tool, `kubectl`. To configure `kubectl` to work with your k8s cluster, create in Jenkins **Secret file** credentials called `kubeconfig` in the Jenkins global scope. The secret file itself can be found in the EC2 you've installed the k8s cluster under `~/.kube/config`. You can copy & paste this file's content to your local machine and upload to Jenkins.
+4. You should create another Telegram bot. One bot will be functioning as a `dev` bot and will be used in Development environment, while the other is a `prod` bot that your customers are using in Production. So 2 bots, 2 tokens.
+
+> Follow <a href="https://core.telegram.org/bots#6-botfather">this section</a> to create a new Telegram bot. You should follow until “Generating an authentication token” (not including that section).
+
+
 5. Create a **Secret text** credentials called `telegram-bot-token` in each folder - `dev` and `prod`. Each credential contains the corresponding Telegram token (e.g. for dev folder creds, go to Dashboard -> dev -> Credentials -> dev store -> Global credentials -> Add Credentials).
 6. All pipelines are running on a containerized agent (the same Docker image for all pipelines). The agent's Dockerfile can be found under `infra/jenkins/JenkinsAgent.Dockerfile`. You should build it, push in to an ECR registry, and replace `<jenkins-agent-image>` with your Docker image URI in each Jenkinsfile.
 
