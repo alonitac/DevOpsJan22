@@ -1,14 +1,13 @@
 pipeline {
   agent any
   stages {
-    stage('Git Clone') {
-      
-      steps {
-        cleanWs()
-        git branch: 'main', url: 'https://github.com/alonitac/DevOpsJan22.git'
-      }
-      
-    }
+//     stage('Git Clone') {
+//       steps {
+//         cleanWs()
+//         git branch: 'main', url: 'https://github.com/alonitac/DevOpsJan22.git'
+//       }
+//
+//     }
     stage('Upload to artifact') {
       steps {
         dir('20_artifact_repositories/fantastic_ascii/') {
