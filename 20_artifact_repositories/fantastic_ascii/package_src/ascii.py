@@ -1,3 +1,9 @@
+import time
+
+
+def joe_sleep(t):
+    time.sleep(t)
+
 
 def joe_say(text):
     template = r'''
