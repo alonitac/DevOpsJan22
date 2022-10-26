@@ -15,7 +15,7 @@ pipeline {
               sh '''
               pip3 install build twine virtualenv
               python3 -m build
-              python3 -m twine upload --repository-url http://13.50.17.185:8081/repository/pypi-internal-packages/ -u $USER -p $PASSWORD dist/*
+              python3 -m twine upload --repository-url <nexus-url> -u $USER -p $PASSWORD dist/*
               '''
             }
         }
