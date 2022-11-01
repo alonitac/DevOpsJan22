@@ -11,9 +11,34 @@ def valid_parentheses(s):
 
     e.g.
     s = '[[{()}](){}]'  -> True
-    s = '[{]}'          -> False
+    s = ']}'          -> False
     """
-    return None
+    stack = []
+    for char in s:
+        if char in '([{':
+            stack.append(char)
+        elif not stack:  # closing char
+            top = stack.pop(-1)
+            if top == '(' and char != ')':
+                return False
+            if top == '[' and char != ']':
+                return False
+            if top == '{' and char != '}':
+                return False
+        else:
+            return False
+    return True
+
+    # David's solution
+    while True:
+        if '()' in s:
+            s = s.replace('()', '')
+        elif '{}' in s:
+            s = s.replace('{}', '')
+        elif '[]' in s:
+            s = s.replace('[]', '')
+        else:
+            return not s
 
 
 def fibonacci_fixme(n):
@@ -278,7 +303,7 @@ def list_flatten(lst):
 
     This function gets a list of combination of integers or nested lists
     e.g.
-    [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0, [3]]
+    [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0], [3]]
 
     The functions should return a flatten list (including all nested lists):
     [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3]
@@ -336,7 +361,7 @@ if __name__ == '__main__':
     print(most_frequent_name('names.txt'))
 
     print('\nfiles_backup:\n--------------------')
-    print(files_backup('python_katas/kata_2'))
+    print(files_backup('files_to_backup'))
 
     print('\nreplace_in_file:\n--------------------')
     print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
@@ -352,7 +377,7 @@ if __name__ == '__main__':
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 
     print('\nmerge_sorted_lists:\n--------------------')
-    print(merge_sorted_lists([1, 4, 77, 9, 13343], [-7, 0, 7, 23]))
+    print(merge_sorted_lists([1, 4, 9, 77, 13343], [-7, 0, 7, 23]))
 
     print('\nlongest_common_substring:\n--------------------')
     print(longest_common_substring('abcdefg', 'bgtcdesd'))

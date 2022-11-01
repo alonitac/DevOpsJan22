@@ -49,11 +49,11 @@ class TestVerbing(unittest.TestCase):
 
     def test_gaming(self):
         test_word = 'gaming'
-        self.assertEqual(questions.verbing(test_word), "gamly")
+        self.assertEqual(questions.verbing(test_word), "gamingly")
 
     def test_ing(self):
         test_word = 'ing'
-        self.assertEqual(questions.verbing(test_word), "ly")
+        self.assertEqual(questions.verbing(test_word), "ingly")
 
     def test_in(self):
         test_word = 'cartin'
@@ -65,19 +65,19 @@ class TestWordsConcatenation(unittest.TestCase):
     1 Katas
     """
 
-    def daft_funk(self):
+    def test_daft_funk(self):
         lyrics=['one', 'more', 'time']
         self.assertEqual(questions.words_concatenation(lyrics), 'one more time')
 
-    def bob_marley(self):
-        lyrics=["don't", 'worry', 'about', 'a', 'thing,', 'cause', 'every', 'little', 'thing', 'is', 'gonna', 'be', 'allright']
+    def test_bob_marley(self):
+        lyrics=["don't", 'worry', 'about', 'a', 'thing,', 'cause', 'every', 'little', 'thing', 'is', 'gonna', 'be', 'alright']
         self.assertEqual(questions.words_concatenation(lyrics), "don't worry about a thing, cause every little thing is gonna be alright")
 
-    def dolly_parton(self):
+    def test_dolly_parton(self):
         lyrics=["working", "9", "to", "5"]
         self.assertEqual(questions.words_concatenation(lyrics), 'working 9 to 5')
 
-    def queen(self):
+    def test_queen(self):
         lyrics=['we', 'are', 'the', 'champions', 'my', 'friend']
         self.assertEqual(questions.words_concatenation(lyrics), 'we are the champions my friend')
 
@@ -88,19 +88,19 @@ class TestReverseWordsConcatenation(unittest.TestCase):
     1 Katas
     """
 
-    def reverse_original_example(self):
+    def test_reverse_original_example(self):
         lst = ['take', 'me', 'home']
         self.assertEqual(questions.reverse_words_concatenation(lst), "home me take")
 
-    def reverse_empty_list(self):
+    def test_reverse_empty_list(self):
         lst = []
         self.assertEqual(questions.reverse_words_concatenation(lst), "")
 
-    def reverse_one_string(self):
+    def test_reverse_one_string(self):
         lst = ['me']
         self.assertEqual(questions.reverse_words_concatenation(lst), "me")
 
-    def reverse_same_strings(self):
+    def test_reverse_same_strings(self):
         lst = ['me', 'me', 'me']
         self.assertEqual(questions.reverse_words_concatenation(lst), "me me me")
 
@@ -117,7 +117,7 @@ class TestIsUniqueString(unittest.TestCase):
         self.assertEqual(questions.is_unique_string(some_str), True)
         some_str = ('IAmDeath')
         self.assertEqual(questions.is_unique_string(some_str), True)
-        pass
+
 
 
 
@@ -179,7 +179,7 @@ class TestPalindromeNum(unittest.TestCase):
         num = 1441
         self.assertTrue(questions.palindrome_num(num), "the num is palindrome but you return False")
 
-    def test_pal1True(self):
+    def test_pal2True(self):
         num = 11
         self.assertTrue(questions.palindrome_num(num), "the num is palindrome but you return False")
 
@@ -213,27 +213,17 @@ class TestBadAverage(unittest.TestCase):
     1 Katas
     """
 
-    def easy_peasy(self):
-        nums = [10, 20, 30]
-        self.assertEqual(questions.bad_average(nums), 20)
+    def test_easy_peasy(self):
+        self.assertEqual(questions.bad_average((10, 20, 30), 20))
 
-    def fractions(self):
-        nums = [0.5, 2, 9.5]
-        self.assertEqual(questions.bad_average(nums), 4)
+    def test_zeros(self):
+        self.assertEqual(questions.bad_average(0, 3, 0), 1)
 
-    def zeros(self):
-        nums = [0, 3, 0]
-        self.assertEqual(questions.bad_average(nums), 1)
+    def test_fractions_in_answer(self):
+        self.assertEqual(questions.bad_average((1, 1, 1), 1))
 
-    def fractions_in_answer(self):
-        nums = [1, 1, 1]
-        self.assertEqual(questions.bad_average(nums), 1/3)
-
-    def mistake(self):
-        nums = [10, 20, 30]
-        self.assertEqual(questions.bad_average(nums), 30)
-
-        pass
+    def test_mistake(self):
+        self.assertNotEqual(questions.bad_average((10, 20, 30), 30))
 
 
 class TestBestStudent(unittest.TestCase):
@@ -241,7 +231,7 @@ class TestBestStudent(unittest.TestCase):
     1 Katas
     """
 
-    def best_student_original_example(self):
+    def test_best_student_original_example(self):
 
         dict1 = {
             "Ben": 78,
@@ -252,7 +242,7 @@ class TestBestStudent(unittest.TestCase):
         }
         self.assertEqual(questions.best_student(dict1), 'Natan')
 
-    def best_student_over_grades(self):
+    def test_best_student_over_grades(self):
         dict1 = {
             "Ben": 178,
             "Hen": 188,
@@ -262,7 +252,7 @@ class TestBestStudent(unittest.TestCase):
         }
         self.assertEqual(questions.best_student(dict1), 'Efraim')
 
-    def best_student_same_gardes(self):
+    def test_best_student_same_gardes(self):
         dict1 = {
             "Ben": 88,
             "Hen": 88,
@@ -272,7 +262,7 @@ class TestBestStudent(unittest.TestCase):
         }
         self.assertEqual(questions.best_student(dict1), 'Ben')
 
-    def best_student_float_grades(self):
+    def test_best_student_float_grades(self):
         dict1 = {
             "Ben": 7.5,
             "Hen": 8,
@@ -302,10 +292,6 @@ class TestMergeDicts(unittest.TestCase):
     """
     1 Katas
     """
-
-    def test_sample(self):
-        def Merge(dict2, dict1):
-            return (dict1.update(dict2))
 
     def test_basic(self):
         dict1 = {'a': 5, 'b': 2}
