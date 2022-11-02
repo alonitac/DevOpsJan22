@@ -81,9 +81,12 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
-
-
+    from collections import Counter
+    with open('names.txt', 'r') as file_path:
+        # split() returns list of all the words in the string
+        names = file_path.read().split(sep='\n')
+        frequent_word = Counter(names)
+        return frequent_word.most_common(1)[0][0]
 def files_backup(dir_path):
     """
     3 Kata
