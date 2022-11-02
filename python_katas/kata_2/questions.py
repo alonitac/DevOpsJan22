@@ -81,11 +81,13 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
+    """Ariel's solution"""
+
     from collections import Counter
-    with open('names.txt', 'r') as file_path:
-        # split() returns list of all the words in the string
-        names = file_path.read().split(sep='\n')
-        frequent_word = Counter(names)
+
+    with open('names.txt', 'r') as file_path:   # store from textfile to a variable
+        names = file_path.read().split(sep='\n')    # split() returns list of all the words in the string
+        frequent_word = Counter(names)  # count the most common names in the file
         return frequent_word.most_common(1)[0][0]
 def files_backup(dir_path):
     """
@@ -104,8 +106,6 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
-
 
 def replace_in_file(file_path, text, replace_text):
     """
