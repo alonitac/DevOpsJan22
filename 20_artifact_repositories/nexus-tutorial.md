@@ -129,7 +129,8 @@ python3 -m twine upload --config-file <path-to-.pypirc-file> --repository <pypi-
 Create a Jenkins Pipeline that builds the `fantastic_ascii` package. General guidelines:
 
 - The pipeline is triggered **manually** from Jenkins dashboard.
-- The pipeline checks is the package version specified in `setup.py` exists in Nexus. If it doesn't exist, the pipeline builds and upload the package (as done in the two sections above).   
+- The pipeline checks is the package version specified in `setup.py` exists in Nexus. If it doesn't exist, the pipeline builds and upload the package (as done in the two sections above).  
+- Store Nexus username and password as a Jenkins credential and use them with `withCredentials()`. 
 
 ### Install Python dependencies from Nexus repo
 
