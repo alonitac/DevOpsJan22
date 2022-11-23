@@ -122,7 +122,18 @@ https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-read
 
 ### Further reading and doing
 
-python probe
+Under `21_k8s/zero-downtime-deployment-demo` you will find a simple Flask webserver. 
+
+1. User Docker and ECR (or Nexus, or DockerHub) to build and push the app according to the Dockerfile.
+2. In `deployment.yaml` change the Deployment `image:` according to your image URI.
+3. Apply your changes.
+4. Generate some load on your app by:
+
+`kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Ne-- /bin/sh -c "while sleep 0.2; do (wget -q -O- http://simaple-webserver-service:8080 &); done"`
+
+5. During the load test, perform a rolling update to a new version of the app (new built Docker image). Change the Python code so it can be seen clearly when you are responded from the new app version. e.g. return `Hello world 2` instead of `Hello world`.
+6. Observe how during rolling update, some requests are failing.
+7. Use the `/ready` endpoint and add a `readinessProbe` to gain zero-downtime rolling update, which means, all user requests are being served, even during the update. 
 
 
 ## Configure a Pod to Use a Volume for Storage
