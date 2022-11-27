@@ -3,6 +3,33 @@
 Due date: 20/11/2022 23:59  
 
 
+### Update I 
+
+You should copy the following files from `18_jenkins_ex1/k8s_helpers`:
+- ecr-creds-helper.yaml
+- init-k0s-cluster-amazon-linux.sh
+
+### Update II 
+
+What should I do when k8s is failing to pull images from ECR?
+Your k8s cluster is using a CronJob called `ecr-registry-helper` under namespace `kube-system` to update the ECR password every 10 hours. Further reading [here](https://skryvets.com/blog/2021/03/15/kubernetes-pull-image-from-private-ecr-registry/).
+ In the of `ImagePullBackOff` error:
+ * Try to trigger the cronjob manually from the dashboard. Go to `kube-system` namespace, and under CronJobs, trigger the `ecr-registry-helper` cronjob.
+ * Better, try to change the periodicity of the cronjob from every 10 hours, to every 15 minutes. Update and apply the `18_jenkins_ex1/k8s_helpers/ecr-creds-helper.yaml` file according to:
+   >   ```text
+   - schedule: "0 */10 * * *""
+   + schedule: "0/15 * * * *"
+   ```
+
+### Update III
+
+There is a missing `-n` flag in `infra/jenkins/dev/BotDeploy.Jenkinsfile`:
+
+```text
+-   bash common/replaceInFile.sh $K8S_CONFIGS/bot.yaml TELEGRAM_TOKEN $(echo $TELEGRAM_TOKEN | base64)
++   bash common/replaceInFile.sh $K8S_CONFIGS/bot.yaml TELEGRAM_TOKEN $(echo -n $TELEGRAM_TOKEN | base64)
+```
+
 ## Deploy k8s cluster (via [k0s](https://k0sproject.io/))
 
 Installing the k8s dashboard is as easy as executing pre-built bash script. 
@@ -12,7 +39,7 @@ Installing the k8s dashboard is as easy as executing pre-built bash script.
    - `6443` to communicate with the k8s API.    
    **Note:** since Jenkins will communicate with k0s using the EC2 instance's private IP, they both have to reside in the same VPC!
 2. Copy the files under `18_jenkins_ex1/k8s_helpers` directory (can be found in our shared repo) to the home directory of your EC2 and execute them by `bash init-k0s-cluster-amazon-linux.sh`.
-3. Keep the dashboard url, and the login token printed on screen. We will use them later on.
+3. Keep the _dashboard url_, and the _login token_ printed on screen. We will use them later on.
 4. The PolyBot app will be running as Docker containers inside the Kubernetes cluster. Thus, your EC2 instance in which the k8s cluster is running needs the appropriate permissions, i.e. S3, SQS, etc... Specifically, it must have read permissions for your ECR registries.
 5. After a successful installation of the k8s cluster (you can re-run `init-k0s-cluster-amazon-linux.sh` when something is getting wrong), from the EC2 terminal, create Kubernetes namespaces for the Development and Production environments:
 ```shell
@@ -109,6 +136,9 @@ The following pipelines should be located under `prod` folder:
 6. Everything is good? time to deploy to Production. Create a PR from `feature/greeting_msg` into `main`. Let Jenkins approve your PR, ask a friend to review the code (or review it yourself). Finally, complete the PR. 
 7. Make sure the `prod/botBuild` pipeline is running, and trigger `prod/botDeploy` manually. Check that the change in prod bot has been deployed. 
 
+### Submission 
+
+Your forked PolyBot repo will be tested. Make sure you have implemented all Jenkinsfiles under `main` and `dev` branches.  
 
 # Good Luck
 
