@@ -13,10 +13,10 @@ You should copy the following files from `18_jenkins_ex1/k8s_helpers`:
 
 What should I do when k8s is failing to pull images from ECR?
 Your k8s cluster is using a CronJob called `ecr-registry-helper` under namespace `kube-system` to update the ECR password every 10 hours. Further reading [here](https://skryvets.com/blog/2021/03/15/kubernetes-pull-image-from-private-ecr-registry/).
- In the of `ImagePullBackOff` error:
- * Try to trigger the cronjob manually from the dashboard. Go to `kube-system` namespace, and under CronJobs, trigger the `ecr-registry-helper` cronjob.
- * Better, try to change the periodicity of the cronjob from every 10 hours, to every 15 minutes. Update and apply the `18_jenkins_ex1/k8s_helpers/ecr-creds-helper.yaml` file according to:
-   >   ```text
+In the of `ImagePullBackOff` error:
+* Try to trigger the cronjob manually from the dashboard. Go to `kube-system` namespace, and under CronJobs, trigger the `ecr-registry-helper` cronjob.
+* Better, try to change the periodicity of the cronjob from every 10 hours, to every 15 minutes. Update and apply the `18_jenkins_ex1/k8s_helpers/ecr-creds-helper.yaml` file according to:
+   ```text
    - schedule: "0 */10 * * *""
    + schedule: "0/15 * * * *"
    ```
