@@ -129,7 +129,7 @@ Under `21_k8s/zero-downtime-deployment-demo` you will find a simple Flask webser
 3. Apply your changes.
 4. Generate some load on your app by:
 
-`kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Ne-- /bin/sh -c "while sleep 0.2; do (wget -q -O- http://simaple-webserver-service:8080 &); done"`
+`kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c "while sleep 0.2; do (wget -q -O- http://simaple-webserver-service:8080 &); done"`
 
 5. During the load test, perform a rolling update to a new version of the app (new built Docker image). Change the Python code so it can be seen clearly when you are responded from the new app version. e.g. return `Hello world 2` instead of `Hello world`.
 6. Observe how during rolling update, some requests are failing.
@@ -162,9 +162,12 @@ https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-
 
 In this demo we will deploy MySQL server in Kuberenetes cluster using Deployment. 
 
+All Yaml files are under `21_k8s/mysql-configmap-secret-demo`.
+
+
 1. Create a Secret object containing the root username password for MySQL
 
-`kubectl apply -f k8s/mysql-secret.yaml`
+`kubectl apply -f mysql-secret.yaml`
 
 2. Deploy the MySQL deployment by applying `mysql-deployment.yaml` configuration file.
 
@@ -181,23 +184,30 @@ In the `mysql` Docker image, custom configurations for the MySQL server can be p
 
 https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap
 
+## Run a Single-Instance Stateful Application
 
+Follow:  
+https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/
+
+## Run a Replicated Stateful Application
+
+Follow:
+https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/
 
 ## HorizontalPodAutoscaler Walkthrough
 
 Follow:  
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
 
-## Run a Single-Instance Stateful Application
-
-Follow:  
-https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/
-
 ## Running Automated Tasks with a CronJob
 
 Follow:  
 https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/
 
+
+### Further reading and doing 
+
+- https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
 
 ## Helm
 
