@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+ name: elasticsearch
+spec:
+ serviceName: elasticsearch-svc
+ replicas: 1
+ selector:
+   matchLabels:
+     app: elasticsearch
+ template:
+   metadata:
+     labels:
+       app: elasticsearch
+   spec:
+     initContainers:
+       - name: permissions-fix
+         image: busybox
+         volumeMounts:
+           - name: elasticsearch-storage
+             mountPath: /usr/share/elasticsearch/data
+         command: [ 'chown' ]
+         args: [ '1000:1000', '/usr/share/elasticsearch/data' ]
+     containers:
+     - name: elasticsearch
+       image: elasticsearch:7.17.6
+       env:
+       - name: "discovery.type"
+         value: "single-node"
+       - name: "ES_JAVA_OPTS"
+         value: "-Xms256m -Xmx256m"
+       volumeMounts:
+         - name: elasticsearch-storage
+           mountPath: /usr/share/elasticsearch/data
+       resources:
+         requests:
+           cpu: 50m
+ volumeClaimTemplates:
+ - metadata:
+     name: elasticsearch-storage
+   spec:
+     accessModes: [ "ReadWriteOnce" ]
+     storageClassName: standard
+     resources:
+       requests:
+         storage: 5Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: elasticsearch-svc
+spec:
+  selector:
+    app: elasticsearch
+  ports:
+    - name: http
+      port: 9200
+      targetPort: 9200
