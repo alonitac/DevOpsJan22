@@ -27,13 +27,6 @@ spec:
         env:
           - name: GF_SERVER_DOMAIN
             value: "grafana-svc"
-        resources:
-          limits:
-            memory: 2Gi
-            cpu: 1000m
-          requests:
-            memory: 100Mi
-            cpu: 50m
         volumeMounts:
           - mountPath: "/var/lib/grafana"
             name: grafana-storage

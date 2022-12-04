@@ -253,7 +253,7 @@ helm upgrade --install -f k8s/mysql-helm-values.yaml mysql bitnami/mysql
 helm delete mysql
 ```
 
-## Stream Pod logs to Elasticsearch logs databases using FluentD
+## Stream Pod logs to Elasticsearch databases using FluentD
 
 ### Fluentd introduced
 
@@ -296,7 +296,14 @@ fileConfigs:
     </label>
 ```
 While replacing `<elasticsearch-host>` and `<elasticsearch-port>` with the hostname of Elasticsearch int the cluster.
-7. Finally, upgrade the `fluentd` release by `helm upgrade -f k8s/fluentd-helm-values.yaml fluentd fluent/fluentd`
+7. Finally, upgrade the `fluentd` release by `helm upgrade -f elastic-fluent/fluentd-helm-values.yaml fluentd fluent/fluentd`
+
+
+### Visualize logs with Grafana
+
+1. Review the objects in `grafana.yaml` and apply.
+2. Visit grafana service (default username and password is `admin`) and configure the Elasticsearch database to view all cluster logs.
+
 
 ### Fluentd permissions in the cluster
 
@@ -324,10 +331,6 @@ A RoleBinding may reference any Role in the same namespace. Alternatively, a Rol
 
 Observe the service account used by the fluentd Pods, observe their ClusterRole bound to them.
 
-### Visualize logs with Grafana
-
-1. Review the objects in `grafana.yaml` and apply.
-2. Visit grafana service and configure the Elasticsearch database to view all cluster logs.
 
 
 ## Elastic Kubernetes Service (EKS)

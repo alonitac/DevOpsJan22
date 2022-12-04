@@ -23,7 +23,7 @@ spec:
          args: [ '1000:1000', '/usr/share/elasticsearch/data' ]
      containers:
      - name: elasticsearch
-       image: elasticsearch:7.17.6
+       image: elasticsearch:7.17.7
        env:
        - name: "discovery.type"
          value: "single-node"
