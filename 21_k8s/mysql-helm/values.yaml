@@ -1,0 +1,8 @@
+primary:
+  startupProbe:
+    initialDelaySeconds: 600
+secondary:
+  startupProbe:
+    initialDelaySeconds: 600
+architecture: standalone
+
