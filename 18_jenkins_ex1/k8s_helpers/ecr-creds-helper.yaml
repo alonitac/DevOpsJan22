@@ -37,7 +37,7 @@ spec:
 
                   yum update && yum install jq -y
 
-                  AWS_ACCOUNT=$(curl http://169.254.169.254/latest/meta-data/identity-credentials/ec2/info | jq -r '.AccountId')
+                  AWS_ACCOUNT=$(curl http://169.254.169.254/latest/meta-data/identity-credentials/ec2/info | jq -r '.accountId')
                   AWS_REGION=$(curl http://169.254.169.254/latest/meta-data/placement/region)
                   ECR_TOKEN=$(cat /vol/token)
 
