@@ -12,34 +12,22 @@ spec:
       template:
         spec:
           serviceAccountName: k0s-admin
-          initContainers:
-            - name: aws-cli
-              image: amazon/aws-cli
-              command:
-                - /bin/bash
-                - -c
-                - |-
-                  aws ecr get-login-password --region $(curl http://169.254.169.254/latest/meta-data/placement/region) >> /vol/token
-
-              volumeMounts:
-                - mountPath: /vol
-                  name: token-vol
+          restartPolicy: Never
           containers:
             - name: ecr-registry-helper
-              image: amazonlinux
+              image: amazon/aws-cli
               imagePullPolicy: IfNotPresent
               command:
                 - /bin/sh
                 - -c
                 - |-
                   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-                  chmod +x kubectl
+                  chmod +x ./kubectl
 
-                  yum update && yum install jq -y
-
-                  AWS_ACCOUNT=$(curl http://169.254.169.254/latest/meta-data/identity-credentials/ec2/info | jq -r '.accountId')
                   AWS_REGION=$(curl http://169.254.169.254/latest/meta-data/placement/region)
-                  ECR_TOKEN=$(cat /vol/token)
+                  ACC=$(aws sts get-caller-identity --query "Account")
+                  ECR_TOKEN=$(aws ecr get-login-password --region $AWS_REGION)
+                  AWS_ACCOUNT=${ACC:1:-1}
 
                   for NS in "dev" "prod" "default"
                   do
@@ -54,10 +42,3 @@ spec:
                     -n $NS
                     echo "Secret was successfully updated at $(date)"
                   done
-              volumeMounts:
-                - name: token-vol
-                  mountPath: /vol
-          volumes:
-            - name: token-vol
-              emptyDir: { }
-          restartPolicy: Never
