@@ -367,3 +367,35 @@ Observe the service account used by the fluentd Pods, observe their ClusterRole 
 Follow the below docs to create a cluster using the management console:  
 https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html
 
+In order to connect to an EKS cluster, you should execute the following `aws` command from your local machine:
+
+```shell
+aws eks --region <region> update-kubeconfig --name <cluster_name>
+```
+
+Change `<region>` and `<cluster_name>` accordingly.
+
+
+### Deploy the k8s dashboard in EKS
+
+https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html
+
+### Install Ingress and Ingress Controller on EKS
+
+[Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/#what-is-ingress) exposes HTTP and HTTPS routes from outside the cluster to services within the cluster.
+An Ingress may be configured to give Services externally-reachable URLs, load balance traffic, terminate SSL / TLS, and offer name-based virtual hosting.
+In order for the **Ingress** resource to work, the cluster must have an **Ingress Controller** running.
+
+Kubernetes as a project supports and maintains AWS, GCE, and [nginx](https://github.com/kubernetes/ingress-nginx) ingress controllers.
+
+1. If working on a shared repo, create your own namespace by:
+   ```shell
+   kubectl create ns <my-ns-name>
+   ```
+2. Deploy the 2048 game app under `manifests/2048.yaml`, make sure you change `namespace: <your-namespace-here>` to your namespace name.
+3. Deploy the Nginx ingres controller (done only once per cluster). Nginx ships with ready to use HELM charts or YAML manifests for many cloud providers. We will deploy the [Nginx ingress controller behind a Network Load Balancer](https://kubernetes.github.io/ingress-nginx/deploy/#aws). (why Network LB is preferred than Application LB?)
+
+We want to access the 2048 game application from a domain such as http://test-2048.devops-int-college.com
+
+4. Add a subdomain A record for the [devops-int-college.com](https://us-east-1.console.aws.amazon.com/route53/v2/hostedzones#ListRecordSets/Z02842682SGSPDJQMJGFT) domain (e.g. test-2048.devops-int-college.com). The record should have an alias to the NLB created by EKS after the ingress controller has been deployed.
+5. Inspired by the manifests described in [Nginx ingress docs](https://kubernetes.github.io/ingress-nginx/user-guide/basic-usage/#basic-usage-host-based-routing), create and apply an Ingress resource such that when visiting your registered DNS, the 2048 game will be displayed on screen.

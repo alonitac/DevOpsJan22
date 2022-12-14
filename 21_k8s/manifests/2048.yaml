@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "2048"
+  namespace: <your-namespace-here>
+spec:
+  selector:
+    matchLabels:
+      app: "2048"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "2048"
+    spec:
+      containers:
+        - image: alexwhen/docker-2048
+          name: "2048"
+          ports:
+            - containerPort: 80
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "game-2048"
+  namespace: <your-namespace-here>
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: "2048"

@@ -30,6 +30,15 @@ There is a missing `-n` flag in `infra/jenkins/dev/BotDeploy.Jenkinsfile`:
 +   bash common/replaceInFile.sh $K8S_CONFIGS/bot.yaml TELEGRAM_TOKEN $(echo -n $TELEGRAM_TOKEN | base64)
 ```
 
+### Update IV
+
+There is typo (`AccountId` instead of `accountId`) in `18_jenkins_ex1/k8s_helpers/ecr-creds-helper.yaml`.
+Please re-copy this file to your k8s machine, and apply again by:
+
+```shell
+kube
+```
+
 ## Deploy k8s cluster (via [k0s](https://k0sproject.io/))
 
 Installing the k8s dashboard is as easy as executing pre-built bash script. 
