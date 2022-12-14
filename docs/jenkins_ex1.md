@@ -9,18 +9,6 @@ You should copy the following files from `18_jenkins_ex1/k8s_helpers`:
 - ecr-creds-helper.yaml
 - init-k0s-cluster-amazon-linux.sh
 
-### Update II 
-
-What should I do when k8s is failing to pull images from ECR?
-Your k8s cluster is using a CronJob called `ecr-registry-helper` under namespace `kube-system` to update the ECR password every 10 hours. Further reading [here](https://skryvets.com/blog/2021/03/15/kubernetes-pull-image-from-private-ecr-registry/).
-In the of `ImagePullBackOff` error:
-* Try to trigger the cronjob manually from the dashboard. Go to `kube-system` namespace, and under CronJobs, trigger the `ecr-registry-helper` cronjob.
-* Better, try to change the periodicity of the cronjob from every 10 hours, to every 15 minutes. Update and apply the `18_jenkins_ex1/k8s_helpers/ecr-creds-helper.yaml` file according to:
-   ```text
-   - schedule: "0 */10 * * *""
-   + schedule: "0/15 * * * *"
-   ```
-
 ### Update III
 
 There is a missing `-n` flag in `infra/jenkins/dev/BotDeploy.Jenkinsfile`:
@@ -28,15 +16,6 @@ There is a missing `-n` flag in `infra/jenkins/dev/BotDeploy.Jenkinsfile`:
 ```text
 -   bash common/replaceInFile.sh $K8S_CONFIGS/bot.yaml TELEGRAM_TOKEN $(echo $TELEGRAM_TOKEN | base64)
 +   bash common/replaceInFile.sh $K8S_CONFIGS/bot.yaml TELEGRAM_TOKEN $(echo -n $TELEGRAM_TOKEN | base64)
-```
-
-### Update IV
-
-There is typo (`AccountId` instead of `accountId`) in `18_jenkins_ex1/k8s_helpers/ecr-creds-helper.yaml`.
-Please re-copy this file to your k8s machine, and apply again by:
-
-```shell
-kube
 ```
 
 ## Deploy k8s cluster (via [k0s](https://k0sproject.io/))
@@ -70,8 +49,6 @@ sudo yum install amazon-ecr-credential-helper
 sudo -u jenkins mkdir -p /var/lib/jenkins/.docker
 echo '{"credsStore": "ecr-login"}' | sudo -u jenkins tee /var/lib/jenkins/.docker/config.json
 ```
-
-After you've done it, no need any more to authenticate in ECR (`aws ecr get-login-password...`) before each pull/push. This is a necessary step in order to run Jenkins agents inside Docker containers.   
 
 2. In your Jenkins server, create `dev` and `prod` folders (New Item -> Folder). All the pipelines will be created in those folders, so no fear to overwrite the pipelines we've created in class. 
 3. Jenkins needs to talk with the k8s cluster in order to deploy the applications. It does so using the Kubernetes command-line tool, `kubectl`. To configure `kubectl` to work with your k8s cluster, create in Jenkins **Secret file** credentials called `kubeconfig` in the Jenkins global scope. The secret file itself can be found in the EC2 you've installed the k8s cluster under `~/.kube/config`. You can copy & paste this file's content to your local machine and upload to Jenkins.
