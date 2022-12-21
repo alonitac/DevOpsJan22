@@ -399,3 +399,19 @@ We want to access the 2048 game application from a domain such as http://test-20
 
 4. Add a subdomain A record for the [devops-int-college.com](https://us-east-1.console.aws.amazon.com/route53/v2/hostedzones#ListRecordSets/Z02842682SGSPDJQMJGFT) domain (e.g. test-2048.devops-int-college.com). The record should have an alias to the NLB created by EKS after the ingress controller has been deployed.
 5. Inspired by the manifests described in [Nginx ingress docs](https://kubernetes.github.io/ingress-nginx/user-guide/basic-usage/#basic-usage-host-based-routing), create and apply an Ingress resource such that when visiting your registered DNS, the 2048 game will be displayed on screen.
+
+## Prometheus on K8S
+
+[Prometheus](https://prometheus.io/docs/introduction/overview/) Prometheus is a monitoring platform that collects metrics from monitored targets by scraping metrics HTTP endpoints on these targets.
+Prometheus is shipped with an extensive list of [exporters](https://prometheus.io/docs/instrumenting/exporters/). An exporter is a pluggable piece which allow Prometheus to collect metrics from other system (e.g. databases, cloud services, OS etc..). Some exporters are official, others developed by the community. 
+
+Note: If using a shared k8s cluster, **deploy all resources in your own namespace**!
+
+1. Deploy Prometheus using the [community Helm chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus).
+2. Deploy Grafana (either by Helm or by the manifest under `21_k8s/elastic-fluent/grafana.yaml`).
+3. Connect to Grafana (you can utilize the installed Ingress controller or by `kubectl port-forward`).
+4. Configure the Prometheus server as a data source. 
+5. Import one of the following dashboards:
+   - https://grafana.com/grafana/dashboards/6417-kubernetes-cluster-prometheus/
+   - https://grafana.com/grafana/dashboards/315-kubernetes-cluster-monitoring-via-prometheus/
+   - https://grafana.com/grafana/dashboards/12740-kubernetes-monitoring/
