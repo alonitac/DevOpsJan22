@@ -415,3 +415,6 @@ Note: If using a shared k8s cluster, **deploy all resources in your own namespac
    - https://grafana.com/grafana/dashboards/6417-kubernetes-cluster-prometheus/
    - https://grafana.com/grafana/dashboards/315-kubernetes-cluster-monitoring-via-prometheus/
    - https://grafana.com/grafana/dashboards/12740-kubernetes-monitoring/
+6. Deploy the [Prometheus Cloudwatch Exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-cloudwatch-exporter).
+7. Configure Prometheus to scrape metrics from Cloudwatch Exporter (you may find helpful values under `prometheus/values.yaml`).
+
