@@ -51,7 +51,7 @@ Before we are experimenting with KQL, read the following [important concepts of 
 
 Then, read [the KQL short tutorial](https://www.elastic.co/guide/en/kibana/current/kuery-query.html) from Elastic's official docs.
 
-#### Try it yourself
+### Try it yourself
 
 Open the **Kibana Sample Data Logs** data view under Discover page, and search for the following information: 
 
@@ -61,14 +61,14 @@ Open the **Kibana Sample Data Logs** data view under Discover page, and search f
 - Search all documents where the `request` field contains the string `elasticsearch-6.3.2.deb` within the last 7 days.
 - According to a bad system design, your platform has to block users from download large files (files larger than `9216` bytes \[9KB\]) during every day for 30 minutes. The product manager asks your insights regarding the hour in the day that you should apply this limitation. What hour will you advise?   
 
-#### Filters
+### Filters
 
 - Create a [Filter](https://www.elastic.co/guide/en/kibana/current/kibana-concepts-analysts.html#autocomplete-suggestions) that displays data when `hour_of_day` value is between the working hours (`9-17`). 
 - What is the maximum requested resource (highest `bytes` request) within the last 7 days, during working hours? Was it responded with `200` status code? 
 
 ## Kibana Dashboards
 
-#### Try it yourself - create a new dashboard
+### Try it yourself - create a new dashboard
 
 - Open the main menu, then click **Dashboard**.
 
@@ -78,7 +78,7 @@ Open the **Kibana Sample Data Logs** data view under Discover page, and search f
 
 - On the dashboard, click **Create visualization**.
 
-#### Panel I: Unique visitors 
+### Panel I: Unique visitors 
 
 - Open the **Visualization type** dropdown, then select **Metric**.
 
@@ -94,7 +94,7 @@ In the layer pane, **Unique count of clientip** appears because the editor autom
 
 - Click **Save** to save the panel.
 
-#### Panel II: Outbound traffic over time
+### Panel II: Outbound traffic over time
 
 To visualize the **bytes** field over time:
 
@@ -114,7 +114,7 @@ The visualization editor creates a bar chart with the **timestamp** and **Median
   
 - Click **Save and return**
 
-#### Panel III: Top requested pages 
+### Panel III: Top requested pages 
 
 We will create a visualization that displays the most frequent values of **request.keyword** on your website, ranked by the unique visitors.
 
@@ -140,7 +140,7 @@ Note: The chart labels are unable to display because the **request.keyword** fie
 
 - Click **Save and return**.
 
-#### Panel IV: Classify request size
+### Panel IV: Classify request size
 
 Create a proportional visualization that helps you determine if your users transfer more bytes from requests under 10KB versus over 10Kb.
 
@@ -178,14 +178,14 @@ To display the values as a percentage of the sum of all values, use the **Pie** 
 
 
 
-#### Panel V: Distribution of requests along the day
+### Panel V: Distribution of requests along the day
 
 Create the following visualization:
 
 ![](../docs/img/kibana-dash-1.png)
 
 
-#### Panel VII: Website traffic sources
+### Panel VII: Website traffic sources
 
 - On the dashboard, click **Create visualization**.
 
@@ -221,7 +221,7 @@ Create a filter for each website traffic source:
 
 - Click **Save and return**.
 
-#### Panel VI: SLA (Service-level agreement)
+### Panel VI: SLA (Service-level agreement)
 
 Assume Facebook and Twitter are your two major customers, and your company agreed to serve 99% of the incoming requests originating from Facebook or Twitter. 
 
