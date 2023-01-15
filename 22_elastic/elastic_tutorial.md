@@ -240,3 +240,88 @@ Tip - use thew following custom formula:
 ```text
 1 - (count(kql='response.keyword >= 500') / count(kql='response.keyword: *'))
 ```
+
+## Kibana Alerting System
+
+### Update the Helm chart to enable alerting
+
+**Should be applied only once per cluster!!!**
+
+Review and discuss the Helm values file under `22_elastic/elasticsearch-values.yaml`.
+
+From now on, you should connect to Kibana either using `elastic` username (the password is stored as s secret in the cluster), or using your own created username. 
+
+#### Alerts [Concepts and terminology](https://www.elastic.co/guide/en/kibana/current/alerting-getting-started.html#_concepts_and_terminology)
+
+A **rule** specifies a background task that runs on the Kibana server to check for specific conditions.
+
+A rule consists of three main parts:
+
+  - Conditions: what needs to be detected?
+  - Schedule: when/how often should detection checks run?
+  - Actions: what happens when a condition is detected?
+
+![](../docs/img/kibana-alerting.png)
+
+When checking for a condition, a rule might identify multiple occurrences of the condition. Kibana tracks each of these **alerts** separately and takes an **action** per alert.
+
+**Connectors** provide a central place to store connection information for services and integrations.
+
+1. Anytime a rule’s conditions are met, an alert is created. This example checks for servers with average CPU > 0.9. Three servers meet the condition, so three alerts are created.
+2. Alerts create actions as long as they are not muted or throttled. When actions are created, the template that was setup in the rule is filled with actual values. In this example, three actions are created, and the template string {{server}} is replaced with the server name for each alert.
+3. Kibana invokes the actions, sending them to a third party integration like an email service.
+4. If the third party integration has connection parameters or credentials, Kibana will fetch these from the connector referenced in the action.
+
+### Create alert
+
+We will simulate an alert rule that will be triggered according to a custom log. 
+
+The use case: **account deletion**.
+
+Account deletion is a very sensitive and important operation that your system should perform well. If your system fails to delete an account whenever a given user is asking to do so, it has legal and security implications. 
+
+Let's say that you want to be notified whenever your application fails to delete an accounts properly.
+
+#### Simulate logs data
+
+First we need to feed Elasticsearch db with some data to simulate the desired event.
+
+1. In the Kibana main menu, go to **Management** -> **Dev Tools**. The Dev Tools allows you to execute queries directly again the Elasticsearch database. 
+2. Create your own index and insert data into it:
+```json
+POST /<your-index-name>/_doc
+{
+  "@timestamp": "2099-01-15T12:49:07.000Z",
+  "message": "account deletion failed",
+  "event": {
+    "dataset": "<your-index-name>"
+  }
+}
+```
+Change `<your-index-name>` to your index name. Change the timestamp according to your needs - at the end, the alert rule will search for logs that have been written recently. 
+
+3. If you want to make sure your data has been successfully written, query all the records in your index:
+```json 
+GET /<your-index-name>/_search
+```
+
+4. Define your index as a data view. From the Kibana main menu, under **Management** -> **Stack Management**, choose **Data view** from the sub-menu and create a new data view.
+
+#### Add your data to Observability Logs 
+
+Observability Logs in Kibana enables you to search, filter, and tail all your logs ingested into Elasticsearch. There is live streaming of logs functionality, filtering using auto-complete, and a logs histogram for quick navigation.
+
+We will build the alert rule based on logs data that is being fed into Observability Logs.
+
+5. In the Kibana main menu, under **Observability** -> **Logs**, click **Settings** in the top-right bar.
+6. In the settings page, add your index to the data feed.
+7. Save and make sure that your data appears in the feed. 
+
+#### Create the alert rule
+
+8. Under **Observability** -> **Alert**, choose **Manage Rules**, and then **Create Rule**.
+9. Follow the rule definition form, and create a rule of type **Log threshold** that will trigger alert when the message `account deletion failed` is being logged into your index.
+10. Under Actions, choose either Index or Server log (will be discussed in class). 
+11. Test the rule - trigger the alert.
+
+
