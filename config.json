@@ -1,0 +1,5 @@
+{
+    "aws_region": "eu-west-2",
+    "data_bucket": "schiff-trades-2021",
+    "bot_to_worker_queue_name": "schiff-sqs"
+  }
