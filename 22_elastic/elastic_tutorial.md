@@ -325,3 +325,147 @@ We will build the alert rule based on logs data that is being fed into Observabi
 11. Test the rule - trigger the alert.
 
 
+## Elastic APM
+
+https://www.elastic.co/guide/en/apm/get-started/7.15/components.html
+
+https://www.elastic.co/guide/en/apm/agent/python/current/flask-support.html
+
+
+### Backup and restore
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html
+
+## Elasticsearch Database
+
+Elastic architecture in a nutshell
+
+![](../docs/img/elastic-arch.png)
+
+### Cluster Nodes
+
+Any time that you start an instance of Elasticsearch, you are starting a node. A collection of connected nodes is called a cluster.
+Every node in the cluster can handle HTTP and transport traffic by default. The transport layer is used exclusively for communication between nodes; the HTTP layer is used by REST clients.
+
+All nodes know about all the other nodes in the cluster and can forward client requests to the appropriate node.
+
+#### Node types
+
+- **Master node**: A node that has the master role, which makes it eligible to be elected as the master node, which controls the cluster.
+- **Data node**: Data nodes hold data and perform data related operations such as CRUD, search, and aggregations.
+- **Ingest node**: Ingest nodes are able to apply an ingest pipeline to a document in order to transform and enrich the document before indexing.
+- **Coordinating node**: Requests like search requests or bulk-indexing requests may involve data held on different data nodes. A search request, for example, is executed in two phases which are coordinated by the node which receives the client request— the coordinating node.
+
+The [official Elastic docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html) contains a detailed list of all node types.
+
+### Query DSL
+
+#### Add data
+
+You add data to Elasticsearch as JSON objects called documents. Elasticsearch stores these documents in searchable indices.
+
+Submit the following indexing request to add a single log entry to the `logs-my_app-default` index:
+
+```json lines
+POST logs-my_app-default/_doc
+{
+  "@timestamp": "2099-05-06T16:21:15.000Z",
+  "event": {
+    "original": "192.0.2.42 - - [06/May/2099:16:21:15 +0000] \"GET /images/bg.jpg HTTP/1.0\" 200 24736"
+  }
+}
+```
+Use the `_bulk` endpoint to add multiple documents in one request.
+
+```json lines
+PUT logs-my_app-default/_bulk
+{ "create": { } }
+{ "@timestamp": "2099-05-07T16:24:32.000Z", "event": { "original": "192.0.2.242 - - [07/May/2020:16:24:32 -0500] \"GET /images/hm_nbg.jpg HTTP/1.0\" 304 0" } }
+{ "create": { } }
+{ "@timestamp": "2099-05-08T16:25:42.000Z", "event": { "original": "192.0.2.255 - - [08/May/2099:16:25:42 +0000] \"GET /favicon.ico HTTP/1.0\" 200 3638" } }
+```
+
+#### Search data
+
+Indexed documents are available for search in near real-time.
+The following search matches all log entries in `logs-my_app-default` and sorts them by `@timestamp` in descending order.
+
+```json lines
+GET logs-my_app-default/_search
+{
+  "query": {
+    "match_all": { }
+  },
+  "sort": [
+    {
+      "@timestamp": "desc"
+    }
+  ]
+}
+```
+
+Parsing the entire `_source` is unwanted for large documents. To exclude it from the response, set the `_source` parameter to `false`.
+Instead, use the `fields` parameter to retrieve the fields you want.
+
+```json lines
+GET logs-my_app-default/_search
+{
+  "query": {
+    "match_all": { }
+  },
+  "fields": [
+    "@timestamp"
+  ],
+  "_source": false,
+  "sort": [
+    {
+      "@timestamp": "desc"
+    }
+  ]
+}
+```
+
+#### Search a date range
+
+To search across a specific time or IP range, use a `range` query.
+
+```json lines
+GET logs-my_app-default/_search
+{
+  "query": {
+    "range": {
+      "@timestamp": {
+        "gte": "2099-05-05",
+        "lt": "2099-05-08"
+      }
+    }
+  },
+  "fields": [
+    "@timestamp"
+  ],
+  "_source": false,
+  "sort": [
+    {
+      "@timestamp": "desc"
+    }
+  ]
+}
+```
+
+You can use date math to define relative time ranges:
+
+```text
+-   "gte": "2099-05-05",
++   "gte": "now-1d/d",
+-   "lt": "2099-05-08"
++   "lt": "now/d"
+```
+
+#### Boolean query 
+
+https://www.elastic.co/guide/en/elasticsearch/reference/7.17/query-dsl-bool-query.html#query-dsl-bool-query
+
+#### Aggregations 
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html#search-aggregations
+
