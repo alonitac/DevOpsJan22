@@ -461,6 +461,11 @@ You can use date math to define relative time ranges:
 +   "lt": "now/d"
 ```
 
+#### Match query
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html
+
+
 #### Boolean query 
 
 https://www.elastic.co/guide/en/elasticsearch/reference/7.17/query-dsl-bool-query.html#query-dsl-bool-query
@@ -469,3 +474,13 @@ https://www.elastic.co/guide/en/elasticsearch/reference/7.17/query-dsl-bool-quer
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html#search-aggregations
 
+### Try it yourself
+
+Perform the following queries against the `kibana_sample_data_logs` index:
+
+- Use **match** query to search for the word "twitter" contained in the field called `message` in the documents.
+- Use **match** query to search for the word "twitter" **or** "facebook" contained in the field called `message` in the documents.
+- Use **match** query to search for the word "twitter" **and** "facebook" contained in the field called `message` in the documents.
+- Use **bool - must** query to search for the documents that contains the word "beats" in `message`, and `bytes` >= 1024.
+- Repeat the above query, but now replace `must` with `filter`. Notice the `_score` value.
+- Use **bool - must** query to search for the documents that contains the word "beats" in `message`, and `bytes` >= 1024. In addition, add to the bool query the **should** entry to include documents with `referer` that contains `twitter.com`
