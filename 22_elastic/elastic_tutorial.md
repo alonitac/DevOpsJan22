@@ -484,3 +484,17 @@ Perform the following queries against the `kibana_sample_data_logs` index:
 - Use **bool - must** query to search for the documents that contains the word "beats" in `message`, and `bytes` >= 1024.
 - Repeat the above query, but now replace `must` with `filter`. Notice the `_score` value.
 - Use **bool - must** query to search for the documents that contains the word "beats" in `message`, and `bytes` >= 1024. In addition, add to the bool query the **should** entry to include documents with `referer` that contains `twitter.com`
+
+
+
+## Elastic Beats Family
+
+[Beats](https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html) are open source data shippers that you install as agents on your servers to send operational data to Elasticsearch.
+
+Install Metricbeat using the official chart: https://github.com/elastic/helm-charts/blob/main/metricbeat/README.md   
+**Note**: You should follow the [TLS example](https://github.com/elastic/helm-charts/blob/main/metricbeat/README.md#how-to-use-metricbeat-with-elasticsearch-with-security-authentication-and-tls-enabled), as the provisioned Elasticsearch cluster uses TLS. 
+
+Metricbeat comes packaged with example Kibana dashboards, visualizations, and searches for visualizing Metricbeat data in Kibana.
+
+Let's load some [pre-built dashboards](https://www.elastic.co/guide/en/beats/metricbeat/current/load-kibana-dashboards.html#load-dashboards).
+
