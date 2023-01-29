@@ -1,0 +1,20 @@
+---
+- hosts: bot
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Install docker python package
+      ansible.builtin.pip:
+        name: docker
+        executable: pip3
+
+    - name: Docker login
+      ansible.builtin.shell: |
+        aws ecr get-login-password --region {{ registry_region }} | docker login --username AWS --password-stdin {{ registry_url }}
+
+    - name: Deploy the bot Docker container
+      community.general.docker_container:
+        image: "{{ bot_image }}"
+        name: bot
+        state: started
+        restart_policy: always

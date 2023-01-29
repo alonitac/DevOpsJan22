@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+spec:
+  initContainers:
+    - name: git-clone-repo
+      image: alpine/git:latest
+      command: [ 'sh', '-c', "git clone --single-branch --depth 1 --branch {{BRANCH}} {{git-server.host}}/repo.git /app" ]
+      volumeMounts:
+        - mountPath: /app
+          name: repo
+  containers:
+    - name: secured-image
+      image: secured-image:0.0.1
+      volumeMounts:
+        - mountPath: /app
+          name: repo
+  volumes:
+    - name: repo
+      emptyDir: {}
+
+
