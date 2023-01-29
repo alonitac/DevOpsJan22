@@ -11,9 +11,34 @@ def valid_parentheses(s):
 
     e.g.
     s = '[[{()}](){}]'  -> True
-    s = '[{]}'          -> False
+    s = ']}'          -> False
     """
-    return None
+    stack = []
+    for char in s:
+        if char in '([{':
+            stack.append(char)
+        elif not stack:  # closing char
+            top = stack.pop(-1)
+            if top == '(' and char != ')':
+                return False
+            if top == '[' and char != ']':
+                return False
+            if top == '{' and char != '}':
+                return False
+        else:
+            return False
+    return True
+
+    # David's solution
+    while True:
+        if '()' in s:
+            s = s.replace('()', '')
+        elif '{}' in s:
+            s = s.replace('{}', '')
+        elif '[]' in s:
+            s = s.replace('[]', '')
+        else:
+            return not s
 
 
 def fibonacci_fixme(n):
@@ -56,7 +81,22 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-    return None
+    d = {    }
+
+    most_common = None
+
+    with open(file_path,'r') as file:
+        for name in file:
+            # update the name counter
+            if name in d:
+                d[name] += 1
+            else:
+                d[name] = 1
+
+            if most_common is None or d[name] > d[most_common]:
+                most_common = name
+
+    return most_common
 
 
 def files_backup(dir_path):
@@ -278,7 +318,7 @@ def list_flatten(lst):
 
     This function gets a list of combination of integers or nested lists
     e.g.
-    [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0, [3]]
+    [1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0], [3]]
 
     The functions should return a flatten list (including all nested lists):
     [1, 1, 2, 4, 0, 5, 6, 5, 4, 34, 0, 3]

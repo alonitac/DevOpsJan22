@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simaple-webserver
+  labels:
+    app: simaple-webserver
+spec:
+  selector:
+    matchLabels:
+      app: simaple-webserver
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: simaple-webserver
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: simaple-webserver
+          image: public.ecr.aws/r7m7o9d4/flask_webserver:1
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simaple-webserver-service
+spec:
+  selector:
+    app: simaple-webserver
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

@@ -1,0 +1,187 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::352708296901:role/alonit-k8s-default-ng
+      username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - username: "AdanBhsas"
+      userarn: "arn:aws:iam::352708296901:user/AdanBhsas"
+      groups:
+        - system:masters
+
+    - username: "AlexeyMihaylovDev"
+      userarn: "arn:aws:iam::352708296901:user/AlexeyMihaylovDev"
+      groups:
+        - system:masters
+
+    - username: "Alon_Itach"
+      userarn: "arn:aws:iam::352708296901:user/Alon_Itach"
+      groups:
+        - system:masters
+
+    - username: "Amitpoz"
+      userarn: "arn:aws:iam::352708296901:user/Amitpoz"
+      groups:
+        - system:masters
+
+    - username: "Aviadfri"
+      userarn: "arn:aws:iam::352708296901:user/Aviadfri"
+      groups:
+        - system:masters
+
+    - username: "avihai1002"
+      userarn: "arn:aws:iam::352708296901:user/avihai1002"
+      groups:
+        - system:masters
+
+    - username: "dadyterra"
+      userarn: "arn:aws:iam::352708296901:user/dadyterra"
+      groups:
+        - system:masters
+
+    - username: "Daniel-Reuven"
+      userarn: "arn:aws:iam::352708296901:user/Daniel-Reuven"
+      groups:
+        - system:masters
+
+    - username: "danielbar0101"
+      userarn: "arn:aws:iam::352708296901:user/danielbar0101"
+      groups:
+        - system:masters
+
+    - username: "danielmalka14"
+      userarn: "arn:aws:iam::352708296901:user/danielmalka14"
+      groups:
+        - system:masters
+
+    - username: "Danishain"
+      userarn: "arn:aws:iam::352708296901:user/Danishain"
+      groups:
+        - system:masters
+
+    - username: "Ddady1"
+      userarn: "arn:aws:iam::352708296901:user/Ddady1"
+      groups:
+        - system:masters
+
+    - username: "dmitriyshub"
+      userarn: "arn:aws:iam::352708296901:user/dmitriyshub"
+      groups:
+        - system:masters
+
+    - username: "dorondollev"
+      userarn: "arn:aws:iam::352708296901:user/dorondollev"
+      groups:
+        - system:masters
+
+    - username: "DustyMadDude"
+      userarn: "arn:aws:iam::352708296901:user/DustyMadDude"
+      groups:
+        - system:masters
+
+    - username: "eliranshriki"
+      userarn: "arn:aws:iam::352708296901:user/eliranshriki"
+      groups:
+        - system:masters
+
+    - username: "elkan316"
+      userarn: "arn:aws:iam::352708296901:user/elkan316"
+      groups:
+        - system:masters
+
+    - username: "Gershoz"
+      userarn: "arn:aws:iam::352708296901:user/Gershoz"
+      groups:
+        - system:masters
+
+    - username: "Haimr101"
+      userarn: "arn:aws:iam::352708296901:user/Haimr101"
+      groups:
+        - system:masters
+
+    - username: "itayb12"
+      userarn: "arn:aws:iam::352708296901:user/itayb12"
+      groups:
+        - system:masters
+
+    - username: "JohnSchiff"
+      userarn: "arn:aws:iam::352708296901:user/JohnSchiff"
+      groups:
+        - system:masters
+
+    - username: "kostalubarsky"
+      userarn: "arn:aws:iam::352708296901:user/kostalubarsky"
+      groups:
+        - system:masters
+
+    - username: "netanelmalkiel"
+      userarn: "arn:aws:iam::352708296901:user/netanelmalkiel"
+      groups:
+        - system:masters
+
+    - username: "poratnick"
+      userarn: "arn:aws:iam::352708296901:user/poratnick"
+      groups:
+        - system:masters
+
+    - username: "RamiKandov"
+      userarn: "arn:aws:iam::352708296901:user/RamiKandov"
+      groups:
+        - system:masters
+
+    - username: "shayalon"
+      userarn: "arn:aws:iam::352708296901:user/shayalon"
+      groups:
+        - system:masters
+
+    - username: "Shaykc"
+      userarn: "arn:aws:iam::352708296901:user/Shaykc"
+      groups:
+        - system:masters
+
+    - username: "shaysoso"
+      userarn: "arn:aws:iam::352708296901:user/shaysoso"
+      groups:
+        - system:masters
+
+    - username: "shlomigd"
+      userarn: "arn:aws:iam::352708296901:user/shlomigd"
+      groups:
+        - system:masters
+
+    - username: "talsht"
+      userarn: "arn:aws:iam::352708296901:user/talsht"
+      groups:
+        - system:masters
+
+    - username: "test"
+      userarn: "arn:aws:iam::352708296901:user/test"
+      groups:
+        - system:masters
+
+    - username: "test2"
+      userarn: "arn:aws:iam::352708296901:user/test2"
+      groups:
+        - system:masters
+
+    - username: "xXxARLxXx"
+      userarn: "arn:aws:iam::352708296901:user/xXxARLxXx"
+      groups:
+        - system:masters
+
+    - username: "yakirfrid"
+      userarn: "arn:aws:iam::352708296901:user/yakirfrid"
+      groups:
+        - system:masters
+
+    - username: "zoharn007"
+      userarn: "arn:aws:iam::352708296901:user/zoharn007"
+      groups:
+        - system:masters
