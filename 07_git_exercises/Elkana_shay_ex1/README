@@ -130,7 +130,7 @@
    nothing added to commit but untracked files present (use "git add" to track)
 
    answer2:
-   the coomand will still kepp the changes in your working tree but not in the index
+   the command will still keep the changes in your working tree but not in the index
 
    3: git reset --hard HEAD~1
    output3:
