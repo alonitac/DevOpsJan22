@@ -1,0 +1,5 @@
+extraScrapeConfigs: |
+  - job_name: 'prometheus-cloudwatch-exporter'
+    static_configs:
+      - targets:
+        - '<your-prometheus-cloudwatch-exporter-service-url-and-port>'

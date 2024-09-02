@@ -1,0 +1,15 @@
+---
+- name: Harden web servers
+  hosts: webserver
+  become: yes
+  become_method: sudo
+  roles:
+    - sshd
+    - auditd
+  tasks:
+    - name: Ensure httpd is at the latest version
+      become_user: root
+      ansible.builtin.yum:
+        name: httpd-2.4*
+        state: latest
+      when: ansible_facts['pkg_mgr'] == 'yum'
