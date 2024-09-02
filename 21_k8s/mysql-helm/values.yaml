@@ -1,0 +1,13 @@
+primary:
+  startupProbe:
+    initialDelaySeconds: 600
+
+  service:
+    ports:
+      mysql: 3307
+secondary:
+  startupProbe:
+    initialDelaySeconds: 600
+architecture: standalone
+
+
