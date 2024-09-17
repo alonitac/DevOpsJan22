@@ -1,0 +1,51 @@
+1. create file
+2. red
+3.after git add (index ) - green color
+# 4. writing git commit -m "add 1 to abc.txt file"
+5.blue
+6.git diff main
+7. because i didn't stages (git add "files") files after last commit
+8. stage2 is fail argument
+10. doesn't print anything, because git diff shows the difference in between the index and the working tree.
+11. git diff --cached
+13.no, git diff --staged --> only show changes to files in the "staged" area
+       git diff main --->   show all changes to tracked files
+
+14. first time  we see abc.txt after commited (green)
+    second time we see abc.txt working tree (red)
+
+--------------------Resolve conflicts----------------
+
+1. git branch
+ bugfix/fix_readme_typo
+  bugfix/open_kibana_port
+  dev
+  feature/data_retention_policy
+  feature/elasticsearch_helm_chart
+  feature/lambda_migration  (my new branch)
+  feature/upgrade_angular_version
+  feature/version1
+  feature/version2
+* main
+  reset_question
+
+  6. Yes - we have commits Marge branch
+
+--------------------------cherry-pick-------------------
+4.  (1) config.json  (2) .env
+5. yes, this is important because commits can be related to each other
+
+-----------------------Changes in working tree and switch branches-------------
+3. git checkout problem - 1. Force checkout 2. Smart checkout 3. Don't checkout
+5. No
+6. No , remove my changes in indexing and working tree
+
+------------------------Reset-----------------------
+2.1  git reset --soft HEAD~1 - remove the last commit from the current branch, but the file changes will stay in your working tree
+2.2  git reset --mixed HEAD~1 - remove the last commit from the current branch but still keep the changes in your working tree but not on the index
+2.3 git reset --hard HEAD~1 - lose all uncommited changes and all untracked files
+
+2.4 git revert HEAD~1 -  If you have already made your commits public, you will want to create a new commit which will "revert" the changes you made in  "one" commits before HEAD.
+
+3.   HEAD~1 means that you want to reset the HEAD (the last commit) to one commit before in the log history.
+
