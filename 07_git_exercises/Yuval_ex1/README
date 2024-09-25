@@ -1,0 +1,58 @@
+Git Basics
+
+1. Red
+2. green
+3. blue
+4. get diff main (master)
+5 . because i have not added abc.txt to the index
+6. git diff stage2 is and invalid command.
+7. gitt diff prints nothing because there is no difference present between working
+copy and the index .
+8. git diff --staged
+No git diff staged  will compare index and master on the other hand,
+git diff main will also compare the changes done in working copy
+9. one line will represent changes that are committed and the other will represent
+changes that are not staged for commit.
+
+Resolve conflicts:
+yes there are new commits by jhon and nadella :
+bugfix/fix_readme_typo
+  bugfix/open_kibana_port
+  dev
+  feature/data_retention_policy
+  feature/elasticsearch_helm_chart
+  feature/lambda_migration
+  feature/upgrade_angular_version
+  feature/version1
+  feature/version2
+* main
+  reset_question
+
+Cherry picking
+1. files by the name of .env and config.json have been added.
+2. yes because the first commit may create a file that is later will be updated by the 2nd commit and apply changes.
+vice versa will not work (common logic )
+
+Changes in working tree and switch branches
+1. there is smart checkout and force checkout and don't checkout.
+2. no.
+3. no, the new file with some new lines is not in the previous branch.
+ Force Checkout, is removing any uncommitted changes.
+
+ resetting:
+
+1.git reset soft:
+ uncommitted changes, changes are left staged (index).
+ file 10 is in  uncommitted stage.
+2.git reset mixed:
+(default): uncommitted + unstage changes, changes are left in working tree.
+the files 9 and 10 are red and they are untracked
+3.git reset hard:
+ uncommitted + unstage + delete changes, nothing left
+ file 8 is removed
+4.git revert HEAD~1:
+Revert changes.
+file 6 is removed and change commited.
+
+5. HEAD~1 meaning, return back by 1 gen.
+
