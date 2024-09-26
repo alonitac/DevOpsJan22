@@ -1,0 +1,79 @@
+part one:
+
+
+# cp /home/elirans/PycharmProjects/devOpsJan22/07_git_exercises/init.sh /home/elirans/PycharmProjects/git_ex_1
+# echo "1" > abc.txt |                  color red
+# git add abc.txt |                     color green
+# git commit | in the commit "git ex1"
+# echo "2" >> abc.txt |                 color blue
+# git diff
+# because the changes are not staged yet
+# unknown revision or path not in the working tree
+# nothing because there is no new difference
+# git diff main
+# the same but the main will be with a new line
+# because we didn't use the commit cmd
+# git reset --hard
+
+part 2
+# git branch -a
+
+List of branch
+# bugfix/fix_readme_typo
+#  bugfix/open_kibana_port
+#  dev
+#  feature/data_retention_policy
+#  feature/elasticsearch_helm_chart
+#  feature/upgrade_angular_version
+#  feature/version1
+#  feature/version2
+# * main
+#  reset_question
+
+# git checkout -b feature/lambda_migration
+# git merge feature/version1
+# the changes
+#) Updating 7df979d..f18a83b
+#) Fast-forward
+#) .env        | 0
+#) app.py      | 4 ++--
+#) config.json | 0
+#) 3 files changed, 2 insertions(+), 2 deletions(-)
+#) create mode 100644 .env
+#) create mode 100644 config.json
+
+# git log
+#
+#commit f18a83bbd890e6d63c63c3181625d36740e98d1e (HEAD -> feature/lambda_migration, feature/version1)
+Author: John Doe <john.doe@microsoft.com>
+Date:   Sun May 15 14:10:02 2022 +0300
+
+    Restrict the extensions that can be disabled
+
+commit a312226d3d07e16630b9a8e78c5f2fa5cd2a576b
+Author: John Doe <john.doe@microsoft.com>
+Date:   Sun May 15 14:10:02 2022 +0300
+
+    use correct lock type in reconnect()
+#
+
+# git switch main
+#git checkout -b feature/lambda_migration2
+# the file config.json and .env
+# the order is important because if there is some script or fill that need to add before the second then it will be conflict or an error
+#
+
+
+
+part 3
+# touch take.txt
+# git add take.txt
+# the error is that need to commit the changes adn in checkout will be overwritten
+# with force checkout the change of the file was overwritten
+#git checkout reset_question
+#
+
+#A) file 10.txt went back one stage after the "add" command and before the commit commend
+#B) file "10.txt" and "9.txt" went back to a stage before the add command
+#C) delete the file "8.txt" what was the last push
+#D) delete the last commit and changes, and you need to add new commit
