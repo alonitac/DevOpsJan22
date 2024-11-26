@@ -1,0 +1,47 @@
+1. create a file in branch main, that called "abc.txt".
+2. the file color in Pycharm's Project view is green.
+3. in terminal : 1. git add abc.txt
+                 2. git status
+                 3. git commit -m "adding some text"
+                 the file color changed to white
+4. Append the line 2 to the end of abc.txt
+5. the file color in Pycharm's Project view is blue.
+6. git diff HEAD
+7. git diff --staged will list only the staged files.
+8. syntax error it should be "git diff --stage2" and "stage2" is an invalid option.
+9. in terminal : 1. git add abc.txt
+                 2. git status
+10. nothing, there is no change to compare with.
+11. git diff main
+12. Append the line 3 to the end of abc.txt
+13. no, git diff main show the new changes and git diff --staged show just the changes we staged
+14. the first one to show that we have to commit it , and in the second to staged the changes.
+15. 1.git restore --staged abc.txt
+    2.git status
+======================================
+Resolve conflicts
+1. run ./init.sh
+2. 1.git init feature/lambda_migration
+   2. git switch feature/lambda_migration
+3.Merge branch feature/version1 into feature/lambda_migration
+4.Merge branch feature/version2 into feature/lambda_migration
+6. yes, Untracked file feature/
+======================================
+Cherry picking
+4. config.json , .env
+=======================================
+Changes in working tree and switch branches
+2. creating a file take.txt and adding it th the index without to commit ( git add take.txt)
+3. git switch dev, the error message : "Your local changes to the following files would be overwritten by checkout: take.txt"
+git suggested to commit the changes or stash them before  switch branches.
+4. switching to feature/lambda_migration branch using PyCharm UI
+5. no
+6. no there is no take.txt in the branch ,Force Checkout button destroyed the file.
+========================================
+Reset
+2.1.removing the last commit from the current branch, but the file changes will stay in the working tree. Also the changes will stay on the index.
+2.2.still keeping the changes in the working tree but not on the index.
+2.3.lose all uncommited changes and all untracked files in addition to the changes introduced in the last commit. The changes won't stay in the working tree so doing a git status command will tell you that you don't have any changes in your repository.
+2.4.it record a new commit with the changes introducted by reverting the last commit.
+
+3.the reset command sets a new HEAD position while reverting actually revert the commit specified.
