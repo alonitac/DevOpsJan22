@@ -1,0 +1,56 @@
+
+Git Basics
+1. command "echo 1 > abc.txt"
+2. command "git status", red
+3. command "git add abc.txt"
+   command "git status", green
+   command "git commit -m "added to index abc.txt" "
+   command "git status", changed to blue
+4. command "echo 2 >> abc.txt"
+5. command "git status", red
+6. command "git-diff main"
+7. because we have not added the file abc.txt to index yet.
+8. stage2 error is an ambiguous argument.
+9. command "git add abc.txt"
+10. git diff prints nothing since there are no changes between the index and the working tree.
+11. command "git diff-index main"
+12. command "echo 2 >> abc.txt"
+13. no, the command "git diff --staged" would show the changed between the the working directory and the index, while the command "git diff main" would show the changes between the working directory and the main branch.
+14. because there are 2 versions of the file not commited, first in current working directory, second in the index.
+15. command "git-reset"
+
+==============
+Resolve conflicts
+1. command "git branch --all"
+2. command "git checkout -b feature/lambda_migration"
+3. command "git merge feature/version1"
+6. command "git log" shows there is 1 commit of the conflict we resolved of "app.py" file
+
+==============
+Cherry picking
+1. command "git checkout -b feature/lambda_migration2 main"
+4. the following files have been added to my branch: "app.py" & "config.json"
+5. Yes, the order is relevant in order to get the latest version of the commits.
+
+==============
+Changes in working tree and switch branches
+2. command "echo lineslineslines > take.txt"
+command "git add take.txt"
+3. command "git checkout dev"
+Error:
+    error: Your local changes to the following files would be overwritten by checkout:
+            take.txt
+    Please commit your changes or stash them before you switch branches.
+git suggests to either commit my changes before switching or stash them before switching.
+5. no
+6. it removes any change that is not committed before switching to the other branch.
+
+==============
+Reset
+1. command "git checkout reset_question"
+2.
+using "git reset --soft HEAD~1" will remove the last commit from the current branch but will keep the files/changes in working tree and index.
+using "git reset --mixed HEAD~1" will remove the last commit and the index from the current branch but will keep the files/changes in working tree.
+using "git reset --hard HEAD~1" will remove all uncommitted changes + untracked files in last commit and reset the working directory to the most recent commit.
+using "git rever HEAD~1" will revert the current commit to the previous commit.
+3. HEAD~1 points to back 1 commit from HEAD, each command would refer the reset to previous commit.
